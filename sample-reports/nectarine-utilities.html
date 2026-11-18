@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Utility bills</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Utility bills</h1>
+<p class="mut">13 bill(s) on 3 account(s), 12,751.00 billed. 2 flagged, 2 need review.</p>
+<h2>By account</h2><div class="wrap"><table><thead><tr><th scope="col">account</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>EL-4410</td><td>5</td><td>8415</td></tr>
+<tr><td>GS-2020</td><td>4</td><td>2696</td></tr>
+<tr><td>WT-7781</td><td>4</td><td>1640</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>duplicate_bill</td><td>1</td><td>405</td></tr>
+<tr><td>estimated_read</td><td>1</td><td>0</td></tr>
+<tr><td>estimated_twice</td><td>1</td><td>0</td></tr>
+<tr><td>late_fee</td><td>1</td><td>35</td></tr>
+<tr><td>rate_jump</td><td>1</td><td>120</td></tr>
+<tr><td>usage_spike</td><td>1</td><td>654.5</td></tr>
+</tbody></table></div>
+<h2>All rows (13)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">account</th><th scope="col">utility</th><th scope="col">period start</th><th scope="col">usage per day</th><th scope="col">rate</th><th scope="col">amount</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>EL-4410</td><td>Electric</td><td>2026-10-01</td><td>422.58</td><td>0.17</td><td>2227</td><td>flag</td><td>EL-4410 (Electric), 2026-10-01 to 2026-10-31: 422.58 kWh a day against a usual 298.39 (+41.6%). Check equipment left on, a leak or a faulty meter.</td></tr>
+<tr><td>WT-7781</td><td>Water</td><td>2026-09-01</td><td>1350</td><td>0.01</td><td>405</td><td>flag</td><td>WT-7781 (Water): the period 2026-09-01 to 2026-09-30 is billed twice.</td></tr>
+<tr><td>GS-2020</td><td>Gas</td><td>2026-09-01</td><td>19.67</td><td>1.05</td><td>619.5</td><td>review</td><td>GS-2020: estimated meter read again; ask for an actual read before the estimate is trued up.</td></tr>
+<tr><td>GS-2020</td><td>Gas</td><td>2026-10-01</td><td>20</td><td>1.2435</td><td>806</td><td>review</td><td>GS-2020: 1.2435 per therm against a usual 1.05 (+18.4%). Check the tariff or a supplier contract that ended. GS-2020: late fee of 35 on this bill.</td></tr>
+<tr><td>GS-2020</td><td>Gas</td><td>2026-08-01</td><td>19.35</td><td>1.05</td><td>630</td><td>watch</td><td>GS-2020: estimated meter read for 2026-08-01 to 2026-08-31.</td></tr>
+<tr><td>EL-4410</td><td>Electric</td><td>2026-06-01</td><td>300</td><td>0.17</td><td>1530</td><td>ok</td><td></td></tr>
+<tr><td>EL-4410</td><td>Electric</td><td>2026-07-01</td><td>300</td><td>0.17</td><td>1581</td><td>ok</td><td></td></tr>
+<tr><td>EL-4410</td><td>Electric</td><td>2026-08-01</td><td>296.77</td><td>0.17</td><td>1564</td><td>ok</td><td></td></tr>
+<tr><td>EL-4410</td><td>Electric</td><td>2026-09-01</td><td>296.67</td><td>0.17</td><td>1513</td><td>ok</td><td></td></tr>
+<tr><td>GS-2020</td><td>Gas</td><td>2026-07-01</td><td>19.68</td><td>1.05</td><td>640.5</td><td>ok</td><td></td></tr>
+<tr><td>WT-7781</td><td>Water</td><td>2026-08-01</td><td>1322.58</td><td>0.01</td><td>410</td><td>ok</td><td></td></tr>
+<tr><td>WT-7781</td><td>Water</td><td>2026-09-01</td><td>1350</td><td>0.01</td><td>405</td><td>ok</td><td></td></tr>
+<tr><td>WT-7781</td><td>Water</td><td>2026-10-01</td><td>1354.84</td><td>0.01</td><td>420</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the files you give it. It does not log in to a POS, scheduling, payroll, delivery-app, reservation, distributor, utility or bank system, and changes nothing in them.</li><li>Targets, thresholds and state rules are settings in your own file, with working defaults; check them against your own policies, contracts and local rules before you rely on them.</li><li>Not legal, tax, payroll, health-code, food-safety or accounting advice. A person decides what to pay, refund, change, file or send.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

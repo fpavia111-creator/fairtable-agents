@@ -1,0 +1,6 @@
+date,daypart,net_sales,labor_hours,labor_cost,labor_pct,target_pct,sales_per_labor_hour,people,status,findings,reasons,owner,decision
+2026-11-03,Afternoon,60,10,146.59,244.3,30,6,6,flag,labor_over_target low_splh,"2026-11-03 Afternoon: labor 146.59 on sales 60 is 244.3%, over the 30% target for Afternoon. 2026-11-03 Afternoon: 6 in sales per labor hour, under 60.",,
+2026-11-03,Breakfast,0,5,94.6,,35,0,2,review,labor_no_sales,"2026-11-03 Breakfast: 5 labor hours (94.6) and no sales. Prep and opening time is real, but check it is planned.",,
+,,300,0,0,,,,0,review,sales_no_time,"1 sale row(s) worth 300 have no time, so they are in the day's total but in no daypart.",,
+2026-11-03,Dinner,3650,16,267.3,7.3,20,228.13,4,ok,,,,
+2026-11-03,Lunch,1500,17,177.14,11.8,22,88.24,5,ok,,,,

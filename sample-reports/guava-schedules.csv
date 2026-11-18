@@ -1,0 +1,5 @@
+week,employee,role,scheduled_shifts,worked_shifts,scheduled_hours,actual_hours,extra_hours,early_minutes,late_out_minutes,status,findings,reasons,owner,decision
+2026-11-02,Jordan Lee,Line Cook,3,3,24,27.34,3.34,115,175,flag,early_clock_in late_clock_out over_schedule,"Jordan Lee clocked in early: 2026-11-03 (45 min), 2026-11-04 (40 min), 2026-11-05 (30 min). Jordan Lee clocked out late: 2026-11-03 (70 min), 2026-11-04 (60 min), 2026-11-05 (45 min). Jordan Lee, week of 2026-11-02: worked 27.34 hours against 24 scheduled (+3.34).",,
+2026-11-02,Riley Chen,Dishwasher,1,2,6,11,5,0,0,flag,unscheduled_shift over_schedule,"Riley Chen clocked in 2026-11-07 17:00 with no shift scheduled that day. Riley Chen, week of 2026-11-02: worked 11 hours against 6 scheduled (+5).",,
+2026-11-02,Jamie Ortiz,Server,2,1,10,4,-6,0,0,review,no_show,Jamie Ortiz was scheduled 2026-11-06 16:00 to 22:00 and has no punch that day.,,
+2026-11-02,Avery Stone,Server,3,3,18,17.71,-0.29,0,0,watch,late_arrival,Avery Stone arrived late: 2026-11-04 (20 min).,,

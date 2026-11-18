@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bar pour cost and liquor variance</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Bar pour cost and liquor variance</h1>
+<p class="mut">Bar sales 5,430.00: liquor used 801.30 (pour cost 14.8%), recipes say 739.04 (13.6%); gap 62.26. 1 flagged, 3 need review.</p>
+<h2>Totals</h2><div class="wrap"><table><thead><tr><th scope="col">bar sales</th><th scope="col">liquor used</th><th scope="col">pour cost pct</th><th scope="col">theoretical pct</th><th scope="col">target pct</th></tr></thead><tbody>
+<tr><td>5430</td><td>801.3</td><td>14.8</td><td>13.6</td><td>20</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>drink_no_recipe</td><td>1</td><td>0</td></tr>
+<tr><td>no_close_count</td><td>1</td><td>0</td></tr>
+<tr><td>not_in_recipes</td><td>1</td><td>20</td></tr>
+<tr><td>over_pour</td><td>1</td><td>70.07</td></tr>
+<tr><td>small_over_pour</td><td>2</td><td>14.6</td></tr>
+</tbody></table></div>
+<h2>All rows (7)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">item</th><th scope="col">actual bottles</th><th scope="col">theoretical bottles</th><th scope="col">variance pct</th><th scope="col">variance cost</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>Bourbon</td><td>9.6</td><td>7.1</td><td>35.3</td><td>70.07</td><td>flag</td><td>Bourbon: used 9.6 bottles (open 5 + bought 6 - close 1.4), pours say 7.1 (180 oz). Gap 2.5 bottles (35.3%), 70.07 at 28 a bottle.</td></tr>
+<tr><td>Coffee Liqueur</td><td></td><td>1.77</td><td></td><td></td><td>review</td><td>Coffee Liqueur: opening count 3 but no closing count on 2026-11-08.</td></tr>
+<tr><td>House Shot</td><td></td><td></td><td></td><td></td><td>review</td><td>House Shot: 40 sold for 240 with no recipe, so its pours are missing from theoretical use.</td></tr>
+<tr><td>London Dry Gin</td><td>1</td><td>0</td><td></td><td></td><td>review</td><td>London Dry Gin: 1 bottle(s) used and no drink recipe uses it (a missing recipe, a spill, or pours rung under another button).</td></tr>
+<tr><td>House Vodka</td><td>10.1</td><td>9.32</td><td>8.4</td><td>10.98</td><td>watch</td><td>House Vodka: used 10.1 bottles (open 8 + bought 6 - close 3.9), pours say 9.32 (315 oz). Gap 0.78 bottles (8.4%), 10.98 at 14 a bottle.</td></tr>
+<tr><td>Triple Sec</td><td>7.5</td><td>7.1</td><td>5.7</td><td>3.62</td><td>watch</td><td>Triple Sec: used 7.5 bottles (open 4 + bought 6 - close 2.5), pours say 7.1 (180 oz). Gap 0.4 bottles (5.7%), 3.62 at 9 a bottle.</td></tr>
+<tr><td>Tequila Blanco</td><td>13.8</td><td>14.2</td><td>-2.8</td><td>-8.7</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the files you give it. It does not log in to a POS, scheduling, payroll, delivery-app, reservation, distributor, utility or bank system, and changes nothing in them.</li><li>Targets, thresholds and state rules are settings in your own file, with working defaults; check them against your own policies, contracts and local rules before you rely on them.</li><li>Not legal, tax, payroll, health-code, food-safety or accounting advice. A person decides what to pay, refund, change, file or send.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

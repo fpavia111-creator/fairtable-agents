@@ -1,0 +1,9 @@
+vendor,invoice_number,invoice_date,lines,total,status,findings,reasons,owner,decision
+Example Foodservice,EF-50311,2026-11-10,1,384,flag,duplicate_number,Example Foodservice invoice EF-50311 was already entered dated 2026-11-03 for 633.8; this copy is dated 2026-11-10 for 384.,,
+Example Seafood,ES-1180,2026-11-05,1,246,flag,line_math,"Example Seafood ES-1180: Salmon Fillet 2 x 132 = 264, billed 246.",,
+Example Foodservice,EF-50311,2026-11-03,3,633.8,review,gl_miscoded,"Example Foodservice EF-50311: ""To-go Containers 9in"" is coded to 5000 Food COGS; your rules put it in 5300 Paper and Supplies.",,
+Example Linen Co,,2026-11-07,1,140,review,missing_number,"Example Linen Co invoice dated 2026-11-07 (140) has no invoice number, so a second copy could not be caught.",,
+Sample Beverage Co,SB-3001,2026-11-03,2,456,review,gl_miscoded,"Sample Beverage Co SB-3001: ""Tequila Blanco 12/750ML"" is coded to 5000 Food COGS; your rules put it in 5100 Beverage COGS.",,
+Sample Produce Co,SP-7790,2026-11-06,1,105,review,possible_duplicate,"Sample Produce Co invoice SP-7790 for 105 matches invoice SP-7712 of 2026-11-04, 2 day(s) apart. Check it is a second delivery, not a second bill.",,
+Example Foodservice,EF-50388,2026-11-06,2,194,ok,,,,
+Sample Produce Co,SP-7712,2026-11-04,1,105,ok,,,,

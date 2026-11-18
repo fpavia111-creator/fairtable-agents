@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catering deposits and balances</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Catering deposits and balances</h1>
+<p class="mut">6 booking(s) at 2026-11-15: booked 19,400.00, received 7,100.00; owed to you 4,242.50, owed back 412.50. 2 flagged, 3 need review.</p>
+<h2>By event</h2><div class="wrap"><table><thead><tr><th scope="col">event id</th><th scope="col">event date</th><th scope="col">balance</th></tr></thead><tbody>
+<tr><td>EV-302</td><td>2026-11-28</td><td>8600</td></tr>
+<tr><td>EV-303</td><td>2026-11-10</td><td>2362.5</td></tr>
+<tr><td>EV-305</td><td>2026-11-30</td><td>1050</td></tr>
+<tr><td>EV-306</td><td>2026-11-05</td><td>-62.5</td></tr>
+<tr><td>EV-399</td><td></td><td></td></tr>
+<tr><td>EV-301</td><td>2026-10-20</td><td>0</td></tr>
+<tr><td>EV-304</td><td>2026-12-12</td><td>2250</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>balance_overdue</td><td>1</td><td>2362.5</td></tr>
+<tr><td>cancelled_refund_due</td><td>1</td><td>350</td></tr>
+<tr><td>deposit_missing</td><td>1</td><td>1880</td></tr>
+<tr><td>overpaid</td><td>1</td><td>62.5</td></tr>
+<tr><td>payment_no_event</td><td>1</td><td>500</td></tr>
+</tbody></table></div>
+<h2>All rows (7)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">event id</th><th scope="col">event date</th><th scope="col">booking status</th><th scope="col">total</th><th scope="col">deposit required</th><th scope="col">received</th><th scope="col">balance</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>EV-302</td><td>2026-11-28</td><td>booked</td><td>9600</td><td>2880</td><td>1000</td><td>8600</td><td>flag</td><td>EV-302 is 13 days away; deposit required 2880 (30%), received 1000.</td></tr>
+<tr><td>EV-303</td><td>2026-11-10</td><td>completed</td><td>3150</td><td>787.5</td><td>787.5</td><td>2362.5</td><td>flag</td><td>EV-303 took place 5 days ago; total 3150, received 787.5; 2362.5 overdue.</td></tr>
+<tr><td>EV-305</td><td>2026-11-30</td><td>cancelled</td><td>1400</td><td>350</td><td>350</td><td>1050</td><td>review</td><td>EV-305 was cancelled 29 days before the event (policy: full refund from 14 days); 350 received and not refunded.</td></tr>
+<tr><td>EV-306</td><td>2026-11-05</td><td>completed</td><td>1250</td><td>312.5</td><td>1312.5</td><td>-62.5</td><td>review</td><td>EV-306: received 1312.5 on a total of 1250; 62.5 may be owed back.</td></tr>
+<tr><td>EV-399</td><td></td><td>(not booked)</td><td></td><td></td><td>500</td><td></td><td>review</td><td>EV-399: 500 received (2026-11-02 check) for an event that is not in the bookings.</td></tr>
+<tr><td>EV-301</td><td>2026-10-20</td><td>completed</td><td>2400</td><td>600</td><td>2400</td><td>0</td><td>ok</td><td></td></tr>
+<tr><td>EV-304</td><td>2026-12-12</td><td>booked</td><td>3000</td><td>750</td><td>750</td><td>2250</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the files you give it. It does not log in to a POS, scheduling, payroll, delivery-app, reservation, distributor, utility or bank system, and changes nothing in them.</li><li>Targets, thresholds and state rules are settings in your own file, with working defaults; check them against your own policies, contracts and local rules before you rely on them.</li><li>Not legal, tax, payroll, health-code, food-safety or accounting advice. A person decides what to pay, refund, change, file or send.</li><li>Names, phone numbers and emails of staff and guests are masked in results returned to the AI model. The report and draft files written here keep the real values: keep them in a private folder.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

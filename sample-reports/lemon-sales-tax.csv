@@ -1,0 +1,9 @@
+location,jurisdiction,category,channel,net_sales,tax_collected,rate_pct,tax_expected,difference,status,findings,reasons,owner,decision
+Main Street,Example City (fictional rates),Alcohol,Dine-in,4200,346.5,10.25,430.5,-84,flag,under_collected,"Main Street | Alcohol: collected 346.5 on 4200 (8.25%), the settings say 10.25% = 430.5; 84 under.",,
+Airport Kiosk,,Food,Dine-in,900,72,,,,review,unknown_location,"Airport Kiosk has no tax rate in the settings, so 900 of sales were not checked.",,
+Main Street,Example City (fictional rates),Food,"DoorDash, Uber Eats",3000,74.25,0,0,74.25,review,marketplace_tax_in_pos,"Main Street | Food | marketplace: 74.25 of tax recorded in the POS on DoorDash, Uber Eats orders. Where the marketplace collects and remits the tax, remitting this too would pay it twice; check how the POS records these orders.",,
+Main Street,Example City (fictional rates),Grocery,Takeout,300,24.75,0,0,24.75,review,over_collected,"Main Street | Grocery: collected 24.75, the settings say 0% = 0; 24.75 over. Over-collected tax is usually owed to the state, not kept.",,
+Harbor Road,Example County (fictional rates),Food,Catering,1200,0,0,0,0,watch,exempt_sales,Harbor Road | Food | exempt: 1200 of sales marked tax-exempt. Keep the exemption certificate for each one.,,
+Harbor Road,Example County (fictional rates),Alcohol,Dine-in,2500,212.5,8.5,212.5,0,ok,,,,
+Harbor Road,Example County (fictional rates),Food,Dine-in,8000,600,7.5,600,0,ok,,,,
+Main Street,Example City (fictional rates),Food,Dine-in,12400,1023,8.25,1023,0,ok,,,,

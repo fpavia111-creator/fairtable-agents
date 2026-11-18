@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delivery app payouts against orders</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Delivery app payouts against orders</h1>
+<p class="mut">8 order(s): subtotal 363.00, platform fees 63.87, refunds 18.50, paid out 307.58; 52.60 to raise with the platforms. 3 flagged, 2 need review.</p>
+<h2>By platform</h2><div class="wrap"><table><thead><tr><th scope="col">platform</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>DoorDash</td><td>5</td><td>49.6</td></tr>
+<tr><td>Grubhub</td><td>1</td><td>0</td></tr>
+<tr><td>Uber Eats</td><td>2</td><td>3</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>commission_over_rate</td><td>1</td><td>2.6</td></tr>
+<tr><td>duplicate_order</td><td>1</td><td>59.68</td></tr>
+<tr><td>error_charge</td><td>1</td><td>18.5</td></tr>
+<tr><td>missing_from_statement</td><td>1</td><td>47</td></tr>
+<tr><td>payout_math</td><td>1</td><td>3</td></tr>
+</tbody></table></div>
+<h2>All rows (8)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">platform</th><th scope="col">order id</th><th scope="col">date</th><th scope="col">subtotal</th><th scope="col">commission</th><th scope="col">payout</th><th scope="col">disputable</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>DoorDash</td><td>DD-1002</td><td>2026-11-03</td><td>52</td><td>10.4</td><td>45.89</td><td>2.6</td><td>flag</td><td>DoorDash order DD-1002: commission 10.4 on 52 is 20%, over the 15% contract rate by 2.6.</td></tr>
+<tr><td>DoorDash</td><td>DD-1005</td><td>2026-11-05</td><td>47</td><td></td><td>0</td><td>47</td><td>flag</td><td>DoorDash order DD-1005 (2026-11-05, subtotal 47) is in the POS but on no statement: it was never paid out.</td></tr>
+<tr><td>Uber Eats</td><td>UE-5002</td><td>2026-11-05</td><td>38</td><td>5.7</td><td>32.44</td><td>3</td><td>flag</td><td>Uber Eats order UE-5002: subtotal 38 + tax 3.14 - commission 5.7 - fees 0 - promotions 0 - refunds 0 + adjustments 0 = 35.44, but the payout is 32.44.</td></tr>
+<tr><td>DoorDash</td><td>DD-1003</td><td>2026-11-04</td><td>31</td><td>4.65</td><td>10.41</td><td>0</td><td>review</td><td>DoorDash order DD-1003: 18.5 charged back as a refund or error charge. Check the ticket and dispute it in the platform&#39;s window if the food went out right.</td></tr>
+<tr><td>DoorDash</td><td>DD-1004</td><td>2026-11-04</td><td>64</td><td>9.6</td><td>119.36</td><td>0</td><td>review</td><td>DoorDash order DD-1004 appears 2 times on the statements; expect the platform to take the extra payment back.</td></tr>
+<tr><td>DoorDash</td><td>DD-1001</td><td>2026-11-03</td><td>40</td><td>6</td><td>37.3</td><td>0</td><td>ok</td><td></td></tr>
+<tr><td>Grubhub</td><td>GH-9001</td><td>2026-11-06</td><td>29</td><td>5.8</td><td>24.72</td><td>0</td><td>ok</td><td></td></tr>
+<tr><td>Uber Eats</td><td>UE-5001</td><td>2026-11-05</td><td>45</td><td>6.75</td><td>37.46</td><td>0</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the files you give it. It does not log in to a POS, scheduling, payroll, delivery-app, reservation, distributor, utility or bank system, and changes nothing in them.</li><li>Targets, thresholds and state rules are settings in your own file, with working defaults; check them against your own policies, contracts and local rules before you rely on them.</li><li>Not legal, tax, payroll, health-code, food-safety or accounting advice. A person decides what to pay, refund, change, file or send.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

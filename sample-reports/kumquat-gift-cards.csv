@@ -1,0 +1,9 @@
+card,holder,issued_location,issued_date,issued_amount,redeemed,balance,last_activity,idle_days,status,findings,reasons,owner,decision
+GC-1005,Chris Dale,Main Street,2026-09-01,40,55,-15,2026-10-11,35,flag,negative_balance,GC-1005 has a negative balance of -15: it was redeemed for more than it held.,,
+GC-1006,Robin Hale,Harbor Road,2026-03-03,150,30,100,2026-04-05,224,flag,balance_math,"GC-1006: issued 150 - redeemed 30 = 120, but the balance shows 100.",,
+GC-1007,Corporate order,Main Street,2026-10-01,500,0,500,2026-10-01,45,review,large_balance,GC-1007 holds 500; check a large card was paid for before it is honoured.,,
+GC-1003,Kim Alvarez,Main Street,2024-06-20,75,0,75,2024-06-20,878,watch,dormant,GC-1003: 75 with no activity since 2024-06-20 (28 months). Unclaimed-property and breakage rules differ by state; ask your accountant before treating it as income.,,
+GC-1004,Pat Quinn,Harbor Road,2025-12-20,200,80,120,2026-01-15,304,watch,cross_location,GC-1004 was sold at Harbor Road and used at Main Street; the two locations settle 80 between them if they keep separate books.,,
+GC-1008,Alex Nguyen,Harbor Road,2023-11-25,60,10,50,2024-01-05,1045,watch,dormant,GC-1008: 50 with no activity since 2024-01-05 (34 months). Unclaimed-property and breakage rules differ by state; ask your accountant before treating it as income.,,
+GC-1001,Dana Rivers,Main Street,2026-02-14,100,100,0,2026-03-02,258,ok,,,,
+GC-1002,Lee Morgan,Main Street,2026-05-10,50,20,30,2026-06-01,167,ok,,,,

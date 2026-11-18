@@ -1,0 +1,12 @@
+vendor,invoice_number,item,invoiced_qty,received_qty,rejected_qty,unit_price,credit_expected,credited,credit_due,status,findings,reasons,owner,decision
+Example Foodservice,EF-50311,Chicken Breast,2,2,1,156,156,0,156,flag,rejected_not_credited,"Chicken Breast on EF-50311: 1 rejected at delivery (one case received warm (48F) - rejected); credit expected 156, credited 0.",,
+Example Foodservice,EF-50388,Frozen Fries,4,3,0,33,33,20,13,flag,short_not_credited,"Frozen Fries on EF-50388: invoiced 4, received 3; credit expected 33, credited 20 (CM-2240).",,
+Sample Produce Co,SP-7790,Avocados,2,,,64,0,0,0,review,no_receiving_record,Invoice SP-7790 from Sample Produce Co has no receiving record; nobody signed for Avocados.,,
+Example Foodservice,EF-50388,Sweet Potato Fries,0,1,0,,0,0,0,review,received_not_invoiced,"Sweet Potato Fries was received on EF-50388 (1, ""substitute sent"") but is not on the invoice: a substitute or a missing line. Check the price on the next invoice.",,
+Example Foodservice,EF-50311,Brioche Bun,4,4,0,43.2,0,0,0,ok,,,,
+Example Foodservice,EF-50311,Cheddar Cheese,2,1,0,104,104,104,0,ok,,,,
+Example Foodservice,EF-50388,Fryer Oil,2,2,0,44,0,0,0,ok,,,,
+Example Foodservice,EF-50311,Ground Beef 80/20,8,8,0,48,0,0,0,ok,,,,
+Sample Produce Co,SP-7712,Lemons,1,1,0,38,0,0,0,ok,,,,
+Sample Produce Co,SP-7712,Romaine,2,2,0,52.5,0,0,0,ok,,,,
+Example Seafood,ES-1180,Salmon Fillet,2,2,0,132,0,0,0,ok,,,,

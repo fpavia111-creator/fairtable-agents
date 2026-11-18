@@ -1,0 +1,8 @@
+item,kind,qty,unit,value,entries,top_reason,status,findings,reasons,owner,decision
+Chicken Breast,item,13,lb,50.7,3,expired,flag,high_waste repeat_reason,"Chicken Breast: 13 lb thrown out in 3 entries, worth 50.7. Chicken Breast was logged as ""expired"" 3 times: a prep par or a rotation problem to fix at the source.",,
+Salmon Fillet,item,5,lb,66,2,dropped,flag,high_waste,"Salmon Fillet: 5 lb thrown out in 2 entries, worth 66.",,
+2026-11-05,day,,,0,0,,review,unlogged_day,"2026-11-05: sales of 1620 and no waste logged. A day with no entries usually means the log was not kept, not that nothing was wasted.",,
+Brioche Bun,item,24,ea,10.8,1,,review,no_reason,Brioche Bun: 1 entry has no reason.,,
+House Soup,item,1,batch,0,1,overproduction,review,no_value,"House Soup: 1 entry has no cost or value, so the total is understated.",,
+Fries,item,19,lb,20.9,4,overproduction,watch,some_waste repeat_reason,"Fries: worth 20.9 thrown out. Fries was logged as ""overproduction"" 4 times: a prep par or a rotation problem to fix at the source.",,
+Romaine,item,3,lb,6.3,1,spoiled,ok,,,,

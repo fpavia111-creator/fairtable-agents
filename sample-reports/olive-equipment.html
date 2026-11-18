@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equipment maintenance schedule</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Equipment maintenance schedule</h1>
+<p class="mut">8 item(s) at 2026-11-15: 2 overdue, 3 due soon. 2 need a date or an interval.</p>
+<h2>Next 30 days</h2><div class="wrap"><table><thead><tr><th scope="col">equipment</th><th scope="col">due date</th><th scope="col">days left</th></tr></thead><tbody>
+<tr><td>Kitchen hood</td><td>2026-10-18</td><td>-28</td></tr>
+<tr><td>Ansul system</td><td>2026-10-29</td><td>-17</td></tr>
+<tr><td>Fire extinguishers</td><td>2026-11-20</td><td>5</td></tr>
+<tr><td>Ice machine</td><td>2026-11-28</td><td>13</td></tr>
+<tr><td>Grease trap</td><td>2026-12-09</td><td>24</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>due_soon</td><td>3</td><td>0</td></tr>
+<tr><td>no_interval</td><td>1</td><td>0</td></tr>
+<tr><td>no_last_service</td><td>1</td><td>0</td></tr>
+<tr><td>overdue</td><td>2</td><td>0</td></tr>
+<tr><td>repeat_repairs</td><td>1</td><td>1315</td></tr>
+</tbody></table></div>
+<h2>All rows (8)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">equipment</th><th scope="col">type</th><th scope="col">last service</th><th scope="col">due date</th><th scope="col">days left</th><th scope="col">vendor</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>Ansul system</td><td>Fire suppression</td><td>2026-05-02</td><td>2026-10-29</td><td>-17</td><td>Example Fire Protection</td><td>flag</td><td>Ansul system: last serviced 2026-05-02, every 180 days, due 2026-10-29: 17 days overdue.</td></tr>
+<tr><td>Kitchen hood</td><td>Hood cleaning</td><td>2026-07-20</td><td>2026-10-18</td><td>-28</td><td>Example Hood Services</td><td>flag</td><td>Kitchen hood: last serviced 2026-07-20, every 90 days, due 2026-10-18: 28 days overdue.</td></tr>
+<tr><td>Dish machine</td><td>Dish machine</td><td>2026-10-15</td><td></td><td></td><td></td><td>review</td><td>Dish machine: no service interval on the list and no default for &quot;Dish machine&quot; in the settings.</td></tr>
+<tr><td>Reach-in freezer</td><td>Refrigeration</td><td></td><td></td><td></td><td>Example Refrigeration</td><td>review</td><td>Reach-in freezer (Refrigeration) has no service date on record.</td></tr>
+<tr><td>Fire extinguishers</td><td>Fire extinguisher</td><td>2025-11-20</td><td>2026-11-20</td><td>5</td><td>Example Fire Protection</td><td>watch</td><td>Fire extinguishers: due 2026-11-20, in 5 days.</td></tr>
+<tr><td>Grease trap</td><td>Grease trap</td><td>2026-09-10</td><td>2026-12-09</td><td>24</td><td>Sample Pumping Co</td><td>watch</td><td>Grease trap: due 2026-12-09, in 24 days.</td></tr>
+<tr><td>Ice machine</td><td>Ice machine</td><td>2026-06-01</td><td>2026-11-28</td><td>13</td><td>Example Refrigeration</td><td>watch</td><td>Ice machine: due 2026-11-28, in 13 days.</td></tr>
+<tr><td>Walk-in cooler</td><td>Refrigeration</td><td>2026-10-01</td><td>2026-12-30</td><td>45</td><td>Example Refrigeration</td><td>watch</td><td>Walk-in cooler was repaired 3 times in 120 days for 1315; compare with the cost of replacing it.</td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the files you give it; it books nothing.</li><li>Intervals are settings: the defaults in the example come from no code. Your fire marshal, local code, insurer and the manufacturer set the real ones.</li><li>Not legal, fire-safety or health-code advice.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

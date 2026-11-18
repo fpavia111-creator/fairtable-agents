@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delivery app marketing fees</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Delivery app marketing fees</h1>
+<p class="mut">47.50 of marketing and promotions on 3 platform(s) and 4 listed campaign(s); 15.00 with no opted-in campaign behind it. 3 flagged.</p>
+<h2>By campaign</h2><div class="wrap"><table><thead><tr><th scope="col">campaign</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>(no campaign) DoorDash ad fees</td><td>3</td></tr>
+<tr><td>Buy one get one wings</td><td>12</td></tr>
+<tr><td>Sponsored listing Nov wk1</td><td>15</td></tr>
+<tr><td>DoorDash marketing share</td><td>33</td></tr>
+<tr><td>Uber Eats marketing share</td><td>14.5</td></tr>
+<tr><td>Spend 30 save 5</td><td>15</td></tr>
+<tr><td>Sponsored search</td><td>2.5</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>fee_outside_campaign</td><td>1</td><td>3</td></tr>
+<tr><td>marketing_share_high</td><td>2</td><td>47.5</td></tr>
+<tr><td>not_opted_in</td><td>1</td><td>12</td></tr>
+<tr><td>over_budget</td><td>1</td><td>3</td></tr>
+</tbody></table></div>
+<h2>All rows (7)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">platform</th><th scope="col">campaign</th><th scope="col">budget</th><th scope="col">spend</th><th scope="col">order sales</th><th scope="col">sales per dollar</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>DoorDash</td><td>(no campaign) DoorDash ad fees</td><td></td><td>3</td><td>52</td><td></td><td>flag</td><td>DoorDash charged 3 in ad fees on 1 order(s) (DD-2006) on dates no opted-in campaign covers (2026-11-09).</td></tr>
+<tr><td>Uber Eats</td><td>Buy one get one wings</td><td>30</td><td>12</td><td>80</td><td>6.67</td><td>flag</td><td>Uber Eats charged 12 for &quot;Buy one get one wings&quot;, which the campaign list says was not opted into.</td></tr>
+<tr><td>DoorDash</td><td>Sponsored listing Nov wk1</td><td>12</td><td>15</td><td>243</td><td>16.2</td><td>flag</td><td>&quot;Sponsored listing Nov wk1&quot; cost 15 against a budget of 12.</td></tr>
+<tr><td>DoorDash</td><td>DoorDash marketing share</td><td></td><td>33</td><td>295</td><td>8.94</td><td>watch</td><td>DoorDash: marketing and promotions are 11.2% of its sales (33 of 295), over the 10% target.</td></tr>
+<tr><td>Uber Eats</td><td>Uber Eats marketing share</td><td></td><td>14.5</td><td>120</td><td>8.28</td><td>watch</td><td>Uber Eats: marketing and promotions are 12.1% of its sales (14.5 of 120), over the 10% target.</td></tr>
+<tr><td>DoorDash</td><td>Spend 30 save 5</td><td>40</td><td>15</td><td>146</td><td>9.73</td><td>ok</td><td></td></tr>
+<tr><td>Uber Eats</td><td>Sponsored search</td><td>20</td><td>2.5</td><td>40</td><td>16</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the files you give it. It does not log in to a POS, scheduling, payroll, delivery-app, reservation, distributor, utility or bank system, and changes nothing in them.</li><li>Targets, thresholds and state rules are settings in your own file, with working defaults; check them against your own policies, contracts and local rules before you rely on them.</li><li>Not legal, tax, payroll, health-code, food-safety or accounting advice. A person decides what to pay, refund, change, file or send.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

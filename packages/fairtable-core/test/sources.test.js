@@ -226,3 +226,9 @@ test('mcp: fairtable_inspect_input is listed read-only and fairtable_info says w
   const info = await h({ jsonrpc: '2.0', id: 4, method: 'tools/call', params: { name: 'fairtable_info', arguments: {} } });
   assert.match(JSON.stringify(info.result.structuredContent), /HR System/);
 });
+
+test('a header that is the field name in another letter case is read, not left blank', () => {
+  const def = { fields: { item: { aliases: ['Menu Item'] }, qty: { type: 'number' } } };
+  const r = adaptRecords({ format: 'csv', matrix: [['Item', 'QTY'], ['Burger', '3']] }, def, { kind: 'sales' });
+  assert.equal(r.rows[0].item, 'Burger'); assert.equal(Number(r.rows[0].qty), 3);
+});

@@ -1,0 +1,12 @@
+category,item,qty,mix_pct,average_price,plate_cost,contribution_margin,total_margin,quadrant,status,findings,reasons,owner,decision
+Salads,Beet Salad,30,10,13,4.4,8.6,258,dog,review,dog,"Beet Salad (Salads): 10% of the category's sales count against a 23.33% bar, margin 8.6 against an average of 9.44: dog, sells little and earns less than average: consider replacing it unless it serves a purpose (a vegetarian option, a signature).",,
+Entrees,Chef Special,60,4.9,23,,,,,review,no_cost,"Chef Special has no plate cost, so its margin and quadrant are unknown.",,
+Salads,Caesar Salad,180,60,12,2.6,9.4,1692,plowhorse,watch,plowhorse,"Caesar Salad (Salads): 60% of the category's sales count against a 23.33% bar, margin 9.4 against an average of 9.44: plowhorse, popular but earns less than average: check the portion and plate cost, or a small price step.",,
+Entrees,Chicken Sandwich,310,25.4,13,5.4,7.6,2356,plowhorse,watch,plowhorse,"Chicken Sandwich (Entrees): 25.4% of the category's sales count against a 8.75% bar, margin 7.6 against an average of 10.49: plowhorse, popular but earns less than average: check the portion and plate cost, or a small price step.",,
+Entrees,Classic Burger,420,34.4,14,4.1,9.9,4158,plowhorse,watch,plowhorse,"Classic Burger (Entrees): 34.4% of the category's sales count against a 8.75% bar, margin 9.9 against an average of 10.49: plowhorse, popular but earns less than average: check the portion and plate cost, or a small price step.",,
+Entrees,Lamb Shank,25,2,33,14.5,18.5,462.5,puzzle,watch,puzzle,"Lamb Shank (Entrees): 2% of the category's sales count against a 8.75% bar, margin 18.5 against an average of 10.49: puzzle, earns well but sells little: move it on the menu, rename it, or have servers suggest it.",,
+Entrees,Mushroom Risotto,40,3.3,18,5.9,12.1,484,puzzle,watch,puzzle,"Mushroom Risotto (Entrees): 3.3% of the category's sales count against a 8.75% bar, margin 12.1 against an average of 10.49: puzzle, earns well but sells little: move it on the menu, rename it, or have servers suggest it.",,
+Entrees,Steak Frites,95,7.8,29,11.8,17.2,1634,puzzle,watch,puzzle,"Steak Frites (Entrees): 7.8% of the category's sales count against a 8.75% bar, margin 17.2 against an average of 10.49: puzzle, earns well but sells little: move it on the menu, rename it, or have servers suggest it.",,
+Salads,Cobb Salad,90,30,14,4.2,9.8,882,star,ok,,,,
+Entrees,Fish and Chips,150,12.3,17,6.2,10.8,1620,star,ok,,,,
+Entrees,Shrimp Tacos,120,9.8,16,3.9,12.1,1452,star,ok,,,,

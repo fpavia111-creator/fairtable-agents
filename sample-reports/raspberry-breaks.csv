@@ -1,0 +1,8 @@
+employee,shift,hours,break_minutes,age,premium,status,findings,reasons,owner,decision
+Jordan Lee,2026-11-04 10:00 to 18:30,8.5,0,34,18,flag,missed_meal_break,Jordan Lee worked 8.5 hours on 2026-11-04 with no meal break recorded (rules: a 30-minute meal after 5 hours). Premium under the settings: 18.,,
+Riley Chen,2026-11-04 11:00 to 23:30,12,30,41,16.5,flag,missed_second_meal,Riley Chen: 12.5 hours on 2026-11-04 with 30 minutes of meal breaks; a second meal is due after 10 hours under the settings.,,
+Sam Patel,2026-11-05 16:00 to 22:45,6.42,20,17,16.5,flag,short_meal_break minor_late_shift,"Sam Patel: 20-minute meal break on 2026-11-05, shorter than 30. Premium under the settings: 16.5. Sam Patel (age 17) clocked out at 22:45 on 2026-11-05; the settings say 22:30 for under 18.",,
+Taylor Brooks,2026-11-06 16:00 to 22:30,6,30,15,0,flag,minor_over_hours minor_late_shift,Taylor Brooks (age 15) worked 6 hours on 2026-11-06; the settings allow 3 for under 16. Taylor Brooks (age 15) clocked out at 22:30 on 2026-11-06; the settings say 21:00 for under 16.,,
+Casey Morgan,2026-11-03 07:00 to 15:30,8,30,27,0,review,late_meal,"Casey Morgan: meal started 6.25 hours into the shift on 2026-11-03, after the 5th hour.",,
+Avery Stone,2026-11-06 17:00 to 21:30,4.5,0,29,0,ok,,,,
+Jordan Lee,2026-11-03 10:00 to 18:30,8,30,34,0,ok,,,,

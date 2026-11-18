@@ -1,0 +1,6 @@
+location,net_sales,food_pct,labor_pct,prime_pct,void_pct,comp_pct,discount_pct,avg_check,status,findings,reasons,owner,decision
+Uptown,143000,40.8,30.8,71.5,2.4,1.4,4.1,39.72,flag,food_pct_high prime_pct_high void_pct_high discount_pct_high,"Uptown: food and beverage cost 40.8% of sales against a group median of 35% (+5.8 points, about 8294). Uptown: prime cost 71.5% of sales against a group median of 67.8% (+3.7 points, about 5291). Uptown: voids 2.4% of sales against a group median of 0.9% (+1.5 points, about 2145). Uptown: discounts 4.1% of sales against a group median of 2.1% (+2 points, about 2860).",,
+Airport Kiosk,64000,34.4,33.6,68,0.8,0.9,1.7,16.41,watch,avg_check_low,Airport Kiosk: average check 16.41 against a group median of 39.72.,,
+Harbor Road,121000,34.6,31.2,65.9,0.9,1.1,2.1,39.67,ok,,,,
+Lakeside,98000,35.6,32.1,67.8,0.9,1.2,2,40,ok,,,,
+Main Street,168000,35,31,66,0.9,1.3,2.3,40.98,ok,,,,

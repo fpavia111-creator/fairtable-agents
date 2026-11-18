@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overtime and split shifts</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Overtime and split shifts</h1>
+<p class="mut">4 employee-week(s): 8 overtime hour(s), premium 72.00, 1 split shift(s) (rules: Example rules: weekly overtime after 40, split shift and spread of hours premiums (fictional settings; check your own state)). 1 flagged, 3 need review.</p>
+<h2>By role</h2><div class="wrap"><table><thead><tr><th scope="col">role</th><th scope="col">count</th><th scope="col">hours</th></tr></thead><tbody>
+<tr><td>Dishwasher</td><td>1</td><td>0</td></tr>
+<tr><td>Line Cook</td><td>1</td><td>8</td></tr>
+<tr><td>Prep Cook</td><td>1</td><td>0</td></tr>
+<tr><td>Sous Chef</td><td>1</td><td>0</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>clopen</td><td>1</td><td>0</td></tr>
+<tr><td>missing_clock_out</td><td>1</td><td>0</td></tr>
+<tr><td>overtime_high</td><td>1</td><td>72</td></tr>
+<tr><td>split_shift</td><td>1</td><td>15.5</td></tr>
+<tr><td>spread_of_hours</td><td>2</td><td>77.5</td></tr>
+</tbody></table></div>
+<h2>All rows (4)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">week</th><th scope="col">employee</th><th scope="col">role</th><th scope="col">hours</th><th scope="col">overtime hours</th><th scope="col">premium cost</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>2026-11-02</td><td>Jordan Lee</td><td>Line Cook</td><td>48</td><td>8</td><td>72</td><td>flag</td><td>Jordan Lee, week of 2026-11-02: 48 hours, 8 weekly and 0 daily overtime hours; premium 72 at 18 an hour.</td></tr>
+<tr><td>2026-11-02</td><td>Casey Morgan</td><td>Prep Cook</td><td>15</td><td>0</td><td>0</td><td>review</td><td>Casey Morgan worked a split shift on 2026-11-03: 07:00-11:00 and 16:00-21:00 (5 h unpaid between). A split-shift premium of one hour (15.5) may be owed under the settings. Casey Morgan had 1 day(s) spread over more than 10 hours from first in to last out: 2026-11-03 (14 h). A spread-of-hours premium of one hour (15.5) a day may be owed under the settings.</td></tr>
+<tr><td>2026-11-02</td><td>Riley Chen</td><td>Dishwasher</td><td>14.5</td><td>0</td><td>0</td><td>review</td><td>Riley Chen clocked out at 2026-11-05 01:00 and back in at 2026-11-05 07:00: 6 hours of rest. Riley Chen has a shift from 2026-11-06 16:00 with no clock-out; its hours are not counted.</td></tr>
+<tr><td>2026-11-02</td><td>Sam Patel</td><td>Sous Chef</td><td>40</td><td>0</td><td>0</td><td>review</td><td>Sam Patel had 4 day(s) spread over more than 10 hours from first in to last out: 2026-11-02 (10.5 h), 2026-11-03 (10.5 h), 2026-11-04 (10.5 h), 2026-11-05 (10.5 h). A spread-of-hours premium of one hour (15.5) a day may be owed under the settings.</td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the timecards you give it. It does not log in to a POS, scheduling or payroll system.</li><li>Overtime and premium rules are settings you supply; state and city rules differ and change. A payroll professional or employment lawyer should confirm them before payroll is run.</li><li>Not legal or payroll advice. A person decides what to pay and how to schedule.</li><li>Names, phone numbers and emails of staff and guests are masked in results returned to the AI model. The report and draft files written here keep the real values: keep them in a private folder.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

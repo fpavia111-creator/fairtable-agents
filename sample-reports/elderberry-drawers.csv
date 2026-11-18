@@ -1,0 +1,9 @@
+date,drawer,employee,expected,counted,over_short,deposit,status,findings,reasons,owner,decision
+2026-11-02,Bar 1,Avery Stone,1455,1449,-6,1149,flag,short repeat_shorts,"Bar 1 on 2026-11-02: counted 1449, expected 1455 (bank 300 + cash sales 1240 - paid-outs 0 - tips paid 85); short 6. Avery Stone was short on 4 shifts in this period (total 56).",,
+2026-11-03,Bar 1,Avery Stone,1478,1458,-20,1158,flag,short repeat_shorts,"Bar 1 on 2026-11-03: counted 1458, expected 1478 (bank 300 + cash sales 1310 - paid-outs 40 - tips paid 92); short 20. Avery Stone was short on 4 shifts in this period (total 56).",,
+2026-11-04,Bar 1,Avery Stone,1407,1395,-12,1095,flag,short repeat_shorts,"Bar 1 on 2026-11-04: counted 1395, expected 1407 (bank 300 + cash sales 1185 - paid-outs 0 - tips paid 78); short 12. Avery Stone was short on 4 shifts in this period (total 56).",,
+2026-11-05,Bar 1,Avery Stone,1619,1601,-18,1301,flag,short repeat_shorts,"Bar 1 on 2026-11-05: counted 1601, expected 1619 (bank 300 + cash sales 1420 - paid-outs 0 - tips paid 101); short 18. Avery Stone was short on 4 shifts in this period (total 56).",,
+2026-11-04,Front 1,Riley Chen,980,979.5,-0.5,700,flag,deposit_mismatch,"Front 1 on 2026-11-04: counted 979.5, deposit 700 + next bank 200; 79.5 is not accounted for.",,
+2026-11-02,Front 1,Jamie Ortiz,1035,1035,0,835,review,paid_out_no_receipt,Front 1 on 2026-11-02: paid-outs of 25 with no receipt recorded.,,
+2026-11-03,Front 1,Jamie Ortiz,1110,1118,8,918,review,over,"Front 1 on 2026-11-03: over by 8. An over can mean a sale rung as cash and paid by card, or a missed paid-out.",,
+2026-11-05,Front 1,Riley Chen,1020,,,,review,missing_count,Front 1 on 2026-11-05: no count recorded; expected 1020 in the drawer.,,

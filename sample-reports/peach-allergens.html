@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Allergen matrix against recipes</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Allergen matrix against recipes</h1>
+<p class="mut">6 menu item(s): 2 undeclared allergen(s), 1 broken free-from claim(s). 2 dish(es) flagged, 3 to review.</p>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>declared_not_found</td><td>1</td><td>0</td></tr>
+<tr><td>free_from_broken</td><td>1</td><td>0</td></tr>
+<tr><td>ingredient_no_data</td><td>1</td><td>0</td></tr>
+<tr><td>no_recipe</td><td>1</td><td>0</td></tr>
+<tr><td>undeclared_allergen</td><td>2</td><td>0</td></tr>
+</tbody></table></div>
+<h2>All rows (6)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">item</th><th scope="col">declared</th><th scope="col">contains</th><th scope="col">free from</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>Caesar Salad</td><td>egg, milk, wheat</td><td>egg, fish, milk, wheat</td><td></td><td>flag</td><td>Caesar Salad contains fish (from Caesar Dressing) but the matrix does not declare it.</td></tr>
+<tr><td>Gluten-Free Pasta</td><td>milk, tree nuts</td><td>milk, tree nuts, wheat</td><td>gluten free</td><td>flag</td><td>Gluten-Free Pasta contains wheat (from Panko Topping) but the matrix does not declare it. Gluten-Free Pasta is marked gluten free but contains wheat (from Panko Topping).</td></tr>
+<tr><td>Fish Tacos</td><td>fish, milk, shellfish</td><td>fish, milk</td><td>gluten free</td><td>review</td><td>Fish Tacos declares shellfish but no ingredient on file contains it. Keep it if it is a cross-contact warning; otherwise update the matrix.</td></tr>
+<tr><td>Fries Basket</td><td></td><td></td><td>gluten free, vegan</td><td>review</td><td>Fries Basket: ingredient &quot;Fryer Oil&quot; has no allergen data; ask the supplier for its specification sheet.</td></tr>
+<tr><td>Seasonal Soup</td><td>milk</td><td></td><td></td><td>review</td><td>Seasonal Soup is on the allergen matrix but has no recipe, so its declarations cannot be checked.</td></tr>
+<tr><td>Classic Burger</td><td>egg, milk, sesame, soy, wheat</td><td>egg, milk, sesame, soy, wheat</td><td></td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the files you give it. It knows only the allergens on your ingredient data; it cannot see cross-contact in the kitchen or a supplier changing a product.</li><li>The allergen list and claim rules are settings; labelling law differs by country and state.</li><li>Not food-safety or legal advice. The chef and the owner decide what the menu says.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

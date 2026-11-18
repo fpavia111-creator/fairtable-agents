@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gift card liability</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Gift card liability</h1>
+<p class="mut">8 card(s) at 2026-11-15: liability 875.00 on 6 open card(s), of which 125.00 is dormant. 2 flagged, 1 need review.</p>
+<h2>By location</h2><div class="wrap"><table><thead><tr><th scope="col">location</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>Harbor Road</td><td>270</td></tr>
+<tr><td>Main Street</td><td>605</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>balance_math</td><td>1</td><td>-20</td></tr>
+<tr><td>cross_location</td><td>1</td><td>80</td></tr>
+<tr><td>dormant</td><td>2</td><td>125</td></tr>
+<tr><td>large_balance</td><td>1</td><td>500</td></tr>
+<tr><td>negative_balance</td><td>1</td><td>15</td></tr>
+</tbody></table></div>
+<h2>All rows (8)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">card</th><th scope="col">issued location</th><th scope="col">issued amount</th><th scope="col">redeemed</th><th scope="col">balance</th><th scope="col">last activity</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>GC-1005</td><td>Main Street</td><td>40</td><td>55</td><td>-15</td><td>2026-10-11</td><td>flag</td><td>GC-1005 has a negative balance of -15: it was redeemed for more than it held.</td></tr>
+<tr><td>GC-1006</td><td>Harbor Road</td><td>150</td><td>30</td><td>100</td><td>2026-04-05</td><td>flag</td><td>GC-1006: issued 150 - redeemed 30 = 120, but the balance shows 100.</td></tr>
+<tr><td>GC-1007</td><td>Main Street</td><td>500</td><td>0</td><td>500</td><td>2026-10-01</td><td>review</td><td>GC-1007 holds 500; check a large card was paid for before it is honoured.</td></tr>
+<tr><td>GC-1003</td><td>Main Street</td><td>75</td><td>0</td><td>75</td><td>2024-06-20</td><td>watch</td><td>GC-1003: 75 with no activity since 2024-06-20 (28 months). Unclaimed-property and breakage rules differ by state; ask your accountant before treating it as income.</td></tr>
+<tr><td>GC-1004</td><td>Harbor Road</td><td>200</td><td>80</td><td>120</td><td>2026-01-15</td><td>watch</td><td>GC-1004 was sold at Harbor Road and used at Main Street; the two locations settle 80 between them if they keep separate books.</td></tr>
+<tr><td>GC-1008</td><td>Harbor Road</td><td>60</td><td>10</td><td>50</td><td>2024-01-05</td><td>watch</td><td>GC-1008: 50 with no activity since 2024-01-05 (34 months). Unclaimed-property and breakage rules differ by state; ask your accountant before treating it as income.</td></tr>
+<tr><td>GC-1001</td><td>Main Street</td><td>100</td><td>100</td><td>0</td><td>2026-03-02</td><td>ok</td><td></td></tr>
+<tr><td>GC-1002</td><td>Main Street</td><td>50</td><td>20</td><td>30</td><td>2026-06-01</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the gift card export you give it. It does not log in to a POS or gift card provider and changes no card.</li><li>Dormancy, escheat (unclaimed property) and breakage rules differ by state and by accounting policy; the dormancy period is a setting. An accountant decides what to report or recognise.</li><li>Not legal, tax or accounting advice.</li><li>Names, phone numbers and emails of staff and guests are masked in results returned to the AI model. The report and draft files written here keep the real values: keep them in a private folder.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

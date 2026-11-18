@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reservation no-shows</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Reservation no-shows</h1>
+<p class="mut">5 no-show(s) out of 12 reservation(s) (41.7%): 22 covers, about 990.00 in sales; fees not charged under the policy 120.00. 2 flagged, 2 need review.</p>
+<h2>By day</h2><div class="wrap"><table><thead><tr><th scope="col">day</th><th scope="col">count</th><th scope="col">no shows</th><th scope="col">rate</th></tr></thead><tbody>
+<tr><td>Fri</td><td>2</td><td>2</td><td>100</td></tr>
+<tr><td>Sat</td><td>3</td><td>0</td><td>0</td></tr>
+<tr><td>Sun</td><td>3</td><td>1</td><td>33.3</td></tr>
+<tr><td>Thu</td><td>2</td><td>1</td><td>50</td></tr>
+<tr><td>Wed</td><td>2</td><td>1</td><td>50</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>fee_not_charged</td><td>1</td><td>120</td></tr>
+<tr><td>high_no_show_rate</td><td>1</td><td>990</td></tr>
+<tr><td>large_party_no_deposit</td><td>1</td><td>0</td></tr>
+<tr><td>no_show</td><td>2</td><td>630</td></tr>
+<tr><td>repeat_no_show</td><td>1</td><td>360</td></tr>
+</tbody></table></div>
+<h2>All rows (4)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">guest</th><th scope="col">no shows</th><th scope="col">covers lost</th><th scope="col">sales lost estimate</th><th scope="col">last no show</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>All reservations</td><td>5</td><td>22</td><td>990</td><td></td><td>flag</td><td>5 of 12 reservations were no-shows (41.7%), over the 15% target.</td></tr>
+<tr><td>Morgan Ellis</td><td>3</td><td>8</td><td>360</td><td>2026-11-08</td><td>flag</td><td>Morgan Ellis did not show 3 times (2026-11-04 party of 4, 2026-11-06 party of 2, 2026-11-08 party of 2).</td></tr>
+<tr><td>Casey Brennan</td><td>1</td><td>8</td><td>360</td><td>2026-11-05</td><td>review</td><td>Casey Brennan did not show on 2026-11-05 (party of 8). Casey Brennan: party of 8 on 2026-11-05 booked by Phone with no deposit, though the policy asks for one from 6 guests.</td></tr>
+<tr><td>Sam Whitaker</td><td>1</td><td>6</td><td>270</td><td>2026-11-06</td><td>review</td><td>Sam Whitaker did not show on 2026-11-06 (party of 6). Sam Whitaker: no-show on 2026-11-06 with a deposit or card held and no fee charged; the policy fee would be 120. A person decides whether to charge it.</td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the files you give it. It does not log in to a POS, scheduling, payroll, delivery-app, reservation, distributor, utility or bank system, and changes nothing in them.</li><li>Targets, thresholds and state rules are settings in your own file, with working defaults; check them against your own policies, contracts and local rules before you rely on them.</li><li>Not legal, tax, payroll, health-code, food-safety or accounting advice. A person decides what to pay, refund, change, file or send.</li><li>Names, phone numbers and emails of staff and guests are masked in results returned to the AI model. The report and draft files written here keep the real values: keep them in a private folder.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

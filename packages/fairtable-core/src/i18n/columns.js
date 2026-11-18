@@ -96,7 +96,7 @@ export const COLUMN_WORDS = {
   days: W(['Tage'], ['Jours'], ['Días'], ['Dias'], ['Giorni'], ['日数'], ['天数'], ['일수']),
   preapproved_by: W(['Vorab genehmigt von', 'Genehmigt von'], ['Pré-approuvé par', 'Approuvé par'], ['Preaprobado por', 'Aprobado por'], ['Pré-aprovado por', 'Aprovado por'], ['Preapprovato da', 'Approvato da'], ['事前承認者', '承認者'], ['预先审批人', '审批人'], ['사전승인자', '승인자']),
   // ---- Inventory ----
-  sku: W(['Artikelnummer', 'Artikel-Nr.', 'Materialnummer', 'Material'], ['Référence', 'Réf. article', 'Code article'], ['Código de artículo', 'Referencia'], ['Código do produto', 'Código do item'], ['Codice articolo', 'Articolo'], ['品番', '商品コード', '品目コード'], ['物料编码', '商品编码', '货号', '料号'], ['품목코드', '품번', '상품코드']),
+  sku: W(['Artikelnummer', 'Artikel-Nr.', 'Materialnummer', 'Material'], ['Référence', 'Réf. article', 'Code article'], ['Código de artículo', 'Referencia'], ['Código do produto', 'Código do item'], ['Codice articolo'], ['品番', '商品コード', '品目コード'], ['物料编码', '商品编码', '货号', '料号'], ['품목코드', '품번', '상품코드']),
   uom: W(['Einheit', 'Mengeneinheit', 'ME'], ['Unité', 'Unité de mesure'], ['Unidad', 'Unidad de medida'], ['Unidade', 'Unidade de medida'], ['Unità di misura', 'UM'], ['単位'], ['单位', '计量单位'], ['단위']),
   location: W(['Lagerort', 'Lager', 'Standort', 'Ort'], ['Emplacement', 'Entrepôt', 'Lieu', 'Site'], ['Ubicación', 'Almacén', 'Lugar'], ['Local', 'Localização', 'Depósito', 'Armazém'], ['Ubicazione', 'Magazzino', 'Luogo'], ['保管場所', '倉庫', 'ロケーション', '場所'], ['库位', '仓库', '地点', '位置'], ['위치', '창고', '보관장소']),
   lot: W(['Charge', 'Chargennummer', 'Los'], ['Lot', 'N° de lot'], ['Lote', 'N.º de lote'], ['Lote'], ['Lotto'], ['ロット', 'ロット番号'], ['批次', '批号'], ['로트', '로트번호', '배치']),

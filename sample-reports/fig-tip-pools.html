@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tip pool and tip credit</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Tip pool and tip credit</h1>
+<p class="mut">2 week(s), 8 employee-week(s): tip pool 1,360.00, makeup owed under the settings 90.75 (rules: Example state with a tip credit (fictional settings; check your own state)). 4 flagged, 0 need review.</p>
+<h2>By week</h2><div class="wrap"><table><thead><tr><th scope="col">week</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>2026-11-02</td><td>6</td><td>1289.99</td></tr>
+<tr><td>2026-11-09</td><td>2</td><td>70</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>below_cash_wage</td><td>1</td><td>1.95</td></tr>
+<tr><td>manager_kept_tips</td><td>1</td><td>140</td></tr>
+<tr><td>no_cash_declared</td><td>3</td><td>0</td></tr>
+<tr><td>tip_credit_shortfall</td><td>3</td><td>88.8</td></tr>
+</tbody></table></div>
+<h2>All rows (8)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">week</th><th scope="col">employee</th><th scope="col">role</th><th scope="col">hours</th><th scope="col">pool share</th><th scope="col">effective hourly</th><th scope="col">makeup owed</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>2026-11-09</td><td>Avery Stone</td><td>Server</td><td>10</td><td>23.33</td><td>4.46</td><td>27.9</td><td>flag</td><td>Avery Stone, week of 2026-11-09: wages 21.3 + pool share 23.33 + cash tips 0 over 10 hours is 4.46 an hour, under the 7.25 minimum. Makeup 27.9. Avery Stone has card tips and no cash tips declared in the week of 2026-11-09.</td></tr>
+<tr><td>2026-11-09</td><td>Casey Moreno</td><td>Server</td><td>20</td><td>46.67</td><td>4.46</td><td>55.8</td><td>flag</td><td>Casey Moreno, week of 2026-11-09: wages 42.6 + pool share 46.67 + cash tips 0 over 20 hours is 4.46 an hour, under the 7.25 minimum. Makeup 55.8. Casey Moreno has card tips and no cash tips declared in the week of 2026-11-09.</td></tr>
+<tr><td>2026-11-02</td><td>Morgan Blake</td><td>Manager</td><td>40</td><td>0</td><td>22</td><td>0</td><td>flag</td><td>Morgan Blake is a Manager and has 140 of tips on their own timecard in the week of 2026-11-02. Tips a manager or supervisor collects go into the pool; they were added to it here.</td></tr>
+<tr><td>2026-11-02</td><td>Taylor Brooks</td><td>Host</td><td>15</td><td>73.71</td><td>6.91</td><td>7.05</td><td>flag</td><td>Taylor Brooks is paid 2 an hour, under the 2.13 tipped cash wage in the settings. Taylor Brooks, week of 2026-11-02: wages 30 + pool share 73.71 + cash tips 0 over 15 hours is 6.91 an hour, under the 7.25 minimum. Makeup 5.1.</td></tr>
+<tr><td>2026-11-02</td><td>Jamie Ortiz</td><td>Server</td><td>32</td><td>393.14</td><td>14.42</td><td>0</td><td>watch</td><td>Jamie Ortiz has card tips and no cash tips declared in the week of 2026-11-02.</td></tr>
+<tr><td>2026-11-02</td><td>Avery Stone</td><td>Server</td><td>30</td><td>368.57</td><td>18.42</td><td>0</td><td>ok</td><td></td></tr>
+<tr><td>2026-11-02</td><td>Riley Chen</td><td>Bartender</td><td>25</td><td>307.14</td><td>20.49</td><td>0</td><td>ok</td><td></td></tr>
+<tr><td>2026-11-02</td><td>Sam Patel</td><td>Busser</td><td>20</td><td>147.43</td><td>15.37</td><td>0</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the timecards you give it. It does not log in to a POS, payroll or bank system.</li><li>Wage figures and pool rules are settings you supply; the defaults are the US federal figures. State and city rules differ and change; a payroll professional or employment lawyer should confirm them before payroll is run.</li><li>Not legal, tax or payroll advice. A person decides what to pay.</li><li>Names, phone numbers and emails of staff and guests are masked in results returned to the AI model. The report and draft files written here keep the real values: keep them in a private folder.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

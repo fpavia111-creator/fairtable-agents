@@ -1,0 +1,8 @@
+event_id,client,location,event_date,booking_status,total,deposit_required,received,balance,status,findings,reasons,owner,decision
+EV-302,Quinn Wedding Party,Main Street,2026-11-28,booked,9600,2880,1000,8600,flag,deposit_missing,"EV-302 is 13 days away; deposit required 2880 (30%), received 1000.",,
+EV-303,Example Tech Offsite,Harbor Road,2026-11-10,completed,3150,787.5,787.5,2362.5,flag,balance_overdue,"EV-303 took place 5 days ago; total 3150, received 787.5; 2362.5 overdue.",,
+EV-305,Avery Birthday,Harbor Road,2026-11-30,cancelled,1400,350,350,1050,review,cancelled_refund_due,EV-305 was cancelled 29 days before the event (policy: full refund from 14 days); 350 received and not refunded.,,
+EV-306,North Rotary Lunch,Main Street,2026-11-05,completed,1250,312.5,1312.5,-62.5,review,overpaid,EV-306: received 1312.5 on a total of 1250; 62.5 may be owed back.,,
+EV-399,,,,(not booked),,,500,,review,payment_no_event,EV-399: 500 received (2026-11-02 check) for an event that is not in the bookings.,,
+EV-301,Harbor Book Club,Main Street,2026-10-20,completed,2400,600,2400,0,ok,,,,
+EV-304,Ridge School PTA,Main Street,2026-12-12,booked,3000,750,750,2250,ok,,,,

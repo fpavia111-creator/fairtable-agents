@@ -1,0 +1,8 @@
+vendor,item,invoices,unit,first_price,last_price,change_pct,extra_paid,status,findings,reasons,owner,decision
+Example Foodservice,Chicken Breast,2,lb,3.9,4.3333,11.1,31.2,flag,pack_changed price_up,"Chicken Breast from Example Foodservice came as 4/10 LB then 4/9 LB; compare the price per lb, not per case. Chicken Breast from Example Foodservice: 3.9 per lb on 2026-10-06, 4.3333 on 2026-11-03 (+11.1%). Paid 31.2 more than at the first price.",,
+Example Foodservice,Fryer Oil,3,lb,1.0857,1.2571,15.8,18,flag,small_price_up over_contract,"Fryer Oil from Example Foodservice: 1.0857 per lb on 2026-10-06, 1.2571 on 2026-11-03 (+15.8%). Paid 18 more than at the first price. Fryer Oil from Example Foodservice: bid price 1.1 per lb (valid 2026-09-01 to 2026-12-31), last invoiced 1.2571. Over the bid by 16 on the invoices in the bid period.",,
+Example Foodservice,Ground Beef 80/20,5,lb,4.6,4.95,7.6,42,flag,price_up steady_creep,"Ground Beef 80/20 from Example Foodservice: 4.6 per lb on 2026-10-06, 4.95 on 2026-11-03 (+7.6%). Paid 42 more than at the first price. Ground Beef 80/20 from Example Foodservice went up 3 invoices in a row.",,
+Example Seafood,Salmon Fillet,2,lb,11.8,13.2,11.9,28,flag,price_up over_contract,"Salmon Fillet from Example Seafood: 11.8 per lb on 2026-10-08, 13.2 on 2026-11-05 (+11.9%). Paid 28 more than at the first price. Salmon Fillet from Example Seafood: bid price 12 per lb (valid 2026-09-01 to 2026-12-31), last invoiced 13.2. Over the bid by 24 on the invoices in the bid period.",,
+Sample Produce Co,Avocados,2,ea,1.2917,1.3333,3.2,2,ok,,,,
+Example Foodservice,Brioche Bun,2,ea,0.45,0.45,0,0,ok,,,,
+Sample Produce Co,Romaine,2,lb,2.1,1.96,-6.7,0,ok,,,,

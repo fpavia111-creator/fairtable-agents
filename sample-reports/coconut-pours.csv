@@ -1,0 +1,8 @@
+item,kind,bottle_ml,open,bought,close,actual_bottles,theoretical_bottles,variance_pct,variance_cost,status,findings,reasons,owner,decision
+Bourbon,spirit,750,5,6,1.4,9.6,7.1,35.3,70.07,flag,over_pour,"Bourbon: used 9.6 bottles (open 5 + bought 6 - close 1.4), pours say 7.1 (180 oz). Gap 2.5 bottles (35.3%), 70.07 at 28 a bottle.",,
+Coffee Liqueur,spirit,750,3,0,,,1.77,,,review,no_close_count,Coffee Liqueur: opening count 3 but no closing count on 2026-11-08.,,
+House Shot,drink,,,,,,,,,review,drink_no_recipe,"House Shot: 40 sold for 240 with no recipe, so its pours are missing from theoretical use.",,
+London Dry Gin,spirit,750,4,0,3,1,0,,,review,not_in_recipes,"London Dry Gin: 1 bottle(s) used and no drink recipe uses it (a missing recipe, a spill, or pours rung under another button).",,
+House Vodka,spirit,1000,8,6,3.9,10.1,9.32,8.4,10.98,watch,small_over_pour,"House Vodka: used 10.1 bottles (open 8 + bought 6 - close 3.9), pours say 9.32 (315 oz). Gap 0.78 bottles (8.4%), 10.98 at 14 a bottle.",,
+Triple Sec,spirit,750,4,6,2.5,7.5,7.1,5.7,3.62,watch,small_over_pour,"Triple Sec: used 7.5 bottles (open 4 + bought 6 - close 2.5), pours say 7.1 (180 oz). Gap 0.4 bottles (5.7%), 3.62 at 9 a bottle.",,
+Tequila Blanco,spirit,750,6,12,4.2,13.8,14.2,-2.8,-8.7,ok,,,,

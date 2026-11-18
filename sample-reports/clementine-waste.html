@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Waste log</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Waste log</h1>
+<p class="mut">Waste logged 154.70 = 1.3% of net sales 12,210.00; 6 day(s) logged of 7 with sales. 2 flagged, 3 need review.</p>
+<h2>By reason</h2><div class="wrap"><table><thead><tr><th scope="col">reason</th><th scope="col">count</th></tr></thead><tbody>
+<tr><td>dropped</td><td>1</td></tr>
+<tr><td>expired</td><td>1</td></tr>
+<tr><td>overproduction</td><td>2</td></tr>
+<tr><td>spoiled</td><td>1</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>high_waste</td><td>2</td><td>116.7</td></tr>
+<tr><td>no_reason</td><td>1</td><td>0</td></tr>
+<tr><td>no_value</td><td>1</td><td>0</td></tr>
+<tr><td>repeat_reason</td><td>2</td><td>0</td></tr>
+<tr><td>some_waste</td><td>1</td><td>20.9</td></tr>
+<tr><td>unlogged_day</td><td>1</td><td>0</td></tr>
+</tbody></table></div>
+<h2>All rows (7)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">item</th><th scope="col">qty</th><th scope="col">unit</th><th scope="col">value</th><th scope="col">entries</th><th scope="col">top reason</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>Chicken Breast</td><td>13</td><td>lb</td><td>50.7</td><td>3</td><td>expired</td><td>flag</td><td>Chicken Breast: 13 lb thrown out in 3 entries, worth 50.7. Chicken Breast was logged as &quot;expired&quot; 3 times: a prep par or a rotation problem to fix at the source.</td></tr>
+<tr><td>Salmon Fillet</td><td>5</td><td>lb</td><td>66</td><td>2</td><td>dropped</td><td>flag</td><td>Salmon Fillet: 5 lb thrown out in 2 entries, worth 66.</td></tr>
+<tr><td>2026-11-05</td><td></td><td></td><td>0</td><td>0</td><td></td><td>review</td><td>2026-11-05: sales of 1620 and no waste logged. A day with no entries usually means the log was not kept, not that nothing was wasted.</td></tr>
+<tr><td>Brioche Bun</td><td>24</td><td>ea</td><td>10.8</td><td>1</td><td></td><td>review</td><td>Brioche Bun: 1 entry has no reason.</td></tr>
+<tr><td>House Soup</td><td>1</td><td>batch</td><td>0</td><td>1</td><td>overproduction</td><td>review</td><td>House Soup: 1 entry has no cost or value, so the total is understated.</td></tr>
+<tr><td>Fries</td><td>19</td><td>lb</td><td>20.9</td><td>4</td><td>overproduction</td><td>watch</td><td>Fries: worth 20.9 thrown out. Fries was logged as &quot;overproduction&quot; 4 times: a prep par or a rotation problem to fix at the source.</td></tr>
+<tr><td>Romaine</td><td>3</td><td>lb</td><td>6.3</td><td>1</td><td>spoiled</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the files you give it. It does not log in to a POS, scheduling, payroll, delivery-app, reservation, distributor, utility or bank system, and changes nothing in them.</li><li>Targets, thresholds and state rules are settings in your own file, with working defaults; check them against your own policies, contracts and local rules before you rely on them.</li><li>Not legal, tax, payroll, health-code, food-safety or accounting advice. A person decides what to pay, refund, change, file or send.</li><li>Names, phone numbers and emails of staff and guests are masked in results returned to the AI model. The report and draft files written here keep the real values: keep them in a private folder.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

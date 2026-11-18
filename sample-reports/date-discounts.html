@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Discounts and promotions</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Discounts and promotions</h1>
+<p class="mut">10 discount(s) worth 180.00 under 7 name(s); 1 name(s) not on the promotion list. 5 flagged, 1 need review.</p>
+<h2>By promotion</h2><div class="wrap"><table><thead><tr><th scope="col">discount</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>Employee Meal 50%</td><td>2</td><td>25</td></tr>
+<tr><td>Fall Prix Fixe</td><td>2</td><td>42</td></tr>
+<tr><td>Happy Hour Half Off Apps</td><td>2</td><td>17</td></tr>
+<tr><td>Open Dollar Discount</td><td>1</td><td>25</td></tr>
+<tr><td>Summer Patio 20%</td><td>1</td><td>14</td></tr>
+<tr><td>Industry Night 15%</td><td>1</td><td>9</td></tr>
+<tr><td>Manager Comp 100%</td><td>1</td><td>48</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>employee_meal_over</td><td>1</td><td>10</td></tr>
+<tr><td>expired_promo</td><td>1</td><td>14</td></tr>
+<tr><td>no_approver</td><td>1</td><td>25</td></tr>
+<tr><td>outside_hours</td><td>1</td><td>8</td></tr>
+<tr><td>over_cap</td><td>2</td><td>20.6</td></tr>
+<tr><td>unknown_discount</td><td>1</td><td>9</td></tr>
+</tbody></table></div>
+<h2>All rows (7)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">discount</th><th scope="col">uses</th><th scope="col">amount</th><th scope="col">on promo list</th><th scope="col">window</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>Employee Meal 50%</td><td>2</td><td>25</td><td>yes</td><td>2026-01-01 to 2026-12-31</td><td>flag</td><td>&quot;Employee Meal 50%&quot;: 1 employee-day(s) over the 15 daily allowance.</td></tr>
+<tr><td>Fall Prix Fixe</td><td>2</td><td>42</td><td>yes</td><td>2026-10-01 to 2026-11-30</td><td>flag</td><td>&quot;Fall Prix Fixe&quot; went over its cap on 1 check(s): 2010 by 15.6.</td></tr>
+<tr><td>Happy Hour Half Off Apps</td><td>2</td><td>17</td><td>yes</td><td>2026-09-01 to 2026-12-31</td><td>flag</td><td>&quot;Happy Hour Half Off Apps&quot; is for Mon-Fri 15:00-18:00 but was rung Tue 19:30 (check 2002).</td></tr>
+<tr><td>Open Dollar Discount</td><td>1</td><td>25</td><td>yes</td><td>2026-01-01 to 2026-12-31</td><td>flag</td><td>&quot;Open Dollar Discount&quot; went over its cap on 1 check(s): 2005 by 5. &quot;Open Dollar Discount&quot; needs a manager approval; 1 use(s) had none (check 2005).</td></tr>
+<tr><td>Summer Patio 20%</td><td>1</td><td>14</td><td>yes</td><td>2026-06-01 to 2026-09-30</td><td>flag</td><td>&quot;Summer Patio 20%&quot; runs 2026-06-01 to 2026-09-30 but was used 1 time(s) outside those dates (check 2004).</td></tr>
+<tr><td>Industry Night 15%</td><td>1</td><td>9</td><td>no</td><td></td><td>review</td><td>&quot;Industry Night 15%&quot; is not on the promotion list: 1 use(s), 9. Add it to the list or remove the button.</td></tr>
+<tr><td>Manager Comp 100%</td><td>1</td><td>48</td><td>yes</td><td>2026-01-01 to 2026-12-31</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the files you give it. It does not log in to a POS, scheduling, payroll, delivery-app, reservation, distributor, utility or bank system, and changes nothing in them.</li><li>Targets, thresholds and state rules are settings in your own file, with working defaults; check them against your own policies, contracts and local rules before you rely on them.</li><li>Not legal, tax, payroll, health-code, food-safety or accounting advice. A person decides what to pay, refund, change, file or send.</li><li>Names, phone numbers and emails of staff and guests are masked in results returned to the AI model. The report and draft files written here keep the real values: keep them in a private folder.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

@@ -1,0 +1,9 @@
+platform,order_id,date,subtotal,commission,refund,payout,disputable,status,findings,reasons,owner,decision
+DoorDash,DD-1002,2026-11-03,52,10.4,0,45.89,2.6,flag,commission_over_rate,"DoorDash order DD-1002: commission 10.4 on 52 is 20%, over the 15% contract rate by 2.6.",,
+DoorDash,DD-1005,2026-11-05,47,,0,0,47,flag,missing_from_statement,"DoorDash order DD-1005 (2026-11-05, subtotal 47) is in the POS but on no statement: it was never paid out.",,
+Uber Eats,UE-5002,2026-11-05,38,5.7,0,32.44,3,flag,payout_math,"Uber Eats order UE-5002: subtotal 38 + tax 3.14 - commission 5.7 - fees 0 - promotions 0 - refunds 0 + adjustments 0 = 35.44, but the payout is 32.44.",,
+DoorDash,DD-1003,2026-11-04,31,4.65,18.5,10.41,0,review,error_charge,DoorDash order DD-1003: 18.5 charged back as a refund or error charge. Check the ticket and dispute it in the platform's window if the food went out right.,,
+DoorDash,DD-1004,2026-11-04,64,9.6,0,119.36,0,review,duplicate_order,DoorDash order DD-1004 appears 2 times on the statements; expect the platform to take the extra payment back.,,
+DoorDash,DD-1001,2026-11-03,40,6,0,37.3,0,ok,,,,
+Grubhub,GH-9001,2026-11-06,29,5.8,0,24.72,0,ok,,,,
+Uber Eats,UE-5001,2026-11-05,45,6.75,0,37.46,0,ok,,,,

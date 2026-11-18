@@ -1,0 +1,9 @@
+location,week,net_sales,cogs,labor,prime_cost,prime_pct,cogs_pct,labor_pct,status,findings,reasons,owner,decision
+Main Street,2026-10-26,39800,14700,12765,27465,69,36.9,32.1,flag,prime_over_target cogs_over_target labor_over_target rising_prime,"Main Street, week of 2026-10-26: prime cost 27465 is 69% of sales 39800, over the 65% target. Food and beverage cost 36.9% against a 36% target. Labor with taxes and benefits 32.1% against a 32% target. Main Street: prime cost has risen 3 weeks in a row, to 69%.",,
+Main Street,2026-11-02,38900,15150,13340,28490,73.2,38.9,34.3,flag,prime_over_target cogs_over_target labor_over_target rising_prime,"Main Street, week of 2026-11-02: prime cost 28490 is 73.2% of sales 38900, over the 65% target. Food and beverage cost 38.9% against a 36% target. Labor with taxes and benefits 34.3% against a 32% target. Main Street: prime cost has risen 4 weeks in a row, to 73.2%.",,
+Harbor Road,2026-10-26,27600,9650,,,,,,review,missing_data,"Harbor Road, week of 2026-10-26: no labor, so prime cost cannot be worked out.",,
+Harbor Road,2026-10-12,28000,9800,8510,18310,65.4,35,30.4,ok,,,,
+Harbor Road,2026-10-19,29100,10050,8625,18675,64.2,34.5,29.6,ok,,,,
+Harbor Road,2026-11-02,28800,9900,8395,18295,63.5,34.4,29.1,ok,,,,
+Main Street,2026-10-12,42000,14700,12540,27240,64.9,35,29.9,ok,,,,
+Main Street,2026-10-19,40500,14550,12420,26970,66.6,35.9,30.7,ok,,,,

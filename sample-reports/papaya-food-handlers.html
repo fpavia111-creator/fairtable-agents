@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Food handler cards</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Food handler cards</h1>
+<p class="mut">8 active staff at 2 location(s), as of 2026-11-15: 4 need action now. 2 coming up, 1 to review.</p>
+<h2>By location</h2><div class="wrap"><table><thead><tr><th scope="col">location</th><th scope="col">count</th></tr></thead><tbody>
+<tr><td>Harbor Road</td><td>4</td></tr>
+<tr><td>Main Street</td><td>3</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>alcohol_cert_missing</td><td>1</td><td>0</td></tr>
+<tr><td>expired</td><td>2</td><td>0</td></tr>
+<tr><td>expiring_soon</td><td>2</td><td>0</td></tr>
+<tr><td>in_grace_period</td><td>1</td><td>0</td></tr>
+<tr><td>missing_card</td><td>1</td><td>0</td></tr>
+<tr><td>no_certified_manager</td><td>1</td><td>0</td></tr>
+</tbody></table></div>
+<h2>All rows (9)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">employee</th><th scope="col">role</th><th scope="col">location</th><th scope="col">certificates</th><th scope="col">next expiry</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>Casey Morgan</td><td>Prep Cook</td><td>Main Street</td><td></td><td></td><td>flag</td><td>Casey Morgan (Prep Cook, Main Street) has no food handler card on file after 45 days.</td></tr>
+<tr><td>Harbor Road (location)</td><td></td><td>Harbor Road</td><td></td><td></td><td>flag</td><td>Harbor Road has no one on the active roster with a current food protection manager certificate.</td></tr>
+<tr><td>Morgan Blake</td><td>Kitchen Manager</td><td>Harbor Road</td><td>Food handler, Food protection manager</td><td>2027-01-15</td><td>flag</td><td>Morgan Blake: food protection manager certificate FPM-202 expired on 2026-05-01.</td></tr>
+<tr><td>Sam Patel</td><td>Sous Chef</td><td>Main Street</td><td>Food handler, Food protection manager</td><td>2026-12-01</td><td>flag</td><td>Sam Patel: food handler card FH-1002 expired on 2026-06-20. Sam Patel: food protection manager certificate FPM-201 expires 2026-12-01, in 16 days.</td></tr>
+<tr><td>Jamie Ortiz</td><td>Server</td><td>Harbor Road</td><td>Food handler</td><td>2028-08-25</td><td>review</td><td>Jamie Ortiz works as Server with no alcohol server certificate on file.</td></tr>
+<tr><td>Riley Chen</td><td>Dishwasher</td><td>Main Street</td><td></td><td></td><td>watch</td><td>Riley Chen started 2026-11-05; a food handler card is due within 30 days (by 2026-12-05).</td></tr>
+<tr><td>Taylor Brooks</td><td>Line Cook</td><td>Harbor Road</td><td>Food handler</td><td>2026-12-10</td><td>watch</td><td>Taylor Brooks: food handler card FH-1005 expires 2026-12-10, in 25 days.</td></tr>
+<tr><td>Avery Stone</td><td>Bartender</td><td>Main Street</td><td>Alcohol server, Food handler</td><td>2027-02-20</td><td>ok</td><td></td></tr>
+<tr><td>Jordan Lee</td><td>Line Cook</td><td>Main Street</td><td>Food handler</td><td>2027-03-10</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the files you give it; it contacts no one.</li><li>Which cards are required, the grace period for new hires and renewal periods depend on your state, county and city; they are settings you confirm with your health department.</li><li>Not legal or health-code advice.</li><li>Names, phone numbers and emails of staff and guests are masked in results returned to the AI model. The report and draft files written here keep the real values: keep them in a private folder.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

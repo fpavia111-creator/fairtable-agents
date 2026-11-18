@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Location comparison</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Location comparison</h1>
+<p class="mut">5 location(s), group sales 594,000.00; group median prime cost 67.8%. 1 location(s) flagged, 1 watched.</p>
+<h2>By location</h2><div class="wrap"><table><thead><tr><th scope="col">location</th><th scope="col">food pct</th><th scope="col">labor pct</th><th scope="col">prime pct</th><th scope="col">void pct</th><th scope="col">comp pct</th><th scope="col">discount pct</th><th scope="col">avg check</th></tr></thead><tbody>
+<tr><td>Group median</td><td>35</td><td>31.2</td><td>67.8</td><td>0.9</td><td>1.2</td><td>2.1</td><td>39.72</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>avg_check_low</td><td>1</td><td>0</td></tr>
+<tr><td>discount_pct_high</td><td>1</td><td>2860</td></tr>
+<tr><td>food_pct_high</td><td>1</td><td>8294</td></tr>
+<tr><td>prime_pct_high</td><td>1</td><td>5291</td></tr>
+<tr><td>void_pct_high</td><td>1</td><td>2145</td></tr>
+</tbody></table></div>
+<h2>All rows (5)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">location</th><th scope="col">net sales</th><th scope="col">food pct</th><th scope="col">labor pct</th><th scope="col">prime pct</th><th scope="col">void pct</th><th scope="col">avg check</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>Uptown</td><td>143000</td><td>40.8</td><td>30.8</td><td>71.5</td><td>2.4</td><td>39.72</td><td>flag</td><td>Uptown: food and beverage cost 40.8% of sales against a group median of 35% (+5.8 points, about 8294). Uptown: prime cost 71.5% of sales against a group median of 67.8% (+3.7 points, about 5291). Uptown: voids 2.4% of sales against a group median of 0.9% (+1.5 points, about 2145). Uptown: discounts 4.1% of sales against a group median of 2.1% (+2 points, about 2860).</td></tr>
+<tr><td>Airport Kiosk</td><td>64000</td><td>34.4</td><td>33.6</td><td>68</td><td>0.8</td><td>16.41</td><td>watch</td><td>Airport Kiosk: average check 16.41 against a group median of 39.72.</td></tr>
+<tr><td>Harbor Road</td><td>121000</td><td>34.6</td><td>31.2</td><td>65.9</td><td>0.9</td><td>39.67</td><td>ok</td><td></td></tr>
+<tr><td>Lakeside</td><td>98000</td><td>35.6</td><td>32.1</td><td>67.8</td><td>0.9</td><td>40</td><td>ok</td><td></td></tr>
+<tr><td>Main Street</td><td>168000</td><td>35</td><td>31</td><td>66</td><td>0.9</td><td>40.98</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the files you give it. It does not log in to a POS, scheduling, payroll, delivery-app, reservation, distributor, utility or bank system, and changes nothing in them.</li><li>Targets, thresholds and state rules are settings in your own file, with working defaults; check them against your own policies, contracts and local rules before you rely on them.</li><li>Not legal, tax, payroll, health-code, food-safety or accounting advice. A person decides what to pay, refund, change, file or send.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

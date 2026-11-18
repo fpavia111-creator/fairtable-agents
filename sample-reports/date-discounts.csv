@@ -1,0 +1,8 @@
+discount,uses,amount,on_promo_list,window,status,findings,reasons,owner,decision
+Employee Meal 50%,2,25,yes,2026-01-01 to 2026-12-31,flag,employee_meal_over,"""Employee Meal 50%"": 1 employee-day(s) over the 15 daily allowance.",,
+Fall Prix Fixe,2,42,yes,2026-10-01 to 2026-11-30,flag,over_cap,"""Fall Prix Fixe"" went over its cap on 1 check(s): 2010 by 15.6.",,
+Happy Hour Half Off Apps,2,17,yes,2026-09-01 to 2026-12-31,flag,outside_hours,"""Happy Hour Half Off Apps"" is for Mon-Fri 15:00-18:00 but was rung Tue 19:30 (check 2002).",,
+Open Dollar Discount,1,25,yes,2026-01-01 to 2026-12-31,flag,over_cap no_approver,"""Open Dollar Discount"" went over its cap on 1 check(s): 2005 by 5. ""Open Dollar Discount"" needs a manager approval; 1 use(s) had none (check 2005).",,
+Summer Patio 20%,1,14,yes,2026-06-01 to 2026-09-30,flag,expired_promo,"""Summer Patio 20%"" runs 2026-06-01 to 2026-09-30 but was used 1 time(s) outside those dates (check 2004).",,
+Industry Night 15%,1,9,no,,review,unknown_discount,"""Industry Night 15%"" is not on the promotion list: 1 use(s), 9. Add it to the list or remove the button.",,
+Manager Comp 100%,1,48,yes,2026-01-01 to 2026-12-31,ok,,,,

@@ -202,7 +202,9 @@ export function adaptRecords(table, def, { override = null, kind = '', arg = '',
     }
     const uf = !!unitOf(f, fd);
     // The agent's own name (any letter case or punctuation) is not a rename.
-    if (has(f)) { const k = index.get(normHeader(f)); plan.push({ f, fd, spec: {}, from: [f] }); if (k !== f) consumed.add(k); continue; }
+    // A header that is the field's own name in another case or punctuation ("Item" for item) is re-keyed,
+    // so the agent reads row.item and not a blank. Fix found by the Fairmake session, 18 Nov 2026.
+    if (has(f)) { const k = index.get(normHeader(f)); plan.push({ f, fd, spec: {}, from: [k === undefined ? f : k] }); if (k !== undefined && k !== f) { consumed.add(k); renamed++; } continue; }
     if (uf && col(f, true) !== undefined) { const k = col(f, true); plan.push({ f, fd, spec: {}, from: [k] }); mapped[f] = k; consumed.add(k); renamed++; continue; }
     // A nested JSON object is never taken for a column by its name alone.
     const alias = (fd.aliases || []).find((a) => { const k = col(a, uf); return k !== undefined && !nested.has(k); });

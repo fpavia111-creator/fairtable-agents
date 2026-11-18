@@ -1,0 +1,5 @@
+guest,phone,no_shows,covers_lost,sales_lost_estimate,last_no_show,status,findings,reasons,owner,decision
+All reservations,,5,22,990,,flag,high_no_show_rate,"5 of 12 reservations were no-shows (41.7%), over the 15% target.",,
+Morgan Ellis,555-0101-2202,3,8,360,2026-11-08,flag,repeat_no_show,"Morgan Ellis did not show 3 times (2026-11-04 party of 4, 2026-11-06 party of 2, 2026-11-08 party of 2).",,
+Casey Brennan,555-0101-2203,1,8,360,2026-11-05,review,no_show large_party_no_deposit,"Casey Brennan did not show on 2026-11-05 (party of 8). Casey Brennan: party of 8 on 2026-11-05 booked by Phone with no deposit, though the policy asks for one from 6 guests.",,
+Sam Whitaker,555-0101-2206,1,6,270,2026-11-06,review,no_show fee_not_charged,Sam Whitaker did not show on 2026-11-06 (party of 6). Sam Whitaker: no-show on 2026-11-06 with a deposit or card held and no fee charged; the policy fee would be 120. A person decides whether to charge it.,,

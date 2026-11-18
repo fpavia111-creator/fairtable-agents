@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vendor price creep</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Vendor price creep</h1>
+<p class="mut">7 item(s) from 3 vendor(s): 121.20 paid above each item&#39;s first price, 2 over the bid price. 4 flagged, 0 need review.</p>
+<h2>By vendor</h2><div class="wrap"><table><thead><tr><th scope="col">vendor</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>Example Foodservice</td><td>4</td><td>91.2</td></tr>
+<tr><td>Example Seafood</td><td>1</td><td>28</td></tr>
+<tr><td>Sample Produce Co</td><td>2</td><td>2</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>over_contract</td><td>2</td><td>40</td></tr>
+<tr><td>pack_changed</td><td>1</td><td>0</td></tr>
+<tr><td>price_up</td><td>3</td><td>101.2</td></tr>
+<tr><td>small_price_up</td><td>1</td><td>18</td></tr>
+<tr><td>steady_creep</td><td>1</td><td>0</td></tr>
+</tbody></table></div>
+<h2>All rows (7)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">vendor</th><th scope="col">item</th><th scope="col">unit</th><th scope="col">first price</th><th scope="col">last price</th><th scope="col">change pct</th><th scope="col">extra paid</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>Example Foodservice</td><td>Chicken Breast</td><td>lb</td><td>3.9</td><td>4.3333</td><td>11.1</td><td>31.2</td><td>flag</td><td>Chicken Breast from Example Foodservice came as 4/10 LB then 4/9 LB; compare the price per lb, not per case. Chicken Breast from Example Foodservice: 3.9 per lb on 2026-10-06, 4.3333 on 2026-11-03 (+11.1%). Paid 31.2 more than at the first price.</td></tr>
+<tr><td>Example Foodservice</td><td>Fryer Oil</td><td>lb</td><td>1.0857</td><td>1.2571</td><td>15.8</td><td>18</td><td>flag</td><td>Fryer Oil from Example Foodservice: 1.0857 per lb on 2026-10-06, 1.2571 on 2026-11-03 (+15.8%). Paid 18 more than at the first price. Fryer Oil from Example Foodservice: bid price 1.1 per lb (valid 2026-09-01 to 2026-12-31), last invoiced 1.2571. Over the bid by 16 on the invoices in the bid period.</td></tr>
+<tr><td>Example Foodservice</td><td>Ground Beef 80/20</td><td>lb</td><td>4.6</td><td>4.95</td><td>7.6</td><td>42</td><td>flag</td><td>Ground Beef 80/20 from Example Foodservice: 4.6 per lb on 2026-10-06, 4.95 on 2026-11-03 (+7.6%). Paid 42 more than at the first price. Ground Beef 80/20 from Example Foodservice went up 3 invoices in a row.</td></tr>
+<tr><td>Example Seafood</td><td>Salmon Fillet</td><td>lb</td><td>11.8</td><td>13.2</td><td>11.9</td><td>28</td><td>flag</td><td>Salmon Fillet from Example Seafood: 11.8 per lb on 2026-10-08, 13.2 on 2026-11-05 (+11.9%). Paid 28 more than at the first price. Salmon Fillet from Example Seafood: bid price 12 per lb (valid 2026-09-01 to 2026-12-31), last invoiced 13.2. Over the bid by 24 on the invoices in the bid period.</td></tr>
+<tr><td>Sample Produce Co</td><td>Avocados</td><td>ea</td><td>1.2917</td><td>1.3333</td><td>3.2</td><td>2</td><td>ok</td><td></td></tr>
+<tr><td>Example Foodservice</td><td>Brioche Bun</td><td>ea</td><td>0.45</td><td>0.45</td><td>0</td><td>0</td><td>ok</td><td></td></tr>
+<tr><td>Sample Produce Co</td><td>Romaine</td><td>lb</td><td>2.1</td><td>1.96</td><td>-6.7</td><td>0</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the files you give it. It does not log in to a POS, scheduling, payroll, delivery-app, reservation, distributor, utility or bank system, and changes nothing in them.</li><li>Targets, thresholds and state rules are settings in your own file, with working defaults; check them against your own policies, contracts and local rules before you rely on them.</li><li>Not legal, tax, payroll, health-code, food-safety or accounting advice. A person decides what to pay, refund, change, file or send.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

@@ -1,0 +1,4 @@
+location,month,volume,transactions,total_fees,markup,effective_rate_pct,status,findings,reasons,owner,decision
+Main Street,2026-10,142000,3550,4126.45,1136,2.906,flag,markup_over_contract fee_over_cap downgrade_surcharge unexpected_fee effective_rate_up,"Main Street 2026-10: processor markup 1136 against 781 at the agreed 0.3% + 0.1 a transaction on 142000 and 3550 transactions. Main Street 2026-10: ""Monthly service fee"" 35 against the agreed 25. Main Street 2026-10: ""Non-qualified surcharge"" 212. Downgrades often come from keyed or late-settled transactions; ask the processor which ones. Main Street 2026-10: ""PCI non-compliance fee"" 49.95 is not a fee in your agreement settings. Main Street: effective rate 2.906% in 2026-10 against 2.415% the month before (+49 basis points).",,
+Harbor Road,2026-10,61000,1600,1515.5,343,2.4844,ok,,,,
+Main Street,2026-09,140000,3500,3381,700,2.415,ok,,,,

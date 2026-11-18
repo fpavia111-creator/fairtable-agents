@@ -1,0 +1,9 @@
+equipment,type,location,vendor,last_service,interval_days,due_date,days_left,status,findings,reasons,owner,decision
+Ansul system,Fire suppression,Main Street,Example Fire Protection,2026-05-02,180,2026-10-29,-17,flag,overdue,"Ansul system: last serviced 2026-05-02, every 180 days, due 2026-10-29: 17 days overdue.",,
+Kitchen hood,Hood cleaning,Main Street,Example Hood Services,2026-07-20,90,2026-10-18,-28,flag,overdue,"Kitchen hood: last serviced 2026-07-20, every 90 days, due 2026-10-18: 28 days overdue.",,
+Dish machine,Dish machine,Main Street,,2026-10-15,,,,review,no_interval,"Dish machine: no service interval on the list and no default for ""Dish machine"" in the settings.",,
+Reach-in freezer,Refrigeration,Main Street,Example Refrigeration,,90,,,review,no_last_service,Reach-in freezer (Refrigeration) has no service date on record.,,
+Fire extinguishers,Fire extinguisher,Main Street,Example Fire Protection,2025-11-20,365,2026-11-20,5,watch,due_soon,"Fire extinguishers: due 2026-11-20, in 5 days.",,
+Grease trap,Grease trap,Main Street,Sample Pumping Co,2026-09-10,90,2026-12-09,24,watch,due_soon,"Grease trap: due 2026-12-09, in 24 days.",,
+Ice machine,Ice machine,Main Street,Example Refrigeration,2026-06-01,180,2026-11-28,13,watch,due_soon,"Ice machine: due 2026-11-28, in 13 days.",,
+Walk-in cooler,Refrigeration,Main Street,Example Refrigeration,2026-10-01,90,2026-12-30,45,watch,repeat_repairs,Walk-in cooler was repaired 3 times in 120 days for 1315; compare with the cost of replacing it.,,

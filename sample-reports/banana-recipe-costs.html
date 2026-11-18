@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recipe costs at latest invoice prices</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Recipe costs at latest invoice prices</h1>
+<p class="mut">6 recipe(s) costed at the latest invoice prices; average food cost 25.36%. 1 over target, 1 need review, 1 got dearer.</p>
+<h2>By category</h2><div class="wrap"><table><thead><tr><th scope="col">category</th><th scope="col">count</th><th scope="col">food cost pct</th></tr></thead><tbody>
+<tr><td>Drinks</td><td>1</td><td>30.9</td></tr>
+<tr><td>Entrees</td><td>3</td><td>28.4</td></tr>
+<tr><td>Salads</td><td>1</td><td>10.7</td></tr>
+<tr><td>Sides</td><td>0</td><td></td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>cost_rose</td><td>1</td><td>2.21</td></tr>
+<tr><td>near_target</td><td>1</td><td>0.02</td></tr>
+<tr><td>no_menu_price</td><td>1</td><td>0</td></tr>
+<tr><td>no_price</td><td>1</td><td>0</td></tr>
+<tr><td>over_target</td><td>1</td><td>4.81</td></tr>
+<tr><td>unit_mismatch</td><td>1</td><td>0</td></tr>
+</tbody></table></div>
+<h2>All rows (6)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">recipe</th><th scope="col">menu price</th><th scope="col">plate cost</th><th scope="col">food cost pct</th><th scope="col">target pct</th><th scope="col">price at target</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>Steak Frites</td><td>29</td><td>14.09</td><td>48.6</td><td>32</td><td>44.25</td><td>flag</td><td>Herb Butter has no invoice price, so Steak Frites is costed without it. Steak Frites: plate cost 14.09 is 48.6% of the 29 menu price, over the 32% target; 44.25 would meet it. Steak Frites: plate cost rose from 11.88 to 14.09 (18.6%) between the earliest and the latest invoice prices.</td></tr>
+<tr><td>Truffle Fries</td><td></td><td>0.41</td><td></td><td>30</td><td>1.5</td><td>review</td><td>Truffle Oil is used in floz but bought as &quot;6/1 LB&quot;; add a conversion or name the pack. Truffle Fries has no menu price in the recipe file, so its food cost % cannot be worked out.</td></tr>
+<tr><td>House Lemonade</td><td>1.75</td><td>0.54</td><td>30.9</td><td>30</td><td>2</td><td>watch</td><td>House Lemonade: 30.9% against a 30% target.</td></tr>
+<tr><td>Caesar Salad</td><td>12</td><td>1.28</td><td>10.7</td><td>30</td><td>4.5</td><td>ok</td><td></td></tr>
+<tr><td>Classic Burger</td><td>14</td><td>2.92</td><td>20.9</td><td>32</td><td>9.25</td><td>ok</td><td></td></tr>
+<tr><td>Shrimp Tacos</td><td>16</td><td>2.51</td><td>15.7</td><td>32</td><td>8</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the files you give it. It does not log in to a POS, scheduling, payroll, delivery-app, reservation, distributor, utility or bank system, and changes nothing in them.</li><li>Targets, thresholds and state rules are settings in your own file, with working defaults; check them against your own policies, contracts and local rules before you rely on them.</li><li>Not legal, tax, payroll, health-code, food-safety or accounting advice. A person decides what to pay, refund, change, file or send.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu engineering</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Menu engineering</h1>
+<p class="mut">11 item(s), total margin 14,998.50: 3 star(s), 3 plowhorse(s), 3 puzzle(s), 1 dog(s). 2 to review.</p>
+<h2>By quadrant</h2><div class="wrap"><table><thead><tr><th scope="col">quadrant</th><th scope="col">count</th><th scope="col">items</th></tr></thead><tbody>
+<tr><td>star</td><td>3</td><td>Cobb Salad, Fish and Chips, Shrimp Tacos</td></tr>
+<tr><td>plowhorse</td><td>3</td><td>Caesar Salad, Chicken Sandwich, Classic Burger</td></tr>
+<tr><td>puzzle</td><td>3</td><td>Lamb Shank, Mushroom Risotto, Steak Frites</td></tr>
+<tr><td>dog</td><td>1</td><td>Beet Salad</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>dog</td><td>1</td><td>258</td></tr>
+<tr><td>no_cost</td><td>1</td><td>0</td></tr>
+<tr><td>plowhorse</td><td>3</td><td>0</td></tr>
+<tr><td>puzzle</td><td>3</td><td>0</td></tr>
+</tbody></table></div>
+<h2>All rows (11)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">category</th><th scope="col">item</th><th scope="col">qty</th><th scope="col">mix pct</th><th scope="col">contribution margin</th><th scope="col">quadrant</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>Salads</td><td>Beet Salad</td><td>30</td><td>10</td><td>8.6</td><td>dog</td><td>review</td><td>Beet Salad (Salads): 10% of the category&#39;s sales count against a 23.33% bar, margin 8.6 against an average of 9.44: dog, sells little and earns less than average: consider replacing it unless it serves a purpose (a vegetarian option, a signature).</td></tr>
+<tr><td>Entrees</td><td>Chef Special</td><td>60</td><td>4.9</td><td></td><td></td><td>review</td><td>Chef Special has no plate cost, so its margin and quadrant are unknown.</td></tr>
+<tr><td>Salads</td><td>Caesar Salad</td><td>180</td><td>60</td><td>9.4</td><td>plowhorse</td><td>watch</td><td>Caesar Salad (Salads): 60% of the category&#39;s sales count against a 23.33% bar, margin 9.4 against an average of 9.44: plowhorse, popular but earns less than average: check the portion and plate cost, or a small price step.</td></tr>
+<tr><td>Entrees</td><td>Chicken Sandwich</td><td>310</td><td>25.4</td><td>7.6</td><td>plowhorse</td><td>watch</td><td>Chicken Sandwich (Entrees): 25.4% of the category&#39;s sales count against a 8.75% bar, margin 7.6 against an average of 10.49: plowhorse, popular but earns less than average: check the portion and plate cost, or a small price step.</td></tr>
+<tr><td>Entrees</td><td>Classic Burger</td><td>420</td><td>34.4</td><td>9.9</td><td>plowhorse</td><td>watch</td><td>Classic Burger (Entrees): 34.4% of the category&#39;s sales count against a 8.75% bar, margin 9.9 against an average of 10.49: plowhorse, popular but earns less than average: check the portion and plate cost, or a small price step.</td></tr>
+<tr><td>Entrees</td><td>Lamb Shank</td><td>25</td><td>2</td><td>18.5</td><td>puzzle</td><td>watch</td><td>Lamb Shank (Entrees): 2% of the category&#39;s sales count against a 8.75% bar, margin 18.5 against an average of 10.49: puzzle, earns well but sells little: move it on the menu, rename it, or have servers suggest it.</td></tr>
+<tr><td>Entrees</td><td>Mushroom Risotto</td><td>40</td><td>3.3</td><td>12.1</td><td>puzzle</td><td>watch</td><td>Mushroom Risotto (Entrees): 3.3% of the category&#39;s sales count against a 8.75% bar, margin 12.1 against an average of 10.49: puzzle, earns well but sells little: move it on the menu, rename it, or have servers suggest it.</td></tr>
+<tr><td>Entrees</td><td>Steak Frites</td><td>95</td><td>7.8</td><td>17.2</td><td>puzzle</td><td>watch</td><td>Steak Frites (Entrees): 7.8% of the category&#39;s sales count against a 8.75% bar, margin 17.2 against an average of 10.49: puzzle, earns well but sells little: move it on the menu, rename it, or have servers suggest it.</td></tr>
+<tr><td>Salads</td><td>Cobb Salad</td><td>90</td><td>30</td><td>9.8</td><td>star</td><td>ok</td><td></td></tr>
+<tr><td>Entrees</td><td>Fish and Chips</td><td>150</td><td>12.3</td><td>10.8</td><td>star</td><td>ok</td><td></td></tr>
+<tr><td>Entrees</td><td>Shrimp Tacos</td><td>120</td><td>9.8</td><td>12.1</td><td>star</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the files you give it. It does not log in to a POS, scheduling, payroll, delivery-app, reservation, distributor, utility or bank system, and changes nothing in them.</li><li>Targets, thresholds and state rules are settings in your own file, with working defaults; check them against your own policies, contracts and local rules before you rely on them.</li><li>Not legal, tax, payroll, health-code, food-safety or accounting advice. A person decides what to pay, refund, change, file or send.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

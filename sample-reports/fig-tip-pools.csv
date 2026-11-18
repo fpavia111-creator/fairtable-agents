@@ -1,0 +1,9 @@
+week,employee,role,hours,rate,card_tips,cash_tips,pool_share,effective_hourly,makeup_owed,status,findings,reasons,owner,decision
+2026-11-09,Avery Stone,Server,10,2.13,30,0,23.33,4.46,27.9,flag,tip_credit_shortfall no_cash_declared,"Avery Stone, week of 2026-11-09: wages 21.3 + pool share 23.33 + cash tips 0 over 10 hours is 4.46 an hour, under the 7.25 minimum. Makeup 27.9. Avery Stone has card tips and no cash tips declared in the week of 2026-11-09.",,
+2026-11-09,Casey Moreno,Server,20,2.13,40,0,46.67,4.46,55.8,flag,tip_credit_shortfall no_cash_declared,"Casey Moreno, week of 2026-11-09: wages 42.6 + pool share 46.67 + cash tips 0 over 20 hours is 4.46 an hour, under the 7.25 minimum. Makeup 55.8. Casey Moreno has card tips and no cash tips declared in the week of 2026-11-09.",,
+2026-11-02,Morgan Blake,Manager,40,22,140,0,0,22,0,flag,manager_kept_tips,Morgan Blake is a Manager and has 140 of tips on their own timecard in the week of 2026-11-02. Tips a manager or supervisor collects go into the pool; they were added to it here.,,
+2026-11-02,Taylor Brooks,Host,15,2,0,0,73.71,6.91,7.05,flag,below_cash_wage tip_credit_shortfall,"Taylor Brooks is paid 2 an hour, under the 2.13 tipped cash wage in the settings. Taylor Brooks, week of 2026-11-02: wages 30 + pool share 73.71 + cash tips 0 over 15 hours is 6.91 an hour, under the 7.25 minimum. Makeup 5.1.",,
+2026-11-02,Jamie Ortiz,Server,32,2.13,250,0,393.14,14.42,0,watch,no_cash_declared,Jamie Ortiz has card tips and no cash tips declared in the week of 2026-11-02.,,
+2026-11-02,Avery Stone,Server,30,2.13,600,120,368.57,18.42,0,ok,,,,
+2026-11-02,Riley Chen,Bartender,25,5,300,80,307.14,20.49,0,ok,,,,
+2026-11-02,Sam Patel,Busser,20,8,0,0,147.43,15.37,0,ok,,,,

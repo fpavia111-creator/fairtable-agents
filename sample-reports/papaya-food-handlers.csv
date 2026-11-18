@@ -1,0 +1,10 @@
+employee,role,location,hire_date,certificates,next_expiry,status,findings,reasons,owner,decision
+Casey Morgan,Prep Cook,Main Street,2026-10-01,,,flag,missing_card,"Casey Morgan (Prep Cook, Main Street) has no food handler card on file after 45 days.",,
+Harbor Road (location),,Harbor Road,,,,flag,no_certified_manager,Harbor Road has no one on the active roster with a current food protection manager certificate.,,
+Morgan Blake,Kitchen Manager,Harbor Road,2022-01-10,"Food handler, Food protection manager",2027-01-15,flag,expired,Morgan Blake: food protection manager certificate FPM-202 expired on 2026-05-01.,,
+Sam Patel,Sous Chef,Main Street,2023-06-15,"Food handler, Food protection manager",2026-12-01,flag,expired expiring_soon,"Sam Patel: food handler card FH-1002 expired on 2026-06-20. Sam Patel: food protection manager certificate FPM-201 expires 2026-12-01, in 16 days.",,
+Jamie Ortiz,Server,Harbor Road,2025-08-20,Food handler,2028-08-25,review,alcohol_cert_missing,Jamie Ortiz works as Server with no alcohol server certificate on file.,,
+Riley Chen,Dishwasher,Main Street,2026-11-05,,,watch,in_grace_period,Riley Chen started 2026-11-05; a food handler card is due within 30 days (by 2026-12-05).,,
+Taylor Brooks,Line Cook,Harbor Road,2024-11-11,Food handler,2026-12-10,watch,expiring_soon,"Taylor Brooks: food handler card FH-1005 expires 2026-12-10, in 25 days.",,
+Avery Stone,Bartender,Main Street,2025-02-10,"Alcohol server, Food handler",2027-02-20,ok,,,,
+Jordan Lee,Line Cook,Main Street,2024-03-01,Food handler,2027-03-10,ok,,,,

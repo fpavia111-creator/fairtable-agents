@@ -1,0 +1,7 @@
+item,declared,contains,free_from,status,findings,reasons,owner,decision
+Caesar Salad,"egg, milk, wheat","egg, fish, milk, wheat",,flag,undeclared_allergen,Caesar Salad contains fish (from Caesar Dressing) but the matrix does not declare it.,,
+Gluten-Free Pasta,"milk, tree nuts","milk, tree nuts, wheat",gluten free,flag,undeclared_allergen free_from_broken,Gluten-Free Pasta contains wheat (from Panko Topping) but the matrix does not declare it. Gluten-Free Pasta is marked gluten free but contains wheat (from Panko Topping).,,
+Fish Tacos,"fish, milk, shellfish","fish, milk",gluten free,review,declared_not_found,Fish Tacos declares shellfish but no ingredient on file contains it. Keep it if it is a cross-contact warning; otherwise update the matrix.,,
+Fries Basket,,,"gluten free, vegan",review,ingredient_no_data,"Fries Basket: ingredient ""Fryer Oil"" has no allergen data; ask the supplier for its specification sheet.",,
+Seasonal Soup,milk,,,review,no_recipe,"Seasonal Soup is on the allergen matrix but has no recipe, so its declarations cannot be checked.",,
+Classic Burger,"egg, milk, sesame, soy, wheat","egg, milk, sesame, soy, wheat",,ok,,,,

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meal and rest breaks</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Meal and rest breaks</h1>
+<p class="mut">7 shift(s): 3 with a missed or short meal, 2 with a minor&#39;s hours issue; premiums shown under the settings 51.00 (rules: Example break rules (fictional settings modelled on a strict state; check your own)). 4 flagged.</p>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>late_meal</td><td>1</td><td>17</td></tr>
+<tr><td>minor_late_shift</td><td>2</td><td>0</td></tr>
+<tr><td>minor_over_hours</td><td>1</td><td>0</td></tr>
+<tr><td>missed_meal_break</td><td>1</td><td>18</td></tr>
+<tr><td>missed_second_meal</td><td>1</td><td>16.5</td></tr>
+<tr><td>short_meal_break</td><td>1</td><td>16.5</td></tr>
+</tbody></table></div>
+<h2>All rows (7)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">employee</th><th scope="col">shift</th><th scope="col">hours</th><th scope="col">break minutes</th><th scope="col">premium</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>Jordan Lee</td><td>2026-11-04 10:00 to 18:30</td><td>8.5</td><td>0</td><td>18</td><td>flag</td><td>Jordan Lee worked 8.5 hours on 2026-11-04 with no meal break recorded (rules: a 30-minute meal after 5 hours). Premium under the settings: 18.</td></tr>
+<tr><td>Riley Chen</td><td>2026-11-04 11:00 to 23:30</td><td>12</td><td>30</td><td>16.5</td><td>flag</td><td>Riley Chen: 12.5 hours on 2026-11-04 with 30 minutes of meal breaks; a second meal is due after 10 hours under the settings.</td></tr>
+<tr><td>Sam Patel</td><td>2026-11-05 16:00 to 22:45</td><td>6.42</td><td>20</td><td>16.5</td><td>flag</td><td>Sam Patel: 20-minute meal break on 2026-11-05, shorter than 30. Premium under the settings: 16.5. Sam Patel (age 17) clocked out at 22:45 on 2026-11-05; the settings say 22:30 for under 18.</td></tr>
+<tr><td>Taylor Brooks</td><td>2026-11-06 16:00 to 22:30</td><td>6</td><td>30</td><td>0</td><td>flag</td><td>Taylor Brooks (age 15) worked 6 hours on 2026-11-06; the settings allow 3 for under 16. Taylor Brooks (age 15) clocked out at 22:30 on 2026-11-06; the settings say 21:00 for under 16.</td></tr>
+<tr><td>Casey Morgan</td><td>2026-11-03 07:00 to 15:30</td><td>8</td><td>30</td><td>0</td><td>review</td><td>Casey Morgan: meal started 6.25 hours into the shift on 2026-11-03, after the 5th hour.</td></tr>
+<tr><td>Avery Stone</td><td>2026-11-06 17:00 to 21:30</td><td>4.5</td><td>0</td><td>0</td><td>ok</td><td></td></tr>
+<tr><td>Jordan Lee</td><td>2026-11-03 10:00 to 18:30</td><td>8</td><td>30</td><td>0</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the timecards you give it; it changes nothing in the timekeeping or payroll system.</li><li>Break and minor rules are settings; they differ by state and city and change. An employment lawyer or payroll professional confirms them before any premium is paid or withheld.</li><li>Not legal or payroll advice.</li><li>Names, phone numbers and emails of staff and guests are masked in results returned to the AI model. The report and draft files written here keep the real values: keep them in a private folder.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

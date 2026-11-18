@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sales tax by jurisdiction</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Sales tax by jurisdiction</h1>
+<p class="mut">8 location/category line(s): net sales 32,500.00, tax collected 2,353.00 against 2,266.00 expected; under 84.00, over 24.75. 1 flagged, 3 need review.</p>
+<h2>By jurisdiction</h2><div class="wrap"><table><thead><tr><th scope="col">jurisdiction</th><th scope="col">net sales</th><th scope="col">tax</th></tr></thead><tbody>
+<tr><td>Airport Kiosk</td><td>900</td><td>72</td></tr>
+<tr><td>Example City (fictional rates)</td><td>19900</td><td>1468.5</td></tr>
+<tr><td>Example County (fictional rates)</td><td>11700</td><td>812.5</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>exempt_sales</td><td>1</td><td>1200</td></tr>
+<tr><td>marketplace_tax_in_pos</td><td>1</td><td>74.25</td></tr>
+<tr><td>over_collected</td><td>1</td><td>24.75</td></tr>
+<tr><td>under_collected</td><td>1</td><td>84</td></tr>
+<tr><td>unknown_location</td><td>1</td><td>0</td></tr>
+</tbody></table></div>
+<h2>All rows (8)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">location</th><th scope="col">category</th><th scope="col">channel</th><th scope="col">net sales</th><th scope="col">tax collected</th><th scope="col">tax expected</th><th scope="col">difference</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>Main Street</td><td>Alcohol</td><td>Dine-in</td><td>4200</td><td>346.5</td><td>430.5</td><td>-84</td><td>flag</td><td>Main Street | Alcohol: collected 346.5 on 4200 (8.25%), the settings say 10.25% = 430.5; 84 under.</td></tr>
+<tr><td>Airport Kiosk</td><td>Food</td><td>Dine-in</td><td>900</td><td>72</td><td></td><td></td><td>review</td><td>Airport Kiosk has no tax rate in the settings, so 900 of sales were not checked.</td></tr>
+<tr><td>Main Street</td><td>Food</td><td>DoorDash, Uber Eats</td><td>3000</td><td>74.25</td><td>0</td><td>74.25</td><td>review</td><td>Main Street | Food | marketplace: 74.25 of tax recorded in the POS on DoorDash, Uber Eats orders. Where the marketplace collects and remits the tax, remitting this too would pay it twice; check how the POS records these orders.</td></tr>
+<tr><td>Main Street</td><td>Grocery</td><td>Takeout</td><td>300</td><td>24.75</td><td>0</td><td>24.75</td><td>review</td><td>Main Street | Grocery: collected 24.75, the settings say 0% = 0; 24.75 over. Over-collected tax is usually owed to the state, not kept.</td></tr>
+<tr><td>Harbor Road</td><td>Food</td><td>Catering</td><td>1200</td><td>0</td><td>0</td><td>0</td><td>watch</td><td>Harbor Road | Food | exempt: 1200 of sales marked tax-exempt. Keep the exemption certificate for each one.</td></tr>
+<tr><td>Harbor Road</td><td>Alcohol</td><td>Dine-in</td><td>2500</td><td>212.5</td><td>212.5</td><td>0</td><td>ok</td><td></td></tr>
+<tr><td>Harbor Road</td><td>Food</td><td>Dine-in</td><td>8000</td><td>600</td><td>600</td><td>0</td><td>ok</td><td></td></tr>
+<tr><td>Main Street</td><td>Food</td><td>Dine-in</td><td>12400</td><td>1023</td><td>1023</td><td>0</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the sales export you give it. It does not log in to a POS or a tax authority and files nothing.</li><li>Rates, category rules and marketplace treatment are settings you supply from your tax authority; they differ by city, county and state and change. Your accountant confirms them.</li><li>Not tax or legal advice. A person decides what to file and pay.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

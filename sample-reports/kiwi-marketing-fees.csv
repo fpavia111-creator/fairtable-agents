@@ -1,0 +1,8 @@
+platform,campaign,type,window,budget,spend,orders,order_sales,sales_per_dollar,status,findings,reasons,owner,decision
+DoorDash,(no campaign) DoorDash ad fees,ad fees,,,3,1,52,,flag,fee_outside_campaign,DoorDash charged 3 in ad fees on 1 order(s) (DD-2006) on dates no opted-in campaign covers (2026-11-09).,,
+Uber Eats,Buy one get one wings,promo,2026-11-01 to 2026-11-30,30,12,2,80,6.67,flag,not_opted_in,"Uber Eats charged 12 for ""Buy one get one wings"", which the campaign list says was not opted into.",,
+DoorDash,Sponsored listing Nov wk1,ads,2026-11-01 to 2026-11-07,12,15,5,243,16.2,flag,over_budget,"""Sponsored listing Nov wk1"" cost 15 against a budget of 12.",,
+DoorDash,DoorDash marketing share,total,,,33,,295,8.94,watch,marketing_share_high,"DoorDash: marketing and promotions are 11.2% of its sales (33 of 295), over the 10% target.",,
+Uber Eats,Uber Eats marketing share,total,,,14.5,,120,8.28,watch,marketing_share_high,"Uber Eats: marketing and promotions are 12.1% of its sales (14.5 of 120), over the 10% target.",,
+DoorDash,Spend 30 save 5,promo,2026-11-04 to 2026-11-30,40,15,3,146,9.73,ok,,,,
+Uber Eats,Sponsored search,ads,2026-11-01 to 2026-11-30,20,2.5,1,40,16,ok,,,,

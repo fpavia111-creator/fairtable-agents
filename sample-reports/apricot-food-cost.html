@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Actual against theoretical food cost</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Actual against theoretical food cost</h1>
+<p class="mut">Period 2026-11-01 to 2026-11-08: net sales 8,170.00, theoretical food cost 1,218.01 (14.9%), actual 1,463.30 (17.9%), gap 245.29. 2 ingredient(s) flagged, 6 need review.</p>
+<h2>Totals</h2><div class="wrap"><table><thead><tr><th scope="col">net sales</th><th scope="col">theoretical cost</th><th scope="col">actual cost</th><th scope="col">theoretical pct</th><th scope="col">actual pct</th><th scope="col">target pct</th></tr></thead><tbody>
+<tr><td>8170</td><td>1218.01</td><td>1463.3</td><td>14.9</td><td>17.9</td><td>30</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>item_sold_no_recipe</td><td>1</td><td>0</td></tr>
+<tr><td>no_close_count</td><td>1</td><td>0</td></tr>
+<tr><td>not_in_recipes</td><td>1</td><td>36</td></tr>
+<tr><td>over_usage</td><td>2</td><td>138.45</td></tr>
+<tr><td>purchase_not_matched</td><td>1</td><td>38</td></tr>
+<tr><td>small_over_usage</td><td>4</td><td>79.69</td></tr>
+<tr><td>under_usage</td><td>1</td><td>-1.2</td></tr>
+<tr><td>unit_mismatch</td><td>1</td><td>0</td></tr>
+</tbody></table></div>
+<h2>All rows (14)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">item</th><th scope="col">unit</th><th scope="col">actual qty</th><th scope="col">theoretical qty</th><th scope="col">variance pct</th><th scope="col">variance cost</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>Cheddar Cheese</td><td>lb</td><td>26</td><td>13.75</td><td>89.1</td><td>63.7</td><td>flag</td><td>Cheddar Cheese: used 26 lb (open 10 + bought 20 - close 4), recipes say 13.75 for 1 menu item(s). Gap 12.25 lb (89.1%), 63.7 at 5.2 per lb.</td></tr>
+<tr><td>Chicken Breast</td><td>lb</td><td>90</td><td>70.83</td><td>27.1</td><td>74.75</td><td>flag</td><td>Chicken Breast: used 90 lb (open 30 + bought 80 - close 20), recipes say 70.83 for 2 menu item(s). Gap 19.17 lb (27.1%), 74.75 at 3.9 per lb.</td></tr>
+<tr><td>Anchovy Paste</td><td>ea</td><td>2</td><td>0</td><td></td><td></td><td>review</td><td>Anchovy Paste: Caesar Salad uses 0.25 oz, counted in ea; weight, volume and each cannot be converted without a conversion in the recipe.</td></tr>
+<tr><td>Corn Tortilla</td><td>ea</td><td>100</td><td>120</td><td>-16.7</td><td>-1.2</td><td>review</td><td>Corn Tortilla: used 100 ea (open 300 + bought 0 - close 200), recipes say 120 for 1 menu item(s). Gap -20 ea (-16.7%), -1.2 at 0.06 per ea. Less than the recipes: look for a missing invoice, a count error or a recipe that uses less.</td></tr>
+<tr><td>Fryer Oil</td><td>gal</td><td>4</td><td>0</td><td></td><td></td><td>review</td><td>Fryer Oil: 4 gal used but no recipe uses it (oil, garnish or a missing recipe line). It counts in actual cost only.</td></tr>
+<tr><td>LEMON 165CT</td><td></td><td></td><td></td><td></td><td></td><td>review</td><td>Invoice SP-7712 line &quot;LEMON 165CT&quot; matches no counted or recipe ingredient, so it is not in actual use. Teach the agent the name, or add it to the count sheet.</td></tr>
+<tr><td>Lemons</td><td>ea</td><td></td><td>30</td><td></td><td></td><td>review</td><td>Lemons has an opening count but no closing count on 2026-11-08.</td></tr>
+<tr><td>Seasonal Soup</td><td></td><td></td><td></td><td></td><td></td><td>review</td><td>Seasonal Soup: 40 sold for 320 but no recipe, so its ingredients are missing from theoretical use.</td></tr>
+<tr><td>Cod Fillet</td><td>lb</td><td>16</td><td>15</td><td>6.7</td><td>9.5</td><td>watch</td><td>Cod Fillet: used 16 lb (open 12 + bought 10 - close 6), recipes say 15 for 1 menu item(s). Gap 1 lb (6.7%), 9.5 at 9.5 per lb.</td></tr>
+<tr><td>Frozen Fries</td><td>lb</td><td>80</td><td>52.5</td><td>52.4</td><td>30.25</td><td>watch</td><td>Frozen Fries: used 80 lb (open 60 + bought 60 - close 40), recipes say 52.5 for 1 menu item(s). Gap 27.5 lb (52.4%), 30.25 at 1.1 per lb.</td></tr>
+<tr><td>Ground Beef 80/20</td><td>lb</td><td>90</td><td>82.5</td><td>9.1</td><td>36</td><td>watch</td><td>Ground Beef 80/20: used 90 lb (open 40 + bought 80 - close 30), recipes say 82.5 for 1 menu item(s). Gap 7.5 lb (9.1%), 36 at 4.8 per lb.</td></tr>
+<tr><td>Romaine</td><td>lb</td><td>30</td><td>28.13</td><td>6.7</td><td>3.94</td><td>watch</td><td>Romaine: used 30 lb (open 15 + bought 25 - close 10), recipes say 28.13 for 1 menu item(s). Gap 1.88 lb (6.7%), 3.94 at 2.1 per lb.</td></tr>
+<tr><td>Brioche Bun</td><td>ea</td><td>370</td><td>370</td><td>0</td><td>0</td><td>ok</td><td></td></tr>
+<tr><td>Parmesan</td><td>lb</td><td>2.8</td><td>2.81</td><td>-0.4</td><td>-0.15</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the files you give it. It does not log in to a POS, scheduling, payroll, delivery-app, reservation, distributor, utility or bank system, and changes nothing in them.</li><li>Targets, thresholds and state rules are settings in your own file, with working defaults; check them against your own policies, contracts and local rules before you rely on them.</li><li>Not legal, tax, payroll, health-code, food-safety or accounting advice. A person decides what to pay, refund, change, file or send.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>

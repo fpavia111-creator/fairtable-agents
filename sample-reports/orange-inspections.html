@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Health inspection calendar</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1c1a;--mut:#6b6760;--line:#e4e0d8;--ok:#1f7a4d;--bad:#b42318;--warn:#a15c07;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161514;--fg:#ecebe8;--mut:#a29d94;--line:#34312d;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--card:#1f1e1c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,"Hiragino Sans","Yu Gothic UI","Microsoft YaHei","PingFang SC","Malgun Gothic","Apple SD Gothic Neo","Noto Sans CJK",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:120px}
+.tile b{display:block;font-size:22px}code{font-size:13px;overflow-wrap:anywhere}pre{overflow-x:auto}
+.wrap{overflow-x:auto;max-width:100%}svg,img{max-width:100%;height:auto}figure{margin:16px 0}p,li,h1,h2,h3{overflow-wrap:break-word}
+</style></head><body><main>
+<h1>Health inspection calendar</h1>
+<p class="mut">3 location(s), 6 permit(s) at 2026-11-15: 2 need action now, 4 coming up. 1 to review.</p>
+<h2>Next 30 days</h2><div class="wrap"><table><thead><tr><th scope="col">item</th><th scope="col">next date</th><th scope="col">days left</th></tr></thead><tbody>
+<tr><td>Harbor Road | inspections</td><td>2026-10-19</td><td>-27</td></tr>
+<tr><td>Main Street | Liquor licence</td><td>2026-11-01</td><td>-14</td></tr>
+<tr><td>Airport Kiosk | inspections</td><td>2026-12-02</td><td>17</td></tr>
+</tbody></table></div>
+<h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
+<tr><td>critical_open</td><td>1</td><td>0</td></tr>
+<tr><td>no_expiry</td><td>1</td><td>0</td></tr>
+<tr><td>permit_expired</td><td>1</td><td>0</td></tr>
+<tr><td>permit_expiring</td><td>2</td><td>0</td></tr>
+<tr><td>reinspection_overdue</td><td>1</td><td>0</td></tr>
+<tr><td>routine_due</td><td>2</td><td>0</td></tr>
+<tr><td>score_drop</td><td>1</td><td>0</td></tr>
+</tbody></table></div>
+<h2>All rows (9)</h2>
+<div class="wrap"><table><thead><tr><th scope="col">item</th><th scope="col">last inspection</th><th scope="col">last score</th><th scope="col">next date</th><th scope="col">days left</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
+<tr><td>Main Street | Liquor licence</td><td></td><td></td><td>2026-11-01</td><td>-14</td><td>flag</td><td>Main Street: Liquor licence LL-2001 expired on 2026-11-01, 14 days ago.</td></tr>
+<tr><td>Main Street | inspections</td><td>2026-08-18</td><td>86</td><td>2027-02-14</td><td>91</td><td>flag</td><td>Main Street: a re-inspection was due 2026-09-01 after the 2026-08-18 inspection and none is on file. Main Street: 2 critical violation(s) at the 2026-08-18 inspection with no later inspection on file to show they were corrected. Main Street: score fell from 94 to 86.</td></tr>
+<tr><td>Airport Kiosk | Fire inspection certificate</td><td></td><td></td><td></td><td></td><td>review</td><td>Airport Kiosk: Fire inspection certificate has no expiry date on file.</td></tr>
+<tr><td>Airport Kiosk | inspections</td><td>2026-06-05</td><td>92</td><td>2026-12-02</td><td>17</td><td>watch</td><td>Airport Kiosk: last routine inspection 2026-06-05; at about every 180 days the next could come around 2026-12-02. Walk the kitchen with the inspection form before then.</td></tr>
+<tr><td>Harbor Road | Liquor licence</td><td></td><td></td><td>2026-12-20</td><td>35</td><td>watch</td><td>Harbor Road: Liquor licence LL-2002 expires 2026-12-20, in 35 days.</td></tr>
+<tr><td>Harbor Road | inspections</td><td>2026-10-15</td><td>95</td><td>2026-10-19</td><td>-27</td><td>watch</td><td>Harbor Road: last routine inspection 2026-04-22; at about every 180 days the next could come around 2026-10-19. Walk the kitchen with the inspection form before then.</td></tr>
+<tr><td>Main Street | Food service permit</td><td></td><td></td><td>2026-12-31</td><td>46</td><td>watch</td><td>Main Street: Food service permit FSP-1001 expires 2026-12-31, in 46 days.</td></tr>
+<tr><td>Airport Kiosk | Food service permit</td><td></td><td></td><td>2027-06-30</td><td>227</td><td>ok</td><td></td></tr>
+<tr><td>Harbor Road | Food service permit</td><td></td><td></td><td>2027-03-31</td><td>136</td><td>ok</td><td></td></tr>
+</tbody></table></div>
+<h2>Limits</h2><ul><li>Reads only the files you give it; it does not contact the health department or a licensing office.</li><li>The next routine visit is an estimate from your own history and the interval in the settings; inspections can come at any time.</li><li>Not legal or health-code advice.</li></ul>
+<p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>
+</main></body></html>
