@@ -1,0 +1,14 @@
+ä®íËâ»ñ⁄,utility,ï€ä«èÍèä,period_start,period_end,usage,íPà ,ã‡äz,read_type,late_fee
+EL-4410,Electric,Main Street,2026/06/01,2026/06/30,"9,000",kWh,"1,530.00",actual,0.00
+EL-4410,Electric,Main Street,2026/07/01,2026/07/31,"9,300",kWh,"1,581.00",actual,0.00
+EL-4410,Electric,Main Street,2026/08/01,2026/08/31,"9,200",kWh,"1,564.00",actual,0.00
+EL-4410,Electric,Main Street,2026/09/01,2026/09/30,"8,900",kWh,"1,513.00",actual,0.00
+EL-4410,Electric,Main Street,2026/10/01,2026/10/31,"13,100",kWh,"2,227.00",actual,0.00
+GS-2020,Gas,Main Street,2026/07/01,2026/07/31,610,therm,640.50,actual,0.00
+GS-2020,Gas,Main Street,2026/08/01,2026/08/31,600,therm,630.00,estimated,0.00
+GS-2020,Gas,Main Street,2026/09/01,2026/09/30,590,therm,619.50,estimated,0.00
+GS-2020,Gas,Main Street,2026/10/01,2026/10/31,620,therm,806.00,actual,35.00
+WT-7781,Water,Harbor Road,2026/08/01,2026/08/31,"41,000",gal,410.00,actual,0.00
+WT-7781,Water,Harbor Road,2026/09/01,2026/09/30,"40,500",gal,405.00,actual,0.00
+WT-7781,Water,Harbor Road,2026/09/01,2026/09/30,"40,500",gal,405.00,actual,0.00
+WT-7781,Water,Harbor Road,2026/10/01,2026/10/31,"42,000",gal,420.00,actual,0.00
