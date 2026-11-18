@@ -1,0 +1,56 @@
+{
+  "name": "melon-of-catering",
+  "version": "0.1.0",
+  "description": "Melon of Catering: catering and private-event deposits and balances against your bookings: deposits missing as the event gets close, balances overdue after the event, overpayments, refunds owed on cancellations and payments with no booking. Client names are masked for the AI model. Never charges or refunds anyone.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "melon-of-catering": "bin/melon-of-catering.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/melon-of-catering.js demo",
+    "eval": "node bin/melon-of-catering.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/melon-of-catering"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/melon-of-catering#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "catering",
+    "private-events",
+    "deposits"
+  ]
+}

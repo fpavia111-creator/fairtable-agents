@@ -1,0 +1,10 @@
+event_id;Datum;Betrag;Typ;Zahlungsart
+EV-301;16.09.2026;600,00;deposit;card
+EV-301;21.10.2026;1.800,00;balance;check
+EV-302;02.08.2026;1.000,00;deposit;card
+EV-303;02.10.2026;787,50;deposit;card
+EV-304;06.10.2026;750,00;deposit;card
+EV-305;21.09.2026;350,00;deposit;card
+EV-306;11.10.2026;312,50;deposit;card
+EV-306;05.11.2026;1.000,00;balance;card
+EV-399;02.11.2026;500,00;deposit;check
