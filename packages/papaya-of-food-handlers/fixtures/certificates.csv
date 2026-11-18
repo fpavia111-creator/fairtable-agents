@@ -1,0 +1,10 @@
+employee,cert_type,number,issued,expires
+Jordan Lee,Food handler,FH-1001,2024-03-10,2027-03-10
+Sam Patel,Food handler,FH-1002,2023-06-20,2026-06-20
+Sam Patel,Food protection manager,FPM-201,2021-12-01,2026-12-01
+Avery Stone,Food handler,FH-1003,2025-02-15,2028-02-15
+Avery Stone,Alcohol server,AS-501,2025-02-20,2027-02-20
+Jamie Ortiz,Food handler,FH-1004,2025-08-25,2028-08-25
+Taylor Brooks,Food handler,FH-1005,2024-11-15,2026-12-10
+Morgan Blake,Food handler,FH-1006,2022-01-15,2027-01-15
+Morgan Blake,Food protection manager,FPM-202,2021-05-01,2026-05-01

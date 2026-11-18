@@ -1,0 +1,10 @@
+{
+  "as_of": "2026-11-15",
+  "grace_days": 30,
+  "warn_days": 45,
+  "food_handler_types": ["Food handler"],
+  "manager_cert_types": ["Food protection manager"],
+  "alcohol_cert_types": ["Alcohol server"],
+  "alcohol_roles": ["Bartender", "Server"],
+  "manager_per_location": true
+}
