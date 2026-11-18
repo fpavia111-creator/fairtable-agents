@@ -1,0 +1,56 @@
+{
+  "name": "lime-of-menu-mix",
+  "version": "0.1.0",
+  "description": "Lime of Menu Mix: menu engineering from your POS item sales and plate costs: each item's popularity and contribution margin within its category, sorted into stars, plowhorses, puzzles and dogs, with a menu proposal draft. Never changes the menu or prices in the POS.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "lime-of-menu-mix": "bin/lime-of-menu-mix.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/lime-of-menu-mix.js demo",
+    "eval": "node bin/lime-of-menu-mix.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/lime-of-menu-mix"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/lime-of-menu-mix#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "menu-engineering",
+    "menu-mix",
+    "contribution-margin"
+  ]
+}
