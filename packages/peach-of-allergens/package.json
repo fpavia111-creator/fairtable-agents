@@ -1,0 +1,56 @@
+{
+  "name": "peach-of-allergens",
+  "version": "0.1.0",
+  "description": "Peach of Allergens: checks your menu's allergen matrix against the recipes and each ingredient's allergens: allergens in a dish that the matrix does not declare, free-from claims a recipe breaks, declarations no ingredient explains, and ingredients with no allergen data. Never changes the menu.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "peach-of-allergens": "bin/peach-of-allergens.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/peach-of-allergens.js demo",
+    "eval": "node bin/peach-of-allergens.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/peach-of-allergens"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/peach-of-allergens#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "allergens",
+    "allergen-matrix",
+    "food-safety"
+  ]
+}

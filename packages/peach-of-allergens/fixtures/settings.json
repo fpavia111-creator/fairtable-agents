@@ -1,0 +1,5 @@
+{
+  "allergens": ["milk", "egg", "fish", "shellfish", "tree nuts", "peanuts", "wheat", "soy", "sesame"],
+  "synonyms": { "gluten": "wheat", "dairy": "milk", "nuts": "tree nuts", "crustacean": "shellfish", "eggs": "egg" },
+  "free_from_rules": { "gluten-free": ["wheat"], "dairy-free": ["milk"], "nut-free": ["tree nuts", "peanuts"], "vegan": ["milk", "egg", "fish", "shellfish"] }
+}
