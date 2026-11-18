@@ -1,0 +1,56 @@
+{
+  "name": "mulberry-of-prime-cost",
+  "version": "0.1.0",
+  "description": "Mulberry of Prime Cost: weekly prime cost (food and beverage cost plus labor with taxes and benefits) as a share of sales for each location, against your targets, with weeks that are missing a number and prime cost that keeps rising. Never posts to the books.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "mulberry-of-prime-cost": "bin/mulberry-of-prime-cost.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/mulberry-of-prime-cost.js demo",
+    "eval": "node bin/mulberry-of-prime-cost.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/mulberry-of-prime-cost"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/mulberry-of-prime-cost#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "prime-cost",
+    "food-cost",
+    "labor-cost"
+  ]
+}
