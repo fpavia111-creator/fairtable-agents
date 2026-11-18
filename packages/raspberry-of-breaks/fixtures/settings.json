@@ -1,0 +1,11 @@
+{
+  "rules": "Example break rules (fictional settings modelled on a strict state; check your own)",
+  "meal_after_hours": 5,
+  "meal_minutes": 30,
+  "meal_start_by_hours": 5,
+  "second_meal_after_hours": 10,
+  "premium_hours": 1,
+  "minimum_wage": 16.5,
+  "minor_max_daily_hours": { "under_16": 3, "under_18": 8 },
+  "minor_latest_end": { "under_16": "21:00", "under_18": "22:30" }
+}

@@ -1,0 +1,1 @@
+{ "meal_after_hours": 6, "meal_start_by_hours": 6, "second_meal_after_hours": null, "premium_hours": 0, "minor_max_daily_hours": { "under_16": 8, "under_18": 9 }, "minor_latest_end": { "under_16": "23:00", "under_18": "23:30" } }
