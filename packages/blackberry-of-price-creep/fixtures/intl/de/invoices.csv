@@ -1,0 +1,19 @@
+Lieferant;Rechnungsnummer;Rechnungsdatum;Artikelnummer;Artikel;Gebinde;Menge;Einzelpreis;Gesamtpreis
+Example Foodservice;EF-49010;06.10.2026;100231;Ground Beef 80/20;1/10 LB;6;46,00;276,00
+Example Foodservice;EF-49120;13.10.2026;100231;Ground Beef 80/20;1/10 LB;6;46,00;276,00
+Example Foodservice;EF-49233;20.10.2026;100231;Ground Beef 80/20;1/10 LB;6;47,50;285,00
+Example Foodservice;EF-49340;27.10.2026;100231;Ground Beef 80/20;1/10 LB;6;48,00;288,00
+Example Foodservice;EF-50311;03.11.2026;100231;Ground Beef 80/20;1/10 LB;6;49,50;297,00
+Example Foodservice;EF-49010;06.10.2026;700100;Fryer Oil;1/35 LB;2;38,00;76,00
+Example Foodservice;EF-49233;20.10.2026;700100;Fryer Oil;1/35 LB;2;41,00;82,00
+Example Foodservice;EF-50311;03.11.2026;700100;Fryer Oil;1/35 LB;2;44,00;88,00
+Example Foodservice;EF-49010;06.10.2026;200455;Brioche Bun;8/12 CT;4;43,20;172,80
+Example Foodservice;EF-50311;03.11.2026;200455;Brioche Bun;8/12 CT;4;43,20;172,80
+Example Foodservice;EF-49010;06.10.2026;100877;Chicken Breast;4/10 LB;2;156,00;312,00
+Example Foodservice;EF-50311;03.11.2026;100877;Chicken Breast;4/9 LB;2;156,00;312,00
+Sample Produce Co;SP-7601;07.10.2026;P-1001;Romaine;1/25 LB;1;52,50;52,50
+Sample Produce Co;SP-7712;04.11.2026;P-1001;Romaine;1/25 LB;1;49,00;49,00
+Sample Produce Co;SP-7601;07.10.2026;P-3040;Avocados;1/48 CT;1;62,00;62,00
+Sample Produce Co;SP-7712;04.11.2026;P-3040;Avocados;1/48 CT;1;64,00;64,00
+Example Seafood;ES-1102;08.10.2026;F-220;Salmon Fillet;1/10 LB;2;118,00;236,00
+Example Seafood;ES-1180;05.11.2026;F-220;Salmon Fillet;1/10 LB;2;132,00;264,00

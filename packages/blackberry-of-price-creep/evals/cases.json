@@ -1,0 +1,395 @@
+{
+  "suite": "blackberry-of-price-creep",
+  "root": "..",
+  "data_note": "Fictional vendors, items and prices in ../fixtures. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "price-creep-totals",
+      "tool": "blackberry_check",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "contracts": "fixtures/contracts.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.vendor_items": 7,
+          "result.vendors": 3,
+          "result.extra_paid": 121.2,
+          "result.over_contract": 2,
+          "result.flag": 4,
+          "result.ok": 3
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "blackberry_check",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "contracts": "fixtures/contracts.csv"
+      },
+      "expect": {
+        "contains": [
+          "over_contract",
+          "price_up",
+          "steady_creep",
+          "pack_changed",
+          "small_price_up"
+        ]
+      }
+    },
+    {
+      "id": "fryer-oil-over-bid",
+      "tool": "blackberry_explain",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "contracts": "fixtures/contracts.csv",
+        "item": "fryer oil"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "Over the bid by 16 on the invoices in the bid period"
+        ],
+        "equals": {
+          "result.item.extra_paid": 18,
+          "result.item.change_pct": 15.8
+        }
+      }
+    },
+    {
+      "id": "smaller-pack-same-case-price",
+      "tool": "blackberry_explain",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "item": "Chicken Breast"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "4/10 LB then 4/9 LB"
+        ],
+        "equals": {
+          "result.item.last_price": 4.3333
+        }
+      }
+    },
+    {
+      "id": "stricter-threshold-flags-more",
+      "tool": "blackberry_check",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "contracts": "fixtures/contracts.csv",
+        "settings": "fixtures/settings-strict.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.flag": 4,
+          "result.ok": 2
+        }
+      }
+    },
+    {
+      "id": "letter-to-vendor-after-approval",
+      "tool": "blackberry_draft_letter",
+      "approve": "Pat Example",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "contracts": "fixtures/contracts.csv",
+        "vendor": "example foodservice"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "letter Example Foodservice drafted for 16"
+        ]
+      }
+    },
+    {
+      "id": "letter-to-unknown-vendor-refused",
+      "tool": "blackberry_draft_letter",
+      "approve": "Pat Example",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "vendor": "Nobody Foods"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "no invoices from vendor"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "blackberry_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "invoices"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "blackberry_check",
+      "args": {
+        "invoices": "../../../outside.csv",
+        "contracts": "fixtures/contracts.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "blackberry_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "blackberry_check",
+      "mode": "review",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "contracts": "fixtures/contracts.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.vendor_items": 7,
+          "result.vendors": 3,
+          "result.extra_paid": 121.2,
+          "result.over_contract": 2,
+          "result.flag": 4,
+          "result.ok": 3
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "blackberry_check",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "contracts": "fixtures/contracts.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.vendor_items": 7,
+          "result.vendors": 3,
+          "result.extra_paid": 121.2,
+          "result.over_contract": 2,
+          "result.flag": 4,
+          "result.ok": 3
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "blackberry_explain",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "contracts": "fixtures/contracts.csv",
+        "settings": "fixtures/settings.json",
+        "item": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "blackberry_write_report",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "contracts": "fixtures/contracts.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "blackberry_draft_letter",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "contracts": "fixtures/contracts.csv",
+        "vendor": "example foodservice"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "blackberry_draft_letter",
+      "mode": "review",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "contracts": "fixtures/contracts.csv",
+        "vendor": "example foodservice"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "blackberry_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "blackberry_draft_letter"
+      ],
+      "args": {
+        "draft": "fairtable-out/blackberry/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-vendor-order-submit",
+      "tool": "vendor_order_submit",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-payment-send",
+      "tool": "payment_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "blackberry_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "learn-waits-for-acceptance",
+      "tool": "blackberry_learn",
+      "args": {
+        "kind": "item_alias",
+        "value": {
+          "name": "Fictional Name A",
+          "means": "Fictional Name B"
+        }
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "waiting"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-price-creep-totals",
+      "tool": "blackberry_check",
+      "args": {
+        "invoices": "fixtures/intl/de/invoices.csv",
+        "contracts": "fixtures/intl/de/contracts.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.vendor_items": 7,
+          "result.vendors": 3,
+          "result.extra_paid": 121.2,
+          "result.over_contract": 2,
+          "result.flag": 4,
+          "result.ok": 3
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"price-creep-totals\"."
+    },
+    {
+      "id": "intl-ja-price-creep-totals",
+      "tool": "blackberry_check",
+      "args": {
+        "invoices": "fixtures/intl/ja/invoices.csv",
+        "contracts": "fixtures/intl/ja/contracts.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.vendor_items": 7,
+          "result.vendors": 3,
+          "result.extra_paid": 121.2,
+          "result.over_contract": 2,
+          "result.flag": 4,
+          "result.ok": 3
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"price-creep-totals\"."
+    }
+  ]
+}
