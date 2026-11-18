@@ -10,6 +10,7 @@ const isAd = (t) => /ad|sponsor|search|listing/i.test(str(t));
 export function marketingFees({ statements = [], campaigns = [] }, s = DEFAULTS) {
   const camp = campaigns.filter((c) => str(c.campaign)).map((c) => ({ c, key: `${str(c.platform)}|${str(c.campaign)}`, pk: nameKey(c.platform), ad: isAd(c.type), spend: 0, sales: 0, orders: 0 }));
   // Campaigns indexed once by platform and type, so each charge looks at its own platform's campaigns only.
+  const hitCache = new Map();
   const byPlat = new Map(); for (const x of camp) { const k = `${x.pk}|${x.ad}`; if (!byPlat.has(k)) byPlat.set(k, []); byPlat.get(k).push(x); }
   const loose = new Map(); const plat = new Map();
   for (const l of statements) {
@@ -17,7 +18,10 @@ export function marketingFees({ statements = [], campaigns = [] }, s = DEFAULTS)
     const pe = plat.get(nameKey(p)) || { platform: p, sales: 0, spend: 0 }; pe.sales += sub; plat.set(nameKey(p), pe);
     for (const [field, ad] of [['marketing_fee', true], ['promo_funded', false]]) {
       const amt = Math.abs(num(l[field]) || 0); if (!amt) continue; pe.spend += amt;
-      const hit = (byPlat.get(`${nameKey(p)}|${ad}`) || []).find((x) => inWindow(d, x.c.start, x.c.end));
+      // Charges on the same platform and day share one campaign lookup.
+      const ck = `${nameKey(p)}|${ad}|${d}`;
+      if (!hitCache.has(ck)) hitCache.set(ck, (byPlat.get(`${nameKey(p)}|${ad}`) || []).find((x) => inWindow(d, x.c.start, x.c.end)) || null);
+      const hit = hitCache.get(ck);
       if (hit) { hit.spend += amt; hit.sales += sub; hit.orders++; }
       else { const k = `${nameKey(p)}|${ad ? 'ads' : 'promo'}`; const e = loose.get(k) || { platform: p, kind: ad ? 'ad fees' : 'promotions', spend: 0, sales: 0, orders: [], dates: [] }; e.spend += amt; e.sales += sub; e.orders.push(str(l.order_id)); e.dates.push(d); loose.set(k, e); }
     }
