@@ -1,7 +1,7 @@
 {
   "name": "fairtable-schedule-vs-actual",
   "version": "0.1.0",
-  "description": "Scheduled against actual labor from your schedule and timecard exports: early clock-ins, late clock-outs, late arrivals, no-shows and shifts nobody scheduled, with the extra hours priced at each person's rate. Never edits the schedule or timecards.",
+  "description": "Fairtable Schedule vs Actual: scheduled against actual labor from your schedule and timecard exports: early clock-ins, late clock-outs, late arrivals, no-shows and shifts nobody scheduled, with the extra hours priced at each person's rate. Never edits the schedule or timecards.",
   "author": {
     "name": "Kurt Francisco"
   },

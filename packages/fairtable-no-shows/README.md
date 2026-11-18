@@ -80,7 +80,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `no_shows_check` | Count no-shows by guest and by day of the week, estimate covers and sales lost at the average check, and flag repeat no-shows, large parties with no deposit, no-show fees not charged under the policy in the settings a… | runs |
 | `no_shows_explain` | Show one guest from no_shows_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `no_shows_write_report` | Write mango-no-shows.csv (one row per item, with blank owner and decision columns) and mango-no-shows.html into out_dir (default fairtable-out/no_shows). | runs |
+| `no_shows_write_report` | Write no-shows.csv (one row per item, with blank owner and decision columns) and no-shows.html into out_dir (default fairtable-out/no_shows). | runs |
 | `no_shows_draft_policy_memo` | Write drafts/policy_memo-<location>.md: the no-show numbers and the guests and bookings that the deposit and fee policy should have covered, for the hosts and the owner. | asks first (Auto can be opted in) |
 | `no_shows_request_send` | After one named human click (even in Auto), record that the reviewed policy memo draft is approved in policy_memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `no_shows_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

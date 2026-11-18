@@ -1,7 +1,7 @@
 {
   "name": "fairtable-labor-dayparts",
   "version": "0.1.0",
-  "description": "Labor percentage and sales per labor hour for each daypart (breakfast, lunch, dinner, late night) from your POS sales and timecards, against the targets you set for each one. Never edits the schedule.",
+  "description": "Fairtable Labor Dayparts: labor percentage and sales per labor hour for each daypart (breakfast, lunch, dinner, late night) from your POS sales and timecards, against the targets you set for each one. Never edits the schedule.",
   "author": {
     "name": "Kurt Francisco"
   },

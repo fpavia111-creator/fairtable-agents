@@ -1,7 +1,7 @@
 {
   "name": "fairtable-health-inspections",
   "version": "0.1.0",
-  "description": "The health inspection and permit calendar for each location: re-inspections overdue, critical violations with no re-inspection on file, scores dropping, the next routine visit to prepare for, and permits and licences expired or expiring. Never contacts the health department.",
+  "description": "Fairtable Health Inspections: the health inspection and permit calendar for each location: re-inspections overdue, critical violations with no re-inspection on file, scores dropping, the next routine visit to prepare for, and permits and licences expired or expiring. Never contacts the health department.",
   "author": {
     "name": "Kurt Francisco"
   },

@@ -1,7 +1,7 @@
 {
   "name": "fairtable-cash-drawers",
   "version": "0.1.0",
-  "description": "Cash over and short for every drawer and shift from your POS cash-out export: expected cash from starting bank, cash sales, paid-outs and tips paid out, against the count and the deposit, with repeated shorts per person. Never moves cash or changes the POS.",
+  "description": "Fairtable Cash Drawers: cash over and short for every drawer and shift from your POS cash-out export: expected cash from starting bank, cash sales, paid-outs and tips paid out, against the count and the deposit, with repeated shorts per person. Never moves cash or changes the POS.",
   "author": {
     "name": "Kurt Francisco"
   },

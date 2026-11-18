@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.fpavia111-creator/fairtable-price-creep",
   "title": "Fairtable Price Creep",
-  "description": "Fairtable Price Creep: follows every item's price per pound, each or litre across your…",
+  "description": "Fairtable Price Creep: follows every item's price per pound, each or litre across your distributor…",
   "version": "0.1.0",
   "repository": {
     "url": "https://github.com/fpavia111-creator/fairtable-agents",

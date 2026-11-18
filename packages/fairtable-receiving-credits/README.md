@@ -76,7 +76,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `receiving_check` | For each invoice line: quantity invoiced against quantity received and rejected, the credit that should follow, and the credit memos that did. | runs |
 | `receiving_explain` | Show one invoice line item from receiving_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `receiving_write_report` | Write blueberry-deliveries.csv (one row per item, with blank owner and decision columns) and blueberry-deliveries.html into out_dir (default fairtable-out/receiving). | runs |
+| `receiving_write_report` | Write receiving-credits.csv (one row per item, with blank owner and decision columns) and receiving-credits.html into out_dir (default fairtable-out/receiving). | runs |
 | `receiving_draft_credit_request` | Write drafts/credit_request-<vendor>.md: the shorts and rejected cases on that vendor's invoices that are not credited yet, with the amount, for a person to send. | asks first (Auto can be opted in) |
 | `receiving_request_send` | After one named human click (even in Auto), record that the reviewed credit request draft is approved in credit_request-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `receiving_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

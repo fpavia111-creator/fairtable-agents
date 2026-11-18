@@ -80,7 +80,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `catering_check` | For each booking: the deposit required (% of the total), what was received, and the balance; flags deposits missing inside the deposit window, balances overdue after the event, overpayments, refunds owed on cancellati… | runs |
 | `catering_explain` | Show one event from catering_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `catering_write_report` | Write melon-catering.csv (one row per item, with blank owner and decision columns) and melon-catering.html into out_dir (default fairtable-out/catering). | runs |
+| `catering_write_report` | Write catering-deposits.csv (one row per item, with blank owner and decision columns) and catering-deposits.html into out_dir (default fairtable-out/catering). | runs |
 | `catering_draft_reminder` | Write drafts/reminder-<event>.md: a polite reminder to the client of the deposit or balance due, or a note of the refund owed, for a person to send. | asks first (Auto can be opted in) |
 | `catering_request_send` | After one named human click (even in Auto), record that the reviewed reminder draft is approved in reminder-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `catering_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

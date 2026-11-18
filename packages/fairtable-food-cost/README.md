@@ -93,7 +93,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `food_cost_check` | Compare what the recipes say the kitchen used (sales x recipe portions / yield) with what it did use (opening count + purchases - closing count), per ingredient, priced at the latest unit cost. | runs |
 | `food_cost_explain` | Show one ingredient or menu item from food_cost_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `food_cost_write_report` | Write apricot-food-cost.csv (one row per item, with blank owner and decision columns) and apricot-food-cost.html into out_dir (default fairtable-out/food_cost). | runs |
+| `food_cost_write_report` | Write food-cost.csv (one row per item, with blank owner and decision columns) and food-cost.html into out_dir (default fairtable-out/food_cost). | runs |
 | `food_cost_draft_memo` | Write drafts/memo-<location>.md: a short memo to the kitchen manager with the period food cost, the ingredients used beyond the recipes and the gap in money, for a person to review and send. | asks first (Auto can be opted in) |
 | `food_cost_request_send` | After one named human click (even in Auto), record that the reviewed memo draft is approved in memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `food_cost_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

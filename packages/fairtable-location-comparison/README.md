@@ -75,7 +75,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `locations_check` | Work out each location's shares of sales and average check, take the group median of each, and flag locations over the median by more than the points in the settings; watch a much lower average check. | runs |
 | `locations_explain` | Show one location from locations_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `locations_write_report` | Write pear-locations.csv (one row per item, with blank owner and decision columns) and pear-locations.html into out_dir (default fairtable-out/locations). | runs |
+| `locations_write_report` | Write location-comparison.csv (one row per item, with blank owner and decision columns) and location-comparison.html into out_dir (default fairtable-out/locations). | runs |
 | `locations_draft_memo` | Write drafts/memo-locations.md: each location out of line, on which measure and by how much, for the operations lead to take up with the managers. | asks first (Auto can be opted in) |
 | `locations_request_send` | After one named human click (even in Auto), record that the reviewed memo draft is approved in memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `locations_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

@@ -8,145 +8,39 @@
   },
   "plugins": [
     {
-      "name": "fairtable-food-cost",
-      "source": "./packages/fairtable-food-cost",
-      "description": "Apricot of Food Cost: actual against theoretical food cost from your POS item sales, recipes, inventory counts and invoices. Shows which ingredients were used more than the recipes say, with the cost of the gap. Never changes the POS and never sends.",
+      "name": "fairtable-allergen-matrix",
+      "source": "./packages/fairtable-allergen-matrix",
+      "description": "Fairtable Allergen Matrix: checks your menu's allergen matrix against the recipes and each ingredient's allergens: allergens in a dish that the matrix does not declare, free-from claims a recipe breaks, declarations no ingredient explains, and ingredients with no allergen data. Never changes the menu.",
       "version": "0.1.0",
       "category": "restaurants",
       "keywords": [
         "restaurant",
         "restaurants",
         "food-service",
-        "food-cost",
-        "theoretical-food-cost",
-        "inventory",
-        "recipe-costing"
+        "allergens",
+        "allergen-matrix",
+        "food-safety"
       ]
     },
     {
-      "name": "fairtable-recipe-costs",
-      "source": "./packages/fairtable-recipe-costs",
-      "description": "Banana of Recipe Costs: costs every recipe at your latest invoice prices (pack sizes, units and yields), shows each plate's food cost percent against your target and the price that would meet it, and which plates got dearer. Never changes menu prices in the POS.",
+      "name": "fairtable-card-fees",
+      "source": "./packages/fairtable-card-fees",
+      "description": "Fairtable Card Fees: reads monthly card processing statements: the effective rate per location and month, processor markup over your agreed rate, fees you never agreed to, monthly fees over their cap and downgrade surcharges. Never contacts the processor or changes the account.",
       "version": "0.1.0",
       "category": "restaurants",
       "keywords": [
         "restaurant",
         "restaurants",
         "food-service",
-        "recipe-costing",
-        "plate-cost",
-        "menu-pricing"
-      ]
-    },
-    {
-      "name": "fairtable-price-creep",
-      "source": "./packages/fairtable-price-creep",
-      "description": "Blackberry of Price Creep: follows every item's price per pound, each or litre across your distributor invoices, flags creeping increases, prices over your bid or contract and packs that quietly got smaller, with what the increases cost you. Never contacts a vendor.",
-      "version": "0.1.0",
-      "category": "restaurants",
-      "keywords": [
-        "restaurant",
-        "restaurants",
-        "food-service",
-        "price-creep",
-        "vendor-prices",
-        "purchasing"
-      ]
-    },
-    {
-      "name": "fairtable-receiving-credits",
-      "source": "./packages/fairtable-receiving-credits",
-      "description": "Matches every invoice line with what the receiving log says arrived and with the credit memos, and lists shorts, rejected cases and substitutions still waiting for a credit. Writes a credit request draft. Never pays and never contacts the vendor.",
-      "version": "0.1.0",
-      "category": "restaurants",
-      "keywords": [
-        "restaurant",
-        "restaurants",
-        "food-service",
-        "receiving",
-        "credit-memos",
-        "invoice-matching"
-      ]
-    },
-    {
-      "name": "fairtable-inventory-counts",
-      "source": "./packages/fairtable-inventory-counts",
-      "description": "Compares each item's inventory count with what the system expected, prices the difference, and points to counts that look like a unit mistake (cases written as each, pounds as ounces), missing lines and wild swings, with a recount list. Never changes the inventory system.",
-      "version": "0.1.0",
-      "category": "restaurants",
-      "keywords": [
-        "restaurant",
-        "restaurants",
-        "food-service",
-        "inventory-count",
-        "variance",
-        "shrink"
-      ]
-    },
-    {
-      "name": "fairtable-waste-log",
-      "source": "./packages/fairtable-waste-log",
-      "description": "Reads your waste log against your daily sales, prices what was thrown out, and shows the items, reasons and days behind it, including days with sales and no waste logged at all. Never changes the POS or the prep list.",
-      "version": "0.1.0",
-      "category": "restaurants",
-      "keywords": [
-        "restaurant",
-        "restaurants",
-        "food-service",
-        "waste-log",
-        "food-waste",
-        "prep"
-      ]
-    },
-    {
-      "name": "fairtable-pour-cost",
-      "source": "./packages/fairtable-pour-cost",
-      "description": "Bar pour cost and liquor variance. Drinks sold times their recipe pours against bottles used (opening count + bottles bought - closing count), per spirit, priced per bottle, with pour cost against your target. Never changes the POS.",
-      "version": "0.1.0",
-      "category": "restaurants",
-      "keywords": [
-        "restaurant",
-        "restaurants",
-        "food-service",
-        "pour-cost",
-        "liquor-variance",
-        "bar-inventory"
-      ]
-    },
-    {
-      "name": "fairtable-voids-comps",
-      "source": "./packages/fairtable-voids-comps",
-      "description": "Voids and comps by employee from your POS export, against each server's sales: self-approved voids, voids after the check was paid, missing reasons and comps over the approval limit. Names are masked for the AI model. Never changes the POS.",
-      "version": "0.1.0",
-      "category": "restaurants",
-      "keywords": [
-        "restaurant",
-        "restaurants",
-        "food-service",
-        "voids",
-        "comps",
-        "loss-prevention"
-      ]
-    },
-    {
-      "name": "fairtable-discounts-promos",
-      "source": "./packages/fairtable-discounts-promos",
-      "description": "Checks every discount and promotion rung in the POS against your promotion list: promos used after they ended, unknown or open discounts, discounts over their cap, employee meals over the allowance and missing approvals. Never changes the POS.",
-      "version": "0.1.0",
-      "category": "restaurants",
-      "keywords": [
-        "restaurant",
-        "restaurants",
-        "food-service",
-        "discounts",
-        "promotions",
-        "loss-prevention"
+        "card-processing",
+        "merchant-fees",
+        "effective-rate"
       ]
     },
     {
       "name": "fairtable-cash-drawers",
       "source": "./packages/fairtable-cash-drawers",
-      "description": "Cash over and short for every drawer and shift from your POS cash-out export: expected cash from starting bank, cash sales, paid-outs and tips paid out, against the count and the deposit, with repeated shorts per person. Never moves cash or changes the POS.",
+      "description": "Fairtable Cash Drawers: cash over and short for every drawer and shift from your POS cash-out export: expected cash from starting bank, cash sales, paid-outs and tips paid out, against the count and the deposit, with repeated shorts per person. Never moves cash or changes the POS.",
       "version": "0.1.0",
       "category": "restaurants",
       "keywords": [
@@ -159,69 +53,39 @@
       ]
     },
     {
-      "name": "fairtable-tip-pooling",
-      "source": "./packages/fairtable-tip-pooling",
-      "description": "Fig of Tip Pools: splits the week's tip pool by hours and role points, checks the tip credit (cash wage plus tips against the minimum wage in your state settings), managers who kept tips, cash wages under the tipped minimum and missing cash tip declarations. Never runs payroll or pays tips.",
+      "name": "fairtable-catering-deposits",
+      "source": "./packages/fairtable-catering-deposits",
+      "description": "Fairtable Catering Deposits: catering and private-event deposits and balances against your bookings: deposits missing as the event gets close, balances overdue after the event, overpayments, refunds owed on cancellations and payments with no booking. Client names are masked for the AI model. Never charges or refunds anyone.",
       "version": "0.1.0",
       "category": "restaurants",
       "keywords": [
         "restaurant",
         "restaurants",
         "food-service",
-        "tip-pool",
-        "tip-credit",
-        "payroll"
+        "catering",
+        "private-events",
+        "deposits"
       ]
     },
     {
-      "name": "fairtable-overtime",
-      "source": "./packages/fairtable-overtime",
-      "description": "Weekly and daily overtime, double time, split shifts, spread of hours and short turnarounds (clopens) from your timecards, priced at each person's rate, under the overtime rules in your settings. Never edits timecards or runs payroll.",
+      "name": "fairtable-delivery-marketing",
+      "source": "./packages/fairtable-delivery-marketing",
+      "description": "Fairtable Delivery Marketing: delivery-app marketing and promotion charges against the campaigns you opted into: charges with no campaign behind them, campaigns over budget, and what each campaign brought in for what it cost. Never logs in to a platform.",
       "version": "0.1.0",
       "category": "restaurants",
       "keywords": [
         "restaurant",
         "restaurants",
         "food-service",
-        "overtime",
-        "split-shifts",
-        "labor-cost"
-      ]
-    },
-    {
-      "name": "fairtable-schedule-vs-actual",
-      "source": "./packages/fairtable-schedule-vs-actual",
-      "description": "Scheduled against actual labor from your schedule and timecard exports: early clock-ins, late clock-outs, late arrivals, no-shows and shifts nobody scheduled, with the extra hours priced at each person's rate. Never edits the schedule or timecards.",
-      "version": "0.1.0",
-      "category": "restaurants",
-      "keywords": [
-        "restaurant",
-        "restaurants",
-        "food-service",
-        "schedule-adherence",
-        "labor-cost",
-        "timecards"
-      ]
-    },
-    {
-      "name": "fairtable-labor-dayparts",
-      "source": "./packages/fairtable-labor-dayparts",
-      "description": "Labor percentage and sales per labor hour for each daypart (breakfast, lunch, dinner, late night) from your POS sales and timecards, against the targets you set for each one. Never edits the schedule.",
-      "version": "0.1.0",
-      "category": "restaurants",
-      "keywords": [
-        "restaurant",
-        "restaurants",
-        "food-service",
-        "labor-percentage",
-        "daypart",
-        "splh"
+        "delivery-marketing",
+        "promotions",
+        "ads"
       ]
     },
     {
       "name": "fairtable-delivery-payouts",
       "source": "./packages/fairtable-delivery-payouts",
-      "description": "Jackfruit of Delivery Payouts: matches DoorDash, Uber Eats and Grubhub statements with your POS orders: commissions over your contract rate, payout math that does not add up, error charges to dispute, orders paid twice and orders never paid. Never logs in to a platform and never sends.",
+      "description": "Fairtable Delivery Payouts: matches DoorDash, Uber Eats and Grubhub statements with your POS orders: commissions over your contract rate, payout math that does not add up, error charges to dispute, orders paid twice and orders never paid. Never logs in to a platform and never sends.",
       "version": "0.1.0",
       "category": "restaurants",
       "keywords": [
@@ -236,24 +100,85 @@
       ]
     },
     {
-      "name": "fairtable-delivery-marketing",
-      "source": "./packages/fairtable-delivery-marketing",
-      "description": "Kiwi of Marketing Fees: delivery-app marketing and promotion charges against the campaigns you opted into: charges with no campaign behind them, campaigns over budget, and what each campaign brought in for what it cost. Never logs in to a platform.",
+      "name": "fairtable-discounts-promos",
+      "source": "./packages/fairtable-discounts-promos",
+      "description": "Fairtable Discounts Promos: checks every discount and promotion rung in the POS against your promotion list: promos used after they ended, unknown or open discounts, discounts over their cap, employee meals over the allowance and missing approvals. Never changes the POS.",
       "version": "0.1.0",
       "category": "restaurants",
       "keywords": [
         "restaurant",
         "restaurants",
         "food-service",
-        "delivery-marketing",
+        "discounts",
         "promotions",
-        "ads"
+        "loss-prevention"
+      ]
+    },
+    {
+      "name": "fairtable-duplicate-invoices",
+      "source": "./packages/fairtable-duplicate-invoices",
+      "description": "Fairtable Duplicate Invoices: vendor invoices before they are paid: the same invoice entered twice, likely duplicates under a new number, line math that does not add up, missing invoice numbers, and lines coded to the wrong GL account (liquor in food cost, paper goods in food). Never pays and never posts to the books.",
+      "version": "0.1.0",
+      "category": "restaurants",
+      "keywords": [
+        "restaurant",
+        "restaurants",
+        "food-service",
+        "accounts-payable",
+        "duplicate-invoices",
+        "gl-coding"
+      ]
+    },
+    {
+      "name": "fairtable-equipment-maintenance",
+      "source": "./packages/fairtable-equipment-maintenance",
+      "description": "Fairtable Equipment Maintenance: the maintenance schedule for hoods, grease traps, fire suppression, ice machines, refrigeration and the rest: what is overdue, what is due in the next weeks, what has no service date, and equipment repaired again and again. Never books a vendor.",
+      "version": "0.1.0",
+      "category": "restaurants",
+      "keywords": [
+        "restaurant",
+        "restaurants",
+        "food-service",
+        "equipment-maintenance",
+        "hood-cleaning",
+        "grease-trap"
+      ]
+    },
+    {
+      "name": "fairtable-food-cost",
+      "source": "./packages/fairtable-food-cost",
+      "description": "Fairtable Food Cost: actual against theoretical food cost from your POS item sales, recipes, inventory counts and invoices. Shows which ingredients were used more than the recipes say, with the cost of the gap. Never changes the POS and never sends.",
+      "version": "0.1.0",
+      "category": "restaurants",
+      "keywords": [
+        "restaurant",
+        "restaurants",
+        "food-service",
+        "food-cost",
+        "theoretical-food-cost",
+        "inventory",
+        "recipe-costing"
+      ]
+    },
+    {
+      "name": "fairtable-food-handler-cards",
+      "source": "./packages/fairtable-food-handler-cards",
+      "description": "Fairtable Food Handler Cards: food handler cards, certified food protection managers and alcohol server certificates against your staff roster: missing after the grace period, expired, expiring soon, and locations without a certified manager. Staff names are masked for the AI model. Never contacts staff or a training provider.",
+      "version": "0.1.0",
+      "category": "restaurants",
+      "keywords": [
+        "restaurant",
+        "restaurants",
+        "food-service",
+        "food-handler",
+        "certification",
+        "compliance"
       ]
     },
     {
       "name": "fairtable-gift-cards",
       "source": "./packages/fairtable-gift-cards",
-      "description": "Kumquat of Gift Cards: the outstanding gift card liability from your POS gift card export, by location, with balances that do not add up, negative balances, dormant cards and cards bought at one location and spent at another. Never changes a card or recognises breakage.",
+      "description": "Fairtable Gift Cards: the outstanding gift card liability from your POS gift card export, by location, with balances that do not add up, negative balances, dormant cards and cards bought at one location and spent at another. Never changes a card or recognises breakage.",
       "version": "0.1.0",
       "category": "restaurants",
       "keywords": [
@@ -266,24 +191,84 @@
       ]
     },
     {
-      "name": "fairtable-sales-tax",
-      "source": "./packages/fairtable-sales-tax",
-      "description": "Lemon of Sales Tax: tax collected in the POS against the rates you set for each location and menu category (food, alcohol, grocery, delivery-app orders), with under- and over-collection by jurisdiction and tax-exempt sales to document. Never files a return or pays tax.",
+      "name": "fairtable-health-inspections",
+      "source": "./packages/fairtable-health-inspections",
+      "description": "Fairtable Health Inspections: the health inspection and permit calendar for each location: re-inspections overdue, critical violations with no re-inspection on file, scores dropping, the next routine visit to prepare for, and permits and licences expired or expiring. Never contacts the health department.",
       "version": "0.1.0",
       "category": "restaurants",
       "keywords": [
         "restaurant",
         "restaurants",
         "food-service",
-        "sales-tax",
-        "tax-rates",
-        "jurisdiction"
+        "health-inspections",
+        "permits",
+        "compliance-calendar"
+      ]
+    },
+    {
+      "name": "fairtable-inventory-counts",
+      "source": "./packages/fairtable-inventory-counts",
+      "description": "Fairtable Inventory Counts: compares each item's inventory count with what the system expected, prices the difference, and points to counts that look like a unit mistake (cases written as each, pounds as ounces), missing lines and wild swings, with a recount list. Never changes the inventory system.",
+      "version": "0.1.0",
+      "category": "restaurants",
+      "keywords": [
+        "restaurant",
+        "restaurants",
+        "food-service",
+        "inventory-count",
+        "variance",
+        "shrink"
+      ]
+    },
+    {
+      "name": "fairtable-labor-dayparts",
+      "source": "./packages/fairtable-labor-dayparts",
+      "description": "Fairtable Labor Dayparts: labor percentage and sales per labor hour for each daypart (breakfast, lunch, dinner, late night) from your POS sales and timecards, against the targets you set for each one. Never edits the schedule.",
+      "version": "0.1.0",
+      "category": "restaurants",
+      "keywords": [
+        "restaurant",
+        "restaurants",
+        "food-service",
+        "labor-percentage",
+        "daypart",
+        "splh"
+      ]
+    },
+    {
+      "name": "fairtable-location-comparison",
+      "source": "./packages/fairtable-location-comparison",
+      "description": "Fairtable Location Comparison: compares every location of a multi-unit group on the same measures (food cost, labor, prime cost, voids, comps, discounts, average check) against the group median, and shows which location is out of line on what. Never changes anything at a location.",
+      "version": "0.1.0",
+      "category": "restaurants",
+      "keywords": [
+        "restaurant",
+        "restaurants",
+        "food-service",
+        "multi-unit",
+        "benchmarking",
+        "restaurant-group"
+      ]
+    },
+    {
+      "name": "fairtable-meal-breaks",
+      "source": "./packages/fairtable-meal-breaks",
+      "description": "Fairtable Meal Breaks: meal breaks from your timecards under the break rules in your settings: shifts over the limit with no or a short meal break, meals taken late, second meals on long days, the premium pay that may be owed, and minors working too long or too late. Never edits timecards or runs payroll.",
+      "version": "0.1.0",
+      "category": "restaurants",
+      "keywords": [
+        "restaurant",
+        "restaurants",
+        "food-service",
+        "meal-breaks",
+        "minor-labor",
+        "timecards"
       ]
     },
     {
       "name": "fairtable-menu-engineering",
       "source": "./packages/fairtable-menu-engineering",
-      "description": "Lime of Menu Mix: menu engineering from your POS item sales and plate costs: each item's popularity and contribution margin within its category, sorted into stars, plowhorses, puzzles and dogs, with a menu proposal draft. Never changes the menu or prices in the POS.",
+      "description": "Fairtable Menu Engineering: menu engineering from your POS item sales and plate costs: each item's popularity and contribution margin within its category, sorted into stars, plowhorses, puzzles and dogs, with a menu proposal draft. Never changes the menu or prices in the POS.",
       "version": "0.1.0",
       "category": "restaurants",
       "keywords": [
@@ -296,24 +281,9 @@
       ]
     },
     {
-      "name": "fairtable-stockouts",
-      "source": "./packages/fairtable-stockouts",
-      "description": "Reads the 86 log against item sales: items that run out again and again, how long they stay off, what that likely cost in sales, items 86ed before the dinner rush and items never brought back. Never changes 86 status or orders.",
-      "version": "0.1.0",
-      "category": "restaurants",
-      "keywords": [
-        "restaurant",
-        "restaurants",
-        "food-service",
-        "stockouts",
-        "86",
-        "par-levels"
-      ]
-    },
-    {
       "name": "fairtable-no-shows",
       "source": "./packages/fairtable-no-shows",
-      "description": "Mango of No-Shows: reservation no-shows from your OpenTable or Resy export: the no-show rate by day, guests who no-show again and again, large parties booked with no deposit and no-show fees your policy says to charge, with covers and sales lost. Guest details are masked for the AI model. Never charges a card or messages a guest.",
+      "description": "Fairtable No-Shows: reservation no-shows from your OpenTable or Resy export: the no-show rate by day, guests who no-show again and again, large parties booked with no deposit and no-show fees your policy says to charge, with covers and sales lost. Guest details are masked for the AI model. Never charges a card or messages a guest.",
       "version": "0.1.0",
       "category": "restaurants",
       "keywords": [
@@ -327,24 +297,54 @@
       ]
     },
     {
-      "name": "fairtable-catering-deposits",
-      "source": "./packages/fairtable-catering-deposits",
-      "description": "Catering and private-event deposits and balances against your bookings: deposits missing as the event gets close, balances overdue after the event, overpayments, refunds owed on cancellations and payments with no booking. Client names are masked for the AI model. Never charges or refunds anyone.",
+      "name": "fairtable-overtime",
+      "source": "./packages/fairtable-overtime",
+      "description": "Fairtable Overtime: weekly and daily overtime, double time, split shifts, spread of hours and short turnarounds (clopens) from your timecards, priced at each person's rate, under the overtime rules in your settings. Never edits timecards or runs payroll.",
       "version": "0.1.0",
       "category": "restaurants",
       "keywords": [
         "restaurant",
         "restaurants",
         "food-service",
-        "catering",
-        "private-events",
-        "deposits"
+        "overtime",
+        "split-shifts",
+        "labor-cost"
+      ]
+    },
+    {
+      "name": "fairtable-pour-cost",
+      "source": "./packages/fairtable-pour-cost",
+      "description": "Fairtable Pour Cost: bar pour cost and liquor variance. Drinks sold times their recipe pours against bottles used (opening count + bottles bought - closing count), per spirit, priced per bottle, with pour cost against your target. Never changes the POS.",
+      "version": "0.1.0",
+      "category": "restaurants",
+      "keywords": [
+        "restaurant",
+        "restaurants",
+        "food-service",
+        "pour-cost",
+        "liquor-variance",
+        "bar-inventory"
+      ]
+    },
+    {
+      "name": "fairtable-price-creep",
+      "source": "./packages/fairtable-price-creep",
+      "description": "Fairtable Price Creep: follows every item's price per pound, each or litre across your distributor invoices, flags creeping increases, prices over your bid or contract and packs that quietly got smaller, with what the increases cost you. Never contacts a vendor.",
+      "version": "0.1.0",
+      "category": "restaurants",
+      "keywords": [
+        "restaurant",
+        "restaurants",
+        "food-service",
+        "price-creep",
+        "vendor-prices",
+        "purchasing"
       ]
     },
     {
       "name": "fairtable-prime-cost",
       "source": "./packages/fairtable-prime-cost",
-      "description": "Mulberry of Prime Cost: weekly prime cost (food and beverage cost plus labor with taxes and benefits) as a share of sales for each location, against your targets, with weeks that are missing a number and prime cost that keeps rising. Never posts to the books.",
+      "description": "Fairtable Prime Cost: weekly prime cost (food and beverage cost plus labor with taxes and benefits) as a share of sales for each location, against your targets, with weeks that are missing a number and prime cost that keeps rising. Never posts to the books.",
       "version": "0.1.0",
       "category": "restaurants",
       "keywords": [
@@ -357,9 +357,99 @@
       ]
     },
     {
+      "name": "fairtable-receiving-credits",
+      "source": "./packages/fairtable-receiving-credits",
+      "description": "Fairtable Receiving Credits: matches every invoice line with what the receiving log says arrived and with the credit memos, and lists shorts, rejected cases and substitutions still waiting for a credit. Writes a credit request draft. Never pays and never contacts the vendor.",
+      "version": "0.1.0",
+      "category": "restaurants",
+      "keywords": [
+        "restaurant",
+        "restaurants",
+        "food-service",
+        "receiving",
+        "credit-memos",
+        "invoice-matching"
+      ]
+    },
+    {
+      "name": "fairtable-recipe-costs",
+      "source": "./packages/fairtable-recipe-costs",
+      "description": "Fairtable Recipe Costs: costs every recipe at your latest invoice prices (pack sizes, units and yields), shows each plate's food cost percent against your target and the price that would meet it, and which plates got dearer. Never changes menu prices in the POS.",
+      "version": "0.1.0",
+      "category": "restaurants",
+      "keywords": [
+        "restaurant",
+        "restaurants",
+        "food-service",
+        "recipe-costing",
+        "plate-cost",
+        "menu-pricing"
+      ]
+    },
+    {
+      "name": "fairtable-sales-tax",
+      "source": "./packages/fairtable-sales-tax",
+      "description": "Fairtable Sales Tax: tax collected in the POS against the rates you set for each location and menu category (food, alcohol, grocery, delivery-app orders), with under- and over-collection by jurisdiction and tax-exempt sales to document. Never files a return or pays tax.",
+      "version": "0.1.0",
+      "category": "restaurants",
+      "keywords": [
+        "restaurant",
+        "restaurants",
+        "food-service",
+        "sales-tax",
+        "tax-rates",
+        "jurisdiction"
+      ]
+    },
+    {
+      "name": "fairtable-schedule-vs-actual",
+      "source": "./packages/fairtable-schedule-vs-actual",
+      "description": "Fairtable Schedule vs Actual: scheduled against actual labor from your schedule and timecard exports: early clock-ins, late clock-outs, late arrivals, no-shows and shifts nobody scheduled, with the extra hours priced at each person's rate. Never edits the schedule or timecards.",
+      "version": "0.1.0",
+      "category": "restaurants",
+      "keywords": [
+        "restaurant",
+        "restaurants",
+        "food-service",
+        "schedule-adherence",
+        "labor-cost",
+        "timecards"
+      ]
+    },
+    {
+      "name": "fairtable-stockouts",
+      "source": "./packages/fairtable-stockouts",
+      "description": "Fairtable Stockouts: reads the 86 log against item sales: items that run out again and again, how long they stay off, what that likely cost in sales, items 86ed before the dinner rush and items never brought back. Never changes 86 status or orders.",
+      "version": "0.1.0",
+      "category": "restaurants",
+      "keywords": [
+        "restaurant",
+        "restaurants",
+        "food-service",
+        "stockouts",
+        "86",
+        "par-levels"
+      ]
+    },
+    {
+      "name": "fairtable-tip-pooling",
+      "source": "./packages/fairtable-tip-pooling",
+      "description": "Fairtable Tip Pooling: splits the week's tip pool by hours and role points, checks the tip credit (cash wage plus tips against the minimum wage in your state settings), managers who kept tips, cash wages under the tipped minimum and missing cash tip declarations. Never runs payroll or pays tips.",
+      "version": "0.1.0",
+      "category": "restaurants",
+      "keywords": [
+        "restaurant",
+        "restaurants",
+        "food-service",
+        "tip-pool",
+        "tip-credit",
+        "payroll"
+      ]
+    },
+    {
       "name": "fairtable-utility-bills",
       "source": "./packages/fairtable-utility-bills",
-      "description": "Electric, gas and water bills per account and location: usage spikes per day against the account's own history, rate jumps, estimated meter reads, bills charged twice, overlapping periods and late fees. Never pays a bill or contacts the utility.",
+      "description": "Fairtable Utility Bills: electric, gas and water bills per account and location: usage spikes per day against the account's own history, rate jumps, estimated meter reads, bills charged twice, overlapping periods and late fees. Never pays a bill or contacts the utility.",
       "version": "0.1.0",
       "category": "restaurants",
       "keywords": [
@@ -372,123 +462,33 @@
       ]
     },
     {
-      "name": "fairtable-equipment-maintenance",
-      "source": "./packages/fairtable-equipment-maintenance",
-      "description": "The maintenance schedule for hoods, grease traps, fire suppression, ice machines, refrigeration and the rest: what is overdue, what is due in the next weeks, what has no service date, and equipment repaired again and again. Never books a vendor.",
+      "name": "fairtable-voids-comps",
+      "source": "./packages/fairtable-voids-comps",
+      "description": "Fairtable Voids Comps: voids and comps by employee from your POS export, against each server's sales: self-approved voids, voids after the check was paid, missing reasons and comps over the approval limit. Names are masked for the AI model. Never changes the POS.",
       "version": "0.1.0",
       "category": "restaurants",
       "keywords": [
         "restaurant",
         "restaurants",
         "food-service",
-        "equipment-maintenance",
-        "hood-cleaning",
-        "grease-trap"
+        "voids",
+        "comps",
+        "loss-prevention"
       ]
     },
     {
-      "name": "fairtable-health-inspections",
-      "source": "./packages/fairtable-health-inspections",
-      "description": "The health inspection and permit calendar for each location: re-inspections overdue, critical violations with no re-inspection on file, scores dropping, the next routine visit to prepare for, and permits and licences expired or expiring. Never contacts the health department.",
+      "name": "fairtable-waste-log",
+      "source": "./packages/fairtable-waste-log",
+      "description": "Fairtable Waste Log: reads your waste log against your daily sales, prices what was thrown out, and shows the items, reasons and days behind it, including days with sales and no waste logged at all. Never changes the POS or the prep list.",
       "version": "0.1.0",
       "category": "restaurants",
       "keywords": [
         "restaurant",
         "restaurants",
         "food-service",
-        "health-inspections",
-        "permits",
-        "compliance-calendar"
-      ]
-    },
-    {
-      "name": "fairtable-food-handler-cards",
-      "source": "./packages/fairtable-food-handler-cards",
-      "description": "Papaya of Food Handlers: food handler cards, certified food protection managers and alcohol server certificates against your staff roster: missing after the grace period, expired, expiring soon, and locations without a certified manager. Staff names are masked for the AI model. Never contacts staff or a training provider.",
-      "version": "0.1.0",
-      "category": "restaurants",
-      "keywords": [
-        "restaurant",
-        "restaurants",
-        "food-service",
-        "food-handler",
-        "certification",
-        "compliance"
-      ]
-    },
-    {
-      "name": "fairtable-allergen-matrix",
-      "source": "./packages/fairtable-allergen-matrix",
-      "description": "Checks your menu's allergen matrix against the recipes and each ingredient's allergens: allergens in a dish that the matrix does not declare, free-from claims a recipe breaks, declarations no ingredient explains, and ingredients with no allergen data. Never changes the menu.",
-      "version": "0.1.0",
-      "category": "restaurants",
-      "keywords": [
-        "restaurant",
-        "restaurants",
-        "food-service",
-        "allergens",
-        "allergen-matrix",
-        "food-safety"
-      ]
-    },
-    {
-      "name": "fairtable-location-comparison",
-      "source": "./packages/fairtable-location-comparison",
-      "description": "Compares every location of a multi-unit group on the same measures (food cost, labor, prime cost, voids, comps, discounts, average check) against the group median, and shows which location is out of line on what. Never changes anything at a location.",
-      "version": "0.1.0",
-      "category": "restaurants",
-      "keywords": [
-        "restaurant",
-        "restaurants",
-        "food-service",
-        "multi-unit",
-        "benchmarking",
-        "restaurant-group"
-      ]
-    },
-    {
-      "name": "fairtable-card-fees",
-      "source": "./packages/fairtable-card-fees",
-      "description": "Plum of Card Fees: reads monthly card processing statements: the effective rate per location and month, processor markup over your agreed rate, fees you never agreed to, monthly fees over their cap and downgrade surcharges. Never contacts the processor or changes the account.",
-      "version": "0.1.0",
-      "category": "restaurants",
-      "keywords": [
-        "restaurant",
-        "restaurants",
-        "food-service",
-        "card-processing",
-        "merchant-fees",
-        "effective-rate"
-      ]
-    },
-    {
-      "name": "fairtable-duplicate-invoices",
-      "source": "./packages/fairtable-duplicate-invoices",
-      "description": "Vendor invoices before they are paid: the same invoice entered twice, likely duplicates under a new number, line math that does not add up, missing invoice numbers, and lines coded to the wrong GL account (liquor in food cost, paper goods in food). Never pays and never posts to the books.",
-      "version": "0.1.0",
-      "category": "restaurants",
-      "keywords": [
-        "restaurant",
-        "restaurants",
-        "food-service",
-        "accounts-payable",
-        "duplicate-invoices",
-        "gl-coding"
-      ]
-    },
-    {
-      "name": "fairtable-meal-breaks",
-      "source": "./packages/fairtable-meal-breaks",
-      "description": "Meal breaks from your timecards under the break rules in your settings: shifts over the limit with no or a short meal break, meals taken late, second meals on long days, the premium pay that may be owed, and minors working too long or too late. Never edits timecards or runs payroll.",
-      "version": "0.1.0",
-      "category": "restaurants",
-      "keywords": [
-        "restaurant",
-        "restaurants",
-        "food-service",
-        "meal-breaks",
-        "minor-labor",
-        "timecards"
+        "waste-log",
+        "food-waste",
+        "prep"
       ]
     }
   ]

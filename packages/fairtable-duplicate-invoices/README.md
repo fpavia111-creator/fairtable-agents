@@ -80,7 +80,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `invoices_check` | Group invoice lines into invoices; flag an invoice number entered again and line math errors; review the same amount from the same vendor within a few days, invoices with no number and lines coded against your GL rules. | runs |
 | `invoices_explain` | Show one invoice (vendor, number and date) from invoices_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `invoices_write_report` | Write quince-invoices.csv (one row per item, with blank owner and decision columns) and quince-invoices.html into out_dir (default fairtable-out/invoices). | runs |
+| `invoices_write_report` | Write duplicate-invoices.csv (one row per item, with blank owner and decision columns) and duplicate-invoices.html into out_dir (default fairtable-out/invoices). | runs |
 | `invoices_draft_hold_memo` | Write drafts/hold_memo-ap.md: the invoices to hold before the next payment run and the lines to recode, for the bookkeeper. | asks first (Auto can be opted in) |
 | `invoices_request_send` | After one named human click (even in Auto), record that the reviewed hold memo draft is approved in hold_memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `invoices_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

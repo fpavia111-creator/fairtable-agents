@@ -81,7 +81,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `gift_cards_check` | Add up the balance still owed on every card, by the location that sold it; check each card's issued - redeemed = balance; flag negative and mismatched balances and list large, dormant and cross-location cards for the … | runs |
 | `gift_cards_explain` | Show one gift card from gift_cards_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `gift_cards_write_report` | Write kumquat-gift-cards.csv (one row per item, with blank owner and decision columns) and kumquat-gift-cards.html into out_dir (default fairtable-out/gift_cards). | runs |
+| `gift_cards_write_report` | Write gift-cards.csv (one row per item, with blank owner and decision columns) and gift-cards.html into out_dir (default fairtable-out/gift_cards). | runs |
 | `gift_cards_draft_memo` | Write drafts/memo-<as of date>.md: the gift card liability by location and the cards to look at, for the accountant. | asks first (Auto can be opted in) |
 | `gift_cards_request_send` | After one named human click (even in Auto), record that the reviewed memo draft is approved in memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `gift_cards_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

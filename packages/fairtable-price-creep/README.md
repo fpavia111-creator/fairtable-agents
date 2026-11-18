@@ -79,7 +79,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `price_creep_check` | Read each vendor item's price per base unit through its pack size, compare the latest price with the first one in the file and with the bid price, and add up what was paid above the first price. | runs |
 | `price_creep_explain` | Show one vendor item from price_creep_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `price_creep_write_report` | Write blackberry-price-creep.csv (one row per item, with blank owner and decision columns) and blackberry-price-creep.html into out_dir (default fairtable-out/price_creep). | runs |
+| `price_creep_write_report` | Write price-creep.csv (one row per item, with blank owner and decision columns) and price-creep.html into out_dir (default fairtable-out/price_creep). | runs |
 | `price_creep_draft_letter` | Write drafts/letter-<vendor>.md: a letter to one vendor listing the items over the bid price and the increases, asking for the bid price and a credit. | asks first (Auto can be opted in) |
 | `price_creep_request_send` | After one named human click (even in Auto), record that the reviewed letter draft is approved in letter-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `price_creep_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.fpavia111-creator/fairtable-equipment-maintenance",
   "title": "Fairtable Equipment Maintenance",
-  "description": "Fairtable Equipment Maintenance: the maintenance schedule for hoods, grease traps, fire suppression, ice…",
+  "description": "Fairtable Equipment Maintenance",
   "version": "0.1.0",
   "repository": {
     "url": "https://github.com/fpavia111-creator/fairtable-agents",

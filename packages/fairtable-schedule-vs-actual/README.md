@@ -80,7 +80,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `schedule_check` | Match timecards to the schedule by person and day; count minutes early and late; list no-shows and unscheduled shifts; flag weeks worked well over schedule with the cost of the extra hours. | runs |
 | `schedule_explain` | Show one employee from schedule_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `schedule_write_report` | Write guava-schedule-vs-actual.csv (one row per item, with blank owner and decision columns) and guava-schedule-vs-actual.html into out_dir (default fairtable-out/schedule). | runs |
+| `schedule_write_report` | Write schedule-vs-actual.csv (one row per item, with blank owner and decision columns) and schedule-vs-actual.html into out_dir (default fairtable-out/schedule). | runs |
 | `schedule_draft_memo` | Write drafts/memo-<week>.md: punches outside the schedule and hours over schedule for the managers who approve timecards. | asks first (Auto can be opted in) |
 | `schedule_request_send` | After one named human click (even in Auto), record that the reviewed memo draft is approved in memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `schedule_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

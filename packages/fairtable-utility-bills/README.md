@@ -80,7 +80,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `utilities_check` | For every bill: usage per day and price per unit against the median of the account's other bills; flags usage spikes and bills charged twice, and lists rate jumps, repeated estimated reads, overlapping periods and lat… | runs |
 | `utilities_explain` | Show one bill (account and period start, e.g. | runs |
-| `utilities_write_report` | Write nectarine-utilities.csv (one row per item, with blank owner and decision columns) and nectarine-utilities.html into out_dir (default fairtable-out/utilities). | runs |
+| `utilities_write_report` | Write utility-bills.csv (one row per item, with blank owner and decision columns) and utility-bills.html into out_dir (default fairtable-out/utilities). | runs |
 | `utilities_draft_memo` | Write drafts/memo-utilities.md: bills to question with the utility (duplicates, estimated reads, rate jumps, late fees) and spikes to check on site. | asks first (Auto can be opted in) |
 | `utilities_request_send` | After one named human click (even in Auto), record that the reviewed memo draft is approved in memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `utilities_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

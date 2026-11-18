@@ -77,7 +77,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `dayparts_check` | Spread each timecard over the dayparts it covers in 15-minute steps, price it at the rate plus labor burden, put it against the sales rung in the same daypart and flag dayparts over their labor target, low sales per l… | runs |
 | `dayparts_explain` | Show one day and daypart (e.g. | runs |
-| `dayparts_write_report` | Write huckleberry-dayparts.csv (one row per item, with blank owner and decision columns) and huckleberry-dayparts.html into out_dir (default fairtable-out/dayparts). | runs |
+| `dayparts_write_report` | Write labor-dayparts.csv (one row per item, with blank owner and decision columns) and labor-dayparts.html into out_dir (default fairtable-out/dayparts). | runs |
 | `dayparts_draft_memo` | Write drafts/memo-<location>.md: the dayparts over target with their labor %, for the person who writes the schedule. | asks first (Auto can be opted in) |
 | `dayparts_request_send` | After one named human click (even in Auto), record that the reviewed memo draft is approved in memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `dayparts_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

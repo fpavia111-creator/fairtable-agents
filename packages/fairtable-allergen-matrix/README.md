@@ -79,7 +79,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `allergens_check` | For each menu item: the allergens its ingredients contain against those the matrix declares and the free-from claims it makes. | runs |
 | `allergens_explain` | Show one menu item from allergens_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `allergens_write_report` | Write peach-allergens.csv (one row per item, with blank owner and decision columns) and peach-allergens.html into out_dir (default fairtable-out/allergens). | runs |
+| `allergens_write_report` | Write allergen-matrix.csv (one row per item, with blank owner and decision columns) and allergen-matrix.html into out_dir (default fairtable-out/allergens). | runs |
 | `allergens_draft_memo` | Write drafts/memo-<location>.md: the dishes whose allergen declarations or claims need correcting, for the chef. | asks first (Auto can be opted in) |
 | `allergens_request_send` | After one named human click (even in Auto), record that the reviewed memo draft is approved in memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `allergens_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

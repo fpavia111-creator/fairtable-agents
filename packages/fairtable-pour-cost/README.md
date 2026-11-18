@@ -83,7 +83,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `pour_cost_check` | Per spirit: bottles the recipes say were poured against bottles actually used, priced per bottle; pour cost % against target. | runs |
 | `pour_cost_explain` | Show one spirit or drink from pour_cost_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `pour_cost_write_report` | Write coconut-pour-cost.csv (one row per item, with blank owner and decision columns) and coconut-pour-cost.html into out_dir (default fairtable-out/pour_cost). | runs |
+| `pour_cost_write_report` | Write pour-cost.csv (one row per item, with blank owner and decision columns) and pour-cost.html into out_dir (default fairtable-out/pour_cost). | runs |
 | `pour_cost_draft_memo` | Write drafts/memo-<location>.md: pour cost for the period and the spirits poured beyond the recipes, for the bar manager. | asks first (Auto can be opted in) |
 | `pour_cost_request_send` | After one named human click (even in Auto), record that the reviewed memo draft is approved in memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `pour_cost_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

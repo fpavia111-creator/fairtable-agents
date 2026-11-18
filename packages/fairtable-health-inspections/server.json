@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.fpavia111-creator/fairtable-health-inspections",
   "title": "Fairtable Health Inspections",
-  "description": "Fairtable Health Inspections: the health inspection and permit calendar for each location: re-inspections…",
+  "description": "Fairtable Health Inspections: the health inspection and permit calendar for each location…",
   "version": "0.1.0",
   "repository": {
     "url": "https://github.com/fpavia111-creator/fairtable-agents",

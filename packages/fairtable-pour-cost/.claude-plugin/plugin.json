@@ -1,7 +1,7 @@
 {
   "name": "fairtable-pour-cost",
   "version": "0.1.0",
-  "description": "Bar pour cost and liquor variance. Drinks sold times their recipe pours against bottles used (opening count + bottles bought - closing count), per spirit, priced per bottle, with pour cost against your target. Never changes the POS.",
+  "description": "Fairtable Pour Cost: bar pour cost and liquor variance. Drinks sold times their recipe pours against bottles used (opening count + bottles bought - closing count), per spirit, priced per bottle, with pour cost against your target. Never changes the POS.",
   "author": {
     "name": "Kurt Francisco"
   },

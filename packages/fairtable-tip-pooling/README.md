@@ -83,7 +83,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `tips_check` | For each workweek: the pool (card tips of pool roles plus any tips a manager collected), each member's share by hours x role points, and the effective hourly pay (wages + share + cash tips) against the minimum wage in… | runs |
 | `tips_explain` | Show one employee from tips_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `tips_write_report` | Write fig-tip-pool.csv (one row per item, with blank owner and decision columns) and fig-tip-pool.html into out_dir (default fairtable-out/tips). | runs |
+| `tips_write_report` | Write tip-pooling.csv (one row per item, with blank owner and decision columns) and tip-pooling.html into out_dir (default fairtable-out/tips). | runs |
 | `tips_draft_payroll_memo` | Write drafts/payroll_memo-<week>.md: pool shares and makeup amounts for the payroll person to check and enter. | asks first (Auto can be opted in) |
 | `tips_request_send` | After one named human click (even in Auto), record that the reviewed payroll memo draft is approved in payroll_memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `tips_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

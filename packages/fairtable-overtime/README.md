@@ -86,7 +86,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `overtime_check` | Per employee and workweek: hours, daily and weekly overtime and double time without counting an hour twice, the premium cost, and shifts that may carry a split-shift or spread-of-hours premium under the settings. | runs |
 | `overtime_explain` | Show one employee from overtime_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `overtime_write_report` | Write grape-overtime.csv (one row per item, with blank owner and decision columns) and grape-overtime.html into out_dir (default fairtable-out/overtime). | runs |
+| `overtime_write_report` | Write overtime.csv (one row per item, with blank owner and decision columns) and overtime.html into out_dir (default fairtable-out/overtime). | runs |
 | `overtime_draft_memo` | Write drafts/memo-<week>.md: overtime and premiums for the scheduler and payroll, with the shifts behind them. | asks first (Auto can be opted in) |
 | `overtime_request_send` | After one named human click (even in Auto), record that the reviewed memo draft is approved in memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `overtime_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

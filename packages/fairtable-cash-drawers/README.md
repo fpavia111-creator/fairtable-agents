@@ -84,7 +84,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `drawers_check` | For each drawer and day: expected cash, counted cash and the difference; the deposit plus the next bank against the count. | runs |
 | `drawers_explain` | Show one drawer and day (e.g. | runs |
-| `drawers_write_report` | Write elderberry-drawers.csv (one row per item, with blank owner and decision columns) and elderberry-drawers.html into out_dir (default fairtable-out/drawers). | runs |
+| `drawers_write_report` | Write cash-drawers.csv (one row per item, with blank owner and decision columns) and cash-drawers.html into out_dir (default fairtable-out/drawers). | runs |
 | `drawers_draft_memo` | Write drafts/memo-<location>.md: the drawers and deposits to check with the closing managers, as questions. | asks first (Auto can be opted in) |
 | `drawers_request_send` | After one named human click (even in Auto), record that the reviewed memo draft is approved in memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `drawers_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

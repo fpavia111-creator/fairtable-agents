@@ -80,7 +80,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `discounts_check` | Group the POS discounts by name and check each use against the promotion list: dates, days, hours, the % and amount cap, approval and the employee meal allowance. | runs |
 | `discounts_explain` | Show one discount from discounts_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `discounts_write_report` | Write date-discounts.csv (one row per item, with blank owner and decision columns) and date-discounts.html into out_dir (default fairtable-out/discounts). | runs |
+| `discounts_write_report` | Write discounts-promos.csv (one row per item, with blank owner and decision columns) and discounts-promos.html into out_dir (default fairtable-out/discounts). | runs |
 | `discounts_draft_memo` | Write drafts/memo-<location>.md: the discount rules that were broken, the buttons to remove or restrict, for the floor team. | asks first (Auto can be opted in) |
 | `discounts_request_send` | After one named human click (even in Auto), record that the reviewed memo draft is approved in memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `discounts_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

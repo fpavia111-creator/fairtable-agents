@@ -1,7 +1,7 @@
 {
   "name": "fairtable-overtime",
   "version": "0.1.0",
-  "description": "Weekly and daily overtime, double time, split shifts, spread of hours and short turnarounds (clopens) from your timecards, priced at each person's rate, under the overtime rules in your settings. Never edits timecards or runs payroll.",
+  "description": "Fairtable Overtime: weekly and daily overtime, double time, split shifts, spread of hours and short turnarounds (clopens) from your timecards, priced at each person's rate, under the overtime rules in your settings. Never edits timecards or runs payroll.",
   "author": {
     "name": "Kurt Francisco"
   },

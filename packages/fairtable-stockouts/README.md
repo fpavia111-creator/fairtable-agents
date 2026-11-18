@@ -78,7 +78,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `stockouts_check` | Count each item's 86 events and hours off, estimate lost sales from its average sales per open hour, and flag repeated and long outages, outages before the peak and items never brought back. | runs |
 | `stockouts_explain` | Show one menu item from stockouts_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `stockouts_write_report` | Write lychee-stockouts.csv (one row per item, with blank owner and decision columns) and lychee-stockouts.html into out_dir (default fairtable-out/stockouts). | runs |
+| `stockouts_write_report` | Write stockouts.csv (one row per item, with blank owner and decision columns) and stockouts.html into out_dir (default fairtable-out/stockouts). | runs |
 | `stockouts_draft_memo` | Write drafts/memo-<location>.md: the items that keep running out, when and for how long, for the chef to raise pars or prep. | asks first (Auto can be opted in) |
 | `stockouts_request_send` | After one named human click (even in Auto), record that the reviewed memo draft is approved in memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `stockouts_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

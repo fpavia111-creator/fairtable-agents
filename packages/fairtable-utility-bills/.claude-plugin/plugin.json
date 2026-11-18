@@ -1,7 +1,7 @@
 {
   "name": "fairtable-utility-bills",
   "version": "0.1.0",
-  "description": "Electric, gas and water bills per account and location: usage spikes per day against the account's own history, rate jumps, estimated meter reads, bills charged twice, overlapping periods and late fees. Never pays a bill or contacts the utility.",
+  "description": "Fairtable Utility Bills: electric, gas and water bills per account and location: usage spikes per day against the account's own history, rate jumps, estimated meter reads, bills charged twice, overlapping periods and late fees. Never pays a bill or contacts the utility.",
   "author": {
     "name": "Kurt Francisco"
   },

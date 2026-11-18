@@ -79,7 +79,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `prime_cost_check` | Work out prime cost and its share of net sales for every location and week, and the food-and-beverage and labor shares; flag weeks over the prime cost target, watch the parts over their targets and prime cost rising w… | runs |
 | `prime_cost_explain` | Show one location and week (e.g. | runs |
-| `prime_cost_write_report` | Write mulberry-prime-cost.csv (one row per item, with blank owner and decision columns) and mulberry-prime-cost.html into out_dir (default fairtable-out/prime_cost). | runs |
+| `prime_cost_write_report` | Write prime-cost.csv (one row per item, with blank owner and decision columns) and prime-cost.html into out_dir (default fairtable-out/prime_cost). | runs |
 | `prime_cost_draft_memo` | Write drafts/memo-prime-cost.md: prime cost by location and week with the weeks over target, for the managers. | asks first (Auto can be opted in) |
 | `prime_cost_request_send` | After one named human click (even in Auto), record that the reviewed memo draft is approved in memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `prime_cost_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

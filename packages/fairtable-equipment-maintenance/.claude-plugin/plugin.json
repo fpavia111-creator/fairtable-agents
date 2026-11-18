@@ -1,7 +1,7 @@
 {
   "name": "fairtable-equipment-maintenance",
   "version": "0.1.0",
-  "description": "The maintenance schedule for hoods, grease traps, fire suppression, ice machines, refrigeration and the rest: what is overdue, what is due in the next weeks, what has no service date, and equipment repaired again and again. Never books a vendor.",
+  "description": "Fairtable Equipment Maintenance: the maintenance schedule for hoods, grease traps, fire suppression, ice machines, refrigeration and the rest: what is overdue, what is due in the next weeks, what has no service date, and equipment repaired again and again. Never books a vendor.",
   "author": {
     "name": "Kurt Francisco"
   },

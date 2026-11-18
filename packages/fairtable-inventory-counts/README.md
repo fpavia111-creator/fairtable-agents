@@ -85,7 +85,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `counts_check` | Count against expected quantity per item, priced at the unit cost. | runs |
 | `counts_explain` | Show one counted item from counts_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `counts_write_report` | Write cherry-count-variance.csv (one row per item, with blank owner and decision columns) and cherry-count-variance.html into out_dir (default fairtable-out/counts). | runs |
+| `counts_write_report` | Write inventory-counts.csv (one row per item, with blank owner and decision columns) and inventory-counts.html into out_dir (default fairtable-out/counts). | runs |
 | `counts_draft_recount_list` | Write drafts/recount_list-<location>.md: the items to recount before the count is closed, grouped by storage area, with what was counted and what was expected. | asks first (Auto can be opted in) |
 | `counts_request_send` | After one named human click (even in Auto), record that the reviewed recount list draft is approved in recount_list-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `counts_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

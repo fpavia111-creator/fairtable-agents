@@ -80,7 +80,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `sales_tax_check` | Group POS sales by location, category, marketplace and exemption; compare the tax collected with net sales x the rate in the settings; flag under-collection, list over-collection, marketplace orders with tax in the PO… | runs |
 | `sales_tax_explain` | Show one location and category (e.g. | runs |
-| `sales_tax_write_report` | Write lemon-sales-tax.csv (one row per item, with blank owner and decision columns) and lemon-sales-tax.html into out_dir (default fairtable-out/sales_tax). | runs |
+| `sales_tax_write_report` | Write sales-tax.csv (one row per item, with blank owner and decision columns) and sales-tax.html into out_dir (default fairtable-out/sales_tax). | runs |
 | `sales_tax_draft_memo` | Write drafts/memo-sales-tax.md: the lines collected under or over the rates in the settings, the marketplace lines and exempt sales, for the bookkeeper before the return is prepared. | asks first (Auto can be opted in) |
 | `sales_tax_request_send` | After one named human click (even in Auto), record that the reviewed memo draft is approved in memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `sales_tax_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

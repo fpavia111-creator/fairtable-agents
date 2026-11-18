@@ -87,7 +87,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `food_handlers_check` | Match every active employee with their certificates; flag missing cards after the grace period for new hires, expired cards and certificates and locations with no current certified food protection manager; watch certi… | runs |
 | `food_handlers_explain` | Show one employee from food_handlers_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `food_handlers_write_report` | Write papaya-food-handlers.csv (one row per item, with blank owner and decision columns) and papaya-food-handlers.html into out_dir (default fairtable-out/food_handlers). | runs |
+| `food_handlers_write_report` | Write food-handler-cards.csv (one row per item, with blank owner and decision columns) and food-handler-cards.html into out_dir (default fairtable-out/food_handlers). | runs |
 | `food_handlers_draft_reminder_list` | Write drafts/reminder_list-<location>.md: who needs a card or a renewal and by when, for the manager to hand out. | asks first (Auto can be opted in) |
 | `food_handlers_request_send` | After one named human click (even in Auto), record that the reviewed reminder list draft is approved in reminder_list-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `food_handlers_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

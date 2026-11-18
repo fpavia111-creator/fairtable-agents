@@ -84,7 +84,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `equipment_check` | Work out each piece of equipment's next due date from its last service (on the list or in the service log) and its interval (on the list, else the default for its type in the settings); flag overdue items, watch items… | runs |
 | `equipment_explain` | Show one piece of equipment from equipment_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `equipment_write_report` | Write olive-equipment.csv (one row per item, with blank owner and decision columns) and olive-equipment.html into out_dir (default fairtable-out/equipment). | runs |
+| `equipment_write_report` | Write equipment-maintenance.csv (one row per item, with blank owner and decision columns) and equipment-maintenance.html into out_dir (default fairtable-out/equipment). | runs |
 | `equipment_draft_service_request` | Write drafts/service_request-<vendor>.md: the equipment that vendor services that is overdue or due soon, asking for dates. | asks first (Auto can be opted in) |
 | `equipment_request_send` | After one named human click (even in Auto), record that the reviewed service request draft is approved in service_request-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `equipment_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

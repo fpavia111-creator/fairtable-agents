@@ -1,7 +1,7 @@
 {
   "name": "fairtable-receiving-credits",
   "version": "0.1.0",
-  "description": "Matches every invoice line with what the receiving log says arrived and with the credit memos, and lists shorts, rejected cases and substitutions still waiting for a credit. Writes a credit request draft. Never pays and never contacts the vendor.",
+  "description": "Fairtable Receiving Credits: matches every invoice line with what the receiving log says arrived and with the credit memos, and lists shorts, rejected cases and substitutions still waiting for a credit. Writes a credit request draft. Never pays and never contacts the vendor.",
   "author": {
     "name": "Kurt Francisco"
   },

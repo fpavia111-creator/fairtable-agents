@@ -86,7 +86,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `breaks_check` | For each shift: the meal break against the rules in the settings (after how many hours, how long, by which hour, a second meal on long days) with the premium they would mean, and for employees under 18 the hours and t… | runs |
 | `breaks_explain` | Show one employee from breaks_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `breaks_write_report` | Write raspberry-breaks.csv (one row per item, with blank owner and decision columns) and raspberry-breaks.html into out_dir (default fairtable-out/breaks). | runs |
+| `breaks_write_report` | Write meal-breaks.csv (one row per item, with blank owner and decision columns) and meal-breaks.html into out_dir (default fairtable-out/breaks). | runs |
 | `breaks_draft_memo` | Write drafts/memo-<week>.md: shifts with break or minor-hours issues and the premiums shown under the settings, for payroll and the scheduler. | asks first (Auto can be opted in) |
 | `breaks_request_send` | After one named human click (even in Auto), record that the reviewed memo draft is approved in memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `breaks_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

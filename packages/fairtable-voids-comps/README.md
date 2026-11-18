@@ -79,7 +79,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `voids_check` | Add up each employee's voids and comps, put them against their sales, and flag self-approved voids, voids after the check closed, a void-and-comp rate over the threshold, voids with no reason, items over the approval … | runs |
 | `voids_explain` | Show one employee from voids_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `voids_write_report` | Write cranberry-voids.csv (one row per item, with blank owner and decision columns) and cranberry-voids.html into out_dir (default fairtable-out/voids). | runs |
+| `voids_write_report` | Write voids-comps.csv (one row per item, with blank owner and decision columns) and voids-comps.html into out_dir (default fairtable-out/voids). | runs |
 | `voids_draft_review_memo` | Write drafts/review_memo-<location>.md: the employees and checks to review with the floor manager, with what each finding means. | asks first (Auto can be opted in) |
 | `voids_request_send` | After one named human click (even in Auto), record that the reviewed review memo draft is approved in review_memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `voids_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

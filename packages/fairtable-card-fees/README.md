@@ -77,7 +77,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `card_fees_check` | For each location and month: total fees over card volume (the effective rate), the processor markup against the agreed basis points plus per-transaction fee, and every other fee against your agreement list. | runs |
 | `card_fees_explain` | Show one location and month (e.g. | runs |
-| `card_fees_write_report` | Write plum-card-fees.csv (one row per item, with blank owner and decision columns) and plum-card-fees.html into out_dir (default fairtable-out/card_fees). | runs |
+| `card_fees_write_report` | Write card-fees.csv (one row per item, with blank owner and decision columns) and card-fees.html into out_dir (default fairtable-out/card_fees). | runs |
 | `card_fees_draft_letter` | Write drafts/letter-processor.md: the markup over the agreed rate and the fees outside the agreement, asking for a refund and the correct pricing. | asks first (Auto can be opted in) |
 | `card_fees_request_send` | After one named human click (even in Auto), record that the reviewed letter draft is approved in letter-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `card_fees_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

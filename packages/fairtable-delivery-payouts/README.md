@@ -78,7 +78,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `payouts_check` | Check each statement line's payout against its own subtotal, tax, fees, refunds and adjustments, its commission against the contract rate in the settings, and match statement orders with POS orders. | runs |
 | `payouts_explain` | Show one delivery order from payouts_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `payouts_write_report` | Write jackfruit-delivery-payouts.csv (one row per item, with blank owner and decision columns) and jackfruit-delivery-payouts.html into out_dir (default fairtable-out/payouts). | runs |
+| `payouts_write_report` | Write delivery-payouts.csv (one row per item, with blank owner and decision columns) and delivery-payouts.html into out_dir (default fairtable-out/payouts). | runs |
 | `payouts_draft_dispute` | Write drafts/dispute-<platform>.md: the overcharged commissions, short payouts, unpaid orders and error charges for one platform, for a person to submit in the platform's merchant portal. | asks first (Auto can be opted in) |
 | `payouts_request_send` | After one named human click (even in Auto), record that the reviewed dispute draft is approved in dispute-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `payouts_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

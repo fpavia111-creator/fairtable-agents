@@ -80,7 +80,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `menu_check` | For each category: every item's share of the count against 70% of an even share, and its contribution margin (average price - plate cost) against the category's weighted average. | runs |
 | `menu_explain` | Show one menu item from menu_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `menu_write_report` | Write lime-menu-engineering.csv (one row per item, with blank owner and decision columns) and lime-menu-engineering.html into out_dir (default fairtable-out/menu). | runs |
+| `menu_write_report` | Write menu-engineering.csv (one row per item, with blank owner and decision columns) and menu-engineering.html into out_dir (default fairtable-out/menu). | runs |
 | `menu_draft_menu_proposal` | Write drafts/menu_proposal-<location>.md: the plowhorses, puzzles and dogs with a proposed action each, for the owner and chef. | asks first (Auto can be opted in) |
 | `menu_request_approve` | After one named human click (even in Auto), record that the reviewed menu proposal draft is approved in menu_proposal-requests.csv. | one named click, even in Auto (`go_live`) |
 | `menu_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

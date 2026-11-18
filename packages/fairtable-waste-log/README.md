@@ -82,7 +82,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `waste_check` | Price every waste entry (value, or quantity x unit cost), add it up by item and reason, compare it with net sales, and list days with sales and no waste entry. | runs |
 | `waste_explain` | Show one wasted item or day from waste_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `waste_write_report` | Write clementine-waste.csv (one row per item, with blank owner and decision columns) and clementine-waste.html into out_dir (default fairtable-out/waste). | runs |
+| `waste_write_report` | Write waste-log.csv (one row per item, with blank owner and decision columns) and waste-log.html into out_dir (default fairtable-out/waste). | runs |
 | `waste_draft_memo` | Write drafts/memo-<location>.md: the week's waste for the kitchen, the items and reasons to fix at the source, and the days with no log. | asks first (Auto can be opted in) |
 | `waste_request_send` | After one named human click (even in Auto), record that the reviewed memo draft is approved in memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `waste_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

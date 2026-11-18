@@ -1,7 +1,7 @@
 {
   "name": "fairtable-voids-comps",
   "version": "0.1.0",
-  "description": "Voids and comps by employee from your POS export, against each server's sales: self-approved voids, voids after the check was paid, missing reasons and comps over the approval limit. Names are masked for the AI model. Never changes the POS.",
+  "description": "Fairtable Voids Comps: voids and comps by employee from your POS export, against each server's sales: self-approved voids, voids after the check was paid, missing reasons and comps over the approval limit. Names are masked for the AI model. Never changes the POS.",
   "author": {
     "name": "Kurt Francisco"
   },

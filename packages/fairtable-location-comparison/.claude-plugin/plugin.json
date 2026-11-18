@@ -1,7 +1,7 @@
 {
   "name": "fairtable-location-comparison",
   "version": "0.1.0",
-  "description": "Compares every location of a multi-unit group on the same measures (food cost, labor, prime cost, voids, comps, discounts, average check) against the group median, and shows which location is out of line on what. Never changes anything at a location.",
+  "description": "Fairtable Location Comparison: compares every location of a multi-unit group on the same measures (food cost, labor, prime cost, voids, comps, discounts, average check) against the group median, and shows which location is out of line on what. Never changes anything at a location.",
   "author": {
     "name": "Kurt Francisco"
   },

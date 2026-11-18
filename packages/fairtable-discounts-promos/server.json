@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.fpavia111-creator/fairtable-discounts-promos",
   "title": "Fairtable Discounts Promos",
-  "description": "Fairtable Discounts Promos: checks every discount and promotion rung in the POS against your promotion…",
+  "description": "Fairtable Discounts Promos: checks every discount and promotion rung in the POS against your…",
   "version": "0.1.0",
   "repository": {
     "url": "https://github.com/fpavia111-creator/fairtable-agents",

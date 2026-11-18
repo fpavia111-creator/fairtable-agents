@@ -80,7 +80,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `recipe_costs_check` | Cost every recipe from its ingredients at the latest invoice price per unit, read through the pack size ("6/5 LB") and the yield. | runs |
 | `recipe_costs_explain` | Show one recipe from recipe_costs_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `recipe_costs_write_report` | Write banana-recipe-costs.csv (one row per item, with blank owner and decision columns) and banana-recipe-costs.html into out_dir (default fairtable-out/recipe_costs). | runs |
+| `recipe_costs_write_report` | Write recipe-costs.csv (one row per item, with blank owner and decision columns) and recipe-costs.html into out_dir (default fairtable-out/recipe_costs). | runs |
 | `recipe_costs_draft_price_proposal` | Write drafts/price_proposal-<location>.md: the plates over target with their plate cost, current price and the price at target, for the owner to decide. | asks first (Auto can be opted in) |
 | `recipe_costs_request_approve` | After one named human click (even in Auto), record that the reviewed price proposal draft is approved in price_proposal-requests.csv. | one named click, even in Auto (`go_live`) |
 | `recipe_costs_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

@@ -1,7 +1,7 @@
 {
   "name": "fairtable-catering-deposits",
   "version": "0.1.0",
-  "description": "Catering and private-event deposits and balances against your bookings: deposits missing as the event gets close, balances overdue after the event, overpayments, refunds owed on cancellations and payments with no booking. Client names are masked for the AI model. Never charges or refunds anyone.",
+  "description": "Fairtable Catering Deposits: catering and private-event deposits and balances against your bookings: deposits missing as the event gets close, balances overdue after the event, overpayments, refunds owed on cancellations and payments with no booking. Client names are masked for the AI model. Never charges or refunds anyone.",
   "author": {
     "name": "Kurt Francisco"
   },

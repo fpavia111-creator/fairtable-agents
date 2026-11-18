@@ -1,7 +1,7 @@
 {
   "name": "fairtable-discounts-promos",
   "version": "0.1.0",
-  "description": "Checks every discount and promotion rung in the POS against your promotion list: promos used after they ended, unknown or open discounts, discounts over their cap, employee meals over the allowance and missing approvals. Never changes the POS.",
+  "description": "Fairtable Discounts Promos: checks every discount and promotion rung in the POS against your promotion list: promos used after they ended, unknown or open discounts, discounts over their cap, employee meals over the allowance and missing approvals. Never changes the POS.",
   "author": {
     "name": "Kurt Francisco"
   },

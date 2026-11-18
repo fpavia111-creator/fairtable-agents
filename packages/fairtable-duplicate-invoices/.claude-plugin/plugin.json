@@ -1,7 +1,7 @@
 {
   "name": "fairtable-duplicate-invoices",
   "version": "0.1.0",
-  "description": "Vendor invoices before they are paid: the same invoice entered twice, likely duplicates under a new number, line math that does not add up, missing invoice numbers, and lines coded to the wrong GL account (liquor in food cost, paper goods in food). Never pays and never posts to the books.",
+  "description": "Fairtable Duplicate Invoices: vendor invoices before they are paid: the same invoice entered twice, likely duplicates under a new number, line math that does not add up, missing invoice numbers, and lines coded to the wrong GL account (liquor in food cost, paper goods in food). Never pays and never posts to the books.",
   "author": {
     "name": "Kurt Francisco"
   },

@@ -1,7 +1,7 @@
 {
   "name": "fairtable-allergen-matrix",
   "version": "0.1.0",
-  "description": "Checks your menu's allergen matrix against the recipes and each ingredient's allergens: allergens in a dish that the matrix does not declare, free-from claims a recipe breaks, declarations no ingredient explains, and ingredients with no allergen data. Never changes the menu.",
+  "description": "Fairtable Allergen Matrix: checks your menu's allergen matrix against the recipes and each ingredient's allergens: allergens in a dish that the matrix does not declare, free-from claims a recipe breaks, declarations no ingredient explains, and ingredients with no allergen data. Never changes the menu.",
   "author": {
     "name": "Kurt Francisco"
   },

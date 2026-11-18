@@ -85,7 +85,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `inspections_check` | For each location: the latest inspection, any re-inspection due and not on file, critical violations not followed by a later inspection, score drops and the estimated next routine visit; for each permit: expired, expi… | runs |
 | `inspections_explain` | Show one location line (e.g. | runs |
-| `inspections_write_report` | Write orange-inspections.csv (one row per item, with blank owner and decision columns) and orange-inspections.html into out_dir (default fairtable-out/inspections). | runs |
+| `inspections_write_report` | Write health-inspections.csv (one row per item, with blank owner and decision columns) and health-inspections.html into out_dir (default fairtable-out/inspections). | runs |
 | `inspections_draft_memo` | Write drafts/memo-<location>.md: what to do before the next inspection at one location (open violations, re-inspection to request, permits to renew). | asks first (Auto can be opted in) |
 | `inspections_request_send` | After one named human click (even in Auto), record that the reviewed memo draft is approved in memo-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `inspections_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |

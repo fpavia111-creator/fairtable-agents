@@ -78,7 +78,7 @@ Audit log: <demo folder>/.fairtable/audit.jsonl
 |---|---|---|
 | `marketing_check` | Attribute each marketing fee and promotion charge to an opted-in campaign on the same platform and dates; add up spend and the sales of the orders it touched. | runs |
 | `marketing_explain` | Show one campaign from marketing_check with every finding, the numbers behind it and the setting it was checked against. | runs |
-| `marketing_write_report` | Write kiwi-marketing-fees.csv (one row per item, with blank owner and decision columns) and kiwi-marketing-fees.html into out_dir (default fairtable-out/marketing). | runs |
+| `marketing_write_report` | Write delivery-marketing.csv (one row per item, with blank owner and decision columns) and delivery-marketing.html into out_dir (default fairtable-out/marketing). | runs |
 | `marketing_draft_dispute` | Write drafts/dispute-<platform>.md: marketing charges with no opted-in campaign and spend over budget, for a person to raise in the platform's merchant portal. | asks first (Auto can be opted in) |
 | `marketing_request_send` | After one named human click (even in Auto), record that the reviewed dispute draft is approved in dispute-requests.csv. | one named click, even in Auto (`binding_send`) |
 | `marketing_recall` | Search this agent's own memory of the customer's setup: accepted facts (in use) and facts waiting for a person. | runs |
