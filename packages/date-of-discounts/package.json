@@ -1,0 +1,56 @@
+{
+  "name": "date-of-discounts",
+  "version": "0.1.0",
+  "description": "Date of Discounts: checks every discount and promotion rung in the POS against your promotion list: promos used after they ended, unknown or open discounts, discounts over their cap, employee meals over the allowance and missing approvals. Never changes the POS.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "date-of-discounts": "bin/date-of-discounts.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/date-of-discounts.js demo",
+    "eval": "node bin/date-of-discounts.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/date-of-discounts"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/date-of-discounts#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "discounts",
+    "promotions",
+    "loss-prevention"
+  ]
+}

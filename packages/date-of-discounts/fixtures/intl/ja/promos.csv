@@ -1,0 +1,7 @@
+名前,シフト開始,シフト終了,max_pct,max_amount,needs_approval,employee_only,daily_allowance,日数,労働時間
+Happy Hour Half Off Apps,2026/09/01,2026/12/31,50,,no,no,,Mon-Fri,15:00-18:00
+Fall Prix Fixe,2026/10/01,2026/11/30,15,15.00,no,no,,,
+Summer Patio 20%,2026/06/01,2026/09/30,20,,no,no,,,
+Employee Meal 50%,2026/01/01,2026/12/31,50,,no,yes,15.00,,
+Manager Comp 100%,2026/01/01,2026/12/31,100,,yes,no,,,
+Open Dollar Discount,2026/01/01,2026/12/31,,20.00,yes,no,,,

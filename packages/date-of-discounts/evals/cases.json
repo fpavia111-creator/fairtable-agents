@@ -1,0 +1,386 @@
+{
+  "suite": "date-of-discounts",
+  "root": "..",
+  "data_note": "Fictional discounts, promotions and made-up staff names in ../fixtures. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "discount-totals",
+      "tool": "date_check",
+      "args": {
+        "discounts": "fixtures/discounts.csv",
+        "promos": "fixtures/promos.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.discounts": 7,
+          "result.uses": 10,
+          "result.discount_amount": 180,
+          "result.not_on_list": 1,
+          "result.flag": 5,
+          "result.review": 1,
+          "result.ok": 1
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "date_check",
+      "args": {
+        "discounts": "fixtures/discounts.csv",
+        "promos": "fixtures/promos.csv"
+      },
+      "expect": {
+        "contains": [
+          "expired_promo",
+          "outside_hours",
+          "over_cap",
+          "no_approver",
+          "employee_meal_over",
+          "unknown_discount"
+        ]
+      }
+    },
+    {
+      "id": "happy-hour-after-hours",
+      "tool": "date_explain",
+      "args": {
+        "discounts": "fixtures/discounts.csv",
+        "promos": "fixtures/promos.csv",
+        "discount": "happy hour half off apps"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "rung Tue 19:30 (check 2002)"
+        ],
+        "equals": {
+          "result.item.uses": 2
+        }
+      }
+    },
+    {
+      "id": "prix-fixe-over-cap",
+      "tool": "date_explain",
+      "args": {
+        "discounts": "fixtures/discounts.csv",
+        "promos": "fixtures/promos.csv",
+        "discount": "Fall Prix Fixe"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "2010 by 15.6"
+        ],
+        "equals": {
+          "result.item.status": "flag"
+        }
+      }
+    },
+    {
+      "id": "large-tolerance-forgives-caps",
+      "tool": "date_check",
+      "args": {
+        "discounts": "fixtures/discounts.csv",
+        "promos": "fixtures/promos.csv",
+        "settings": "fixtures/settings-loose.json"
+      },
+      "expect": {
+        "status": "executed",
+        "not_contains": [
+          "over_cap",
+          "employee_meal_over"
+        ]
+      }
+    },
+    {
+      "id": "discount-memo-after-approval",
+      "tool": "date_draft_memo",
+      "approve": "Pat Example",
+      "args": {
+        "discounts": "fixtures/discounts.csv",
+        "promos": "fixtures/promos.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "memo Main Street drafted for 180"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "date_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "discounts"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "date_check",
+      "args": {
+        "discounts": "../../../outside.csv",
+        "promos": "fixtures/promos.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "date_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "date_check",
+      "mode": "review",
+      "args": {
+        "discounts": "fixtures/discounts.csv",
+        "promos": "fixtures/promos.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.discounts": 7,
+          "result.uses": 10,
+          "result.discount_amount": 180,
+          "result.not_on_list": 1,
+          "result.flag": 5,
+          "result.review": 1,
+          "result.ok": 1
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "date_check",
+      "args": {
+        "discounts": "fixtures/discounts.csv",
+        "promos": "fixtures/promos.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.discounts": 7,
+          "result.uses": 10,
+          "result.discount_amount": 180,
+          "result.not_on_list": 1,
+          "result.flag": 5,
+          "result.review": 1,
+          "result.ok": 1
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "date_explain",
+      "args": {
+        "discounts": "fixtures/discounts.csv",
+        "promos": "fixtures/promos.csv",
+        "settings": "fixtures/settings.json",
+        "discount": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "date_write_report",
+      "args": {
+        "discounts": "fixtures/discounts.csv",
+        "promos": "fixtures/promos.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "date_draft_memo",
+      "args": {
+        "discounts": "fixtures/discounts.csv",
+        "promos": "fixtures/promos.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "date_draft_memo",
+      "mode": "review",
+      "args": {
+        "discounts": "fixtures/discounts.csv",
+        "promos": "fixtures/promos.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "date_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "date_draft_memo"
+      ],
+      "args": {
+        "draft": "fairtable-out/date/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-pos-change-menu",
+      "tool": "pos_change_menu",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-refund-issue",
+      "tool": "refund_issue",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "date_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "learn-waits-for-acceptance",
+      "tool": "date_learn",
+      "args": {
+        "kind": "item_alias",
+        "value": {
+          "name": "Fictional Name A",
+          "means": "Fictional Name B"
+        }
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "waiting"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-discount-totals",
+      "tool": "date_check",
+      "args": {
+        "discounts": "fixtures/intl/de/discounts.csv",
+        "promos": "fixtures/intl/de/promos.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.discounts": 7,
+          "result.uses": 10,
+          "result.discount_amount": 180,
+          "result.not_on_list": 1,
+          "result.flag": 5,
+          "result.review": 1,
+          "result.ok": 1
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"discount-totals\"."
+    },
+    {
+      "id": "intl-ja-discount-totals",
+      "tool": "date_check",
+      "args": {
+        "discounts": "fixtures/intl/ja/discounts.csv",
+        "promos": "fixtures/intl/ja/promos.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.discounts": 7,
+          "result.uses": 10,
+          "result.discount_amount": 180,
+          "result.not_on_list": 1,
+          "result.flag": 5,
+          "result.review": 1,
+          "result.ok": 1
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"discount-totals\"."
+    }
+  ]
+}

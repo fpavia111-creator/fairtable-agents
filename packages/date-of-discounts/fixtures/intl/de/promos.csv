@@ -1,0 +1,7 @@
+Vollständiger Name;Schichtbeginn;Schichtende;max_pct;max_amount;needs_approval;employee_only;daily_allowance;Tage;Stunden
+Happy Hour Half Off Apps;01.09.2026;31.12.2026;50;;no;no;;Mon-Fri;15:00-18:00
+Fall Prix Fixe;01.10.2026;30.11.2026;15;15,00;no;no;;;
+Summer Patio 20%;01.06.2026;30.09.2026;20;;no;no;;;
+Employee Meal 50%;01.01.2026;31.12.2026;50;;no;yes;15,00;;
+Manager Comp 100%;01.01.2026;31.12.2026;100;;yes;no;;;
+Open Dollar Discount;01.01.2026;31.12.2026;;20,00;yes;no;;;
