@@ -1,0 +1,9 @@
+Plattform;Bestellnummer;Datum;Lagerort;Zwischensumme
+DoorDash;DD-1001;03.11.2026;Main Street;40,00
+DoorDash;DD-1002;03.11.2026;Main Street;52,00
+DoorDash;DD-1003;04.11.2026;Main Street;31,00
+DoorDash;DD-1004;04.11.2026;Main Street;64,00
+DoorDash;DD-1005;05.11.2026;Main Street;47,00
+Uber Eats;UE-5001;05.11.2026;Main Street;45,00
+Uber Eats;UE-5002;05.11.2026;Main Street;38,00
+Grubhub;GH-9001;06.11.2026;Main Street;29,00

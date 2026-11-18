@@ -1,0 +1,9 @@
+Plattform;Bestellnummer;Datum;Lagerort;Typ;Zwischensumme;Steuer;Provision;Zahlungsgebühr;Marketinggebühr;Aktionsrabatt (selbst getragen);Erstattung;Korrektur;Auszahlung;Auszahlungs-ID;Auszahlungsdatum
+DoorDash;DD-1001;03.11.2026;Main Street;order;40,00;3,30;6,00;0,00;0,00;0,00;0,00;0,00;37,30;PO-77;10.11.2026
+DoorDash;DD-1002;03.11.2026;Main Street;order;52,00;4,29;10,40;0,00;0,00;0,00;0,00;0,00;45,89;PO-77;10.11.2026
+DoorDash;DD-1003;04.11.2026;Main Street;order;31,00;2,56;4,65;0,00;0,00;0,00;18,50;0,00;10,41;PO-77;10.11.2026
+DoorDash;DD-1004;04.11.2026;Main Street;order;64,00;5,28;9,60;0,00;0,00;0,00;0,00;0,00;59,68;PO-77;10.11.2026
+DoorDash;DD-1004;04.11.2026;Main Street;order;64,00;5,28;9,60;0,00;0,00;0,00;0,00;0,00;59,68;PO-77;10.11.2026
+Uber Eats;UE-5001;05.11.2026;Main Street;order;45,00;3,71;6,75;0,00;0,00;4,50;0,00;0,00;37,46;UE-P-12;11.11.2026
+Uber Eats;UE-5002;05.11.2026;Main Street;order;38,00;3,14;5,70;0,00;0,00;0,00;0,00;0,00;32,44;UE-P-12;11.11.2026
+Grubhub;GH-9001;06.11.2026;Main Street;order;29,00;2,39;5,80;0,87;0,00;0,00;0,00;0,00;24,72;GH-D-3;13.11.2026

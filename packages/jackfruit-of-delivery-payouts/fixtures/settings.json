@@ -1,0 +1,8 @@
+{
+  "platforms": {
+    "DoorDash": { "commission_pct": 15 },
+    "Uber Eats": { "commission_pct": 15 },
+    "Grubhub": { "commission_pct": 20, "processing_pct": 3.05 }
+  },
+  "tolerance": 0.05
+}

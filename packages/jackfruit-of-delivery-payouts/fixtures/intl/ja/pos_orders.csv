@@ -1,0 +1,9 @@
+プラットフォーム,注文番号,日付,保管場所,小計
+DoorDash,DD-1001,2026/11/03,Main Street,40.00
+DoorDash,DD-1002,2026/11/03,Main Street,52.00
+DoorDash,DD-1003,2026/11/04,Main Street,31.00
+DoorDash,DD-1004,2026/11/04,Main Street,64.00
+DoorDash,DD-1005,2026/11/05,Main Street,47.00
+Uber Eats,UE-5001,2026/11/05,Main Street,45.00
+Uber Eats,UE-5002,2026/11/05,Main Street,38.00
+Grubhub,GH-9001,2026/11/06,Main Street,29.00
