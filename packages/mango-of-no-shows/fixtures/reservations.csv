@@ -1,0 +1,13 @@
+reservation_id,guest,phone,email,date,time,party_size,status,deposit,fee_charged,source
+R-1001,Jordan Avery,555-0101-2201,javery@example.test,2026-11-04,19:00,2,Seated,0,0,OpenTable
+R-1002,Morgan Ellis,555-0101-2202,mellis@example.test,2026-11-04,19:30,4,No Show,0,0,OpenTable
+R-1003,Casey Brennan,555-0101-2203,cbrennan@example.test,2026-11-05,18:00,8,No Show,0,0,Phone
+R-1004,Riley Fontaine,555-0101-2204,rfontaine@example.test,2026-11-05,19:00,2,Seated,0,0,Resy
+R-1005,Morgan Ellis,555-0101-2202,mellis@example.test,2026-11-06,20:00,2,No Show,0,0,OpenTable
+R-1006,Sam Whitaker,555-0101-2206,swhitaker@example.test,2026-11-06,19:00,6,No Show,120,0,Resy
+R-1007,Taylor Grant,555-0101-2207,tgrant@example.test,2026-11-07,18:30,3,Seated,0,0,OpenTable
+R-1008,Alex Moreau,555-0101-2208,amoreau@example.test,2026-11-07,19:00,2,Cancelled,0,0,OpenTable
+R-1009,Jamie Holt,555-0101-2209,jholt@example.test,2026-11-07,20:00,4,Seated,0,0,Resy
+R-1010,Ellis Morgan,555-0101-2202,,2026-11-08,19:00,2,No Show,0,0,Phone
+R-1011,Pat Lindqvist,555-0101-2211,plind@example.test,2026-11-08,19:30,5,Seated,100,0,Resy
+R-1012,Drew Okafor,555-0101-2212,dokafor@example.test,2026-11-08,20:00,2,Seated,0,0,OpenTable
