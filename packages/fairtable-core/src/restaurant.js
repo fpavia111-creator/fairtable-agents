@@ -118,7 +118,7 @@ export function daypartOf(time, dayparts) {
 const UNIT_WORDS = {
   g: ['g', 'gr', 'gram', 'grams', 'gramm'], kg: ['kg', 'kgs', 'kilo', 'kilos', 'kilogram', 'kilograms'],
   oz: ['oz', 'ozs', 'ounce', 'ounces', 'wt oz'], lb: ['lb', 'lbs', 'pound', 'pounds', '#'],
-  ml: ['ml', 'milliliter', 'milliliters', 'millilitre', 'cc'], l: ['l', 'lt', 'ltr', 'liter', 'liters', 'litre', 'litres'],
+  ml: ['ml', 'milliliter', 'milliliters', 'millilitre', 'cc'], cl: ['cl', 'centiliter', 'centiliters', 'centilitre'], l: ['l', 'lt', 'ltr', 'liter', 'liters', 'litre', 'litres'],
   floz: ['fl oz', 'floz', 'fl. oz', 'fl.oz', 'fluid ounce', 'fluid ounces'], cup: ['cup', 'cups', 'c'], tbsp: ['tbsp', 'tbs', 'tablespoon', 'tablespoons', 'tbl'],
   tsp: ['tsp', 'teaspoon', 'teaspoons'], pt: ['pt', 'pint', 'pints'], qt: ['qt', 'quart', 'quarts'], gal: ['gal', 'gallon', 'gallons', 'ga'],
   ea: ['ea', 'each', 'ct', 'count', 'pc', 'pcs', 'piece', 'pieces', 'unit', 'units', 'portion', 'portions', 'bottle', 'bottles', 'can', 'cans', 'keg', 'kegs'], dz: ['dz', 'doz', 'dozen'],
@@ -126,7 +126,7 @@ const UNIT_WORDS = {
 const UNIT_INDEX = new Map(Object.entries(UNIT_WORDS).flatMap(([u, ws]) => ws.map((w) => [w, u])));
 export const UNIT_FACTORS = Object.freeze({
   g: ['weight', 1], kg: ['weight', 1000], oz: ['weight', 28.349523125], lb: ['weight', 453.59237],
-  ml: ['volume', 1], l: ['volume', 1000], floz: ['volume', 29.5735295625], cup: ['volume', 236.5882365], tbsp: ['volume', 14.78676478125], tsp: ['volume', 4.92892159375], pt: ['volume', 473.176473], qt: ['volume', 946.352946], gal: ['volume', 3785.411784],
+  ml: ['volume', 1], cl: ['volume', 10], l: ['volume', 1000], floz: ['volume', 29.5735295625], cup: ['volume', 236.5882365], tbsp: ['volume', 14.78676478125], tsp: ['volume', 4.92892159375], pt: ['volume', 473.176473], qt: ['volume', 946.352946], gal: ['volume', 3785.411784],
   ea: ['count', 1], dz: ['count', 12],
 });
 

@@ -1,0 +1,12 @@
+count_date,item,counted_qty,unit,size_ml,unit_cost,category
+2026-11-01,Tequila Blanco,6,bottle,750,22.00,Liquor
+2026-11-08,Tequila Blanco,4.2,bottle,750,22.00,Liquor
+2026-11-01,Triple Sec,4,bottle,750,9.00,Liquor
+2026-11-08,Triple Sec,2.5,bottle,750,9.00,Liquor
+2026-11-01,Bourbon,5,bottle,750,28.00,Liquor
+2026-11-08,Bourbon,1.4,bottle,750,28.00,Liquor
+2026-11-01,House Vodka,8,bottle,1000,14.00,Liquor
+2026-11-08,House Vodka,3.9,bottle,1000,14.00,Liquor
+2026-11-01,Coffee Liqueur,3,bottle,750,19.00,Liquor
+2026-11-01,London Dry Gin,4,bottle,750,20.00,Liquor
+2026-11-08,London Dry Gin,3,bottle,750,20.00,Liquor

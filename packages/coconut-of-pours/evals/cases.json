@@ -1,0 +1,404 @@
+{
+  "suite": "coconut-of-pours",
+  "root": "..",
+  "data_note": "A fictional bar week in ../fixtures. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "pour-cost-totals",
+      "tool": "coconut_check",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.bar_sales": 5430,
+          "result.liquor_cost_actual": 801.3,
+          "result.liquor_cost_theoretical": 739.04,
+          "result.pour_cost_pct": 14.8,
+          "result.flag": 1,
+          "result.review": 3,
+          "result.watch": 2,
+          "result.ok": 1
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "coconut_check",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv"
+      },
+      "expect": {
+        "contains": [
+          "over_pour",
+          "small_over_pour",
+          "no_close_count",
+          "not_in_recipes",
+          "drink_no_recipe"
+        ]
+      }
+    },
+    {
+      "id": "bourbon-explained",
+      "tool": "coconut_explain",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "item": "bourbon"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "open 5 + bought 6 - close 1.4",
+          "(180 oz)"
+        ],
+        "equals": {
+          "result.item.variance_cost": 70.07,
+          "result.item.variance_pct": 35.3
+        }
+      }
+    },
+    {
+      "id": "lower-target-flags-pour-cost",
+      "tool": "coconut_check",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "settings": "fixtures/settings-strict.json"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "pour_cost_over_target"
+        ],
+        "equals": {
+          "result.flag": 2
+        }
+      }
+    },
+    {
+      "id": "bar-memo-after-approval",
+      "tool": "coconut_draft_memo",
+      "approve": "Pat Example",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "location": "Main Street bar"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "memo Main Street bar drafted for 62.26"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "coconut_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "sales"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "coconut_check",
+      "args": {
+        "sales": "../../../outside.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "coconut_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "coconut_check",
+      "mode": "review",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.bar_sales": 5430,
+          "result.liquor_cost_actual": 801.3,
+          "result.liquor_cost_theoretical": 739.04,
+          "result.pour_cost_pct": 14.8,
+          "result.flag": 1,
+          "result.review": 3,
+          "result.watch": 2,
+          "result.ok": 1
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "coconut_check",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.bar_sales": 5430,
+          "result.liquor_cost_actual": 801.3,
+          "result.liquor_cost_theoretical": 739.04,
+          "result.pour_cost_pct": 14.8,
+          "result.flag": 1,
+          "result.review": 3,
+          "result.watch": 2,
+          "result.ok": 1
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "coconut_explain",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "settings": "fixtures/settings.json",
+        "item": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "coconut_write_report",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "coconut_draft_memo",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "location": "Main Street bar"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "coconut_draft_memo",
+      "mode": "review",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "location": "Main Street bar"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "coconut_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "coconut_draft_memo"
+      ],
+      "args": {
+        "draft": "fairtable-out/coconut/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-pos-change-menu",
+      "tool": "pos_change_menu",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-vendor-order-submit",
+      "tool": "vendor_order_submit",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "coconut_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "learn-waits-for-acceptance",
+      "tool": "coconut_learn",
+      "args": {
+        "kind": "item_alias",
+        "value": {
+          "name": "Fictional Name A",
+          "means": "Fictional Name B"
+        }
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "waiting"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-pour-cost-totals",
+      "tool": "coconut_check",
+      "args": {
+        "sales": "fixtures/intl/de/sales.csv",
+        "recipes": "fixtures/intl/de/recipes.csv",
+        "counts": "fixtures/intl/de/counts.csv",
+        "purchases": "fixtures/intl/de/purchases.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.bar_sales": 5430,
+          "result.liquor_cost_actual": 801.3,
+          "result.liquor_cost_theoretical": 739.04,
+          "result.pour_cost_pct": 14.8,
+          "result.flag": 1,
+          "result.review": 3,
+          "result.watch": 2,
+          "result.ok": 1
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"pour-cost-totals\"."
+    },
+    {
+      "id": "intl-ja-pour-cost-totals",
+      "tool": "coconut_check",
+      "args": {
+        "sales": "fixtures/intl/ja/sales.csv",
+        "recipes": "fixtures/intl/ja/recipes.csv",
+        "counts": "fixtures/intl/ja/counts.csv",
+        "purchases": "fixtures/intl/ja/purchases.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.bar_sales": 5430,
+          "result.liquor_cost_actual": 801.3,
+          "result.liquor_cost_theoretical": 739.04,
+          "result.pour_cost_pct": 14.8,
+          "result.flag": 1,
+          "result.review": 3,
+          "result.watch": 2,
+          "result.ok": 1
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"pour-cost-totals\"."
+    }
+  ]
+}
