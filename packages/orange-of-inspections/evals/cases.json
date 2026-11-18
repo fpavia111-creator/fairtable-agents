@@ -1,0 +1,361 @@
+{
+  "suite": "orange-of-inspections",
+  "root": "..",
+  "data_note": "Fictional inspections and permits for three fictional locations in ../fixtures. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "calendar-totals",
+      "tool": "orange_check",
+      "args": {
+        "inspections": "fixtures/inspections.csv",
+        "permits": "fixtures/permits.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.locations": 3,
+          "result.permits": 6,
+          "result.overdue": 2,
+          "result.due_soon": 4,
+          "result.flag": 2,
+          "result.review": 1,
+          "result.watch": 4,
+          "result.ok": 2
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "orange_check",
+      "args": {
+        "inspections": "fixtures/inspections.csv",
+        "permits": "fixtures/permits.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "contains": [
+          "reinspection_overdue",
+          "critical_open",
+          "score_drop",
+          "permit_expired",
+          "permit_expiring",
+          "no_expiry",
+          "routine_due"
+        ]
+      }
+    },
+    {
+      "id": "main-street-explained",
+      "tool": "orange_explain",
+      "args": {
+        "inspections": "fixtures/inspections.csv",
+        "permits": "fixtures/permits.csv",
+        "settings": "fixtures/settings.json",
+        "item": "main street | inspections"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "re-inspection was due 2026-09-01",
+          "score fell from 94 to 86"
+        ]
+      }
+    },
+    {
+      "id": "as-of-october",
+      "tool": "orange_check",
+      "args": {
+        "inspections": "fixtures/inspections.csv",
+        "permits": "fixtures/permits.csv",
+        "settings": "fixtures/settings-october.json"
+      },
+      "expect": {
+        "status": "executed",
+        "not_contains": [
+          "permit_expired"
+        ],
+        "contains": [
+          "permit_expiring"
+        ]
+      }
+    },
+    {
+      "id": "readiness-memo-after-approval",
+      "tool": "orange_draft_memo",
+      "approve": "Pat Example",
+      "args": {
+        "inspections": "fixtures/inspections.csv",
+        "permits": "fixtures/permits.csv",
+        "settings": "fixtures/settings.json",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "memo Main Street drafted"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "orange_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "inspections"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "orange_check",
+      "args": {
+        "inspections": "../../../outside.csv",
+        "permits": "fixtures/permits.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "orange_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "orange_check",
+      "mode": "review",
+      "args": {
+        "inspections": "fixtures/inspections.csv",
+        "permits": "fixtures/permits.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.locations": 3,
+          "result.permits": 6,
+          "result.overdue": 2,
+          "result.due_soon": 4,
+          "result.flag": 2,
+          "result.review": 1,
+          "result.watch": 4,
+          "result.ok": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "orange_check",
+      "args": {
+        "inspections": "fixtures/inspections.csv",
+        "permits": "fixtures/permits.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.locations": 3,
+          "result.permits": 6,
+          "result.overdue": 2,
+          "result.due_soon": 4,
+          "result.flag": 2,
+          "result.review": 1,
+          "result.watch": 4,
+          "result.ok": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "orange_explain",
+      "args": {
+        "inspections": "fixtures/inspections.csv",
+        "permits": "fixtures/permits.csv",
+        "settings": "fixtures/settings.json",
+        "item": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "orange_write_report",
+      "args": {
+        "inspections": "fixtures/inspections.csv",
+        "permits": "fixtures/permits.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "orange_draft_memo",
+      "args": {
+        "inspections": "fixtures/inspections.csv",
+        "permits": "fixtures/permits.csv",
+        "settings": "fixtures/settings.json",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "orange_draft_memo",
+      "mode": "review",
+      "args": {
+        "inspections": "fixtures/inspections.csv",
+        "permits": "fixtures/permits.csv",
+        "settings": "fixtures/settings.json",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "orange_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "orange_draft_memo"
+      ],
+      "args": {
+        "draft": "fairtable-out/orange/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-agency-portal-submit",
+      "tool": "agency_portal_submit",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-payment-send",
+      "tool": "payment_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "orange_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-calendar-totals",
+      "tool": "orange_check",
+      "args": {
+        "inspections": "fixtures/intl/de/inspections.csv",
+        "permits": "fixtures/intl/de/permits.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.locations": 3,
+          "result.permits": 6,
+          "result.overdue": 2,
+          "result.due_soon": 4,
+          "result.flag": 2,
+          "result.review": 1,
+          "result.watch": 4,
+          "result.ok": 2
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"calendar-totals\"."
+    },
+    {
+      "id": "intl-ja-calendar-totals",
+      "tool": "orange_check",
+      "args": {
+        "inspections": "fixtures/intl/ja/inspections.csv",
+        "permits": "fixtures/intl/ja/permits.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.locations": 3,
+          "result.permits": 6,
+          "result.overdue": 2,
+          "result.due_soon": 4,
+          "result.flag": 2,
+          "result.review": 1,
+          "result.watch": 4,
+          "result.ok": 2
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"calendar-totals\"."
+    }
+  ]
+}

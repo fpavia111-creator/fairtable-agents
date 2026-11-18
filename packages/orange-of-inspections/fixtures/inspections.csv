@@ -1,0 +1,7 @@
+location,date,type,score,critical_violations,violations,reinspection_due
+Main Street,2026-02-10,Routine,94,0,2,
+Main Street,2026-08-18,Routine,86,2,6,2026-09-01
+Harbor Road,2026-04-22,Routine,96,0,1,
+Harbor Road,2026-10-02,Complaint,90,1,3,2026-10-16
+Harbor Road,2026-10-15,Re-inspection,95,0,1,
+Airport Kiosk,2026-06-05,Routine,92,0,2,
