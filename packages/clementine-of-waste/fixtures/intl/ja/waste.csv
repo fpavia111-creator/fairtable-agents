@@ -1,0 +1,13 @@
+日付,保管場所,品目,数量,単位,単価,value,理由,社員名,shift
+2026/11/02,Main Street,Fries,4,lb,1.10,,overproduction,Jordan Lee,PM
+2026/11/02,Main Street,Chicken Breast,3,lb,3.90,,expired,Jordan Lee,AM
+2026/11/03,Main Street,Fries,5,lb,1.10,,overproduction,Casey Morgan,PM
+2026/11/03,Main Street,Salmon Fillet,2,lb,13.20,,dropped,Casey Morgan,PM
+2026/11/04,Main Street,Fries,6,lb,1.10,,overproduction,Jordan Lee,PM
+2026/11/04,Main Street,Romaine,3,lb,2.10,,spoiled,Jordan Lee,AM
+2026/11/06,Main Street,Chicken Breast,6,lb,3.90,,expired,Riley Chen,AM
+2026/11/06,Main Street,Brioche Bun,24,ea,0.45,,,Riley Chen,AM
+2026/11/07,Main Street,Salmon Fillet,3,lb,13.20,,overcooked,Casey Morgan,PM
+2026/11/07,Main Street,House Soup,1,batch,,,overproduction,Casey Morgan,PM
+2026/11/08,Main Street,Fries,4,lb,1.10,,overproduction,Jordan Lee,PM
+2026/11/08,Main Street,Chicken Breast,4,lb,3.90,,expired,Riley Chen,AM

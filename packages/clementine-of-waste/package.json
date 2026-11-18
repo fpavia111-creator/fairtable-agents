@@ -1,0 +1,56 @@
+{
+  "name": "clementine-of-waste",
+  "version": "0.1.0",
+  "description": "Clementine of Waste: reads your waste log against your daily sales, prices what was thrown out, and shows the items, reasons and days behind it, including days with sales and no waste logged at all. Never changes the POS or the prep list.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "clementine-of-waste": "bin/clementine-of-waste.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/clementine-of-waste.js demo",
+    "eval": "node bin/clementine-of-waste.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/clementine-of-waste"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/clementine-of-waste#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "waste-log",
+    "food-waste",
+    "prep"
+  ]
+}
