@@ -1,0 +1,11 @@
+{
+  "dayparts": [
+    { "name": "Breakfast", "start": "07:00", "end": "11:00", "target_labor_pct": 35 },
+    { "name": "Lunch", "start": "11:00", "end": "15:00", "target_labor_pct": 22 },
+    { "name": "Afternoon", "start": "15:00", "end": "17:00", "target_labor_pct": 30 },
+    { "name": "Dinner", "start": "17:00", "end": "22:00", "target_labor_pct": 20 }
+  ],
+  "flag_points": 3,
+  "min_sales_per_labor_hour": 60,
+  "labor_burden_pct": 10
+}
