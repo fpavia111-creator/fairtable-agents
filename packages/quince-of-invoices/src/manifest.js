@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { tableAgent, INVOICE_LINE_FIELDS, INVOICE_LINE_PROFILES, REFUSE, letter, money } from 'fairtable-core';
+import { tableAgent, rollup, INVOICE_LINE_FIELDS, INVOICE_LINE_PROFILES, REFUSE, letter, money } from 'fairtable-core';
 import { invoices, DEFAULTS } from './logic.js';
 
 const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
@@ -24,7 +24,7 @@ export const manifest = tableAgent({
     title: 'Duplicate invoices and GL coding', base: 'quince-invoices',
     row: (i) => ({ vendor: i.vendor ?? '', invoice_number: i.invoice_number ?? '', invoice_date: i.invoice_date ?? '', lines: i.lines ?? '', total: i.total ?? '' }),
     htmlColumns: ['vendor', 'invoice_number', 'invoice_date', 'total'],
-    sections: (o) => [{ title: 'By vendor', rows: [...new Set(o.items.map((i) => i.vendor))].sort().map((v) => ({ vendor: v, count: o.items.filter((i) => i.vendor === v).length, amount: Math.round(o.items.filter((i) => i.vendor === v).reduce((t, i) => t + i.total, 0) * 100) / 100 })), columns: ['vendor', 'count', 'amount'] }],
+    sections: (o) => [{ title: 'By vendor', rows: rollup(o.items, 'vendor', (i) => i.vendor, { amount: (i) => i.total }), columns: ['vendor', 'count', 'amount'] }],
   },
   draft: {
     noun: 'hold_memo', verb: 'send', actor: 'the owner',

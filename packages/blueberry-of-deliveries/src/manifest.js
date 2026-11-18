@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { tableAgent, INVOICE_LINE_FIELDS, INVOICE_LINE_PROFILES, REFUSE, letter, money, nameKey } from 'fairtable-core';
+import { tableAgent, rollup, INVOICE_LINE_FIELDS, INVOICE_LINE_PROFILES, REFUSE, letter, money, nameKey } from 'fairtable-core';
 import { deliveries, DEFAULTS } from './logic.js';
 
 const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
@@ -50,7 +50,7 @@ export const manifest = tableAgent({
     title: 'Invoices against deliveries and credit memos', base: 'blueberry-deliveries',
     row: (i) => ({ vendor: i.vendor ?? '', invoice_number: i.invoice_number ?? '', item: i.item ?? '', invoiced_qty: i.invoiced_qty ?? '', received_qty: i.received_qty ?? '', rejected_qty: i.rejected_qty ?? '', unit_price: i.unit_price ?? '', credit_expected: i.credit_expected ?? '', credited: i.credited ?? '', credit_due: i.credit_due ?? '' }),
     htmlColumns: ['vendor', 'invoice_number', 'item', 'invoiced_qty', 'received_qty', 'credit_due'],
-    sections: (o) => [{ title: 'By vendor', rows: [...new Set(o.items.map((i) => i.vendor))].sort().map((v) => ({ vendor: v, count: o.items.filter((i) => i.vendor === v && i.status !== 'ok').length, amount: Math.round(o.items.filter((i) => i.vendor === v).reduce((t, i) => t + i.credit_due, 0) * 100) / 100 })), columns: ['vendor', 'count', 'amount'] }],
+    sections: (o) => [{ title: 'By vendor', rows: rollup(o.items, 'vendor', (i) => i.vendor, { amount: (i) => i.credit_due }, { countWhen: (i) => i.status !== 'ok' }), columns: ['vendor', 'count', 'amount'] }],
   },
   draft: {
     noun: 'credit_request', verb: 'send', actor: 'the kitchen manager or bookkeeper', required: ['invoices', 'receiving', 'vendor'],

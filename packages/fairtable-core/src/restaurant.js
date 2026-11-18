@@ -172,3 +172,19 @@ export function unitPrice(casePrice, pack, unit) {
 /** Rank used to sort findings and pick an item's status: worst first. */
 export const STATUS_RANK = Object.freeze({ flag: 0, review: 1, watch: 2, ok: 3 });
 export const worst = (statuses) => statuses.reduce((w, s) => ((STATUS_RANK[s] ?? 3) < (STATUS_RANK[w] ?? 3) ? s : w), 'ok');
+
+/**
+ * One pass over items: rows of { [name]: key, count, ...sums } sorted by key.
+ * sums: { outputField: (item) => number }. Used by report sections so a file with
+ * thousands of vendors is not scanned once per vendor.
+ */
+export function rollup(items, name, keyFn, sums = {}, { countWhen = null } = {}) {
+  const m = new Map();
+  for (const i of items) {
+    const k = keyFn(i); let e = m.get(k);
+    if (!e) { e = { [name]: k, count: 0 }; for (const f of Object.keys(sums)) e[f] = 0; m.set(k, e); }
+    if (!countWhen || countWhen(i)) e.count++;
+    for (const [f, fn] of Object.entries(sums)) e[f] += Number(fn(i)) || 0;
+  }
+  return [...m.values()].sort((a, b) => cmp(a[name], b[name])).map((e) => { for (const f of Object.keys(sums)) e[f] = round2(e[f]); return e; });
+}

@@ -19,7 +19,9 @@ export function priceCreep({ invoices = [], contracts = [] }, s = DEFAULTS) {
   const groups = new Map();
   for (const l of invoices) { if (!str(l.item)) continue; const k = `${nameKey(l.vendor)}|${nameKey(l.item)}`; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(l); }
   const items = []; let extraTotal = 0;
-  for (const lines of groups.values()) {
+  // Bids indexed once by vendor and item (a lookup per group, not a scan of every bid).
+  const bids = new Map(); for (const c of contracts) { const k = `${nameKey(c.vendor)}|${nameKey(c.item)}`; if (!bids.has(k)) bids.set(k, []); bids.get(k).push(c); }
+  for (const [gk, lines] of groups) {
     lines.sort((a, b) => cmp(isoDate(a.invoice_date) || '', isoDate(b.invoice_date) || '') || cmp(str(a.invoice_number), str(b.invoice_number)));
     const vendor = str(lines[0].vendor), item = str(lines[0].item); const f = [];
     const pts = lines.map((l) => ({ l, b: perBase(l) }));
@@ -40,7 +42,7 @@ export function priceCreep({ invoices = [], contracts = [] }, s = DEFAULTS) {
       const text = `${item} from ${vendor}: ${round4(first.b.price)} per ${unit} on ${isoDate(first.l.invoice_date)}, ${round4(last.b.price)} on ${isoDate(last.l.invoice_date)} (${up > 0 ? '+' : ''}${up}%). Paid ${round2(extra)} more than at the first price.`;
       if (up >= s.flag_pct) f.push(finding(extra >= s.flag_amount ? 'price_up' : 'small_price_up', text, extra));
       if (maxRun >= s.creep_steps) f.push(finding('steady_creep', `${item} from ${vendor} went up ${maxRun} invoices in a row.`));
-      const c = contracts.find((x) => nameKey(x.vendor) === nameKey(vendor) && nameKey(x.item) === nameKey(item) && inWindow(last.l.invoice_date, x.valid_from, x.valid_to));
+      const c = (bids.get(gk) || []).find((x) => inWindow(last.l.invoice_date, x.valid_from, x.valid_to));
       if (c) {
         const cb = perBase({ ...c, unit_price: c.price, qty: 1 });
         if (cb && last.b.unit === cb.unit && last.b.price > cb.price * (1 + s.contract_tolerance_pct / 100)) {

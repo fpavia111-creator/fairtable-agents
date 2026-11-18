@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { tableAgent, REFUSE, letter, money } from 'fairtable-core';
+import { tableAgent, rollup, REFUSE, letter, money } from 'fairtable-core';
 import { utilities, DEFAULTS } from './logic.js';
 
 const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
@@ -37,7 +37,7 @@ export const manifest = tableAgent({
     title: 'Utility bills', base: 'nectarine-utilities',
     row: (i) => ({ account: i.account ?? '', utility: i.utility ?? '', location: i.location ?? '', period_start: i.period_start ?? '', period_end: i.period_end ?? '', usage: i.usage ?? '', unit: i.unit ?? '', usage_per_day: i.usage_per_day ?? '', rate: i.rate ?? '', amount: i.amount ?? '' }),
     htmlColumns: ['account', 'utility', 'period_start', 'usage_per_day', 'rate', 'amount'],
-    sections: (o) => [{ title: 'By account', rows: [...new Set(o.items.map((i) => i.account))].sort().map((a) => ({ account: a, count: o.items.filter((i) => i.account === a).length, amount: Math.round(o.items.filter((i) => i.account === a).reduce((t2, i) => t2 + i.amount, 0) * 100) / 100 })), columns: ['account', 'count', 'amount'] }],
+    sections: (o) => [{ title: 'By account', rows: rollup(o.items, 'account', (i) => i.account, { amount: (i) => i.amount }), columns: ['account', 'count', 'amount'] }],
   },
   draft: {
     noun: 'memo', verb: 'send', actor: 'the owner',

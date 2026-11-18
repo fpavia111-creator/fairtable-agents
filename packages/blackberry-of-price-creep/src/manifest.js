@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { tableAgent, INVOICE_LINE_FIELDS, INVOICE_LINE_PROFILES, REFUSE, letter, money, nameKey } from 'fairtable-core';
+import { tableAgent, rollup, INVOICE_LINE_FIELDS, INVOICE_LINE_PROFILES, REFUSE, letter, money, nameKey } from 'fairtable-core';
 import { priceCreep, DEFAULTS } from './logic.js';
 
 const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
@@ -40,7 +40,7 @@ export const manifest = tableAgent({
     title: 'Vendor price creep', base: 'blackberry-price-creep',
     row: (i) => ({ vendor: i.vendor ?? '', item: i.item ?? '', invoices: i.invoices ?? '', unit: i.unit ?? '', first_price: i.first_price ?? '', last_price: i.last_price ?? '', change_pct: i.change_pct ?? '', extra_paid: i.extra_paid ?? '' }),
     htmlColumns: ['vendor', 'item', 'unit', 'first_price', 'last_price', 'change_pct', 'extra_paid'],
-    sections: (o) => [{ title: 'By vendor', rows: [...new Set(o.items.map((i) => i.vendor))].sort().map((v) => ({ vendor: v, count: o.items.filter((i) => i.vendor === v).length, amount: Math.round(o.items.filter((i) => i.vendor === v).reduce((t, i) => t + i.extra_paid, 0) * 100) / 100 })), columns: ['vendor', 'count', 'amount'] }],
+    sections: (o) => [{ title: 'By vendor', rows: rollup(o.items, 'vendor', (i) => i.vendor, { amount: (i) => i.extra_paid }), columns: ['vendor', 'count', 'amount'] }],
   },
   draft: {
     noun: 'letter', verb: 'send', actor: 'the owner or buyer', required: ['invoices', 'vendor'],

@@ -17,9 +17,12 @@ export function allergens({ recipes = [], ingredients = [], matrix = [] }, s = D
   for (const m of [...matrix].sort((a, b) => cmp(nameKey(a.item), nameKey(b.item)))) {
     if (!str(m.item)) continue; onMatrix.add(nameKey(m.item));
     const f = []; const declared = new Set(parse(m.allergens)); const claims = str(m.free_from).split(/[;,]+/).map((x) => nameKey(x)).filter(Boolean);
-    const r = rec.get(nameKey(m.item)); const contains = new Map();
+    const rk = nameKey(m.item); const r = rec.get(rk);
+    // What a recipe contains is worked out once per recipe, however many matrix rows name it.
+    if (r && !r.contains) { r.contains = new Map(); r.missing = []; for (const p of r.parts) { const a = ing.get(nameKey(p)); if (!a) { if (!r.missing.includes(p)) r.missing.push(p); continue; } for (const x of a) { if (!r.contains.has(x)) r.contains.set(x, []); if (!r.contains.get(x).includes(p)) r.contains.get(x).push(p); } } }
+    const contains = r ? r.contains : new Map();
     if (!r) f.push(finding('no_recipe', `${str(m.item)} is on the allergen matrix but has no recipe, so its declarations cannot be checked.`));
-    else for (const p of r.parts) { const a = ing.get(nameKey(p)); if (!a) { f.push(finding('ingredient_no_data', `${str(m.item)}: ingredient "${p}" has no allergen data; ask the supplier for its specification sheet.`)); continue; } for (const x of a) { if (!contains.has(x)) contains.set(x, []); contains.get(x).push(p); } }
+    else for (const p of r.missing) f.push(finding('ingredient_no_data', `${str(m.item)}: ingredient "${p}" has no allergen data; ask the supplier for its specification sheet.`));
     for (const [a, from] of [...contains.entries()].sort((x, y) => cmp(x[0], y[0]))) if (!declared.has(a)) f.push(finding('undeclared_allergen', `${str(m.item)} contains ${a} (from ${from.join(', ')}) but the matrix does not declare it.`));
     for (const [claim, banned] of rules) if (claims.includes(claim)) { const hit = banned.filter((b) => contains.has(b)); if (hit.length) f.push(finding('free_from_broken', `${str(m.item)} is marked ${claim} but contains ${hit.map((h) => `${h} (from ${contains.get(h).join(', ')})`).join(', ')}.`)); }
     if (r) for (const d of [...declared].sort()) if (!contains.has(d)) f.push(finding('declared_not_found', `${str(m.item)} declares ${d} but no ingredient on file contains it. Keep it if it is a cross-contact warning; otherwise update the matrix.`));
