@@ -1,0 +1,30 @@
+{
+  "name": "fairtable-agents",
+  "private": true,
+  "description": "Fairtable: restaurant, bar and cafe back-office agents monorepo (fruit names), built on fairtable-core.",
+  "license": "MIT",
+  "workspaces": [
+    "packages/fairtable-core",
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "npm test --workspaces",
+    "hostile": "node scripts/hostile-inputs.mjs",
+    "hostile:args": "node scripts/hostile-inputs.mjs --args",
+    "release:check": "node scripts/release-check.mjs",
+    "release:check:offline": "node scripts/release-check.mjs --offline",
+    "bench": "node scripts/bench.mjs",
+    "plugin": "node scripts/plugin-files.mjs",
+    "plugin:check": "node scripts/plugin-files.mjs --check",
+    "intl": "node scripts/intl-check.mjs",
+    "mcp:check": "node scripts/mcp-conformance.mjs",
+    "readme:check": "node scripts/readme-sections.mjs --check",
+    "evals": "node scripts/run-all-evals.mjs",
+    "samples": "node scripts/sample-reports.mjs",
+    "evals:make": "node scripts/make-evals.mjs",
+    "masking": "node scripts/masking-check.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

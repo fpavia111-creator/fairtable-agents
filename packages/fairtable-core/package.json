@@ -1,0 +1,51 @@
+{
+  "name": "fairtable-core",
+  "version": "0.1.0",
+  "description": "Shared core for Fairtable domain agents: pinned-model pack manifests, allow/ask/block policy, Review/Assist/Auto modes with caps and a kill switch, hash-chained JSONL audit logs, a zero-dependency stdio MCP server and fixture-based evals.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./testkit": "./src/testkit.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fairtable-approve": "bin/fairtable-approve.js",
+    "fairtable-verify-log": "bin/fairtable-verify-log.js",
+    "fairtable-new-agent": "bin/fairtable-new-agent.js",
+    "fairtable-license": "bin/fairtable-license.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/fairtable-core"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-core#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "ai-agents",
+    "guardrails",
+    "human-in-the-loop",
+    "audit-log",
+    "fairtable"
+  ]
+}
