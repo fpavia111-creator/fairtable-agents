@@ -117,7 +117,9 @@ async function argsPass(n) {
     }
     for (const [label, args] of muts) {
       const { parent, root } = sandbox(n); const where = `${t.name} [${label}]`; info.calls++;
-      try { for (let i = 0; i < idx; i++) await call(manifest, root, cases[i].tool, cases[i].args || {}); } catch { /* setup only */ }
+      // Setup: replay the earlier cases that write files (drafts), the only state a later tool reads.
+      // Replaying every earlier case before each of ~1,600 mutations made one agent take over ten minutes.
+      try { for (let i = 0; i < idx; i++) { const kind = (manifest.tools.find((x) => x.name === cases[i].tool) || {}).kind; if (kind === 'write') await call(manifest, root, cases[i].tool, cases[i].args || {}); } } catch { /* setup only */ }
       const t0 = Date.now(); let out;
       try { out = await call(manifest, root, t.name, args); } catch (e) { add({ n, kind: 'THROW', where, detail: String(e.stack || e).slice(0, 240) }); rmSync(parent, { recursive: true, force: true }); continue; }
       const ms = Date.now() - t0; const reason = String(out.reason || ''); const txt = JSON.stringify(out);

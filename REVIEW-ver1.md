@@ -43,7 +43,7 @@ Every agent is read and report only. Nothing pays, refunds, charges a card, chan
 | `npm run hostile:args` | HOSTILE_ARGS_RESULT |
 | `npm run intl` (8 languages) | 403 cases with spreadsheet inputs per language, all pass; 320 of 412 column names translated (German count; the rest keep their English names and still match) |
 | `npm run masking` | 14 agents, 101 canaries, 306 calls, 0 leaks |
-| `npm run bench` (1,000 and 10,000 rows per input file) | BENCH_RESULT |
+| `npm run bench` (1,000 and 10,000 rows per input file) | 96 tools across 32 agents, all executed at 10,000 rows per file, 0 need attention; mean 533 ms, slowest 1.8 s (melon explain), peak memory 261 MB. The first run flagged 16 tools growing faster than their input; fixed (see below). Report: `docs/bench-2026-11-18.md` |
 | `npm run release:check:offline` | RELEASE_RESULT |
 | `npm run readme:check`, `npm run plugin:check` | both pass |
 | `npm view <name>` for all 33 names (read-only) | all 33 free on npm (E404); see `docs/npm-names-2026-11-18.md` |
@@ -61,6 +61,7 @@ Every agent is read and report only. Nothing pays, refunds, charges a card, chan
 - **readme-sections (from Lodestar):** the captured demo output held Windows temp paths, so `readme:check` could never pass on Windows; paths are normalised now.
 - **hostile and bench scripts (from Lodestar):** column patterns extended to restaurant files (employee, guest, client, recipe, platform, check, card, account columns), so restaurant ids and names are planted and grown like freight ones were.
 - **Eval expectations:** two `not_contains` checks matched a settings key name (`repeat_shorts`, `rate_jump_pct`) instead of a finding; replaced with counts.
+- **Speed at 10,000 rows (bench):** five agents compared every row with every other one: blackberry scanned every bid per item (39 s), kiwi every campaign per charge (121 s), olive every service-log line per equipment row (58 s), peach every recipe line per matrix row (33 s), quince every earlier invoice per invoice (31 s), and "By vendor" report sections scanned all rows per vendor (blueberry 4.7 s). Now indexed once (a `rollup()` helper in the core for report sections); all under 2 s.
 - **Fixtures:** mulberry's example prime cost target was so tight that 6 of 8 weeks flagged; the example now uses 65%.
 - **Honest copy:** the release check flagged "certified managers" in the root README; reworded to "manager certificates".
 
