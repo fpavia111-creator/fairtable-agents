@@ -29,7 +29,8 @@ function demoText(n) {
   const root = mkdtempSync(join(tmpdir(), `${n}-readme-`));
   try {
     const out = execFileSync(process.execPath, [join(PK, n, 'bin', `${n}.js`), 'demo'], { cwd: root, encoding: 'utf8', env: { ...process.env, NO_COLOR: '1' }, timeout: 60000 });
-    return out.replace(/ in \/[^\s,]*(?=,| )/g, '').replace(/\/tmp\/[^\s)]*/g, '<demo folder>').replace(/\r/g, '').trimEnd().split('\n').slice(0, 70).join('\n');
+    // Temporary folders differ on every run (and are Windows paths on Windows): keep them out.
+    return out.replace(/(Audit log: ).*$/gm, '$1<demo folder>/.fairtable/audit.jsonl').replace(/ in (?:\/|[A-Za-z]:\\)[^\s,]*(?=,| )/g, '').replace(/(?:\/tmp\/|[A-Za-z]:\\[^\s)]*?\\Temp\\)[^\s)]*/g, '<demo folder>').replace(/\r/g, '').trimEnd().split('\n').slice(0, 70).join('\n');
   } finally { rmSync(root, { recursive: true, force: true }); }
 }
 

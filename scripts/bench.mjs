@@ -31,14 +31,14 @@ const agents = readdirSync(PK).filter((n) => /-of-/.test(n) && (!only.length || 
 // Seeded PRNG (mulberry32) so a run is repeatable.
 const rng = (seed) => () => { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
 // Freight ids too: tracking, PRO, B/L, RMA, container, load and shipment numbers are unique per copy.
-const IDCOL = /internalid|externalid|(^|_)(id|ref|reference|number|no|sku|key|code|pro|bol|bl|awb|rma|tracking|container|load|shipment|booking|entry|receipt)$|^(id|sku|ref|login|user|username|email|mail|serial|tracking|pro|bol|rma|container|awb)$|email|invoice|order|request|po$|^fitid/i;
+const IDCOL = /internalid|externalid|(^|_)(id|ref|reference|number|no|sku|key|code|pro|bol|bl|awb|rma|tracking|container|load|shipment|booking|entry|receipt|check|card|account)$|^(id|sku|ref|login|user|username|email|mail|serial|tracking|pro|bol|rma|container|awb)$|email|invoice|order|request|po$|^fitid/i;
 const AMOUNT = /amount|total|price|cost|value|balance|qty|quantity|limit/i;
 
 // Copies of a row get a copy number k (1, 2, ...). Ids, emails and references get "-k",
 // so rows that shared an id still share it inside the same copy (payments stay grouped
 // under their vendor). Party names get a made-up name per (name, k) and tax ids and phones get new
 // digits, so the copies read as different payees rather than thousands of duplicates.
-const PARTY = /^(name|vendor|vendor_name|payee|payee_name|customer|customer_name|company|company_name|companyname|entityid|merchant|supplier|counterparty|legal_name|full_name|display_name|employee|employee_name|submitter)$/i;
+const PARTY = /^(guest|client|holder|server|name|vendor|vendor_name|payee|payee_name|customer|customer_name|company|company_name|companyname|entityid|merchant|supplier|counterparty|legal_name|full_name|display_name|employee|employee_name|submitter)$/i;
 const TAXID = /^(tin|ein|ssn|tax_id|taxid|vat|vat_number|vat_id|phone|phone_number|telephone|fax|mobile|mc|dot|bank_last4|dispatch_phone)$/i;
 const ADDRESS = /^(address|address1|address_1|address_line1|street|street_address|addr)$/i;
 const ENTITY_TAIL = /\s+(inc|llc|ltd|limited|corp|co|gmbh|plc|lp|llp)\.?$/i;
