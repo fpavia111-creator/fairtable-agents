@@ -1,0 +1,356 @@
+{
+  "suite": "elderberry-of-drawers",
+  "root": "..",
+  "data_note": "Fictional cash-outs and made-up names in ../fixtures. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "drawer-totals",
+      "tool": "elderberry_check",
+      "args": {
+        "drawers": "fixtures/drawers.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.drawer_days": 8,
+          "result.cash_sales": 8525,
+          "result.net_over_short": -48.5,
+          "result.total_short": 56,
+          "result.flag": 5,
+          "result.review": 3
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "elderberry_check",
+      "args": {
+        "drawers": "fixtures/drawers.csv"
+      },
+      "expect": {
+        "contains": [
+          "short",
+          "repeat_shorts",
+          "over",
+          "paid_out_no_receipt",
+          "deposit_mismatch",
+          "missing_count"
+        ],
+        "not_contains": [
+          "Avery",
+          "Riley Chen",
+          "Jamie"
+        ]
+      }
+    },
+    {
+      "id": "deposit-gap-explained",
+      "tool": "elderberry_explain",
+      "args": {
+        "drawers": "fixtures/drawers.csv",
+        "drawer_day": "Front 1 2026-11-04"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "79.5 is not accounted for"
+        ],
+        "equals": {
+          "result.item.over_short": -0.5
+        }
+      }
+    },
+    {
+      "id": "bar-short-explained",
+      "tool": "elderberry_explain",
+      "args": {
+        "drawers": "fixtures/drawers.csv",
+        "drawer_day": "bar 1 2026-11-03"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "bank 300 + cash sales 1310 - paid-outs 40 - tips paid 92",
+          "short on 4 shifts"
+        ],
+        "equals": {
+          "result.item.expected": 1478
+        }
+      }
+    },
+    {
+      "id": "looser-settings",
+      "tool": "elderberry_check",
+      "args": {
+        "drawers": "fixtures/drawers.csv",
+        "settings": "fixtures/settings-loose.json"
+      },
+      "expect": {
+        "status": "executed",
+        "not_contains": [
+          "repeat_shorts"
+        ],
+        "equals": {
+          "result.by_finding.short.count": 2
+        }
+      }
+    },
+    {
+      "id": "drawer-memo-after-approval",
+      "tool": "elderberry_draft_memo",
+      "approve": "Pat Example",
+      "args": {
+        "drawers": "fixtures/drawers.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "memo Main Street drafted for 56"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "elderberry_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "drawers"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "elderberry_check",
+      "args": {
+        "drawers": "../../../outside.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "elderberry_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "elderberry_check",
+      "mode": "review",
+      "args": {
+        "drawers": "fixtures/drawers.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.drawer_days": 8,
+          "result.cash_sales": 8525,
+          "result.net_over_short": -48.5,
+          "result.total_short": 56,
+          "result.flag": 5,
+          "result.review": 3
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "elderberry_check",
+      "args": {
+        "drawers": "fixtures/drawers.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.drawer_days": 8,
+          "result.cash_sales": 8525,
+          "result.net_over_short": -48.5,
+          "result.total_short": 56,
+          "result.flag": 5,
+          "result.review": 3
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "elderberry_explain",
+      "args": {
+        "drawers": "fixtures/drawers.csv",
+        "settings": "fixtures/settings.json",
+        "drawer_day": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "elderberry_write_report",
+      "args": {
+        "drawers": "fixtures/drawers.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "elderberry_draft_memo",
+      "args": {
+        "drawers": "fixtures/drawers.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "elderberry_draft_memo",
+      "mode": "review",
+      "args": {
+        "drawers": "fixtures/drawers.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "elderberry_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "elderberry_draft_memo"
+      ],
+      "args": {
+        "draft": "fairtable-out/elderberry/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-payment-send",
+      "tool": "payment_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-payroll-submit",
+      "tool": "payroll_submit",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "elderberry_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-drawer-totals",
+      "tool": "elderberry_check",
+      "args": {
+        "drawers": "fixtures/intl/de/drawers.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.drawer_days": 8,
+          "result.cash_sales": 8525,
+          "result.net_over_short": -48.5,
+          "result.total_short": 56,
+          "result.flag": 5,
+          "result.review": 3
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"drawer-totals\"."
+    },
+    {
+      "id": "intl-ja-drawer-totals",
+      "tool": "elderberry_check",
+      "args": {
+        "drawers": "fixtures/intl/ja/drawers.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.drawer_days": 8,
+          "result.cash_sales": 8525,
+          "result.net_over_short": -48.5,
+          "result.total_short": 56,
+          "result.flag": 5,
+          "result.review": 3
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"drawer-totals\"."
+    }
+  ]
+}
