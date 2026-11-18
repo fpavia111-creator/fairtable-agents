@@ -1,0 +1,11 @@
+Lieferant;Rechnungsnummer;received_date;Artikel;qty_received;qty_rejected;note;received_by
+Example Foodservice;EF-50311;03.11.2026;Ground Beef 80/20;8;0;;Jordan Lee
+Example Foodservice;EF-50311;03.11.2026;Brioche Bun;4;0;;Jordan Lee
+Example Foodservice;EF-50311;03.11.2026;Cheddar Cheese;1;0;short one case;Jordan Lee
+Example Foodservice;EF-50311;03.11.2026;Chicken Breast;2;1;one case received warm (48F) - rejected;Jordan Lee
+Example Foodservice;EF-50388;06.11.2026;Frozen Fries;3;0;short one case;Casey Morgan
+Example Foodservice;EF-50388;06.11.2026;Fryer Oil;2;0;;Casey Morgan
+Example Foodservice;EF-50388;06.11.2026;Sweet Potato Fries;1;0;substitute sent;Casey Morgan
+Sample Produce Co;SP-7712;04.11.2026;Romaine;2;0;;Jordan Lee
+Sample Produce Co;SP-7712;04.11.2026;Lemons;1;0;;Jordan Lee
+Example Seafood;ES-1180;05.11.2026;Salmon Fillet;2;0;;Casey Morgan

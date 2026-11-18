@@ -1,0 +1,11 @@
+Lieferant;Rechnungsnummer;Rechnungsdatum;Artikelnummer;Artikel;Gebinde;Menge;Einzelpreis;Gesamtpreis
+Example Foodservice;EF-50311;03.11.2026;100231;Ground Beef 80/20;1/10 LB;8;48,00;384,00
+Example Foodservice;EF-50311;03.11.2026;200455;Brioche Bun;8/12 CT;4;43,20;172,80
+Example Foodservice;EF-50311;03.11.2026;300712;Cheddar Cheese;4/5 LB;2;104,00;208,00
+Example Foodservice;EF-50311;03.11.2026;100877;Chicken Breast;4/10 LB;2;156,00;312,00
+Example Foodservice;EF-50388;06.11.2026;400120;Frozen Fries;6/5 LB;4;33,00;132,00
+Example Foodservice;EF-50388;06.11.2026;700100;Fryer Oil;1/35 LB;2;44,00;88,00
+Sample Produce Co;SP-7712;04.11.2026;P-1001;Romaine;1/25 LB;2;52,50;105,00
+Sample Produce Co;SP-7712;04.11.2026;P-2090;Lemons;1/165 CT;1;38,00;38,00
+Sample Produce Co;SP-7790;07.11.2026;P-3040;Avocados;1/48 CT;2;64,00;128,00
+Example Seafood;ES-1180;05.11.2026;F-220;Salmon Fillet;1/10 LB;2;132,00;264,00
