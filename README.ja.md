@@ -37,7 +37,7 @@ npx -y jackfruit-of-delivery-payouts demo   # デリバリーアプリの入金�
 
 ## テスト
 
-Windows・Node 24 で 806 件のテストと 703 件の評価ケース（各エージェント 21 件以上）がすべて合格し、悪意ある入力のテストでも問題は見つかっていません。詳細は [REVIEW-ver1.md](REVIEW-ver1.md) を参照してください。
+Windows・Node 24 で 807 件のテストと 703 件の評価ケース（各エージェント 21 件以上）がすべて合格し、悪意ある入力のテストでも問題は見つかっていません。詳細は [REVIEW-ver1.md](REVIEW-ver1.md) を参照してください。
 
 ## 制限事項
 

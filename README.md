@@ -62,7 +62,7 @@ node scripts/new-agent.mjs <fruit>-of-<job> "<description>"   # scaffold a new a
 
 ## How they are tested
 
-See [REVIEW-ver1.md](REVIEW-ver1.md) for every check with its numbers. In short: 806 tests (21 or more per agent) and 703 eval cases (21 or more per agent) pass on Windows with Node 24; the hostile data and argument passes find nothing; every agent reads its demo files in eight other languages and encodings with the same result; the bench runs every agent at 10,000 rows per file.
+See [REVIEW-ver1.md](REVIEW-ver1.md) for every check with its numbers. In short: 807 tests (21 or more per agent) and 703 eval cases (21 or more per agent) pass on Windows with Node 24; the hostile data and argument passes find nothing; every agent reads its demo files in eight other languages and encodings with the same result; the bench runs every agent at 10,000 rows per file.
 
 ## Limits
 
