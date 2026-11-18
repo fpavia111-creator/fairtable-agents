@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-cash-drawers": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-cash-drawers@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

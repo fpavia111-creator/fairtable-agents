@@ -1,0 +1,58 @@
+{
+  "name": "fairtable-card-fees",
+  "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/fairtable-card-fees",
+  "description": "Fairtable Card Fees: reads monthly card processing statements: the effective rate per location and month, processor markup over your agreed rate, fees you never agreed to, monthly fees over their cap and downgrade surcharges. Never contacts the processor or changes the account.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fairtable-card-fees": "bin/fairtable-card-fees.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/fairtable-card-fees.js demo",
+    "eval": "node bin/fairtable-card-fees.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/fairtable-card-fees"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-card-fees#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "card-processing",
+    "merchant-fees",
+    "effective-rate"
+  ]
+}

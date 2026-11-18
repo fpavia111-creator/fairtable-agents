@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-location-comparison": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-location-comparison@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

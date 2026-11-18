@@ -1,0 +1,58 @@
+{
+  "name": "fairtable-schedule-vs-actual",
+  "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/fairtable-schedule-vs-actual",
+  "description": "Fairtable Schedule vs Actual: scheduled against actual labor from your schedule and timecard exports: early clock-ins, late clock-outs, late arrivals, no-shows and shifts nobody scheduled, with the extra hours priced at each person's rate. Never edits the schedule or timecards.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fairtable-schedule-vs-actual": "bin/fairtable-schedule-vs-actual.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/fairtable-schedule-vs-actual.js demo",
+    "eval": "node bin/fairtable-schedule-vs-actual.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/fairtable-schedule-vs-actual"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-schedule-vs-actual#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "schedule-adherence",
+    "labor-cost",
+    "timecards"
+  ]
+}

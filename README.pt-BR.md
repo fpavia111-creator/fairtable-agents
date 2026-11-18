@@ -9,23 +9,23 @@ Parte do Fair Agents da Mythos Machines. Licença MIT · Node 20 ou mais recente
 ## Experimente
 
 ```bash
-npx -y apricot-of-food-cost demo            # custo de alimentos real frente ao teórico, dados fictícios
-npx -y jackfruit-of-delivery-payouts demo   # repasses dos apps de entrega frente aos pedidos
+npx -y fairtable-food-cost demo            # custo de alimentos real frente ao teórico, dados fictícios
+npx -y fairtable-delivery-payouts demo   # repasses dos apps de entrega frente aos pedidos
 ```
 
 Cada agente tem uma `demo` com arquivos fictícios, um `eval` com casos de teste próprios e um servidor MCP (`npx -y <agente> mcp --root <pasta>`).
 
 ## Os agentes
 
-**Alimentos, compras e bar (9):** `apricot-of-food-cost` (custo real frente ao teórico), `banana-of-recipe-costs` (custo das receitas aos últimos preços), `blackberry-of-price-creep` (aumentos graduais de preço), `blueberry-of-deliveries` (notas frente ao recebimento e créditos), `cherry-of-counts` (variação de estoque), `clementine-of-waste` (registro de desperdício), `coconut-of-pours` (custo de dose no bar), `lime-of-menu-mix` (engenharia de cardápio), `lychee-of-stockouts` (itens esgotados).
+**Alimentos, compras e bar (9):** `fairtable-food-cost` (custo real frente ao teórico), `fairtable-recipe-costs` (custo das receitas aos últimos preços), `fairtable-price-creep` (aumentos graduais de preço), `fairtable-receiving-credits` (notas frente ao recebimento e créditos), `fairtable-inventory-counts` (variação de estoque), `fairtable-waste-log` (registro de desperdício), `fairtable-pour-cost` (custo de dose no bar), `fairtable-menu-engineering` (engenharia de cardápio), `fairtable-stockouts` (itens esgotados).
 
-**Salão e caixa (6):** `cranberry-of-voids` (cancelamentos e cortesias), `date-of-discounts` (descontos e promoções), `elderberry-of-drawers` (sobras e faltas de caixa), `kumquat-of-gift-cards` (cartões-presente), `mango-of-no-shows` (reservas não comparecidas), `melon-of-catering` (sinais de catering).
+**Salão e caixa (6):** `fairtable-voids-comps` (cancelamentos e cortesias), `fairtable-discounts-promos` (descontos e promoções), `fairtable-cash-drawers` (sobras e faltas de caixa), `fairtable-gift-cards` (cartões-presente), `fairtable-no-shows` (reservas não comparecidas), `fairtable-catering-deposits` (sinais de catering).
 
-**Equipe (5):** `fig-of-tip-pools` (rateio de gorjetas), `grape-of-overtime` (horas extras, turnos divididos), `guava-of-schedules` (escala frente ao real), `huckleberry-of-dayparts` (mão de obra por período), `raspberry-of-breaks` (intervalos e menores).
+**Equipe (5):** `fairtable-tip-pooling` (rateio de gorjetas), `fairtable-overtime` (horas extras, turnos divididos), `fairtable-schedule-vs-actual` (escala frente ao real), `fairtable-labor-dayparts` (mão de obra por período), `fairtable-meal-breaks` (intervalos e menores).
 
-**Entrega, taxas, impostos e contas (6):** `jackfruit-of-delivery-payouts` (repasses), `kiwi-of-marketing-fees` (marketing), `plum-of-card-fees` (taxas de cartão), `lemon-of-sales-tax` (imposto sobre vendas), `quince-of-invoices` (notas duplicadas, classificação contábil), `nectarine-of-utilities` (contas de serviços).
+**Entrega, taxas, impostos e contas (6):** `fairtable-delivery-payouts` (repasses), `fairtable-delivery-marketing` (marketing), `fairtable-card-fees` (taxas de cartão), `fairtable-sales-tax` (imposto sobre vendas), `fairtable-duplicate-invoices` (notas duplicadas, classificação contábil), `fairtable-utility-bills` (contas de serviços).
 
-**Conformidade e várias unidades (6):** `olive-of-equipment` (manutenção de equipamentos), `orange-of-inspections` (inspeções e licenças), `papaya-of-food-handlers` (carteiras de manipulador), `peach-of-allergens` (matriz de alérgenos), `mulberry-of-prime-cost` (custo primário), `pear-of-locations` (comparação de unidades).
+**Conformidade e várias unidades (6):** `fairtable-equipment-maintenance` (manutenção de equipamentos), `fairtable-health-inspections` (inspeções e licenças), `fairtable-food-handler-cards` (carteiras de manipulador), `fairtable-allergen-matrix` (matriz de alérgenos), `fairtable-prime-cost` (custo primário), `fairtable-location-comparison` (comparação de unidades).
 
 ## Segurança
 

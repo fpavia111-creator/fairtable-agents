@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-delivery-marketing": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-delivery-marketing@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

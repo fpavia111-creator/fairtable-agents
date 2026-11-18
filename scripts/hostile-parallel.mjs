@@ -12,7 +12,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2); const withArgs = argv.includes('--args');
 const ji = argv.indexOf('--jobs'); const jobs = ji >= 0 ? Number(argv[ji + 1]) : Math.max(1, cpus().length - 2);
 const only = argv.filter((a, i) => !a.startsWith('--') && (ji < 0 || i !== ji + 1));
-const agents = readdirSync(join(ROOT, 'packages')).filter((n) => /-of-/.test(n) && existsSync(join(ROOT, 'packages', n, 'src', 'manifest.js')) && (!only.length || only.includes(n))).sort();
+const agents = readdirSync(join(ROOT, 'packages')).filter((n) => /^fairtable-(?!core$)/.test(n) && existsSync(join(ROOT, 'packages', n, 'src', 'manifest.js')) && (!only.length || only.includes(n))).sort();
 const out = join(ROOT, 'fairtable-out', 'hostile'); mkdirSync(out, { recursive: true });
 const results = [];
 async function one(n) {

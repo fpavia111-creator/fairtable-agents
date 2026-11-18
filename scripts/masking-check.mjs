@@ -10,7 +10,7 @@ import { AgentRuntime, parseCsv } from '../packages/fairtable-core/src/index.js'
 
 const PK = join(dirname(fileURLToPath(import.meta.url)), '..', 'packages');
 let checked = 0, leaks = 0, values = 0, agents = 0;
-for (const n of readdirSync(PK).filter((x) => /-of-/.test(x)).sort()) {
+for (const n of readdirSync(PK).filter((x) => /^fairtable-(?!core$)/.test(x)).sort()) {
   const { manifest } = await import(pathToFileURL(join(PK, n, 'src', 'index.js')).href);
   const personal = Object.entries(manifest.sources || {}).flatMap(([, s]) => Object.entries(s.fields).filter(([, fd]) => fd && fd.personal).map(([f]) => [f, [f, ...(s.fields[f].aliases || [])]]));
   if (!personal.length) continue;

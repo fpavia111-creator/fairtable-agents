@@ -1,0 +1,385 @@
+{
+  "suite": "fairtable-delivery-marketing",
+  "root": "..",
+  "data_note": "Fictional delivery-app statement lines and campaigns in ../fixtures. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "marketing-totals",
+      "tool": "marketing_check",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "campaigns": "fixtures/campaigns.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.campaigns": 4,
+          "result.marketing_spend": 47.5,
+          "result.unexplained_spend": 15,
+          "result.platforms": 3,
+          "result.flag": 3,
+          "result.watch": 2,
+          "result.ok": 2
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "marketing_check",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "campaigns": "fixtures/campaigns.csv"
+      },
+      "expect": {
+        "contains": [
+          "fee_outside_campaign",
+          "not_opted_in",
+          "over_budget",
+          "marketing_share_high"
+        ]
+      }
+    },
+    {
+      "id": "listing-over-budget",
+      "tool": "marketing_explain",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "campaigns": "fixtures/campaigns.csv",
+        "campaign": "sponsored listing nov wk1"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "cost 15 against a budget of 12"
+        ],
+        "equals": {
+          "result.item.orders": 5,
+          "result.item.sales_per_dollar": 16.2
+        }
+      }
+    },
+    {
+      "id": "ad-fee-after-the-listing-ended",
+      "tool": "marketing_explain",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "campaigns": "fixtures/campaigns.csv",
+        "campaign": "(no campaign) DoorDash ad fees"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "DD-2006",
+          "2026-11-09"
+        ]
+      }
+    },
+    {
+      "id": "stricter-return-bar",
+      "tool": "marketing_check",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "campaigns": "fixtures/campaigns.csv",
+        "settings": "fixtures/settings-strict-return.json"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "low_return"
+        ],
+        "not_contains": [
+          "marketing_share_high"
+        ]
+      }
+    },
+    {
+      "id": "uber-dispute-after-approval",
+      "tool": "marketing_draft_dispute",
+      "approve": "Pat Example",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "campaigns": "fixtures/campaigns.csv",
+        "platform": "Uber Eats"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "dispute Uber Eats drafted for 12"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "marketing_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "statements"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "marketing_check",
+      "args": {
+        "statements": "../../../outside.csv",
+        "campaigns": "fixtures/campaigns.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "marketing_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "marketing_check",
+      "mode": "review",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "campaigns": "fixtures/campaigns.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.campaigns": 4,
+          "result.marketing_spend": 47.5,
+          "result.unexplained_spend": 15,
+          "result.platforms": 3,
+          "result.flag": 3,
+          "result.watch": 2,
+          "result.ok": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "marketing_check",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "campaigns": "fixtures/campaigns.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.campaigns": 4,
+          "result.marketing_spend": 47.5,
+          "result.unexplained_spend": 15,
+          "result.platforms": 3,
+          "result.flag": 3,
+          "result.watch": 2,
+          "result.ok": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "marketing_explain",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "campaigns": "fixtures/campaigns.csv",
+        "settings": "fixtures/settings.json",
+        "campaign": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "marketing_write_report",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "campaigns": "fixtures/campaigns.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "marketing_draft_dispute",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "campaigns": "fixtures/campaigns.csv",
+        "platform": "Uber Eats"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "marketing_draft_dispute",
+      "mode": "review",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "campaigns": "fixtures/campaigns.csv",
+        "platform": "Uber Eats"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "marketing_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "marketing_draft_dispute"
+      ],
+      "args": {
+        "draft": "fairtable-out/marketing/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-delivery-platform-submit",
+      "tool": "delivery_platform_submit",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-payment-send",
+      "tool": "payment_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "marketing_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "learn-waits-for-acceptance",
+      "tool": "marketing_learn",
+      "args": {
+        "kind": "item_alias",
+        "value": {
+          "name": "Fictional Name A",
+          "means": "Fictional Name B"
+        }
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "waiting"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-marketing-totals",
+      "tool": "marketing_check",
+      "args": {
+        "statements": "fixtures/intl/de/statements.csv",
+        "campaigns": "fixtures/intl/de/campaigns.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.campaigns": 4,
+          "result.marketing_spend": 47.5,
+          "result.unexplained_spend": 15,
+          "result.platforms": 3,
+          "result.flag": 3,
+          "result.watch": 2,
+          "result.ok": 2
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"marketing-totals\"."
+    },
+    {
+      "id": "intl-ja-marketing-totals",
+      "tool": "marketing_check",
+      "args": {
+        "statements": "fixtures/intl/ja/statements.csv",
+        "campaigns": "fixtures/intl/ja/campaigns.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.campaigns": 4,
+          "result.marketing_spend": 47.5,
+          "result.unexplained_spend": 15,
+          "result.platforms": 3,
+          "result.flag": 3,
+          "result.watch": 2,
+          "result.ok": 2
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"marketing-totals\"."
+    }
+  ]
+}

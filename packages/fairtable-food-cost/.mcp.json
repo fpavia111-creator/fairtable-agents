@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-food-cost": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-food-cost@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-equipment-maintenance": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-equipment-maintenance@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

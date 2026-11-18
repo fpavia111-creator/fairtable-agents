@@ -1,0 +1,21 @@
+{
+  "name": "fairtable-catering-deposits",
+  "version": "0.1.0",
+  "description": "Catering and private-event deposits and balances against your bookings: deposits missing as the event gets close, balances overdue after the event, overpayments, refunds owed on cancellations and payments with no booking. Client names are masked for the AI model. Never charges or refunds anyone.",
+  "author": {
+    "name": "Kurt Francisco"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-catering-deposits#readme",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "catering",
+    "private-events",
+    "deposits"
+  ]
+}

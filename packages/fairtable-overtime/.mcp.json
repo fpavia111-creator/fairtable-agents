@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-overtime": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-overtime@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

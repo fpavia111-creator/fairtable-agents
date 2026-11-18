@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-labor-dayparts": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-labor-dayparts@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

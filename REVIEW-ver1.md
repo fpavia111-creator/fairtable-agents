@@ -8,11 +8,11 @@
 
 | Area | Agents |
 |---|---|
-| Food, purchasing and the bar (9) | apricot-of-food-cost, banana-of-recipe-costs, blackberry-of-price-creep, blueberry-of-deliveries, cherry-of-counts, clementine-of-waste, coconut-of-pours, lime-of-menu-mix, lychee-of-stockouts |
-| Front of house and cash (6) | cranberry-of-voids, date-of-discounts, elderberry-of-drawers, kumquat-of-gift-cards, mango-of-no-shows, melon-of-catering |
-| Labor (5) | fig-of-tip-pools, grape-of-overtime, guava-of-schedules, huckleberry-of-dayparts, raspberry-of-breaks |
-| Delivery apps, fees, tax and bills (6) | jackfruit-of-delivery-payouts, kiwi-of-marketing-fees, plum-of-card-fees, lemon-of-sales-tax, quince-of-invoices, nectarine-of-utilities |
-| Compliance and multi-unit (6) | olive-of-equipment, orange-of-inspections, papaya-of-food-handlers, peach-of-allergens, mulberry-of-prime-cost, pear-of-locations |
+| Food, purchasing and the bar (9) | fairtable-food-cost, fairtable-recipe-costs, fairtable-price-creep, fairtable-receiving-credits, fairtable-inventory-counts, fairtable-waste-log, fairtable-pour-cost, fairtable-menu-engineering, fairtable-stockouts |
+| Front of house and cash (6) | fairtable-voids-comps, fairtable-discounts-promos, fairtable-cash-drawers, fairtable-gift-cards, fairtable-no-shows, fairtable-catering-deposits |
+| Labor (5) | fairtable-tip-pooling, fairtable-overtime, fairtable-schedule-vs-actual, fairtable-labor-dayparts, fairtable-meal-breaks |
+| Delivery apps, fees, tax and bills (6) | fairtable-delivery-payouts, fairtable-delivery-marketing, fairtable-card-fees, fairtable-sales-tax, fairtable-duplicate-invoices, fairtable-utility-bills |
+| Compliance and multi-unit (6) | fairtable-equipment-maintenance, fairtable-health-inspections, fairtable-food-handler-cards, fairtable-allergen-matrix, fairtable-prime-cost, fairtable-location-comparison |
 
 Every item on the brief's example list has an agent (actual vs theoretical food cost, recipe costing, price creep, invoice vs delivery and credits, count variance, waste, pour cost, comps and voids, discounts, cash over/short, tip pool and tip credit, overtime and split shifts, scheduled vs actual, labor by daypart, delivery payouts, marketing fees, gift cards, sales tax, menu engineering, 86s, no-shows, catering deposits, prime cost, utilities, equipment, inspections, food handler cards, allergens, multi-unit comparison). Three were added: card processing fees (plum), duplicate invoices and GL coding (quince), meal breaks and minors' hours (raspberry).
 
@@ -55,9 +55,9 @@ Every agent is read and report only. Nothing pays, refunds, charges a card, chan
 - **Core, letter case of headers (found by the Fairmake session, ported here):** a header that is a field's own name in another case ("Item" for `item`) was left under its own key, so the agent read a blank column. Re-keyed now, with a core test. Lodestar's fixtures use lowercase names, so its tests never hit it.
 - **Core, Italian column words:** "Articolo" was listed for both the item name and the SKU, so in an Italian export the SKU field took the item column. The intl check caught it (coconut 7 cases, quince 5 cases failed in Italian only). Removed from the SKU list.
 - **Core, units:** bar recipes say "oz" for fluid ounces; coconut read them as weight and could not convert. Bar recipes now read `oz` as fluid ounces, and centiliters were added to the core units.
-- **cherry-of-counts:** a total named `items` collided with the result's item list (an eval caught it); renamed `counted_items`. Counts that look like the wrong unit were still added to the counted value; they are left out now.
-- **grape-of-overtime:** one spread-of-hours finding per day made noisy reports; one finding per week listing the days now.
-- **olive-of-equipment:** the explain tool's `equipment` argument collided with the `equipment` file argument; renamed `equipment_name`.
+- **fairtable-inventory-counts:** a total named `items` collided with the result's item list (an eval caught it); renamed `counted_items`. Counts that look like the wrong unit were still added to the counted value; they are left out now.
+- **fairtable-overtime:** one spread-of-hours finding per day made noisy reports; one finding per week listing the days now.
+- **fairtable-equipment-maintenance:** the explain tool's `equipment` argument collided with the `equipment` file argument; renamed `equipment_name`.
 - **readme-sections (from Lodestar):** the captured demo output held Windows temp paths, so `readme:check` could never pass on Windows; paths are normalised now.
 - **hostile and bench scripts (from Lodestar):** column patterns extended to restaurant files (employee, guest, client, recipe, platform, check, card, account columns), so restaurant ids and names are planted and grown like freight ones were.
 - **Eval expectations:** two `not_contains` checks matched a settings key name (`repeat_shorts`, `rate_jump_pct`) instead of a finding; replaced with counts.

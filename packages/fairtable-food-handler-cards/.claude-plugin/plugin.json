@@ -1,0 +1,21 @@
+{
+  "name": "fairtable-food-handler-cards",
+  "version": "0.1.0",
+  "description": "Fairtable Food Handler Cards: food handler cards, certified food protection managers and alcohol server certificates against your staff roster: missing after the grace period, expired, expiring soon, and locations without a certified manager. Staff names are masked for the AI model. Never contacts staff or a training provider.",
+  "author": {
+    "name": "Kurt Francisco"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-food-handler-cards#readme",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "food-handler",
+    "certification",
+    "compliance"
+  ]
+}

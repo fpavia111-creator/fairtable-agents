@@ -9,23 +9,23 @@ Fait partie de Fair Agents par Mythos Machines. Licence MIT · Node 20 ou plus �
 ## Essayer
 
 ```bash
-npx -y apricot-of-food-cost demo            # coût matière réel face au théorique, données fictives
-npx -y jackfruit-of-delivery-payouts demo   # versements des applis de livraison face aux commandes
+npx -y fairtable-food-cost demo            # coût matière réel face au théorique, données fictives
+npx -y fairtable-delivery-payouts demo   # versements des applis de livraison face aux commandes
 ```
 
 Chaque agent a une `demo` sur des fichiers fictifs, un `eval` avec ses propres cas de test et un serveur MCP (`npx -y <agent> mcp --root <dossier>`).
 
 ## Les agents
 
-**Matières, achats et bar (9) :** `apricot-of-food-cost` (coût matière réel et théorique), `banana-of-recipe-costs` (coût des recettes aux derniers prix), `blackberry-of-price-creep` (hausses de prix rampantes), `blueberry-of-deliveries` (factures face aux réceptions et aux avoirs), `cherry-of-counts` (écarts d’inventaire), `clementine-of-waste` (registre des pertes), `coconut-of-pours` (coût de service au bar), `lime-of-menu-mix` (ingénierie de menu), `lychee-of-stockouts` (articles épuisés).
+**Matières, achats et bar (9) :** `fairtable-food-cost` (coût matière réel et théorique), `fairtable-recipe-costs` (coût des recettes aux derniers prix), `fairtable-price-creep` (hausses de prix rampantes), `fairtable-receiving-credits` (factures face aux réceptions et aux avoirs), `fairtable-inventory-counts` (écarts d’inventaire), `fairtable-waste-log` (registre des pertes), `fairtable-pour-cost` (coût de service au bar), `fairtable-menu-engineering` (ingénierie de menu), `fairtable-stockouts` (articles épuisés).
 
-**Salle et caisse (6) :** `cranberry-of-voids` (annulations et offerts), `date-of-discounts` (remises et promotions), `elderberry-of-drawers` (écarts de caisse), `kumquat-of-gift-cards` (cartes-cadeaux), `mango-of-no-shows` (réservations non honorées), `melon-of-catering` (acomptes traiteur).
+**Salle et caisse (6) :** `fairtable-voids-comps` (annulations et offerts), `fairtable-discounts-promos` (remises et promotions), `fairtable-cash-drawers` (écarts de caisse), `fairtable-gift-cards` (cartes-cadeaux), `fairtable-no-shows` (réservations non honorées), `fairtable-catering-deposits` (acomptes traiteur).
 
-**Personnel (5) :** `fig-of-tip-pools` (pool de pourboires), `grape-of-overtime` (heures supplémentaires, services coupés), `guava-of-schedules` (planifié face au réel), `huckleberry-of-dayparts` (main-d’œuvre par service), `raspberry-of-breaks` (pauses et mineurs).
+**Personnel (5) :** `fairtable-tip-pooling` (pool de pourboires), `fairtable-overtime` (heures supplémentaires, services coupés), `fairtable-schedule-vs-actual` (planifié face au réel), `fairtable-labor-dayparts` (main-d’œuvre par service), `fairtable-meal-breaks` (pauses et mineurs).
 
-**Livraison, frais, taxes et factures (6) :** `jackfruit-of-delivery-payouts` (versements), `kiwi-of-marketing-fees` (frais marketing), `plum-of-card-fees` (frais de carte), `lemon-of-sales-tax` (taxe sur les ventes), `quince-of-invoices` (factures en double, imputation), `nectarine-of-utilities` (énergie et eau).
+**Livraison, frais, taxes et factures (6) :** `fairtable-delivery-payouts` (versements), `fairtable-delivery-marketing` (frais marketing), `fairtable-card-fees` (frais de carte), `fairtable-sales-tax` (taxe sur les ventes), `fairtable-duplicate-invoices` (factures en double, imputation), `fairtable-utility-bills` (énergie et eau).
 
-**Conformité et multi-sites (6) :** `olive-of-equipment` (entretien des équipements), `orange-of-inspections` (inspections et permis), `papaya-of-food-handlers` (attestations d’hygiène), `peach-of-allergens` (matrice des allergènes), `mulberry-of-prime-cost` (coût principal), `pear-of-locations` (comparaison des établissements).
+**Conformité et multi-sites (6) :** `fairtable-equipment-maintenance` (entretien des équipements), `fairtable-health-inspections` (inspections et permis), `fairtable-food-handler-cards` (attestations d’hygiène), `fairtable-allergen-matrix` (matrice des allergènes), `fairtable-prime-cost` (coût principal), `fairtable-location-comparison` (comparaison des établissements).
 
 ## Sécurité
 

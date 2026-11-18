@@ -1,0 +1,58 @@
+{
+  "name": "fairtable-stockouts",
+  "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/fairtable-stockouts",
+  "description": "Fairtable Stockouts: reads the 86 log against item sales: items that run out again and again, how long they stay off, what that likely cost in sales, items 86ed before the dinner rush and items never brought back. Never changes 86 status or orders.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fairtable-stockouts": "bin/fairtable-stockouts.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/fairtable-stockouts.js demo",
+    "eval": "node bin/fairtable-stockouts.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/fairtable-stockouts"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-stockouts#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "stockouts",
+    "86",
+    "par-levels"
+  ]
+}

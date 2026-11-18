@@ -1,0 +1,353 @@
+{
+  "suite": "fairtable-location-comparison",
+  "root": "..",
+  "data_note": "One fictional month at five fictional locations in ../fixtures. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "comparison-totals",
+      "tool": "locations_check",
+      "args": {
+        "locations": "fixtures/locations.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.locations": 5,
+          "result.group_sales": 594000,
+          "result.group_median.prime_pct": 67.8,
+          "result.group_median.avg_check": 39.72,
+          "result.flag": 1,
+          "result.watch": 1,
+          "result.ok": 3
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "locations_check",
+      "args": {
+        "locations": "fixtures/locations.csv"
+      },
+      "expect": {
+        "contains": [
+          "food_pct_high",
+          "prime_pct_high",
+          "void_pct_high",
+          "discount_pct_high",
+          "avg_check_low"
+        ]
+      }
+    },
+    {
+      "id": "uptown-explained",
+      "tool": "locations_explain",
+      "args": {
+        "locations": "fixtures/locations.csv",
+        "settings": "fixtures/settings.json",
+        "location": "uptown"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "food and beverage cost 40.8% of sales against a group median of 35%"
+        ],
+        "equals": {
+          "result.item.void_pct": 2.4
+        }
+      }
+    },
+    {
+      "id": "looser-points",
+      "tool": "locations_check",
+      "args": {
+        "locations": "fixtures/locations.csv",
+        "settings": "fixtures/settings-loose.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.flag": 0
+        }
+      }
+    },
+    {
+      "id": "ops-memo-after-approval",
+      "tool": "locations_draft_memo",
+      "approve": "Pat Example",
+      "args": {
+        "locations": "fixtures/locations.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "memo locations drafted"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "locations_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "locations"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "locations_check",
+      "args": {
+        "locations": "../../../outside.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "locations_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "locations_check",
+      "mode": "review",
+      "args": {
+        "locations": "fixtures/locations.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.locations": 5,
+          "result.group_sales": 594000,
+          "result.group_median.prime_pct": 67.8,
+          "result.group_median.avg_check": 39.72,
+          "result.flag": 1,
+          "result.watch": 1,
+          "result.ok": 3
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "locations_check",
+      "args": {
+        "locations": "fixtures/locations.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.locations": 5,
+          "result.group_sales": 594000,
+          "result.group_median.prime_pct": 67.8,
+          "result.group_median.avg_check": 39.72,
+          "result.flag": 1,
+          "result.watch": 1,
+          "result.ok": 3
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "locations_explain",
+      "args": {
+        "locations": "fixtures/locations.csv",
+        "settings": "fixtures/settings.json",
+        "location": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "locations_write_report",
+      "args": {
+        "locations": "fixtures/locations.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "locations_draft_memo",
+      "args": {
+        "locations": "fixtures/locations.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "locations_draft_memo",
+      "mode": "review",
+      "args": {
+        "locations": "fixtures/locations.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "locations_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "locations_draft_memo"
+      ],
+      "args": {
+        "draft": "fairtable-out/locations/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-pos-change-menu",
+      "tool": "pos_change_menu",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-ledger-post",
+      "tool": "ledger_post",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "locations_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "learn-waits-for-acceptance",
+      "tool": "locations_learn",
+      "args": {
+        "kind": "item_alias",
+        "value": {
+          "name": "Fictional Name A",
+          "means": "Fictional Name B"
+        }
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "waiting"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-comparison-totals",
+      "tool": "locations_check",
+      "args": {
+        "locations": "fixtures/intl/de/locations.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.locations": 5,
+          "result.group_sales": 594000,
+          "result.group_median.prime_pct": 67.8,
+          "result.group_median.avg_check": 39.72,
+          "result.flag": 1,
+          "result.watch": 1,
+          "result.ok": 3
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"comparison-totals\"."
+    },
+    {
+      "id": "intl-ja-comparison-totals",
+      "tool": "locations_check",
+      "args": {
+        "locations": "fixtures/intl/ja/locations.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.locations": 5,
+          "result.group_sales": 594000,
+          "result.group_median.prime_pct": 67.8,
+          "result.group_median.avg_check": 39.72,
+          "result.flag": 1,
+          "result.watch": 1,
+          "result.ok": 3
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"comparison-totals\"."
+    }
+  ]
+}

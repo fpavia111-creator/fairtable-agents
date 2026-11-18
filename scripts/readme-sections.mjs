@@ -43,7 +43,7 @@ function policyOf(m, t) {
 }
 
 function section(n, m, demo) {
-  const prefix = m.tools[0].name.split('_')[0];
+  const prefix = m.tools[0].name.replace(/_check$/, '');
   const L = [START, ''];
   L.push('## A demo run', '', `\`npx -y ${n} demo\` runs the agent on the fictional files in [\`fixtures/\`](fixtures) in a temporary folder. Captured output:`, '', '```text', demo, '```', '');
   L.push('## Tools', '', '| Tool | What it does | Policy |', '|---|---|---|');
@@ -85,7 +85,7 @@ function section(n, m, demo) {
 }
 
 let stale = 0;
-for (const n of readdirSync(PK).filter((x) => /-of-/.test(x) && (!only.length || only.includes(x))).sort()) {
+for (const n of readdirSync(PK).filter((x) => /^fairtable-(?!core$)/.test(x) && (!only.length || only.includes(x))).sort()) {
   const { manifest } = await import(pathToFileURL(join(PK, n, 'src', 'index.js')).href);
   const f = join(PK, n, 'README.md'); if (!existsSync(f)) continue;
   const block = section(n, manifest, demoText(n));

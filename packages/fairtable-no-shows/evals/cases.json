@@ -1,0 +1,361 @@
+{
+  "suite": "fairtable-no-shows",
+  "root": "..",
+  "data_note": "Fictional reservations; every guest name, phone and email is made up. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "no-show-totals",
+      "tool": "no_shows_check",
+      "args": {
+        "reservations": "fixtures/reservations.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.reservations": 12,
+          "result.no_shows": 5,
+          "result.no_show_rate": 41.7,
+          "result.covers_lost": 22,
+          "result.sales_lost_estimate": 990,
+          "result.fees_not_charged": 120,
+          "result.flag": 2,
+          "result.review": 2
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "no_shows_check",
+      "args": {
+        "reservations": "fixtures/reservations.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "contains": [
+          "repeat_no_show",
+          "large_party_no_deposit",
+          "fee_not_charged",
+          "high_no_show_rate"
+        ],
+        "not_contains": [
+          "Morgan Ellis",
+          "Ellis Morgan",
+          "555-0101",
+          "example.test",
+          "Casey Brennan"
+        ]
+      }
+    },
+    {
+      "id": "repeat-guest-across-name-orders",
+      "tool": "no_shows_explain",
+      "args": {
+        "reservations": "fixtures/reservations.csv",
+        "settings": "fixtures/settings.json",
+        "guest": "M.E.#083df9"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "did not show 3 times"
+        ],
+        "equals": {
+          "result.item.covers_lost": 8
+        },
+        "not_contains": [
+          "Ellis"
+        ]
+      }
+    },
+    {
+      "id": "policy-without-fees",
+      "tool": "no_shows_check",
+      "args": {
+        "reservations": "fixtures/reservations.csv",
+        "settings": "fixtures/settings-no-fee.json"
+      },
+      "expect": {
+        "status": "executed",
+        "not_contains": [
+          "fee_not_charged",
+          "large_party_no_deposit",
+          "high_no_show_rate"
+        ],
+        "equals": {
+          "result.fees_not_charged": 0
+        }
+      }
+    },
+    {
+      "id": "policy-memo-after-approval",
+      "tool": "no_shows_draft_policy_memo",
+      "approve": "Pat Example",
+      "args": {
+        "reservations": "fixtures/reservations.csv",
+        "settings": "fixtures/settings.json",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "policy memo Main Street drafted for 990"
+        ],
+        "not_contains": [
+          "Morgan Ellis"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "no_shows_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "reservations"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "no_shows_check",
+      "args": {
+        "reservations": "../../../outside.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "no_shows_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "no_shows_check",
+      "mode": "review",
+      "args": {
+        "reservations": "fixtures/reservations.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.reservations": 12,
+          "result.no_shows": 5,
+          "result.no_show_rate": 41.7,
+          "result.covers_lost": 22,
+          "result.sales_lost_estimate": 990,
+          "result.fees_not_charged": 120,
+          "result.flag": 2,
+          "result.review": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "no_shows_check",
+      "args": {
+        "reservations": "fixtures/reservations.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.reservations": 12,
+          "result.no_shows": 5,
+          "result.no_show_rate": 41.7,
+          "result.covers_lost": 22,
+          "result.sales_lost_estimate": 990,
+          "result.fees_not_charged": 120,
+          "result.flag": 2,
+          "result.review": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "no_shows_explain",
+      "args": {
+        "reservations": "fixtures/reservations.csv",
+        "settings": "fixtures/settings.json",
+        "guest": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "no_shows_write_report",
+      "args": {
+        "reservations": "fixtures/reservations.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "no_shows_draft_policy_memo",
+      "args": {
+        "reservations": "fixtures/reservations.csv",
+        "settings": "fixtures/settings.json",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "no_shows_draft_policy_memo",
+      "mode": "review",
+      "args": {
+        "reservations": "fixtures/reservations.csv",
+        "settings": "fixtures/settings.json",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "no_shows_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "no_shows_draft_policy_memo"
+      ],
+      "args": {
+        "draft": "fairtable-out/no_shows/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-card-charge",
+      "tool": "card_charge",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-guest-message-send",
+      "tool": "guest_message_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-delivery-platform-submit",
+      "tool": "delivery_platform_submit",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "no_shows_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-no-show-totals",
+      "tool": "no_shows_check",
+      "args": {
+        "reservations": "fixtures/intl/de/reservations.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.reservations": 12,
+          "result.no_shows": 5,
+          "result.no_show_rate": 41.7,
+          "result.covers_lost": 22,
+          "result.sales_lost_estimate": 990,
+          "result.fees_not_charged": 120,
+          "result.flag": 2,
+          "result.review": 2
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"no-show-totals\"."
+    },
+    {
+      "id": "intl-ja-no-show-totals",
+      "tool": "no_shows_check",
+      "args": {
+        "reservations": "fixtures/intl/ja/reservations.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.reservations": 12,
+          "result.no_shows": 5,
+          "result.no_show_rate": 41.7,
+          "result.covers_lost": 22,
+          "result.sales_lost_estimate": 990,
+          "result.fees_not_charged": 120,
+          "result.flag": 2,
+          "result.review": 2
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"no-show-totals\"."
+    }
+  ]
+}

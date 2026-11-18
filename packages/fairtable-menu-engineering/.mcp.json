@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-menu-engineering": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-menu-engineering@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

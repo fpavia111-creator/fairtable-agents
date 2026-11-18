@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-waste-log": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-waste-log@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

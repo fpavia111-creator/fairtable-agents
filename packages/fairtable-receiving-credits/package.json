@@ -1,0 +1,58 @@
+{
+  "name": "fairtable-receiving-credits",
+  "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/fairtable-receiving-credits",
+  "description": "Fairtable Receiving Credits: matches every invoice line with what the receiving log says arrived and with the credit memos, and lists shorts, rejected cases and substitutions still waiting for a credit. Writes a credit request draft. Never pays and never contacts the vendor.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fairtable-receiving-credits": "bin/fairtable-receiving-credits.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/fairtable-receiving-credits.js demo",
+    "eval": "node bin/fairtable-receiving-credits.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/fairtable-receiving-credits"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-receiving-credits#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "receiving",
+    "credit-memos",
+    "invoice-matching"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-health-inspections": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-health-inspections@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "name": "fairtable-equipment-maintenance",
+  "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/fairtable-equipment-maintenance",
+  "description": "Fairtable Equipment Maintenance: the maintenance schedule for hoods, grease traps, fire suppression, ice machines, refrigeration and the rest: what is overdue, what is due in the next weeks, what has no service date, and equipment repaired again and again. Never books a vendor.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fairtable-equipment-maintenance": "bin/fairtable-equipment-maintenance.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/fairtable-equipment-maintenance.js demo",
+    "eval": "node bin/fairtable-equipment-maintenance.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/fairtable-equipment-maintenance"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-equipment-maintenance#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "equipment-maintenance",
+    "hood-cleaning",
+    "grease-trap"
+  ]
+}

@@ -9,23 +9,23 @@ Part of Fair Agents by Mythos Machines. MIT licence · Node 20 or newer · local
 ## Try one
 
 ```bash
-npx -y apricot-of-food-cost demo        # actual against theoretical food cost, fictional data
-npx -y jackfruit-of-delivery-payouts demo   # delivery-app payouts against orders
+npx -y fairtable-food-cost demo        # actual against theoretical food cost, fictional data
+npx -y fairtable-delivery-payouts demo   # delivery-app payouts against orders
 ```
 
 Every agent has a `demo` on fictional files, an `eval` with its own test cases and an MCP server (`npx -y <agent> mcp --root <folder>`) for Claude Desktop, Claude Code, Cursor and other MCP hosts.
 
 ## The agents
 
-**Food, purchasing and the bar (9):** `apricot-of-food-cost` (actual against theoretical food cost), `banana-of-recipe-costs` (recipes costed at the latest invoice prices), `blackberry-of-price-creep` (vendor price creep, prices over your bid, shrinking packs), `blueberry-of-deliveries` (invoices against the receiving log and credit memos), `cherry-of-counts` (inventory count variance and unit mistakes), `clementine-of-waste` (waste log against sales), `coconut-of-pours` (bar pour cost and liquor variance), `lime-of-menu-mix` (menu engineering: stars, plowhorses, puzzles, dogs), `lychee-of-stockouts` (items 86ed and the sales they cost).
+**Food, purchasing and the bar (9):** `fairtable-food-cost` (actual against theoretical food cost), `fairtable-recipe-costs` (recipes costed at the latest invoice prices), `fairtable-price-creep` (vendor price creep, prices over your bid, shrinking packs), `fairtable-receiving-credits` (invoices against the receiving log and credit memos), `fairtable-inventory-counts` (inventory count variance and unit mistakes), `fairtable-waste-log` (waste log against sales), `fairtable-pour-cost` (bar pour cost and liquor variance), `fairtable-menu-engineering` (menu engineering: stars, plowhorses, puzzles, dogs), `fairtable-stockouts` (items 86ed and the sales they cost).
 
-**Front of house and cash (6):** `cranberry-of-voids` (voids and comps by employee), `date-of-discounts` (discounts and promotions against your promo list), `elderberry-of-drawers` (cash over and short by drawer, deposits), `kumquat-of-gift-cards` (gift card liability), `mango-of-no-shows` (reservation no-shows, deposits and fees), `melon-of-catering` (catering deposits and balances).
+**Front of house and cash (6):** `fairtable-voids-comps` (voids and comps by employee), `fairtable-discounts-promos` (discounts and promotions against your promo list), `fairtable-cash-drawers` (cash over and short by drawer, deposits), `fairtable-gift-cards` (gift card liability), `fairtable-no-shows` (reservation no-shows, deposits and fees), `fairtable-catering-deposits` (catering deposits and balances).
 
-**Labor (5):** `fig-of-tip-pools` (tip pool shares and the tip credit, with settings per state), `grape-of-overtime` (overtime, double time, split shifts, spread of hours, clopens), `guava-of-schedules` (scheduled against actual labor), `huckleberry-of-dayparts` (labor percentage by daypart), `raspberry-of-breaks` (meal breaks and minors' hours).
+**Labor (5):** `fairtable-tip-pooling` (tip pool shares and the tip credit, with settings per state), `fairtable-overtime` (overtime, double time, split shifts, spread of hours, clopens), `fairtable-schedule-vs-actual` (scheduled against actual labor), `fairtable-labor-dayparts` (labor percentage by daypart), `fairtable-meal-breaks` (meal breaks and minors' hours).
 
-**Delivery apps, fees, tax and bills (6):** `jackfruit-of-delivery-payouts` (DoorDash, Uber Eats and Grubhub payouts against orders and contract rates), `kiwi-of-marketing-fees` (delivery marketing against the campaigns you opted into), `plum-of-card-fees` (card processing fees and effective rate), `lemon-of-sales-tax` (sales tax by jurisdiction and category), `quince-of-invoices` (duplicate invoices and GL coding), `nectarine-of-utilities` (utility bills).
+**Delivery apps, fees, tax and bills (6):** `fairtable-delivery-payouts` (DoorDash, Uber Eats and Grubhub payouts against orders and contract rates), `fairtable-delivery-marketing` (delivery marketing against the campaigns you opted into), `fairtable-card-fees` (card processing fees and effective rate), `fairtable-sales-tax` (sales tax by jurisdiction and category), `fairtable-duplicate-invoices` (duplicate invoices and GL coding), `fairtable-utility-bills` (utility bills).
 
-**Compliance and multi-unit (6):** `olive-of-equipment` (equipment maintenance schedule), `orange-of-inspections` (health inspection and permit calendar), `papaya-of-food-handlers` (food handler cards and food protection manager certificates), `peach-of-allergens` (allergen matrix against recipes), `mulberry-of-prime-cost` (weekly prime cost by location), `pear-of-locations` (every location against the group median).
+**Compliance and multi-unit (6):** `fairtable-equipment-maintenance` (equipment maintenance schedule), `fairtable-health-inspections` (health inspection and permit calendar), `fairtable-food-handler-cards` (food handler cards and food protection manager certificates), `fairtable-allergen-matrix` (allergen matrix against recipes), `fairtable-prime-cost` (weekly prime cost by location), `fairtable-location-comparison` (every location against the group median).
 
 They pair with the restaurant-and-bar AI agent from G6daddy: that agent talks with guests, these check the back office.
 
@@ -40,7 +40,7 @@ They pair with the restaurant-and-bar AI agent from G6daddy: that agent talks wi
 ## Use with Claude Code
 
 ```bash
-claude mcp add apricot-of-food-cost -- npx -y apricot-of-food-cost mcp --root .
+claude mcp add fairtable-food-cost -- npx -y fairtable-food-cost mcp --root .
 ```
 
 or add this repository as a plugin marketplace and install the agents you want (`.claude-plugin/marketplace.json`).
@@ -57,7 +57,7 @@ npm run bench                 # 1,000 and 10,000 rows per input file
 npm run intl                  # every spreadsheet eval case as a German, French, Spanish, Brazilian, Italian, Japanese, Chinese and Korean export
 npm run masking               # no staff or guest name reaches the model
 npm run release:check:offline # metadata, honest copy, secrets, one-click policy, npm pack
-node scripts/new-agent.mjs <fruit>-of-<job> "<description>"   # scaffold a new agent
+node scripts/new-agent.mjs fairtable-<job words> "<description>"   # scaffold a new agent
 ```
 
 ## How they are tested

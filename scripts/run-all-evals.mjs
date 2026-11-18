@@ -11,7 +11,7 @@ const PK = join(ROOT, 'packages');
 const MIN = 15;
 const only = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 let total = 0, failed = 0, short = 0; const rows = [];
-for (const n of readdirSync(PK).filter((x) => /-of-/.test(x) && existsSync(join(PK, x, 'evals', 'cases.json')) && (!only.length || only.includes(x))).sort()) {
+for (const n of readdirSync(PK).filter((x) => /^fairtable-(?!core$)/.test(x) && existsSync(join(PK, x, 'evals', 'cases.json')) && (!only.length || only.includes(x))).sort()) {
   const { manifest } = await import(pathToFileURL(join(PK, n, 'src', 'index.js')).href);
   const r = await runEvalFile(manifest, join(PK, n, 'evals', 'cases.json'));
   const bad = r.results.filter((c) => !c.pass);

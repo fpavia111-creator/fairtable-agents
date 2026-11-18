@@ -1,0 +1,383 @@
+{
+  "suite": "fairtable-voids-comps",
+  "root": "..",
+  "data_note": "Fictional checks and made-up staff names in ../fixtures. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "void-totals",
+      "tool": "voids_check",
+      "args": {
+        "checks": "fixtures/checks.csv",
+        "server_sales": "fixtures/server_sales.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.employees": 4,
+          "result.void_count": 6,
+          "result.void_amount": 276,
+          "result.comp_count": 2,
+          "result.comp_amount": 45,
+          "result.flag": 2,
+          "result.review": 1,
+          "result.ok": 1
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "voids_check",
+      "args": {
+        "checks": "fixtures/checks.csv",
+        "server_sales": "fixtures/server_sales.csv"
+      },
+      "expect": {
+        "contains": [
+          "self_approved",
+          "after_close",
+          "high_void_rate",
+          "no_reason",
+          "no_approver",
+          "full_check_void"
+        ]
+      }
+    },
+    {
+      "id": "staff-names-masked",
+      "tool": "voids_check",
+      "args": {
+        "checks": "fixtures/checks.csv",
+        "server_sales": "fixtures/server_sales.csv"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "A.S.#653cdb"
+        ],
+        "not_contains": [
+          "Avery",
+          "Stone",
+          "Jamie Ortiz",
+          "Morgan Blake",
+          "Sam Patel",
+          "Riley Chen"
+        ]
+      }
+    },
+    {
+      "id": "explain-by-masked-name",
+      "tool": "voids_explain",
+      "args": {
+        "checks": "fixtures/checks.csv",
+        "server_sales": "fixtures/server_sales.csv",
+        "employee": "A.S.#653cdb"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "approved 2 of their own void(s) on check(s) 1002, 1003",
+          "voided after the check was paid"
+        ],
+        "not_contains": [
+          "Avery"
+        ],
+        "equals": {
+          "result.item.void_comp_pct": 4.2
+        }
+      }
+    },
+    {
+      "id": "higher-rate-threshold",
+      "tool": "voids_check",
+      "args": {
+        "checks": "fixtures/checks.csv",
+        "server_sales": "fixtures/server_sales.csv",
+        "settings": "fixtures/settings-loose.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.by_finding.high_void_rate.count": 1
+        }
+      }
+    },
+    {
+      "id": "review-memo-after-approval",
+      "tool": "voids_draft_review_memo",
+      "approve": "Pat Example",
+      "args": {
+        "checks": "fixtures/checks.csv",
+        "server_sales": "fixtures/server_sales.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "review memo Main Street drafted"
+        ],
+        "not_contains": [
+          "Avery"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "voids_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "checks"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "voids_check",
+      "args": {
+        "checks": "../../../outside.csv",
+        "server_sales": "fixtures/server_sales.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "voids_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "voids_check",
+      "mode": "review",
+      "args": {
+        "checks": "fixtures/checks.csv",
+        "server_sales": "fixtures/server_sales.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.employees": 4,
+          "result.void_count": 6,
+          "result.void_amount": 276,
+          "result.comp_count": 2,
+          "result.comp_amount": 45,
+          "result.flag": 2,
+          "result.review": 1,
+          "result.ok": 1
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "voids_check",
+      "args": {
+        "checks": "fixtures/checks.csv",
+        "server_sales": "fixtures/server_sales.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.employees": 4,
+          "result.void_count": 6,
+          "result.void_amount": 276,
+          "result.comp_count": 2,
+          "result.comp_amount": 45,
+          "result.flag": 2,
+          "result.review": 1,
+          "result.ok": 1
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "voids_explain",
+      "args": {
+        "checks": "fixtures/checks.csv",
+        "server_sales": "fixtures/server_sales.csv",
+        "settings": "fixtures/settings.json",
+        "employee": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "voids_write_report",
+      "args": {
+        "checks": "fixtures/checks.csv",
+        "server_sales": "fixtures/server_sales.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "voids_draft_review_memo",
+      "args": {
+        "checks": "fixtures/checks.csv",
+        "server_sales": "fixtures/server_sales.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "voids_draft_review_memo",
+      "mode": "review",
+      "args": {
+        "checks": "fixtures/checks.csv",
+        "server_sales": "fixtures/server_sales.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "voids_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "voids_draft_review_memo"
+      ],
+      "args": {
+        "draft": "fairtable-out/voids/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-pos-change-menu",
+      "tool": "pos_change_menu",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-payroll-submit",
+      "tool": "payroll_submit",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "voids_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-void-totals",
+      "tool": "voids_check",
+      "args": {
+        "checks": "fixtures/intl/de/checks.csv",
+        "server_sales": "fixtures/intl/de/server_sales.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.employees": 4,
+          "result.void_count": 6,
+          "result.void_amount": 276,
+          "result.comp_count": 2,
+          "result.comp_amount": 45,
+          "result.flag": 2,
+          "result.review": 1,
+          "result.ok": 1
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"void-totals\"."
+    },
+    {
+      "id": "intl-ja-void-totals",
+      "tool": "voids_check",
+      "args": {
+        "checks": "fixtures/intl/ja/checks.csv",
+        "server_sales": "fixtures/intl/ja/server_sales.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.employees": 4,
+          "result.void_count": 6,
+          "result.void_amount": 276,
+          "result.comp_count": 2,
+          "result.comp_amount": 45,
+          "result.flag": 2,
+          "result.review": 1,
+          "result.ok": 1
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"void-totals\"."
+    }
+  ]
+}

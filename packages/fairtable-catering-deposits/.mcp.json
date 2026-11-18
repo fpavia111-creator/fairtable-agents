@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-catering-deposits": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-catering-deposits@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

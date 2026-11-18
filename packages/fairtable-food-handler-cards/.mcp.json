@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-food-handler-cards": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-food-handler-cards@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

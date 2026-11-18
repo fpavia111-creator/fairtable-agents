@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-meal-breaks": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-meal-breaks@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

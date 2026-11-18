@@ -18,13 +18,13 @@ const PK = join(dirname(fileURLToPath(import.meta.url)), '..', 'packages');
 const check = process.argv.includes('--check');
 const only = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 let stale = 0;
-for (const n of readdirSync(PK).filter((x) => /-of-/.test(x) && existsSync(join(PK, x, 'evals', 'cases.json')) && (!only.length || only.includes(x))).sort()) {
+for (const n of readdirSync(PK).filter((x) => /^fairtable-(?!core$)/.test(x) && existsSync(join(PK, x, 'evals', 'cases.json')) && (!only.length || only.includes(x))).sort()) {
   const { manifest } = await import(pathToFileURL(join(PK, n, 'src', 'manifest.js')).href);
   const file = join(PK, n, 'evals', 'cases.json');
   const data = JSON.parse(readFileSync(file, 'utf8'));
   const own = data.cases.filter((c) => !c.generated && !/^intl-/.test(c.id));
   const intl = data.cases.filter((c) => /^intl-/.test(c.id));
-  const prefix = manifest.tools[0].name.split('_')[0];
+  const prefix = manifest.tools[0].name.replace(/_check$/, '');
   const checkTool = manifest.tools.find((t) => t.name === `${prefix}_check`);
   const explain = manifest.tools.find((t) => t.name === `${prefix}_explain`);
   const draft = manifest.tools.find((t) => t.name.startsWith(`${prefix}_draft_`));

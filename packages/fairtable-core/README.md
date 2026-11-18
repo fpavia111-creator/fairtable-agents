@@ -279,7 +279,7 @@ The manifest declares which host model a pack's prompts and evals target. An MCP
 
 ## Packs built on this core
 
-All 32 Fairtable agents in the monorepo, from `apricot-of-food-cost` to `raspberry-of-breaks`. Source: <https://github.com/fpavia111-creator/fairtable-agents>.
+All 32 Fairtable agents in the monorepo, from `fairtable-food-cost` to `fairtable-meal-breaks`. Source: <https://github.com/fpavia111-creator/fairtable-agents>.
 
 ## License
 

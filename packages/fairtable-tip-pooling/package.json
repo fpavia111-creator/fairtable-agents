@@ -1,0 +1,58 @@
+{
+  "name": "fairtable-tip-pooling",
+  "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/fairtable-tip-pooling",
+  "description": "Fairtable Tip Pooling: splits the week's tip pool by hours and role points, checks the tip credit (cash wage plus tips against the minimum wage in your state settings), managers who kept tips, cash wages under the tipped minimum and missing cash tip declarations. Never runs payroll or pays tips.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fairtable-tip-pooling": "bin/fairtable-tip-pooling.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/fairtable-tip-pooling.js demo",
+    "eval": "node bin/fairtable-tip-pooling.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/fairtable-tip-pooling"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-tip-pooling#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "tip-pool",
+    "tip-credit",
+    "payroll"
+  ]
+}

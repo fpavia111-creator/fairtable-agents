@@ -11,13 +11,13 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PK = join(ROOT, 'packages'); const OUT = join(ROOT, 'sample-reports');
 mkdirSync(OUT, { recursive: true });
 const rows = [];
-for (const n of readdirSync(PK).filter((x) => /-of-/.test(x)).sort()) {
+for (const n of readdirSync(PK).filter((x) => /^fairtable-(?!core$)/.test(x)).sort()) {
   const { manifest, DEMO } = await import(pathToFileURL(join(PK, n, 'src', 'manifest.js')).href);
-  const prefix = manifest.tools[0].name.split('_')[0];
+  const prefix = manifest.tools[0].name.replace(/_check$/, '');
   const root = mkdtempSync(join(tmpdir(), `${n}-sample-`)); cpSync(join(PK, n, 'fixtures'), root, { recursive: true });
   const r = await new AgentRuntime(manifest, { root, audit: false, memory: false }).call(`${prefix}_write_report`, DEMO.files);
   if (r.status !== 'executed') { console.error(`${n}: ${r.reason}`); process.exitCode = 1; continue; }
-  const short = n.replace(/-of-/, '-');
+  const short = n.replace(/^fairtable-/, '');
   for (const f of r.result.files) { const ext = f.split('.').pop(); writeFileSync(join(OUT, `${short}.${ext}`), readFileSync(join(root, f))); }
   rmSync(root, { recursive: true, force: true });
   rows.push({ n, short, title: manifest.tools.find((t) => t.name === `${prefix}_write_report`).title.replace(/^Write the /, '').replace(/ report$/, ''), summary: r.result.summary.replace(/^[^:]+ written: /, '') });

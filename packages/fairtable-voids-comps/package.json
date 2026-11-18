@@ -1,0 +1,58 @@
+{
+  "name": "fairtable-voids-comps",
+  "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/fairtable-voids-comps",
+  "description": "Fairtable Voids Comps: voids and comps by employee from your POS export, against each server's sales: self-approved voids, voids after the check was paid, missing reasons and comps over the approval limit. Names are masked for the AI model. Never changes the POS.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fairtable-voids-comps": "bin/fairtable-voids-comps.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/fairtable-voids-comps.js demo",
+    "eval": "node bin/fairtable-voids-comps.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/fairtable-voids-comps"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-voids-comps#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "voids",
+    "comps",
+    "loss-prevention"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-sales-tax": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-sales-tax@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

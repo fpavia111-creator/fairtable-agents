@@ -1,0 +1,58 @@
+{
+  "name": "fairtable-sales-tax",
+  "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/fairtable-sales-tax",
+  "description": "Fairtable Sales Tax: tax collected in the POS against the rates you set for each location and menu category (food, alcohol, grocery, delivery-app orders), with under- and over-collection by jurisdiction and tax-exempt sales to document. Never files a return or pays tax.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fairtable-sales-tax": "bin/fairtable-sales-tax.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/fairtable-sales-tax.js demo",
+    "eval": "node bin/fairtable-sales-tax.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/fairtable-sales-tax"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-sales-tax#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "sales-tax",
+    "tax-rates",
+    "jurisdiction"
+  ]
+}

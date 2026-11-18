@@ -14,10 +14,10 @@ import { AgentRuntime, FAIRTABLE_LIMITS } from '../packages/fairtable-core/src/i
 const PK = join(dirname(fileURLToPath(import.meta.url)), '..', 'packages');
 const only = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 const esc = (s) => String(s ?? '').replace(/\|/g, '\|').replace(/\n/g, ' ');
-for (const n of readdirSync(PK).filter((x) => /-of-/.test(x) && (!only.length || only.includes(x))).sort()) {
+for (const n of readdirSync(PK).filter((x) => /^fairtable-(?!core$)/.test(x) && (!only.length || only.includes(x))).sort()) {
   const mod = await import(pathToFileURL(join(PK, n, 'src', 'index.js')).href);
   const { manifest, DEMO, DEFAULTS } = { ...mod, DEMO: (await import(pathToFileURL(join(PK, n, 'src', 'manifest.js')).href)).DEMO };
-  const prefix = manifest.tools[0].name.split('_')[0];
+  const prefix = manifest.tools[0].name.replace(/_check$/, '');
   const root = mkdtempSync(join(tmpdir(), `${n}-head-`)); cpSync(join(PK, n, 'fixtures'), root, { recursive: true });
   const r = await new AgentRuntime(manifest, { root, audit: false, memory: false }).call(`${prefix}_check`, DEMO.files);
   rmSync(root, { recursive: true, force: true });

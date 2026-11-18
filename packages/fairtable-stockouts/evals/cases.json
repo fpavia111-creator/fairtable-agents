@@ -1,0 +1,381 @@
+{
+  "suite": "fairtable-stockouts",
+  "root": "..",
+  "data_note": "A fictional week of the 86 board and item sales in ../fixtures. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "stockout-totals",
+      "tool": "stockouts_check",
+      "args": {
+        "eighty_six": "fixtures/eighty_six.csv",
+        "sales": "fixtures/sales.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.items_86ed": 4,
+          "result.events": 6,
+          "result.hours_out": 13.92,
+          "result.lost_sales_estimate": 700.55,
+          "result.flag": 2,
+          "result.watch": 1,
+          "result.ok": 1
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "stockouts_check",
+      "args": {
+        "eighty_six": "fixtures/eighty_six.csv",
+        "sales": "fixtures/sales.csv"
+      },
+      "expect": {
+        "contains": [
+          "repeated_86",
+          "long_86",
+          "early_86",
+          "never_returned"
+        ]
+      }
+    },
+    {
+      "id": "short-rib-explained",
+      "tool": "stockouts_explain",
+      "args": {
+        "eighty_six": "fixtures/eighty_six.csv",
+        "sales": "fixtures/sales.csv",
+        "item": "short rib"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "86ed 3 times",
+          "2026-11-06 from 17:15 (4.75 h)"
+        ],
+        "equals": {
+          "result.item.sales_per_open_hour": 58.33
+        }
+      }
+    },
+    {
+      "id": "without-sales-no-estimate",
+      "tool": "stockouts_check",
+      "args": {
+        "eighty_six": "fixtures/eighty_six.csv"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "no_sales_history"
+        ],
+        "equals": {
+          "result.lost_sales_estimate": 0
+        }
+      }
+    },
+    {
+      "id": "looser-settings",
+      "tool": "stockouts_check",
+      "args": {
+        "eighty_six": "fixtures/eighty_six.csv",
+        "sales": "fixtures/sales.csv",
+        "settings": "fixtures/settings-loose.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.flag": 0
+        }
+      }
+    },
+    {
+      "id": "kitchen-memo-after-approval",
+      "tool": "stockouts_draft_memo",
+      "approve": "Pat Example",
+      "args": {
+        "eighty_six": "fixtures/eighty_six.csv",
+        "sales": "fixtures/sales.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "memo Main Street drafted for 700.55"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "stockouts_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "eighty_six"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "stockouts_check",
+      "args": {
+        "eighty_six": "../../../outside.csv",
+        "sales": "fixtures/sales.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "stockouts_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "stockouts_check",
+      "mode": "review",
+      "args": {
+        "eighty_six": "fixtures/eighty_six.csv",
+        "sales": "fixtures/sales.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.items_86ed": 4,
+          "result.events": 6,
+          "result.hours_out": 13.92,
+          "result.lost_sales_estimate": 700.55,
+          "result.flag": 2,
+          "result.watch": 1,
+          "result.ok": 1
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "stockouts_check",
+      "args": {
+        "eighty_six": "fixtures/eighty_six.csv",
+        "sales": "fixtures/sales.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.events": 6,
+          "result.hours_out": 13.92,
+          "result.lost_sales_estimate": 700.55,
+          "result.flag": 2,
+          "result.watch": 1,
+          "result.ok": 1
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "stockouts_explain",
+      "args": {
+        "eighty_six": "fixtures/eighty_six.csv",
+        "sales": "fixtures/sales.csv",
+        "settings": "fixtures/settings.json",
+        "item": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "stockouts_write_report",
+      "args": {
+        "eighty_six": "fixtures/eighty_six.csv",
+        "sales": "fixtures/sales.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "stockouts_draft_memo",
+      "args": {
+        "eighty_six": "fixtures/eighty_six.csv",
+        "sales": "fixtures/sales.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "stockouts_draft_memo",
+      "mode": "review",
+      "args": {
+        "eighty_six": "fixtures/eighty_six.csv",
+        "sales": "fixtures/sales.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "stockouts_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "stockouts_draft_memo"
+      ],
+      "args": {
+        "draft": "fairtable-out/stockouts/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-pos-change-menu",
+      "tool": "pos_change_menu",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-vendor-order-submit",
+      "tool": "vendor_order_submit",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "stockouts_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "learn-waits-for-acceptance",
+      "tool": "stockouts_learn",
+      "args": {
+        "kind": "item_alias",
+        "value": {
+          "name": "Fictional Name A",
+          "means": "Fictional Name B"
+        }
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "waiting"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-stockout-totals",
+      "tool": "stockouts_check",
+      "args": {
+        "eighty_six": "fixtures/intl/de/eighty_six.csv",
+        "sales": "fixtures/intl/de/sales.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.items_86ed": 4,
+          "result.events": 6,
+          "result.hours_out": 13.92,
+          "result.lost_sales_estimate": 700.55,
+          "result.flag": 2,
+          "result.watch": 1,
+          "result.ok": 1
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"stockout-totals\"."
+    },
+    {
+      "id": "intl-ja-stockout-totals",
+      "tool": "stockouts_check",
+      "args": {
+        "eighty_six": "fixtures/intl/ja/eighty_six.csv",
+        "sales": "fixtures/intl/ja/sales.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.items_86ed": 4,
+          "result.events": 6,
+          "result.hours_out": 13.92,
+          "result.lost_sales_estimate": 700.55,
+          "result.flag": 2,
+          "result.watch": 1,
+          "result.ok": 1
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"stockout-totals\"."
+    }
+  ]
+}

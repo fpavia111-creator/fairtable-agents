@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-inventory-counts": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-inventory-counts@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

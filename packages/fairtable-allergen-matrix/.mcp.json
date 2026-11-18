@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-allergen-matrix": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-allergen-matrix@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

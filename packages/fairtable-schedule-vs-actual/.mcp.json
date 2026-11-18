@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-schedule-vs-actual": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-schedule-vs-actual@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

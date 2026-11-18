@@ -1,0 +1,21 @@
+{
+  "name": "fairtable-labor-dayparts",
+  "version": "0.1.0",
+  "description": "Labor percentage and sales per labor hour for each daypart (breakfast, lunch, dinner, late night) from your POS sales and timecards, against the targets you set for each one. Never edits the schedule.",
+  "author": {
+    "name": "Kurt Francisco"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-labor-dayparts#readme",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "labor-percentage",
+    "daypart",
+    "splh"
+  ]
+}

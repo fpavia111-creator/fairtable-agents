@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-gift-cards": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-gift-cards@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

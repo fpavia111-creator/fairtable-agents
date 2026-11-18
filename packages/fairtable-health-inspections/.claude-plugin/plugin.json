@@ -1,0 +1,21 @@
+{
+  "name": "fairtable-health-inspections",
+  "version": "0.1.0",
+  "description": "The health inspection and permit calendar for each location: re-inspections overdue, critical violations with no re-inspection on file, scores dropping, the next routine visit to prepare for, and permits and licences expired or expiring. Never contacts the health department.",
+  "author": {
+    "name": "Kurt Francisco"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-health-inspections#readme",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "health-inspections",
+    "permits",
+    "compliance-calendar"
+  ]
+}

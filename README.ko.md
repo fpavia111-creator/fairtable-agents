@@ -9,23 +9,23 @@ Mythos Machines의 Fair Agents에 속합니다. MIT 라이선스 · Node 20 이�
 ## 사용해 보기
 
 ```bash
-npx -y apricot-of-food-cost demo            # 실제 대 이론 식재료 원가 (가상 데이터)
-npx -y jackfruit-of-delivery-payouts demo   # 배달 앱 정산 대 주문
+npx -y fairtable-food-cost demo            # 실제 대 이론 식재료 원가 (가상 데이터)
+npx -y fairtable-delivery-payouts demo   # 배달 앱 정산 대 주문
 ```
 
 모든 에이전트에는 가상 파일로 실행하는 `demo`, 자체 테스트 케이스가 있는 `eval`, MCP 서버(`npx -y <에이전트> mcp --root <폴더>`)가 있습니다.
 
 ## 에이전트
 
-**식재료·구매·바 (9):** `apricot-of-food-cost`(실제 대 이론 원가), `banana-of-recipe-costs`(최신 단가 기준 레시피 원가), `blackberry-of-price-creep`(공급업체 단가 인상), `blueberry-of-deliveries`(송장 대 입고·반품), `cherry-of-counts`(재고 실사 차이), `clementine-of-waste`(폐기 기록), `coconut-of-pours`(바 원가), `lime-of-menu-mix`(메뉴 엔지니어링), `lychee-of-stockouts`(품절).
+**식재료·구매·바 (9):** `fairtable-food-cost`(실제 대 이론 원가), `fairtable-recipe-costs`(최신 단가 기준 레시피 원가), `fairtable-price-creep`(공급업체 단가 인상), `fairtable-receiving-credits`(송장 대 입고·반품), `fairtable-inventory-counts`(재고 실사 차이), `fairtable-waste-log`(폐기 기록), `fairtable-pour-cost`(바 원가), `fairtable-menu-engineering`(메뉴 엔지니어링), `fairtable-stockouts`(품절).
 
-**홀과 현금 (6):** `cranberry-of-voids`(취소와 서비스 제공), `date-of-discounts`(할인과 프로모션), `elderberry-of-drawers`(현금 과부족), `kumquat-of-gift-cards`(기프트카드), `mango-of-no-shows`(예약 노쇼), `melon-of-catering`(케이터링 예약금).
+**홀과 현금 (6):** `fairtable-voids-comps`(취소와 서비스 제공), `fairtable-discounts-promos`(할인과 프로모션), `fairtable-cash-drawers`(현금 과부족), `fairtable-gift-cards`(기프트카드), `fairtable-no-shows`(예약 노쇼), `fairtable-catering-deposits`(케이터링 예약금).
 
-**인력 (5):** `fig-of-tip-pools`(팁 풀), `grape-of-overtime`(초과근무, 분할 근무), `guava-of-schedules`(계획 대 실제), `huckleberry-of-dayparts`(시간대별 인건비율), `raspberry-of-breaks`(휴게와 미성년자).
+**인력 (5):** `fairtable-tip-pooling`(팁 풀), `fairtable-overtime`(초과근무, 분할 근무), `fairtable-schedule-vs-actual`(계획 대 실제), `fairtable-labor-dayparts`(시간대별 인건비율), `fairtable-meal-breaks`(휴게와 미성년자).
 
-**배달·수수료·세금·청구서 (6):** `jackfruit-of-delivery-payouts`(정산), `kiwi-of-marketing-fees`(마케팅 비용), `plum-of-card-fees`(카드 수수료), `lemon-of-sales-tax`(판매세), `quince-of-invoices`(중복 송장, 계정 코드), `nectarine-of-utilities`(공과금).
+**배달·수수료·세금·청구서 (6):** `fairtable-delivery-payouts`(정산), `fairtable-delivery-marketing`(마케팅 비용), `fairtable-card-fees`(카드 수수료), `fairtable-sales-tax`(판매세), `fairtable-duplicate-invoices`(중복 송장, 계정 코드), `fairtable-utility-bills`(공과금).
 
-**규정 준수와 다점포 (6):** `olive-of-equipment`(장비 유지보수), `orange-of-inspections`(위생 점검과 허가), `papaya-of-food-handlers`(위생 교육 이수증), `peach-of-allergens`(알레르기 매트릭스), `mulberry-of-prime-cost`(프라임 코스트), `pear-of-locations`(매장 비교).
+**규정 준수와 다점포 (6):** `fairtable-equipment-maintenance`(장비 유지보수), `fairtable-health-inspections`(위생 점검과 허가), `fairtable-food-handler-cards`(위생 교육 이수증), `fairtable-allergen-matrix`(알레르기 매트릭스), `fairtable-prime-cost`(프라임 코스트), `fairtable-location-comparison`(매장 비교).
 
 ## 안전 장치
 

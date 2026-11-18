@@ -1,0 +1,58 @@
+{
+  "name": "fairtable-delivery-marketing",
+  "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/fairtable-delivery-marketing",
+  "description": "Fairtable Delivery Marketing: delivery-app marketing and promotion charges against the campaigns you opted into: charges with no campaign behind them, campaigns over budget, and what each campaign brought in for what it cost. Never logs in to a platform.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fairtable-delivery-marketing": "bin/fairtable-delivery-marketing.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/fairtable-delivery-marketing.js demo",
+    "eval": "node bin/fairtable-delivery-marketing.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/fairtable-delivery-marketing"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-delivery-marketing#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "delivery-marketing",
+    "promotions",
+    "ads"
+  ]
+}

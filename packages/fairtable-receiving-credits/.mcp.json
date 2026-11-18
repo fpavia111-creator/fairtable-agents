@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-receiving-credits": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-receiving-credits@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

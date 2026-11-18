@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-card-fees": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-card-fees@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

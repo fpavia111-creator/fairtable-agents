@@ -1,0 +1,383 @@
+{
+  "suite": "fairtable-catering-deposits",
+  "root": "..",
+  "data_note": "Fictional bookings and payments with made-up client names in ../fixtures. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "catering-totals",
+      "tool": "catering_check",
+      "args": {
+        "events": "fixtures/events.csv",
+        "payments": "fixtures/payments.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.events": 6,
+          "result.booked_total": 19400,
+          "result.received": 7100,
+          "result.owed_to_us": 4242.5,
+          "result.owed_back": 412.5,
+          "result.flag": 2,
+          "result.review": 3,
+          "result.ok": 2
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "catering_check",
+      "args": {
+        "events": "fixtures/events.csv",
+        "payments": "fixtures/payments.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "contains": [
+          "deposit_missing",
+          "balance_overdue",
+          "overpaid",
+          "cancelled_refund_due",
+          "payment_no_event"
+        ],
+        "not_contains": [
+          "Quinn Wedding",
+          "Avery Birthday"
+        ]
+      }
+    },
+    {
+      "id": "wedding-deposit-explained",
+      "tool": "catering_explain",
+      "args": {
+        "events": "fixtures/events.csv",
+        "payments": "fixtures/payments.csv",
+        "settings": "fixtures/settings.json",
+        "event_id": "ev-302"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "13 days away; deposit required 2880 (30%), received 1000"
+        ]
+      }
+    },
+    {
+      "id": "lenient-policy",
+      "tool": "catering_check",
+      "args": {
+        "events": "fixtures/events.csv",
+        "payments": "fixtures/payments.csv",
+        "settings": "fixtures/settings-lenient.json"
+      },
+      "expect": {
+        "status": "executed",
+        "not_contains": [
+          "deposit_missing",
+          "cancelled_refund_due"
+        ],
+        "equals": {
+          "result.owed_back": 62.5
+        }
+      }
+    },
+    {
+      "id": "reminder-after-approval",
+      "tool": "catering_draft_reminder",
+      "approve": "Pat Example",
+      "args": {
+        "events": "fixtures/events.csv",
+        "payments": "fixtures/payments.csv",
+        "settings": "fixtures/settings.json",
+        "event_id": "EV-302"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "reminder EV-302 drafted for 1880"
+        ],
+        "not_contains": [
+          "Quinn"
+        ]
+      }
+    },
+    {
+      "id": "nothing-due-refused",
+      "tool": "catering_draft_reminder",
+      "approve": "Pat Example",
+      "args": {
+        "events": "fixtures/events.csv",
+        "payments": "fixtures/payments.csv",
+        "settings": "fixtures/settings.json",
+        "event_id": "EV-301"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "nothing is due"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "catering_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "events"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "catering_check",
+      "args": {
+        "events": "../../../outside.csv",
+        "payments": "fixtures/payments.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "catering_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "catering_check",
+      "mode": "review",
+      "args": {
+        "events": "fixtures/events.csv",
+        "payments": "fixtures/payments.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.events": 6,
+          "result.booked_total": 19400,
+          "result.received": 7100,
+          "result.owed_to_us": 4242.5,
+          "result.owed_back": 412.5,
+          "result.flag": 2,
+          "result.review": 3,
+          "result.ok": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "catering_check",
+      "args": {
+        "events": "fixtures/events.csv",
+        "payments": "fixtures/payments.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.events": 6,
+          "result.booked_total": 19400,
+          "result.received": 7100,
+          "result.owed_to_us": 4242.5,
+          "result.owed_back": 412.5,
+          "result.flag": 2,
+          "result.review": 3,
+          "result.ok": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "catering_explain",
+      "args": {
+        "events": "fixtures/events.csv",
+        "payments": "fixtures/payments.csv",
+        "settings": "fixtures/settings.json",
+        "event_id": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "catering_write_report",
+      "args": {
+        "events": "fixtures/events.csv",
+        "payments": "fixtures/payments.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "catering_draft_reminder",
+      "args": {
+        "events": "fixtures/events.csv",
+        "payments": "fixtures/payments.csv",
+        "settings": "fixtures/settings.json",
+        "event_id": "EV-302"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "catering_draft_reminder",
+      "mode": "review",
+      "args": {
+        "events": "fixtures/events.csv",
+        "payments": "fixtures/payments.csv",
+        "settings": "fixtures/settings.json",
+        "event_id": "EV-302"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "catering_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "catering_draft_reminder"
+      ],
+      "args": {
+        "draft": "fairtable-out/catering/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-payment-send",
+      "tool": "payment_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-refund-issue",
+      "tool": "refund_issue",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "catering_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-catering-totals",
+      "tool": "catering_check",
+      "args": {
+        "events": "fixtures/intl/de/events.csv",
+        "payments": "fixtures/intl/de/payments.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.events": 6,
+          "result.booked_total": 19400,
+          "result.received": 7100,
+          "result.owed_to_us": 4242.5,
+          "result.owed_back": 412.5,
+          "result.flag": 2,
+          "result.review": 3,
+          "result.ok": 2
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"catering-totals\"."
+    },
+    {
+      "id": "intl-ja-catering-totals",
+      "tool": "catering_check",
+      "args": {
+        "events": "fixtures/intl/ja/events.csv",
+        "payments": "fixtures/intl/ja/payments.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.events": 6,
+          "result.booked_total": 19400,
+          "result.received": 7100,
+          "result.owed_to_us": 4242.5,
+          "result.owed_back": 412.5,
+          "result.flag": 2,
+          "result.review": 3,
+          "result.ok": 2
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"catering-totals\"."
+    }
+  ]
+}

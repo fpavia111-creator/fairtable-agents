@@ -1,0 +1,354 @@
+{
+  "suite": "fairtable-equipment-maintenance",
+  "root": "..",
+  "data_note": "A fictional equipment list and service log; the intervals are example settings. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "schedule-totals",
+      "tool": "equipment_check",
+      "args": {
+        "equipment": "fixtures/equipment.csv",
+        "service_log": "fixtures/service_log.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.equipment": 8,
+          "result.overdue": 2,
+          "result.due_soon": 3,
+          "result.repair_cost": 1315,
+          "result.flag": 2,
+          "result.review": 2,
+          "result.watch": 4
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "equipment_check",
+      "args": {
+        "equipment": "fixtures/equipment.csv",
+        "service_log": "fixtures/service_log.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "contains": [
+          "overdue",
+          "due_soon",
+          "no_last_service",
+          "no_interval",
+          "repeat_repairs"
+        ]
+      }
+    },
+    {
+      "id": "hood-overdue-explained",
+      "tool": "equipment_explain",
+      "args": {
+        "equipment": "fixtures/equipment.csv",
+        "service_log": "fixtures/service_log.csv",
+        "settings": "fixtures/settings.json",
+        "equipment_name": "kitchen hood"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "due 2026-10-18: 28 days overdue"
+        ]
+      }
+    },
+    {
+      "id": "other-intervals",
+      "tool": "equipment_check",
+      "args": {
+        "equipment": "fixtures/equipment.csv",
+        "service_log": "fixtures/service_log.csv",
+        "settings": "fixtures/settings-other-intervals.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.overdue": 0,
+          "result.due_soon": 1
+        },
+        "not_contains": [
+          "no_interval"
+        ]
+      }
+    },
+    {
+      "id": "service-request-after-approval",
+      "tool": "equipment_draft_service_request",
+      "approve": "Pat Example",
+      "args": {
+        "equipment": "fixtures/equipment.csv",
+        "service_log": "fixtures/service_log.csv",
+        "settings": "fixtures/settings.json",
+        "vendor": "example fire protection"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "service request Example Fire Protection drafted"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "equipment_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "equipment"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "equipment_check",
+      "args": {
+        "equipment": "../../../outside.csv",
+        "service_log": "fixtures/service_log.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "equipment_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "equipment_check",
+      "mode": "review",
+      "args": {
+        "equipment": "fixtures/equipment.csv",
+        "service_log": "fixtures/service_log.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.equipment": 8,
+          "result.overdue": 2,
+          "result.due_soon": 3,
+          "result.repair_cost": 1315,
+          "result.flag": 2,
+          "result.review": 2,
+          "result.watch": 4
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "equipment_check",
+      "args": {
+        "equipment": "fixtures/equipment.csv",
+        "service_log": "fixtures/service_log.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.equipment": 8,
+          "result.overdue": 2,
+          "result.due_soon": 3,
+          "result.repair_cost": 1315,
+          "result.flag": 2,
+          "result.review": 2,
+          "result.watch": 4
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "equipment_explain",
+      "args": {
+        "equipment": "fixtures/equipment.csv",
+        "service_log": "fixtures/service_log.csv",
+        "settings": "fixtures/settings.json",
+        "equipment_name": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "equipment_write_report",
+      "args": {
+        "equipment": "fixtures/equipment.csv",
+        "service_log": "fixtures/service_log.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "equipment_draft_service_request",
+      "args": {
+        "equipment": "fixtures/equipment.csv",
+        "service_log": "fixtures/service_log.csv",
+        "settings": "fixtures/settings.json",
+        "vendor": "example fire protection"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "equipment_draft_service_request",
+      "mode": "review",
+      "args": {
+        "equipment": "fixtures/equipment.csv",
+        "service_log": "fixtures/service_log.csv",
+        "settings": "fixtures/settings.json",
+        "vendor": "example fire protection"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "equipment_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "equipment_draft_service_request"
+      ],
+      "args": {
+        "draft": "fairtable-out/equipment/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-payment-send",
+      "tool": "payment_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-vendor-booking-submit",
+      "tool": "vendor_booking_submit",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "equipment_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-schedule-totals",
+      "tool": "equipment_check",
+      "args": {
+        "equipment": "fixtures/intl/de/equipment.csv",
+        "service_log": "fixtures/intl/de/service_log.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.equipment": 8,
+          "result.overdue": 2,
+          "result.due_soon": 3,
+          "result.repair_cost": 1315,
+          "result.flag": 2,
+          "result.review": 2,
+          "result.watch": 4
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"schedule-totals\"."
+    },
+    {
+      "id": "intl-ja-schedule-totals",
+      "tool": "equipment_check",
+      "args": {
+        "equipment": "fixtures/intl/ja/equipment.csv",
+        "service_log": "fixtures/intl/ja/service_log.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.equipment": 8,
+          "result.overdue": 2,
+          "result.due_soon": 3,
+          "result.repair_cost": 1315,
+          "result.flag": 2,
+          "result.review": 2,
+          "result.watch": 4
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"schedule-totals\"."
+    }
+  ]
+}

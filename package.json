@@ -1,7 +1,7 @@
 {
   "name": "fairtable-agents",
   "private": true,
-  "description": "Fairtable: restaurant, bar and cafe back-office agents monorepo (fruit names), built on fairtable-core.",
+  "description": "Fairtable: restaurant, bar and cafe back-office agents monorepo, built on fairtable-core.",
   "license": "MIT",
   "workspaces": [
     "packages/fairtable-core",

@@ -1,0 +1,58 @@
+{
+  "name": "fairtable-menu-engineering",
+  "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/fairtable-menu-engineering",
+  "description": "Fairtable Menu Engineering: menu engineering from your POS item sales and plate costs: each item's popularity and contribution margin within its category, sorted into stars, plowhorses, puzzles and dogs, with a menu proposal draft. Never changes the menu or prices in the POS.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fairtable-menu-engineering": "bin/fairtable-menu-engineering.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/fairtable-menu-engineering.js demo",
+    "eval": "node bin/fairtable-menu-engineering.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/fairtable-menu-engineering"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-menu-engineering#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "menu-engineering",
+    "menu-mix",
+    "contribution-margin"
+  ]
+}

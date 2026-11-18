@@ -1,0 +1,364 @@
+{
+  "suite": "fairtable-labor-dayparts",
+  "root": "..",
+  "data_note": "One fictional day of hourly sales and timecards with made-up names. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "daypart-totals",
+      "tool": "dayparts_check",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.slots": 5,
+          "result.net_sales": 5510,
+          "result.labor_cost": 685.63,
+          "result.labor_pct": 12.4,
+          "result.labor_hours": 48,
+          "result.flag": 1,
+          "result.review": 2,
+          "result.ok": 2
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "dayparts_check",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "contains": [
+          "labor_over_target",
+          "low_splh",
+          "labor_no_sales",
+          "sales_no_time"
+        ]
+      }
+    },
+    {
+      "id": "afternoon-explained",
+      "tool": "dayparts_explain",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json",
+        "slot": "2026-11-03 afternoon"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "over the 30% target for Afternoon"
+        ],
+        "equals": {
+          "result.item.labor_hours": 10,
+          "result.item.people": 6,
+          "result.item.sales_per_labor_hour": 6
+        }
+      }
+    },
+    {
+      "id": "no-burden-and-higher-splh-bar",
+      "tool": "dayparts_check",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings-plain.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.labor_cost": 623.3,
+          "result.settings_used.dayparts.1.name": "Lunch",
+          "result.settings_used.dayparts.1.end": "16:00"
+        },
+        "min": {
+          "result.by_finding.low_splh.count": 1
+        }
+      }
+    },
+    {
+      "id": "staffing-memo-after-approval",
+      "tool": "dayparts_draft_memo",
+      "approve": "Pat Example",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "memo Main Street drafted"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "dayparts_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "sales"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "dayparts_check",
+      "args": {
+        "sales": "../../../outside.csv",
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "dayparts_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "dayparts_check",
+      "mode": "review",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.slots": 5,
+          "result.net_sales": 5510,
+          "result.labor_cost": 685.63,
+          "result.labor_pct": 12.4,
+          "result.labor_hours": 48,
+          "result.flag": 1,
+          "result.review": 2,
+          "result.ok": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "dayparts_check",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.slots": 5,
+          "result.net_sales": 5510,
+          "result.labor_cost": 685.63,
+          "result.labor_pct": 12.4,
+          "result.labor_hours": 48,
+          "result.flag": 1,
+          "result.review": 2,
+          "result.ok": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "dayparts_explain",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json",
+        "slot": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "dayparts_write_report",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "dayparts_draft_memo",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "dayparts_draft_memo",
+      "mode": "review",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "dayparts_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "dayparts_draft_memo"
+      ],
+      "args": {
+        "draft": "fairtable-out/dayparts/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-schedule-publish",
+      "tool": "schedule_publish",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-payroll-submit",
+      "tool": "payroll_submit",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "dayparts_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-daypart-totals",
+      "tool": "dayparts_check",
+      "args": {
+        "sales": "fixtures/intl/de/sales.csv",
+        "timecards": "fixtures/intl/de/timecards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.slots": 5,
+          "result.net_sales": 5510,
+          "result.labor_cost": 685.63,
+          "result.labor_pct": 12.4,
+          "result.labor_hours": 48,
+          "result.flag": 1,
+          "result.review": 2,
+          "result.ok": 2
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"daypart-totals\"."
+    },
+    {
+      "id": "intl-ja-daypart-totals",
+      "tool": "dayparts_check",
+      "args": {
+        "sales": "fixtures/intl/ja/sales.csv",
+        "timecards": "fixtures/intl/ja/timecards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.slots": 5,
+          "result.net_sales": 5510,
+          "result.labor_cost": 685.63,
+          "result.labor_pct": 12.4,
+          "result.labor_hours": 48,
+          "result.flag": 1,
+          "result.review": 2,
+          "result.ok": 2
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"daypart-totals\"."
+    }
+  ]
+}

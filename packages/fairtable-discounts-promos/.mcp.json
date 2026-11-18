@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-discounts-promos": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-discounts-promos@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

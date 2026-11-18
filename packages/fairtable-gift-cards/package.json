@@ -1,0 +1,58 @@
+{
+  "name": "fairtable-gift-cards",
+  "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/fairtable-gift-cards",
+  "description": "Fairtable Gift Cards: the outstanding gift card liability from your POS gift card export, by location, with balances that do not add up, negative balances, dormant cards and cards bought at one location and spent at another. Never changes a card or recognises breakage.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fairtable-gift-cards": "bin/fairtable-gift-cards.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/fairtable-gift-cards.js demo",
+    "eval": "node bin/fairtable-gift-cards.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/fairtable-gift-cards"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-gift-cards#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "gift-cards",
+    "liability",
+    "breakage"
+  ]
+}

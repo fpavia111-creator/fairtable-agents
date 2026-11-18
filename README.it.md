@@ -9,23 +9,23 @@ Parte di Fair Agents di Mythos Machines. Licenza MIT · Node 20 o successivo · 
 ## Provare
 
 ```bash
-npx -y apricot-of-food-cost demo            # food cost effettivo rispetto al teorico, dati fittizi
-npx -y jackfruit-of-delivery-payouts demo   # pagamenti delle app di consegna rispetto agli ordini
+npx -y fairtable-food-cost demo            # food cost effettivo rispetto al teorico, dati fittizi
+npx -y fairtable-delivery-payouts demo   # pagamenti delle app di consegna rispetto agli ordini
 ```
 
 Ogni agente ha una `demo` su file fittizi, un `eval` con i propri casi di test e un server MCP (`npx -y <agente> mcp --root <cartella>`).
 
 ## Gli agenti
 
-**Merci, acquisti e bar (9):** `apricot-of-food-cost` (food cost effettivo e teorico), `banana-of-recipe-costs` (costo delle ricette agli ultimi prezzi), `blackberry-of-price-creep` (aumenti graduali dei prezzi), `blueberry-of-deliveries` (fatture rispetto a ricevimenti e note di credito), `cherry-of-counts` (scostamenti d’inventario), `clementine-of-waste` (registro degli scarti), `coconut-of-pours` (costo di mescita), `lime-of-menu-mix` (analisi del menù), `lychee-of-stockouts` (articoli esauriti).
+**Merci, acquisti e bar (9):** `fairtable-food-cost` (food cost effettivo e teorico), `fairtable-recipe-costs` (costo delle ricette agli ultimi prezzi), `fairtable-price-creep` (aumenti graduali dei prezzi), `fairtable-receiving-credits` (fatture rispetto a ricevimenti e note di credito), `fairtable-inventory-counts` (scostamenti d’inventario), `fairtable-waste-log` (registro degli scarti), `fairtable-pour-cost` (costo di mescita), `fairtable-menu-engineering` (analisi del menù), `fairtable-stockouts` (articoli esauriti).
 
-**Sala e cassa (6):** `cranberry-of-voids` (storni e omaggi), `date-of-discounts` (sconti e promozioni), `elderberry-of-drawers` (differenze di cassa), `kumquat-of-gift-cards` (gift card), `mango-of-no-shows` (prenotazioni non presentate), `melon-of-catering` (acconti catering).
+**Sala e cassa (6):** `fairtable-voids-comps` (storni e omaggi), `fairtable-discounts-promos` (sconti e promozioni), `fairtable-cash-drawers` (differenze di cassa), `fairtable-gift-cards` (gift card), `fairtable-no-shows` (prenotazioni non presentate), `fairtable-catering-deposits` (acconti catering).
 
-**Personale (5):** `fig-of-tip-pools` (pool delle mance), `grape-of-overtime` (straordinari, turni spezzati), `guava-of-schedules` (pianificato rispetto all’effettivo), `huckleberry-of-dayparts` (personale per fascia oraria), `raspberry-of-breaks` (pause e minori).
+**Personale (5):** `fairtable-tip-pooling` (pool delle mance), `fairtable-overtime` (straordinari, turni spezzati), `fairtable-schedule-vs-actual` (pianificato rispetto all’effettivo), `fairtable-labor-dayparts` (personale per fascia oraria), `fairtable-meal-breaks` (pause e minori).
 
-**Consegne, commissioni, imposte e bollette (6):** `jackfruit-of-delivery-payouts` (pagamenti), `kiwi-of-marketing-fees` (marketing), `plum-of-card-fees` (commissioni carte), `lemon-of-sales-tax` (imposta sulle vendite), `quince-of-invoices` (fatture duplicate, imputazione), `nectarine-of-utilities` (utenze).
+**Consegne, commissioni, imposte e bollette (6):** `fairtable-delivery-payouts` (pagamenti), `fairtable-delivery-marketing` (marketing), `fairtable-card-fees` (commissioni carte), `fairtable-sales-tax` (imposta sulle vendite), `fairtable-duplicate-invoices` (fatture duplicate, imputazione), `fairtable-utility-bills` (utenze).
 
-**Conformità e più locali (6):** `olive-of-equipment` (manutenzione attrezzature), `orange-of-inspections` (ispezioni e permessi), `papaya-of-food-handlers` (attestati HACCP), `peach-of-allergens` (matrice degli allergeni), `mulberry-of-prime-cost` (costo primo), `pear-of-locations` (confronto tra locali).
+**Conformità e più locali (6):** `fairtable-equipment-maintenance` (manutenzione attrezzature), `fairtable-health-inspections` (ispezioni e permessi), `fairtable-food-handler-cards` (attestati HACCP), `fairtable-allergen-matrix` (matrice degli allergeni), `fairtable-prime-cost` (costo primo), `fairtable-location-comparison` (confronto tra locali).
 
 ## Sicurezza
 

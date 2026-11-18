@@ -1,0 +1,359 @@
+{
+  "suite": "fairtable-menu-engineering",
+  "root": "..",
+  "data_note": "A fictional week of item sales and plate costs in ../fixtures. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "menu-mix-totals",
+      "tool": "menu_check",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "costs": "fixtures/costs.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.menu_items": 11,
+          "result.total_margin": 14998.5,
+          "result.stars": 3,
+          "result.plowhorses": 3,
+          "result.puzzles": 3,
+          "result.dogs": 1,
+          "result.review": 2
+        }
+      }
+    },
+    {
+      "id": "every-quadrant-found",
+      "tool": "menu_check",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "costs": "fixtures/costs.csv"
+      },
+      "expect": {
+        "contains": [
+          "plowhorse",
+          "puzzle",
+          "dog",
+          "no_cost",
+          "\"quadrant\":\"star\""
+        ]
+      }
+    },
+    {
+      "id": "steak-is-a-puzzle",
+      "tool": "menu_explain",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "costs": "fixtures/costs.csv",
+        "item": "steak frites"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "7.8% of the category's sales count against a 8.75% bar, margin 17.2"
+        ],
+        "equals": {
+          "result.item.quadrant": "puzzle"
+        }
+      }
+    },
+    {
+      "id": "whole-menu-comparison",
+      "tool": "menu_check",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "costs": "fixtures/costs.csv",
+        "settings": "fixtures/settings-whole-menu.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.items.0.category": "All items"
+        }
+      }
+    },
+    {
+      "id": "menu-proposal-after-approval",
+      "tool": "menu_draft_menu_proposal",
+      "approve": "Pat Example",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "costs": "fixtures/costs.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "menu proposal Main Street drafted"
+        ],
+        "min": {
+          "result.open_markers": 2
+        }
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "menu_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "sales"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "menu_check",
+      "args": {
+        "sales": "../../../outside.csv",
+        "costs": "fixtures/costs.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "menu_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "menu_check",
+      "mode": "review",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "costs": "fixtures/costs.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.menu_items": 11,
+          "result.total_margin": 14998.5,
+          "result.stars": 3,
+          "result.plowhorses": 3,
+          "result.puzzles": 3,
+          "result.dogs": 1,
+          "result.review": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "menu_check",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "costs": "fixtures/costs.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.menu_items": 11,
+          "result.total_margin": 14998.5,
+          "result.stars": 3,
+          "result.plowhorses": 3,
+          "result.puzzles": 3,
+          "result.dogs": 1,
+          "result.review": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "menu_explain",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "costs": "fixtures/costs.csv",
+        "settings": "fixtures/settings.json",
+        "item": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "menu_write_report",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "costs": "fixtures/costs.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "menu_draft_menu_proposal",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "costs": "fixtures/costs.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "menu_draft_menu_proposal",
+      "mode": "review",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "costs": "fixtures/costs.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "menu_request_approve",
+      "mode": "auto",
+      "auto_actions": [
+        "menu_draft_menu_proposal"
+      ],
+      "args": {
+        "draft": "fairtable-out/menu/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-pos-change-menu",
+      "tool": "pos_change_menu",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "menu_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "learn-waits-for-acceptance",
+      "tool": "menu_learn",
+      "args": {
+        "kind": "item_alias",
+        "value": {
+          "name": "Fictional Name A",
+          "means": "Fictional Name B"
+        }
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "waiting"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-menu-mix-totals",
+      "tool": "menu_check",
+      "args": {
+        "sales": "fixtures/intl/de/sales.csv",
+        "costs": "fixtures/intl/de/costs.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.menu_items": 11,
+          "result.total_margin": 14998.5,
+          "result.stars": 3,
+          "result.plowhorses": 3,
+          "result.puzzles": 3,
+          "result.dogs": 1,
+          "result.review": 2
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"menu-mix-totals\"."
+    },
+    {
+      "id": "intl-ja-menu-mix-totals",
+      "tool": "menu_check",
+      "args": {
+        "sales": "fixtures/intl/ja/sales.csv",
+        "costs": "fixtures/intl/ja/costs.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.menu_items": 11,
+          "result.total_margin": 14998.5,
+          "result.stars": 3,
+          "result.plowhorses": 3,
+          "result.puzzles": 3,
+          "result.dogs": 1,
+          "result.review": 2
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"menu-mix-totals\"."
+    }
+  ]
+}

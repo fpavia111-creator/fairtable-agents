@@ -1,0 +1,58 @@
+{
+  "name": "fairtable-food-handler-cards",
+  "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/fairtable-food-handler-cards",
+  "description": "Fairtable Food Handler Cards: food handler cards, certified food protection managers and alcohol server certificates against your staff roster: missing after the grace period, expired, expiring soon, and locations without a certified manager. Staff names are masked for the AI model. Never contacts staff or a training provider.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fairtable-food-handler-cards": "bin/fairtable-food-handler-cards.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/fairtable-food-handler-cards.js demo",
+    "eval": "node bin/fairtable-food-handler-cards.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/fairtable-food-handler-cards"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-food-handler-cards#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "food-handler",
+    "certification",
+    "compliance"
+  ]
+}

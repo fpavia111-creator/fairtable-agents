@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-stockouts": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-stockouts@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

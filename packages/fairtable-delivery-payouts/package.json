@@ -1,0 +1,60 @@
+{
+  "name": "fairtable-delivery-payouts",
+  "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/fairtable-delivery-payouts",
+  "description": "Fairtable Delivery Payouts: matches DoorDash, Uber Eats and Grubhub statements with your POS orders: commissions over your contract rate, payout math that does not add up, error charges to dispute, orders paid twice and orders never paid. Never logs in to a platform and never sends.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fairtable-delivery-payouts": "bin/fairtable-delivery-payouts.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/fairtable-delivery-payouts.js demo",
+    "eval": "node bin/fairtable-delivery-payouts.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/fairtable-delivery-payouts"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-delivery-payouts#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "delivery-apps",
+    "doordash",
+    "ubereats",
+    "grubhub",
+    "payouts"
+  ]
+}

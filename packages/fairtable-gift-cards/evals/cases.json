@@ -1,0 +1,349 @@
+{
+  "suite": "fairtable-gift-cards",
+  "root": "..",
+  "data_note": "Fictional gift cards with made-up holder names in ../fixtures. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "liability-totals",
+      "tool": "gift_cards_check",
+      "args": {
+        "cards": "fixtures/cards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.cards": 8,
+          "result.liability": 875,
+          "result.dormant_liability": 125,
+          "result.open_cards": 6,
+          "result.by_location.Harbor Road": 270,
+          "result.by_location.Main Street": 605,
+          "result.flag": 2,
+          "result.review": 1,
+          "result.watch": 3
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "gift_cards_check",
+      "args": {
+        "cards": "fixtures/cards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "contains": [
+          "negative_balance",
+          "balance_math",
+          "dormant",
+          "large_balance",
+          "cross_location"
+        ],
+        "not_contains": [
+          "Dana Rivers",
+          "Kim Alvarez",
+          "Alex Nguyen"
+        ]
+      }
+    },
+    {
+      "id": "balance-mismatch-explained",
+      "tool": "gift_cards_explain",
+      "args": {
+        "cards": "fixtures/cards.csv",
+        "settings": "fixtures/settings.json",
+        "card": "gc-1006"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "issued 150 - redeemed 30 = 120, but the balance shows 100"
+        ]
+      }
+    },
+    {
+      "id": "shorter-dormancy",
+      "tool": "gift_cards_check",
+      "args": {
+        "cards": "fixtures/cards.csv",
+        "settings": "fixtures/settings-12-months.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.dormant_liability": 125,
+          "result.review": 0
+        }
+      }
+    },
+    {
+      "id": "accountant-memo-after-approval",
+      "tool": "gift_cards_draft_memo",
+      "approve": "Pat Example",
+      "args": {
+        "cards": "fixtures/cards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "memo gift-cards-2026-11-15 drafted for 875"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "gift_cards_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "cards"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "gift_cards_check",
+      "args": {
+        "cards": "../../../outside.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "gift_cards_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "gift_cards_check",
+      "mode": "review",
+      "args": {
+        "cards": "fixtures/cards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.cards": 8,
+          "result.liability": 875,
+          "result.dormant_liability": 125,
+          "result.open_cards": 6,
+          "result.by_location.Harbor Road": 270,
+          "result.by_location.Main Street": 605,
+          "result.flag": 2,
+          "result.review": 1,
+          "result.watch": 3
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "gift_cards_check",
+      "args": {
+        "cards": "fixtures/cards.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.cards": 8,
+          "result.liability": 875,
+          "result.dormant_liability": 125,
+          "result.open_cards": 6,
+          "result.by_location.Harbor Road": 270,
+          "result.by_location.Main Street": 605,
+          "result.flag": 2,
+          "result.review": 1,
+          "result.watch": 3
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "gift_cards_explain",
+      "args": {
+        "cards": "fixtures/cards.csv",
+        "settings": "fixtures/settings.json",
+        "card": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "gift_cards_write_report",
+      "args": {
+        "cards": "fixtures/cards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "gift_cards_draft_memo",
+      "args": {
+        "cards": "fixtures/cards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "gift_cards_draft_memo",
+      "mode": "review",
+      "args": {
+        "cards": "fixtures/cards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "gift_cards_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "gift_cards_draft_memo"
+      ],
+      "args": {
+        "draft": "fairtable-out/gift_cards/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-pos-change-menu",
+      "tool": "pos_change_menu",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-ledger-post",
+      "tool": "ledger_post",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "gift_cards_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-liability-totals",
+      "tool": "gift_cards_check",
+      "args": {
+        "cards": "fixtures/intl/de/cards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.cards": 8,
+          "result.liability": 875,
+          "result.dormant_liability": 125,
+          "result.open_cards": 6,
+          "result.by_location.Harbor Road": 270,
+          "result.by_location.Main Street": 605,
+          "result.flag": 2,
+          "result.review": 1,
+          "result.watch": 3
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"liability-totals\"."
+    },
+    {
+      "id": "intl-ja-liability-totals",
+      "tool": "gift_cards_check",
+      "args": {
+        "cards": "fixtures/intl/ja/cards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.cards": 8,
+          "result.liability": 875,
+          "result.dormant_liability": 125,
+          "result.open_cards": 6,
+          "result.by_location.Harbor Road": 270,
+          "result.by_location.Main Street": 605,
+          "result.flag": 2,
+          "result.review": 1,
+          "result.watch": 3
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"liability-totals\"."
+    }
+  ]
+}

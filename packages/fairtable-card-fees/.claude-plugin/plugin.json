@@ -1,0 +1,21 @@
+{
+  "name": "fairtable-card-fees",
+  "version": "0.1.0",
+  "description": "Fairtable Card Fees: reads monthly card processing statements: the effective rate per location and month, processor markup over your agreed rate, fees you never agreed to, monthly fees over their cap and downgrade surcharges. Never contacts the processor or changes the account.",
+  "author": {
+    "name": "Kurt Francisco"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-card-fees#readme",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "card-processing",
+    "merchant-fees",
+    "effective-rate"
+  ]
+}

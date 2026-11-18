@@ -1,0 +1,21 @@
+{
+  "name": "fairtable-discounts-promos",
+  "version": "0.1.0",
+  "description": "Checks every discount and promotion rung in the POS against your promotion list: promos used after they ended, unknown or open discounts, discounts over their cap, employee meals over the allowance and missing approvals. Never changes the POS.",
+  "author": {
+    "name": "Kurt Francisco"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-discounts-promos#readme",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "discounts",
+    "promotions",
+    "loss-prevention"
+  ]
+}

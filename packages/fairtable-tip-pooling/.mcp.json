@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-tip-pooling": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-tip-pooling@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

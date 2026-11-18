@@ -1,0 +1,21 @@
+{
+  "name": "fairtable-receiving-credits",
+  "version": "0.1.0",
+  "description": "Matches every invoice line with what the receiving log says arrived and with the credit memos, and lists shorts, rejected cases and substitutions still waiting for a credit. Writes a credit request draft. Never pays and never contacts the vendor.",
+  "author": {
+    "name": "Kurt Francisco"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-receiving-credits#readme",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "receiving",
+    "credit-memos",
+    "invoice-matching"
+  ]
+}

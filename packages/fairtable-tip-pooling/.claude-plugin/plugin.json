@@ -1,0 +1,21 @@
+{
+  "name": "fairtable-tip-pooling",
+  "version": "0.1.0",
+  "description": "Fairtable Tip Pooling: splits the week's tip pool by hours and role points, checks the tip credit (cash wage plus tips against the minimum wage in your state settings), managers who kept tips, cash wages under the tipped minimum and missing cash tip declarations. Never runs payroll or pays tips.",
+  "author": {
+    "name": "Kurt Francisco"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-tip-pooling#readme",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "tip-pool",
+    "tip-credit",
+    "payroll"
+  ]
+}

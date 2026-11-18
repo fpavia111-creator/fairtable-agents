@@ -1,0 +1,21 @@
+{
+  "name": "fairtable-waste-log",
+  "version": "0.1.0",
+  "description": "Reads your waste log against your daily sales, prices what was thrown out, and shows the items, reasons and days behind it, including days with sales and no waste logged at all. Never changes the POS or the prep list.",
+  "author": {
+    "name": "Kurt Francisco"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-waste-log#readme",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "waste-log",
+    "food-waste",
+    "prep"
+  ]
+}

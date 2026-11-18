@@ -1,0 +1,58 @@
+{
+  "name": "fairtable-catering-deposits",
+  "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/fairtable-catering-deposits",
+  "description": "Fairtable Catering Deposits: catering and private-event deposits and balances against your bookings: deposits missing as the event gets close, balances overdue after the event, overpayments, refunds owed on cancellations and payments with no booking. Client names are masked for the AI model. Never charges or refunds anyone.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fairtable-catering-deposits": "bin/fairtable-catering-deposits.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/fairtable-catering-deposits.js demo",
+    "eval": "node bin/fairtable-catering-deposits.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/fairtable-catering-deposits"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-catering-deposits#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "catering",
+    "private-events",
+    "deposits"
+  ]
+}

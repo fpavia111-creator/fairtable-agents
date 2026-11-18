@@ -8,7 +8,7 @@ const [n, tool, extra] = process.argv.slice(2);
 const m = await import(pathToFileURL(join(PK, n, 'src', 'manifest.js')).href);
 const { AgentRuntime } = await import(pathToFileURL(join(PK, 'fairtable-core', 'src', 'index.js')).href);
 const rt = new AgentRuntime(m.manifest, { root: join(PK, n, 'fixtures'), audit: false, memory: false });
-const prefix = m.manifest.tools[0].name.split('_')[0];
+const prefix = m.manifest.tools[0].name.replace(/_check$/, '');
 const r = await rt.call(tool || `${prefix}_check`, { ...m.DEMO.files, ...(extra ? JSON.parse(extra) : {}) });
 if (r.status !== 'executed') { console.log(JSON.stringify(r, null, 1).slice(0, 2000)); process.exit(0); }
 const { items, settings_used: _s, ...rest } = r.result;

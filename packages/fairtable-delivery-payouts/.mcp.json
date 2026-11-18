@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-delivery-payouts": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-delivery-payouts@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

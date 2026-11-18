@@ -24,7 +24,7 @@ export function printStep(label, r) {
  * opts: { title, files, explain: { arg, value }, draft: { ...extra args }, refused }
  */
 export async function tableDemo(manifest, fixturesDir, opts) {
-  const prefix = manifest.tools[0].name.split('_')[0];
+  const prefix = manifest.tools[0].name.replace(/_check$/, '');
   const draftTool = manifest.tools.find((t) => t.name.startsWith(`${prefix}_draft_`));
   const reqTool = manifest.tools.find((t) => t.name.startsWith(`${prefix}_request_`));
   const rt = demoRuntime(manifest, fixturesDir, { mode: 'auto', autoActions: draftTool ? [draftTool.name] : [] });

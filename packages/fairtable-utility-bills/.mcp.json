@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-utility-bills": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-utility-bills@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

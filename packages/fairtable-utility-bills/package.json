@@ -1,0 +1,58 @@
+{
+  "name": "fairtable-utility-bills",
+  "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/fairtable-utility-bills",
+  "description": "Fairtable Utility Bills: electric, gas and water bills per account and location: usage spikes per day against the account's own history, rate jumps, estimated meter reads, bills charged twice, overlapping periods and late fees. Never pays a bill or contacts the utility.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fairtable-utility-bills": "bin/fairtable-utility-bills.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/fairtable-utility-bills.js demo",
+    "eval": "node bin/fairtable-utility-bills.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/fairtable-utility-bills"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-utility-bills#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "utilities",
+    "energy",
+    "bill-audit"
+  ]
+}

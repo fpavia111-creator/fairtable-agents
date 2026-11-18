@@ -9,23 +9,23 @@ Mythos Machines の Fair Agents の一部です。MIT ライセンス · Node 20
 ## 試す
 
 ```bash
-npx -y apricot-of-food-cost demo            # 実際原価と理論原価（架空データ）
-npx -y jackfruit-of-delivery-payouts demo   # デリバリーアプリの入金と注文の照合
+npx -y fairtable-food-cost demo            # 実際原価と理論原価（架空データ）
+npx -y fairtable-delivery-payouts demo   # デリバリーアプリの入金と注文の照合
 ```
 
 各エージェントには架空ファイルでの `demo`、独自テストケースの `eval`、MCP サーバー（`npx -y <エージェント> mcp --root <フォルダー>`）があります。
 
 ## エージェント一覧
 
-**食材・仕入・バー（9）:** `apricot-of-food-cost`（実際原価と理論原価）、`banana-of-recipe-costs`（最新単価でのレシピ原価）、`blackberry-of-price-creep`（仕入先の値上げ）、`blueberry-of-deliveries`（請求書と納品・返品の照合）、`cherry-of-counts`（棚卸差異）、`clementine-of-waste`（廃棄記録）、`coconut-of-pours`（バーの原価）、`lime-of-menu-mix`（メニュー分析）、`lychee-of-stockouts`（品切れ）。
+**食材・仕入・バー（9）:** `fairtable-food-cost`（実際原価と理論原価）、`fairtable-recipe-costs`（最新単価でのレシピ原価）、`fairtable-price-creep`（仕入先の値上げ）、`fairtable-receiving-credits`（請求書と納品・返品の照合）、`fairtable-inventory-counts`（棚卸差異）、`fairtable-waste-log`（廃棄記録）、`fairtable-pour-cost`（バーの原価）、`fairtable-menu-engineering`（メニュー分析）、`fairtable-stockouts`（品切れ）。
 
-**ホールと現金（6）:** `cranberry-of-voids`（取消と無料提供）、`date-of-discounts`（値引きとプロモーション）、`elderberry-of-drawers`（現金過不足）、`kumquat-of-gift-cards`（ギフトカード）、`mango-of-no-shows`（予約の無断キャンセル）、`melon-of-catering`（ケータリングの前受金）。
+**ホールと現金（6）:** `fairtable-voids-comps`（取消と無料提供）、`fairtable-discounts-promos`（値引きとプロモーション）、`fairtable-cash-drawers`（現金過不足）、`fairtable-gift-cards`（ギフトカード）、`fairtable-no-shows`（予約の無断キャンセル）、`fairtable-catering-deposits`（ケータリングの前受金）。
 
-**人件費（5）:** `fig-of-tip-pools`（チッププール）、`grape-of-overtime`（残業・分割シフト）、`guava-of-schedules`（予定と実績）、`huckleberry-of-dayparts`（時間帯別人件費率）、`raspberry-of-breaks`（休憩と未成年）。
+**人件費（5）:** `fairtable-tip-pooling`（チッププール）、`fairtable-overtime`（残業・分割シフト）、`fairtable-schedule-vs-actual`（予定と実績）、`fairtable-labor-dayparts`（時間帯別人件費率）、`fairtable-meal-breaks`（休憩と未成年）。
 
-**デリバリー・手数料・税・請求書（6）:** `jackfruit-of-delivery-payouts`（入金）、`kiwi-of-marketing-fees`（販促費）、`plum-of-card-fees`（カード手数料）、`lemon-of-sales-tax`（売上税）、`quince-of-invoices`（重複請求・勘定科目）、`nectarine-of-utilities`（水道光熱費）。
+**デリバリー・手数料・税・請求書（6）:** `fairtable-delivery-payouts`（入金）、`fairtable-delivery-marketing`（販促費）、`fairtable-card-fees`（カード手数料）、`fairtable-sales-tax`（売上税）、`fairtable-duplicate-invoices`（重複請求・勘定科目）、`fairtable-utility-bills`（水道光熱費）。
 
-**法令対応と複数店舗（6）:** `olive-of-equipment`（設備保守）、`orange-of-inspections`（立入検査と許可）、`papaya-of-food-handlers`（食品取扱者証）、`peach-of-allergens`（アレルゲン表）、`mulberry-of-prime-cost`（プライムコスト）、`pear-of-locations`（店舗比較）。
+**法令対応と複数店舗（6）:** `fairtable-equipment-maintenance`（設備保守）、`fairtable-health-inspections`（立入検査と許可）、`fairtable-food-handler-cards`（食品取扱者証）、`fairtable-allergen-matrix`（アレルゲン表）、`fairtable-prime-cost`（プライムコスト）、`fairtable-location-comparison`（店舗比較）。
 
 ## 安全のしくみ
 

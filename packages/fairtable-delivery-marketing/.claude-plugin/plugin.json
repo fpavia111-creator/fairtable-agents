@@ -1,0 +1,21 @@
+{
+  "name": "fairtable-delivery-marketing",
+  "version": "0.1.0",
+  "description": "Fairtable Delivery Marketing: delivery-app marketing and promotion charges against the campaigns you opted into: charges with no campaign behind them, campaigns over budget, and what each campaign brought in for what it cost. Never logs in to a platform.",
+  "author": {
+    "name": "Kurt Francisco"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-delivery-marketing#readme",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "delivery-marketing",
+    "promotions",
+    "ads"
+  ]
+}

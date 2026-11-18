@@ -8,20 +8,20 @@ Prices are set below the medical families (Fairclaim, Fairpractice) because inde
 
 | Package | Agents | Setup |
 |---|---|---|
-| Food cost pack | apricot-of-food-cost, banana-of-recipe-costs, blackberry-of-price-creep, blueberry-of-deliveries, cherry-of-counts, clementine-of-waste, lychee-of-stockouts | $1,800 |
-| Bar and menu pack | coconut-of-pours, lime-of-menu-mix, date-of-discounts | $1,500 |
-| Front of house and cash pack | cranberry-of-voids, date-of-discounts, elderberry-of-drawers, kumquat-of-gift-cards, mango-of-no-shows, melon-of-catering | $1,500 |
-| Labor pack | fig-of-tip-pools, grape-of-overtime, guava-of-schedules, huckleberry-of-dayparts, raspberry-of-breaks (set to your state's wage, tip, overtime and break rules) | $2,000 |
-| Delivery apps and fees pack | jackfruit-of-delivery-payouts, kiwi-of-marketing-fees, plum-of-card-fees | $1,500 |
-| Back office pack | lemon-of-sales-tax, quince-of-invoices, nectarine-of-utilities, mulberry-of-prime-cost | $1,500 |
-| Compliance calendar pack | olive-of-equipment, orange-of-inspections, papaya-of-food-handlers, peach-of-allergens | $1,200 |
+| Food cost pack | fairtable-food-cost, fairtable-recipe-costs, fairtable-price-creep, fairtable-receiving-credits, fairtable-inventory-counts, fairtable-waste-log, fairtable-stockouts | $1,800 |
+| Bar and menu pack | fairtable-pour-cost, fairtable-menu-engineering, fairtable-discounts-promos | $1,500 |
+| Front of house and cash pack | fairtable-voids-comps, fairtable-discounts-promos, fairtable-cash-drawers, fairtable-gift-cards, fairtable-no-shows, fairtable-catering-deposits | $1,500 |
+| Labor pack | fairtable-tip-pooling, fairtable-overtime, fairtable-schedule-vs-actual, fairtable-labor-dayparts, fairtable-meal-breaks (set to your state's wage, tip, overtime and break rules) | $2,000 |
+| Delivery apps and fees pack | fairtable-delivery-payouts, fairtable-delivery-marketing, fairtable-card-fees | $1,500 |
+| Back office pack | fairtable-sales-tax, fairtable-duplicate-invoices, fairtable-utility-bills, fairtable-prime-cost | $1,500 |
+| Compliance calendar pack | fairtable-equipment-maintenance, fairtable-health-inspections, fairtable-food-handler-cards, fairtable-allergen-matrix | $1,200 |
 | Whole restaurant | all 31 single-location agents | $5,500 |
 
 ## Groups
 
 | Package | What it covers | Setup |
 |---|---|---|
-| Small group (2 to 5 locations) | Whole restaurant for each location, mapped once and copied, plus pear-of-locations (every location against the group median) | $9,500 |
+| Small group (2 to 5 locations) | Whole restaurant for each location, mapped once and copied, plus fairtable-location-comparison (every location against the group median) | $9,500 |
 | Partner rollout (up to 15 locations) | For multi-unit operators, franchise groups and accounting or bookkeeping firms serving many restaurants: all 32 agents, one shared setup, every location's exports mapped, a training session for each location manager | $15,000 |
 
 Above 15 locations: $15,000 plus $600 per additional location.

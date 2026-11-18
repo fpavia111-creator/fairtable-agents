@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-voids-comps": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-voids-comps@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

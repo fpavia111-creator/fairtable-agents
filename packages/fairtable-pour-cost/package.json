@@ -1,0 +1,58 @@
+{
+  "name": "fairtable-pour-cost",
+  "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/fairtable-pour-cost",
+  "description": "Fairtable Pour Cost: bar pour cost and liquor variance. Drinks sold times their recipe pours against bottles used (opening count + bottles bought - closing count), per spirit, priced per bottle, with pour cost against your target. Never changes the POS.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "fairtable-pour-cost": "bin/fairtable-pour-cost.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/fairtable-pour-cost.js demo",
+    "eval": "node bin/fairtable-pour-cost.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/fairtable-pour-cost"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-pour-cost#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "pour-cost",
+    "liquor-variance",
+    "bar-inventory"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "fairtable-delivery-payouts",
+  "version": "0.1.0",
+  "description": "Fairtable Delivery Payouts: matches DoorDash, Uber Eats and Grubhub statements with your POS orders: commissions over your contract rate, payout math that does not add up, error charges to dispute, orders paid twice and orders never paid. Never logs in to a platform and never sends.",
+  "author": {
+    "name": "Kurt Francisco"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-delivery-payouts#readme",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "delivery-apps",
+    "doordash",
+    "ubereats",
+    "grubhub",
+    "payouts"
+  ]
+}

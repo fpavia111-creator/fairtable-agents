@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-duplicate-invoices": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-duplicate-invoices@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

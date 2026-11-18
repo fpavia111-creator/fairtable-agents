@@ -9,23 +9,23 @@ Teil von Fair Agents von Mythos Machines. MIT-Lizenz · Node 20 oder neuer · nu
 ## Ausprobieren
 
 ```bash
-npx -y apricot-of-food-cost demo            # Ist- gegenüber Soll-Wareneinsatz, fiktive Daten
-npx -y jackfruit-of-delivery-payouts demo   # Auszahlungen der Liefer-Apps gegenüber Bestellungen
+npx -y fairtable-food-cost demo            # Ist- gegenüber Soll-Wareneinsatz, fiktive Daten
+npx -y fairtable-delivery-payouts demo   # Auszahlungen der Liefer-Apps gegenüber Bestellungen
 ```
 
 Jeder Agent hat eine `demo` mit fiktiven Dateien, ein `eval` mit eigenen Testfällen und einen MCP-Server (`npx -y <agent> mcp --root <ordner>`).
 
 ## Die Agenten
 
-**Waren, Einkauf und Bar (9):** `apricot-of-food-cost` (Ist- gegenüber Soll-Wareneinsatz), `banana-of-recipe-costs` (Rezeptkosten zu aktuellen Preisen), `blackberry-of-price-creep` (schleichende Preiserhöhungen), `blueberry-of-deliveries` (Rechnungen gegen Wareneingang und Gutschriften), `cherry-of-counts` (Inventurabweichungen), `clementine-of-waste` (Abfallprotokoll), `coconut-of-pours` (Ausschankkosten), `lime-of-menu-mix` (Menü-Engineering), `lychee-of-stockouts` (ausverkaufte Artikel).
+**Waren, Einkauf und Bar (9):** `fairtable-food-cost` (Ist- gegenüber Soll-Wareneinsatz), `fairtable-recipe-costs` (Rezeptkosten zu aktuellen Preisen), `fairtable-price-creep` (schleichende Preiserhöhungen), `fairtable-receiving-credits` (Rechnungen gegen Wareneingang und Gutschriften), `fairtable-inventory-counts` (Inventurabweichungen), `fairtable-waste-log` (Abfallprotokoll), `fairtable-pour-cost` (Ausschankkosten), `fairtable-menu-engineering` (Menü-Engineering), `fairtable-stockouts` (ausverkaufte Artikel).
 
-**Service und Kasse (6):** `cranberry-of-voids` (Stornos und Einladungen), `date-of-discounts` (Rabatte und Aktionen), `elderberry-of-drawers` (Kassendifferenzen), `kumquat-of-gift-cards` (Geschenkkarten), `mango-of-no-shows` (nicht erschienene Reservierungen), `melon-of-catering` (Catering-Anzahlungen).
+**Service und Kasse (6):** `fairtable-voids-comps` (Stornos und Einladungen), `fairtable-discounts-promos` (Rabatte und Aktionen), `fairtable-cash-drawers` (Kassendifferenzen), `fairtable-gift-cards` (Geschenkkarten), `fairtable-no-shows` (nicht erschienene Reservierungen), `fairtable-catering-deposits` (Catering-Anzahlungen).
 
-**Personal (5):** `fig-of-tip-pools` (Trinkgeldpool und Anrechnung), `grape-of-overtime` (Überstunden, geteilte Schichten), `guava-of-schedules` (Plan gegenüber Ist), `huckleberry-of-dayparts` (Personalkosten nach Tageszeit), `raspberry-of-breaks` (Pausen und Jugendliche).
+**Personal (5):** `fairtable-tip-pooling` (Trinkgeldpool und Anrechnung), `fairtable-overtime` (Überstunden, geteilte Schichten), `fairtable-schedule-vs-actual` (Plan gegenüber Ist), `fairtable-labor-dayparts` (Personalkosten nach Tageszeit), `fairtable-meal-breaks` (Pausen und Jugendliche).
 
-**Liefer-Apps, Gebühren, Steuern, Rechnungen (6):** `jackfruit-of-delivery-payouts` (Auszahlungen), `kiwi-of-marketing-fees` (Marketinggebühren), `plum-of-card-fees` (Kartengebühren), `lemon-of-sales-tax` (Umsatzsteuer), `quince-of-invoices` (doppelte Rechnungen, Kontierung), `nectarine-of-utilities` (Versorgerrechnungen).
+**Liefer-Apps, Gebühren, Steuern, Rechnungen (6):** `fairtable-delivery-payouts` (Auszahlungen), `fairtable-delivery-marketing` (Marketinggebühren), `fairtable-card-fees` (Kartengebühren), `fairtable-sales-tax` (Umsatzsteuer), `fairtable-duplicate-invoices` (doppelte Rechnungen, Kontierung), `fairtable-utility-bills` (Versorgerrechnungen).
 
-**Vorschriften und mehrere Standorte (6):** `olive-of-equipment` (Wartungsplan), `orange-of-inspections` (Kontrollen und Genehmigungen), `papaya-of-food-handlers` (Hygieneschulungen), `peach-of-allergens` (Allergenmatrix), `mulberry-of-prime-cost` (Prime Cost), `pear-of-locations` (Standortvergleich).
+**Vorschriften und mehrere Standorte (6):** `fairtable-equipment-maintenance` (Wartungsplan), `fairtable-health-inspections` (Kontrollen und Genehmigungen), `fairtable-food-handler-cards` (Hygieneschulungen), `fairtable-allergen-matrix` (Allergenmatrix), `fairtable-prime-cost` (Prime Cost), `fairtable-location-comparison` (Standortvergleich).
 
 ## Sicherheit
 

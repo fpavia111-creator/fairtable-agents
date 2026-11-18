@@ -1,0 +1,363 @@
+{
+  "suite": "fairtable-food-handler-cards",
+  "root": "..",
+  "data_note": "A fictional roster and certificates with made-up names in ../fixtures. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "certificate-totals",
+      "tool": "food_handlers_check",
+      "args": {
+        "roster": "fixtures/roster.csv",
+        "certificates": "fixtures/certificates.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.staff": 8,
+          "result.locations": 2,
+          "result.action_needed": 4,
+          "result.flag": 4,
+          "result.review": 1,
+          "result.watch": 2,
+          "result.ok": 2
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "food_handlers_check",
+      "args": {
+        "roster": "fixtures/roster.csv",
+        "certificates": "fixtures/certificates.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "contains": [
+          "missing_card",
+          "in_grace_period",
+          "expired",
+          "expiring_soon",
+          "alcohol_cert_missing",
+          "no_certified_manager"
+        ],
+        "not_contains": [
+          "Casey Morgan",
+          "Sam Patel",
+          "Drew Okafor",
+          "D.O.#"
+        ]
+      }
+    },
+    {
+      "id": "sous-chef-explained",
+      "tool": "food_handlers_explain",
+      "args": {
+        "roster": "fixtures/roster.csv",
+        "certificates": "fixtures/certificates.csv",
+        "settings": "fixtures/settings.json",
+        "employee": "S.P.#fa5954"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "food handler card FH-1002 expired on 2026-06-20",
+          "FPM-201 expires 2026-12-01, in 16 days"
+        ]
+      }
+    },
+    {
+      "id": "lenient-settings",
+      "tool": "food_handlers_check",
+      "args": {
+        "roster": "fixtures/roster.csv",
+        "certificates": "fixtures/certificates.csv",
+        "settings": "fixtures/settings-lenient.json"
+      },
+      "expect": {
+        "status": "executed",
+        "not_contains": [
+          "no_certified_manager",
+          "alcohol_cert_missing",
+          "missing_card"
+        ]
+      }
+    },
+    {
+      "id": "reminder-list-after-approval",
+      "tool": "food_handlers_draft_reminder_list",
+      "approve": "Pat Example",
+      "args": {
+        "roster": "fixtures/roster.csv",
+        "certificates": "fixtures/certificates.csv",
+        "settings": "fixtures/settings.json",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "reminder list Main Street drafted"
+        ],
+        "not_contains": [
+          "Sam Patel"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "food_handlers_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "roster"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "food_handlers_check",
+      "args": {
+        "roster": "../../../outside.csv",
+        "certificates": "fixtures/certificates.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "food_handlers_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "food_handlers_check",
+      "mode": "review",
+      "args": {
+        "roster": "fixtures/roster.csv",
+        "certificates": "fixtures/certificates.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.staff": 8,
+          "result.locations": 2,
+          "result.action_needed": 4,
+          "result.flag": 4,
+          "result.review": 1,
+          "result.watch": 2,
+          "result.ok": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "food_handlers_check",
+      "args": {
+        "roster": "fixtures/roster.csv",
+        "certificates": "fixtures/certificates.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.staff": 8,
+          "result.locations": 2,
+          "result.action_needed": 4,
+          "result.flag": 4,
+          "result.review": 1,
+          "result.watch": 2,
+          "result.ok": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "food_handlers_explain",
+      "args": {
+        "roster": "fixtures/roster.csv",
+        "certificates": "fixtures/certificates.csv",
+        "settings": "fixtures/settings.json",
+        "employee": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "food_handlers_write_report",
+      "args": {
+        "roster": "fixtures/roster.csv",
+        "certificates": "fixtures/certificates.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "food_handlers_draft_reminder_list",
+      "args": {
+        "roster": "fixtures/roster.csv",
+        "certificates": "fixtures/certificates.csv",
+        "settings": "fixtures/settings.json",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "food_handlers_draft_reminder_list",
+      "mode": "review",
+      "args": {
+        "roster": "fixtures/roster.csv",
+        "certificates": "fixtures/certificates.csv",
+        "settings": "fixtures/settings.json",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "food_handlers_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "food_handlers_draft_reminder_list"
+      ],
+      "args": {
+        "draft": "fairtable-out/food_handlers/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-payroll-submit",
+      "tool": "payroll_submit",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-training-enroll",
+      "tool": "training_enroll",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "food_handlers_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-certificate-totals",
+      "tool": "food_handlers_check",
+      "args": {
+        "roster": "fixtures/intl/de/roster.csv",
+        "certificates": "fixtures/intl/de/certificates.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.staff": 8,
+          "result.locations": 2,
+          "result.action_needed": 4,
+          "result.flag": 4,
+          "result.review": 1,
+          "result.watch": 2,
+          "result.ok": 2
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"certificate-totals\"."
+    },
+    {
+      "id": "intl-ja-certificate-totals",
+      "tool": "food_handlers_check",
+      "args": {
+        "roster": "fixtures/intl/ja/roster.csv",
+        "certificates": "fixtures/intl/ja/certificates.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.staff": 8,
+          "result.locations": 2,
+          "result.action_needed": 4,
+          "result.flag": 4,
+          "result.review": 1,
+          "result.watch": 2,
+          "result.ok": 2
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"certificate-totals\"."
+    }
+  ]
+}

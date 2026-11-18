@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-no-shows": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-no-shows@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

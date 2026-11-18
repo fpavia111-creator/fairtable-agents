@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fairtable-price-creep": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fairtable-price-creep@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

@@ -1,0 +1,342 @@
+{
+  "suite": "fairtable-utility-bills",
+  "root": "..",
+  "data_note": "Fictional utility bills for two fictional locations in ../fixtures. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "utility-totals",
+      "tool": "utilities_check",
+      "args": {
+        "bills": "fixtures/bills.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.bills": 13,
+          "result.accounts": 3,
+          "result.billed": 12751,
+          "result.flagged_bills": 2,
+          "result.flag": 2,
+          "result.review": 2,
+          "result.watch": 1,
+          "result.ok": 8
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "utilities_check",
+      "args": {
+        "bills": "fixtures/bills.csv"
+      },
+      "expect": {
+        "contains": [
+          "usage_spike",
+          "duplicate_bill",
+          "rate_jump",
+          "estimated_read",
+          "estimated_twice",
+          "late_fee"
+        ]
+      }
+    },
+    {
+      "id": "electric-spike-explained",
+      "tool": "utilities_explain",
+      "args": {
+        "bills": "fixtures/bills.csv",
+        "settings": "fixtures/settings.json",
+        "bill": "el-4410 2026-10-01"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "422.58 kWh a day against a usual 298.3"
+        ],
+        "equals": {
+          "result.item.amount": 2227
+        }
+      }
+    },
+    {
+      "id": "looser-thresholds",
+      "tool": "utilities_check",
+      "args": {
+        "bills": "fixtures/bills.csv",
+        "settings": "fixtures/settings-loose.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.flag": 1,
+          "result.flagged_bills": 1
+        }
+      }
+    },
+    {
+      "id": "utilities-memo-after-approval",
+      "tool": "utilities_draft_memo",
+      "approve": "Pat Example",
+      "args": {
+        "bills": "fixtures/bills.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "memo utilities drafted"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "utilities_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "bills"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "utilities_check",
+      "args": {
+        "bills": "../../../outside.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "utilities_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "utilities_check",
+      "mode": "review",
+      "args": {
+        "bills": "fixtures/bills.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.bills": 13,
+          "result.accounts": 3,
+          "result.billed": 12751,
+          "result.flagged_bills": 2,
+          "result.flag": 2,
+          "result.review": 2,
+          "result.watch": 1,
+          "result.ok": 8
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "utilities_check",
+      "args": {
+        "bills": "fixtures/bills.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.bills": 13,
+          "result.accounts": 3,
+          "result.billed": 12751,
+          "result.flagged_bills": 2,
+          "result.flag": 2,
+          "result.review": 2,
+          "result.watch": 1,
+          "result.ok": 8
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "utilities_explain",
+      "args": {
+        "bills": "fixtures/bills.csv",
+        "settings": "fixtures/settings.json",
+        "bill": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "utilities_write_report",
+      "args": {
+        "bills": "fixtures/bills.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "utilities_draft_memo",
+      "args": {
+        "bills": "fixtures/bills.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "utilities_draft_memo",
+      "mode": "review",
+      "args": {
+        "bills": "fixtures/bills.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "utilities_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "utilities_draft_memo"
+      ],
+      "args": {
+        "draft": "fairtable-out/utilities/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-payment-send",
+      "tool": "payment_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-ledger-post",
+      "tool": "ledger_post",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "utilities_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-utility-totals",
+      "tool": "utilities_check",
+      "args": {
+        "bills": "fixtures/intl/de/bills.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.bills": 13,
+          "result.accounts": 3,
+          "result.billed": 12751,
+          "result.flagged_bills": 2,
+          "result.flag": 2,
+          "result.review": 2,
+          "result.watch": 1,
+          "result.ok": 8
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"utility-totals\"."
+    },
+    {
+      "id": "intl-ja-utility-totals",
+      "tool": "utilities_check",
+      "args": {
+        "bills": "fixtures/intl/ja/bills.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.bills": 13,
+          "result.accounts": 3,
+          "result.billed": 12751,
+          "result.flagged_bills": 2,
+          "result.flag": 2,
+          "result.review": 2,
+          "result.watch": 1,
+          "result.ok": 8
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"utility-totals\"."
+    }
+  ]
+}
