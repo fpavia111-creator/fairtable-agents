@@ -1,0 +1,9 @@
+check,date,time,employee,approver,type,item,amount,reason,location,check_total,closed_at
+1001,2026-11-06,19:12,Avery Stone,Morgan Blake,void,Ribeye,34.00,wrong temp,Main Street,96.00,2026-11-06T20:05
+1002,2026-11-06,19:40,Avery Stone,Avery Stone,void,Bottle Malbec,58.00,,Main Street,112.00,2026-11-06T21:10
+1003,2026-11-06,21:30,Avery Stone,Avery Stone,void,Old Fashioned,13.00,,Main Street,40.00,2026-11-06T21:15
+1004,2026-11-07,20:02,Avery Stone,Morgan Blake,comp,Dessert Sampler,16.00,birthday,Main Street,88.00,2026-11-07T21:30
+1005,2026-11-07,18:22,Jamie Ortiz,Morgan Blake,void,Caesar Salad,12.00,entered twice,Main Street,64.00,2026-11-07T19:30
+1006,2026-11-07,19:05,Jamie Ortiz,,comp,Steak Frites,29.00,guest complaint,Main Street,71.00,2026-11-07T20:10
+1007,2026-11-08,18:45,Riley Chen,Morgan Blake,void,Margarita,11.00,wrong drink,Main Street,55.00,2026-11-08T19:50
+1008,2026-11-08,20:30,Sam Patel,Morgan Blake,void,Full table,148.00,walkout,Main Street,150.00,2026-11-08T20:40
