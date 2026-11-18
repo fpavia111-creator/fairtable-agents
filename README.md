@@ -25,7 +25,7 @@ Every agent has a `demo` on fictional files, an `eval` with its own test cases a
 
 **Delivery apps, fees, tax and bills (6):** `jackfruit-of-delivery-payouts` (DoorDash, Uber Eats and Grubhub payouts against orders and contract rates), `kiwi-of-marketing-fees` (delivery marketing against the campaigns you opted into), `plum-of-card-fees` (card processing fees and effective rate), `lemon-of-sales-tax` (sales tax by jurisdiction and category), `quince-of-invoices` (duplicate invoices and GL coding), `nectarine-of-utilities` (utility bills).
 
-**Compliance and multi-unit (6):** `olive-of-equipment` (equipment maintenance schedule), `orange-of-inspections` (health inspection and permit calendar), `papaya-of-food-handlers` (food handler cards and certified managers), `peach-of-allergens` (allergen matrix against recipes), `mulberry-of-prime-cost` (weekly prime cost by location), `pear-of-locations` (every location against the group median).
+**Compliance and multi-unit (6):** `olive-of-equipment` (equipment maintenance schedule), `orange-of-inspections` (health inspection and permit calendar), `papaya-of-food-handlers` (food handler cards and food protection manager certificates), `peach-of-allergens` (allergen matrix against recipes), `mulberry-of-prime-cost` (weekly prime cost by location), `pear-of-locations` (every location against the group median).
 
 They pair with the restaurant-and-bar AI agent from G6daddy: that agent talks with guests, these check the back office.
 
