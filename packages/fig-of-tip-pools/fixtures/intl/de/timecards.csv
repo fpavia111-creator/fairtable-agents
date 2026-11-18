@@ -1,0 +1,9 @@
+Mitarbeiter;Rolle;Lagerort;Kommen;Gehen;Stunden;Stundenlohn;Bar-Trinkgeld;Karten-Trinkgeld
+Avery Stone;Server;Main Street;02.11.2026 16:00;02.11.2026 22:00;30;2,13;120,00;600,00
+Jamie Ortiz;Server;Main Street;03.11.2026 16:00;03.11.2026 22:00;32;2,13;0,00;250,00
+Riley Chen;Bartender;Main Street;04.11.2026 17:00;04.11.2026 23:00;25;5,00;80,00;300,00
+Sam Patel;Busser;Main Street;05.11.2026 17:00;05.11.2026 22:00;20;8,00;0,00;0,00
+Taylor Brooks;Host;Main Street;06.11.2026 17:00;06.11.2026 22:00;15;2,00;0,00;0,00
+Morgan Blake;Manager;Main Street;07.11.2026 10:00;07.11.2026 20:00;40;22,00;0,00;140,00
+Casey Moreno;Server;Main Street;10.11.2026 11:00;10.11.2026 15:00;20;2,13;0,00;40,00
+Avery Stone;Server;Main Street;11.11.2026 11:00;11.11.2026 15:00;10;2,13;0,00;30,00

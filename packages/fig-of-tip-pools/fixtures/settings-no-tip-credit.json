@@ -1,0 +1,6 @@
+{
+  "state": "Example state with no tip credit (fictional settings; check your own state)",
+  "full_min_wage": 16.00,
+  "tipped_cash_wage": 16.00,
+  "tip_credit_allowed": false
+}

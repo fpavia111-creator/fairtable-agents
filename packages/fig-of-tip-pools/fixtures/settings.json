@@ -1,0 +1,10 @@
+{
+  "state": "Example state with a tip credit (fictional settings; check your own state)",
+  "full_min_wage": 7.25,
+  "tipped_cash_wage": 2.13,
+  "tip_credit_allowed": true,
+  "pool_roles": ["Server", "Bartender", "Busser", "Runner", "Host"],
+  "excluded_roles": ["Manager", "General Manager", "Owner", "Supervisor"],
+  "role_points": { "Server": 1, "Bartender": 1, "Busser": 0.6, "Runner": 0.6, "Host": 0.4 },
+  "include_cash_in_pool": false
+}

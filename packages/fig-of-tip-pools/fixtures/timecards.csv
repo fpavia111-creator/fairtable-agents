@@ -1,0 +1,9 @@
+employee,role,location,clock_in,clock_out,hours,rate,cash_tips,card_tips
+Avery Stone,Server,Main Street,2026-11-02T16:00,2026-11-02T22:00,30,2.13,120.00,600.00
+Jamie Ortiz,Server,Main Street,2026-11-03T16:00,2026-11-03T22:00,32,2.13,0.00,250.00
+Riley Chen,Bartender,Main Street,2026-11-04T17:00,2026-11-04T23:00,25,5.00,80.00,300.00
+Sam Patel,Busser,Main Street,2026-11-05T17:00,2026-11-05T22:00,20,8.00,0.00,0.00
+Taylor Brooks,Host,Main Street,2026-11-06T17:00,2026-11-06T22:00,15,2.00,0.00,0.00
+Morgan Blake,Manager,Main Street,2026-11-07T10:00,2026-11-07T20:00,40,22.00,0.00,140.00
+Casey Moreno,Server,Main Street,2026-11-10T11:00,2026-11-10T15:00,20,2.13,0.00,40.00
+Avery Stone,Server,Main Street,2026-11-11T11:00,2026-11-11T15:00,10,2.13,0.00,30.00
