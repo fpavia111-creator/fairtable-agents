@@ -24,11 +24,11 @@ Every agent is read and report only. Nothing pays, refunds, charges a card, chan
 |---|---|---|
 | 1 | One family core (Lodestar pattern), one job per agent, 30+ agents | `fairtable-core` copied from `lodestar-core` (18 Nov Windows fixes included), freight code removed, restaurant modules added. 32 agents, each built with the shared `tableAgent()` kit. |
 | 2 | 20+ tests and 15+ eval cases per agent, all pass | 807 tests pass (125 core, 682 agents; fewest per agent 21). 703 eval cases pass (fewest per agent 21, most 24). |
-| 3 | `npm run hostile` and `npm run hostile:args`: 0 findings | Data pass: 0 findings (3,515 calls, 2,555 planted values). Argument pass: see below. |
+| 3 | `npm run hostile` and `npm run hostile:args`: 0 findings | Data pass: 0 findings (3,515 calls, 2,555 planted values). Argument pass: not finished (see below). |
 | 4 | Binding actions refused or one named click; release check's one-click policy check passes | Every request tool is in a one-click category (`binding_send`, `go_live`, `move_money`, `accept_learning`) and set to `ask`; release check: "no one-click tool is set to allow". 3 refused tools per agent (96 in all), each an eval case. |
 | 5 | Reads exports in the 9 languages; `--lang` for pages | `npm run intl`: every spreadsheet eval case (403) rerun as a German, French, Spanish, Brazilian, Italian, Japanese, Chinese and Korean export (legacy encodings, `1.234,56`, local dates, local column names): all pass. Report pages in nine languages (contract test per agent). |
 | 6 | Root README in 9 languages; every agent has README, CHANGELOG, LICENSE (MIT) | Done. Agent READMEs are generated from the agent (`scripts/readme-head.mjs`, `scripts/readme-sections.mjs`); `npm run readme:check` passes on Windows. |
-| 7 | `npm run bench` (10,000 rows) and `release:check:offline` pass | See below. |
+| 7 | `npm run bench` (10,000 rows) and `release:check:offline` pass | Bench passes (96 tools, 0 need attention). Release check passes in quick mode; full run not done. |
 | 8 | `npm test` passes on Windows with Node 24 | Node v24.20.0, Windows 10: 807/807. |
 | 9 | MCP Registry ready | `node ..\add-mcp-registry.cjs fairtable-agents fairtable.html`: `mcpName` and `server.json` for all 32 agents. |
 | 10 | Masking on for personal data; fictional data only | 14 agents have personal fields (staff, guest, client and card holder names, phones, emails). `npm run masking`: 101 fictional personal values planted as canaries, 306 calls, 0 leaks. Every fixture is fictional (Example/Sample company names, made-up people). |
@@ -40,11 +40,11 @@ Every agent is read and report only. Nothing pays, refunds, charges a card, chan
 | `npm test` (all 33 workspaces, Node 24.20.0, Windows) | 807 tests, 807 pass |
 | `npm run evals` | 703 eval cases across 32 agents, all pass (21 to 24 per agent) |
 | `npm run hostile` (formulas, HTML, `../` ids, AI-aimed instructions planted in every fixture, every eval case) | 3,515 calls, 2,555 planted values, 142 results flagged for instruction-like text, 0 findings |
-| `npm run hostile:args` | HOSTILE_ARGS_RESULT |
+| `npm run hostile:args` | NOT FINISHED. On this Windows machine one agent takes over 10 minutes (about 600 mutations, each in a fresh temp folder), and background shells here cannot start node. Setup replay was cut to file-writing cases and `scripts/hostile-parallel.mjs --args` runs agents in parallel; run it (or let CI run it on Linux) before publishing. |
 | `npm run intl` (8 languages) | 403 cases with spreadsheet inputs per language, all pass; 320 of 412 column names translated (German count; the rest keep their English names and still match) |
 | `npm run masking` | 14 agents, 101 canaries, 306 calls, 0 leaks |
 | `npm run bench` (1,000 and 10,000 rows per input file) | 96 tools across 32 agents, all executed at 10,000 rows per file, 0 need attention; mean 533 ms, slowest 1.8 s (melon explain), peak memory 261 MB. The first run flagged 16 tools growing faster than their input; fixed (see below). Report: `docs/bench-2026-11-18.md` |
-| `npm run release:check:offline` | RELEASE_RESULT |
+| `npm run release:check:offline` | Quick mode passes (metadata, git, secret scan over 1,021 files, honest copy, one-click policy, `npm pack` of all 33 packages, 598 KB). The full offline run (which repeats tests, evals and the hostile data pass, each passing on its own above) was not run end to end. |
 | `npm run readme:check`, `npm run plugin:check` | both pass |
 | `npm view <name>` for all 33 names (read-only) | all 33 free on npm (E404); see `docs/npm-names-2026-11-18.md` |
 | Demos | every `demo` run on its fictional files; output captured in each README |

@@ -24,7 +24,7 @@ async function one(n) {
       const m = /(\d+) call\(s\), (\d+) planted value\(s\).*?(\d+) finding\(s\)/s.exec(text);
       const r = { agent: n, code, calls: m ? +m[1] : null, findings: m ? +m[3] : null, seconds: Math.round((Date.now() - t0) / 1000) };
       writeFileSync(join(out, `${n}${withArgs ? '-args' : ''}.log`), text);
-      process.stderr.write(`${n}: ${r.findings === 0 && code === 0 ? 'ok' : 'FINDINGS'} (${r.calls} calls, ${r.seconds}s)\n`);
+      process.stderr.write(`${n}: ${r.findings === 0 && code === 0 ? 'ok' : 'FINDINGS'} (exit ${code}, ${r.calls} calls, ${r.seconds}s)${code !== 0 ? ` ${text.slice(-300)}` : ''}\n`);
       results.push(r); resolve();
     });
   });
