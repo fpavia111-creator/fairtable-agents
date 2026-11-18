@@ -1,0 +1,37 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.fpavia111-creator/kiwi-of-marketing-fees",
+  "title": "Kiwi of Marketing Fees",
+  "description": "Kiwi of Marketing Fees: delivery-app marketing and promotion charges against the campaigns you…",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents",
+    "source": "github",
+    "subfolder": "packages/kiwi-of-marketing-fees"
+  },
+  "websiteUrl": "https://fair-agents.com/fairtable.html",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "kiwi-of-marketing-fees",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "mcp"
+        },
+        {
+          "type": "named",
+          "name": "--root",
+          "description": "Folder holding the exports this agent may read and write (it cannot reach outside it)",
+          "isRequired": true,
+          "format": "filepath",
+          "valueHint": "exports_folder"
+        }
+      ]
+    }
+  ]
+}

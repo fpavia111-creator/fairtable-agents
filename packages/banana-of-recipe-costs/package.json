@@ -1,6 +1,7 @@
 {
   "name": "banana-of-recipe-costs",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/banana-of-recipe-costs",
   "description": "Banana of Recipe Costs: costs every recipe at your latest invoice prices (pack sizes, units and yields), shows each plate's food cost percent against your target and the price that would meet it, and which plates got dearer. Never changes menu prices in the POS.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

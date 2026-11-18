@@ -1,6 +1,7 @@
 {
   "name": "raspberry-of-breaks",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/raspberry-of-breaks",
   "description": "Raspberry of Breaks: meal breaks from your timecards under the break rules in your settings: shifts over the limit with no or a short meal break, meals taken late, second meals on long days, the premium pay that may be owed, and minors working too long or too late. Never edits timecards or runs payroll.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

@@ -1,6 +1,7 @@
 {
   "name": "orange-of-inspections",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/orange-of-inspections",
   "description": "Orange of Inspections: the health inspection and permit calendar for each location: re-inspections overdue, critical violations with no re-inspection on file, scores dropping, the next routine visit to prepare for, and permits and licences expired or expiring. Never contacts the health department.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

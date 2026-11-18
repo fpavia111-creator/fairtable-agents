@@ -1,6 +1,7 @@
 {
   "name": "jackfruit-of-delivery-payouts",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/jackfruit-of-delivery-payouts",
   "description": "Jackfruit of Delivery Payouts: matches DoorDash, Uber Eats and Grubhub statements with your POS orders: commissions over your contract rate, payout math that does not add up, error charges to dispute, orders paid twice and orders never paid. Never logs in to a platform and never sends.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

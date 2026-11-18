@@ -1,6 +1,7 @@
 {
   "name": "lychee-of-stockouts",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/lychee-of-stockouts",
   "description": "Lychee of Stockouts: reads the 86 log against item sales: items that run out again and again, how long they stay off, what that likely cost in sales, items 86ed before the dinner rush and items never brought back. Never changes 86 status or orders.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

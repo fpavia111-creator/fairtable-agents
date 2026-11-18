@@ -1,6 +1,7 @@
 {
   "name": "quince-of-invoices",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/quince-of-invoices",
   "description": "Quince of Invoices: vendor invoices before they are paid: the same invoice entered twice, likely duplicates under a new number, line math that does not add up, missing invoice numbers, and lines coded to the wrong GL account (liquor in food cost, paper goods in food). Never pays and never posts to the books.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

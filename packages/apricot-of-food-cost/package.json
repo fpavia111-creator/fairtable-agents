@@ -1,6 +1,7 @@
 {
   "name": "apricot-of-food-cost",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/apricot-of-food-cost",
   "description": "Apricot of Food Cost: actual against theoretical food cost from your POS item sales, recipes, inventory counts and invoices. Shows which ingredients were used more than the recipes say, with the cost of the gap. Never changes the POS and never sends.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

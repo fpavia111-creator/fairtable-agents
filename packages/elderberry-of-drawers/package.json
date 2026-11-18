@@ -1,6 +1,7 @@
 {
   "name": "elderberry-of-drawers",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/elderberry-of-drawers",
   "description": "Elderberry of Drawers: cash over and short for every drawer and shift from your POS cash-out export: expected cash from starting bank, cash sales, paid-outs and tips paid out, against the count and the deposit, with repeated shorts per person. Never moves cash or changes the POS.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

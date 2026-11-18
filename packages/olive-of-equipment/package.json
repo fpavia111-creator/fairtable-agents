@@ -1,6 +1,7 @@
 {
   "name": "olive-of-equipment",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/olive-of-equipment",
   "description": "Olive of Equipment: the maintenance schedule for hoods, grease traps, fire suppression, ice machines, refrigeration and the rest: what is overdue, what is due in the next weeks, what has no service date, and equipment repaired again and again. Never books a vendor.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

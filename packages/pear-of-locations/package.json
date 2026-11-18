@@ -1,6 +1,7 @@
 {
   "name": "pear-of-locations",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/pear-of-locations",
   "description": "Pear of Locations: compares every location of a multi-unit group on the same measures (food cost, labor, prime cost, voids, comps, discounts, average check) against the group median, and shows which location is out of line on what. Never changes anything at a location.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

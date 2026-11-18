@@ -1,6 +1,7 @@
 {
   "name": "lemon-of-sales-tax",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/lemon-of-sales-tax",
   "description": "Lemon of Sales Tax: tax collected in the POS against the rates you set for each location and menu category (food, alcohol, grocery, delivery-app orders), with under- and over-collection by jurisdiction and tax-exempt sales to document. Never files a return or pays tax.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

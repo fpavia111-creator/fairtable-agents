@@ -1,6 +1,7 @@
 {
   "name": "plum-of-card-fees",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/plum-of-card-fees",
   "description": "Plum of Card Fees: reads monthly card processing statements: the effective rate per location and month, processor markup over your agreed rate, fees you never agreed to, monthly fees over their cap and downgrade surcharges. Never contacts the processor or changes the account.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

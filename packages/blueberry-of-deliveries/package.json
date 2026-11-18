@@ -1,6 +1,7 @@
 {
   "name": "blueberry-of-deliveries",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/blueberry-of-deliveries",
   "description": "Blueberry of Deliveries: matches every invoice line with what the receiving log says arrived and with the credit memos, and lists shorts, rejected cases and substitutions still waiting for a credit. Writes a credit request draft. Never pays and never contacts the vendor.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

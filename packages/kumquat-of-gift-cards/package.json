@@ -1,6 +1,7 @@
 {
   "name": "kumquat-of-gift-cards",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/kumquat-of-gift-cards",
   "description": "Kumquat of Gift Cards: the outstanding gift card liability from your POS gift card export, by location, with balances that do not add up, negative balances, dormant cards and cards bought at one location and spent at another. Never changes a card or recognises breakage.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

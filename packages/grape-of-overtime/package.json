@@ -1,6 +1,7 @@
 {
   "name": "grape-of-overtime",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/grape-of-overtime",
   "description": "Grape of Overtime: weekly and daily overtime, double time, split shifts, spread of hours and short turnarounds (clopens) from your timecards, priced at each person's rate, under the overtime rules in your settings. Never edits timecards or runs payroll.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

@@ -1,6 +1,7 @@
 {
   "name": "blackberry-of-price-creep",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/blackberry-of-price-creep",
   "description": "Blackberry of Price Creep: follows every item's price per pound, each or litre across your distributor invoices, flags creeping increases, prices over your bid or contract and packs that quietly got smaller, with what the increases cost you. Never contacts a vendor.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

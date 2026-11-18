@@ -1,6 +1,7 @@
 {
   "name": "kiwi-of-marketing-fees",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/kiwi-of-marketing-fees",
   "description": "Kiwi of Marketing Fees: delivery-app marketing and promotion charges against the campaigns you opted into: charges with no campaign behind them, campaigns over budget, and what each campaign brought in for what it cost. Never logs in to a platform.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

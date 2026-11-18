@@ -1,6 +1,7 @@
 {
   "name": "nectarine-of-utilities",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/nectarine-of-utilities",
   "description": "Nectarine of Utilities: electric, gas and water bills per account and location: usage spikes per day against the account's own history, rate jumps, estimated meter reads, bills charged twice, overlapping periods and late fees. Never pays a bill or contacts the utility.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

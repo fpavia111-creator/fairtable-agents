@@ -1,6 +1,7 @@
 {
   "name": "mango-of-no-shows",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/mango-of-no-shows",
   "description": "Mango of No-Shows: reservation no-shows from your OpenTable or Resy export: the no-show rate by day, guests who no-show again and again, large parties booked with no deposit and no-show fees your policy says to charge, with covers and sales lost. Guest details are masked for the AI model. Never charges a card or messages a guest.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

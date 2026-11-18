@@ -1,6 +1,7 @@
 {
   "name": "guava-of-schedules",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/guava-of-schedules",
   "description": "Guava of Schedules: scheduled against actual labor from your schedule and timecard exports: early clock-ins, late clock-outs, late arrivals, no-shows and shifts nobody scheduled, with the extra hours priced at each person's rate. Never edits the schedule or timecards.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

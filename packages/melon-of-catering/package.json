@@ -1,6 +1,7 @@
 {
   "name": "melon-of-catering",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/melon-of-catering",
   "description": "Melon of Catering: catering and private-event deposits and balances against your bookings: deposits missing as the event gets close, balances overdue after the event, overpayments, refunds owed on cancellations and payments with no booking. Client names are masked for the AI model. Never charges or refunds anyone.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

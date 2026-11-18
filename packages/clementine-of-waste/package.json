@@ -1,6 +1,7 @@
 {
   "name": "clementine-of-waste",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/clementine-of-waste",
   "description": "Clementine of Waste: reads your waste log against your daily sales, prices what was thrown out, and shows the items, reasons and days behind it, including days with sales and no waste logged at all. Never changes the POS or the prep list.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

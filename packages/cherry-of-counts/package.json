@@ -1,6 +1,7 @@
 {
   "name": "cherry-of-counts",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/cherry-of-counts",
   "description": "Cherry of Counts: compares each item's inventory count with what the system expected, prices the difference, and points to counts that look like a unit mistake (cases written as each, pounds as ounces), missing lines and wild swings, with a recount list. Never changes the inventory system.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

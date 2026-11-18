@@ -1,6 +1,7 @@
 {
   "name": "date-of-discounts",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/date-of-discounts",
   "description": "Date of Discounts: checks every discount and promotion rung in the POS against your promotion list: promos used after they ended, unknown or open discounts, discounts over their cap, employee meals over the allowance and missing approvals. Never changes the POS.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

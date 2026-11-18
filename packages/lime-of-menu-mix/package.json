@@ -1,6 +1,7 @@
 {
   "name": "lime-of-menu-mix",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/lime-of-menu-mix",
   "description": "Lime of Menu Mix: menu engineering from your POS item sales and plate costs: each item's popularity and contribution margin within its category, sorted into stars, plowhorses, puzzles and dogs, with a menu proposal draft. Never changes the menu or prices in the POS.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",

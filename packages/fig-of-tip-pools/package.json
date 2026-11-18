@@ -1,6 +1,7 @@
 {
   "name": "fig-of-tip-pools",
   "version": "0.1.0",
+  "mcpName": "io.github.fpavia111-creator/fig-of-tip-pools",
   "description": "Fig of Tip Pools: splits the week's tip pool by hours and role points, checks the tip credit (cash wage plus tips against the minimum wage in your state settings), managers who kept tips, cash wages under the tipped minimum and missing cash tip declarations. Never runs payroll or pays tips.",
   "type": "module",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "evals",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "server.json"
   ],
   "scripts": {
     "test": "node scripts/run-tests.cjs",
