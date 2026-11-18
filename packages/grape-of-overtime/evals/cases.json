@@ -1,0 +1,361 @@
+{
+  "suite": "grape-of-overtime",
+  "root": "..",
+  "data_note": "A fictional kitchen week with made-up names; the rules are example settings. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "overtime-totals",
+      "tool": "grape_check",
+      "args": {
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.employee_weeks": 4,
+          "result.overtime_hours": 8,
+          "result.premium_cost": 72,
+          "result.split_shifts": 1,
+          "result.flag": 1,
+          "result.review": 3
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "grape_check",
+      "args": {
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "contains": [
+          "overtime_high",
+          "split_shift",
+          "spread_of_hours",
+          "clopen",
+          "missing_clock_out"
+        ],
+        "not_contains": [
+          "Jordan",
+          "Casey",
+          "Riley Chen",
+          "Sam Patel"
+        ]
+      }
+    },
+    {
+      "id": "split-shift-explained",
+      "tool": "grape_explain",
+      "args": {
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json",
+        "employee": "C.M.#efdf8a"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "07:00-11:00 and 16:00-21:00 (5 h unpaid between)",
+          "2026-11-03 (14 h)"
+        ]
+      }
+    },
+    {
+      "id": "daily-overtime-rules",
+      "tool": "grape_check",
+      "args": {
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings-daily.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.overtime_hours": 17.5,
+          "result.premium_cost": 180.5,
+          "result.flag": 2
+        },
+        "not_contains": [
+          "spread_of_hours"
+        ]
+      }
+    },
+    {
+      "id": "clopen-explained",
+      "tool": "grape_explain",
+      "args": {
+        "timecards": "fixtures/timecards.csv",
+        "employee": "Riley Chen"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "2026-11-05 01:00 and back in at 2026-11-05 07:00: 6 hours of rest",
+          "no clock-out"
+        ],
+        "not_contains": [
+          "Riley"
+        ]
+      }
+    },
+    {
+      "id": "overtime-memo-after-approval",
+      "tool": "grape_draft_memo",
+      "approve": "Pat Example",
+      "args": {
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json",
+        "week": "Week of 2 Nov"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "memo Week of 2 Nov drafted for 72"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "grape_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "timecards"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "grape_check",
+      "args": {
+        "timecards": "../../../outside.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "grape_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "grape_check",
+      "mode": "review",
+      "args": {
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.employee_weeks": 4,
+          "result.overtime_hours": 8,
+          "result.premium_cost": 72,
+          "result.split_shifts": 1,
+          "result.flag": 1,
+          "result.review": 3
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "grape_check",
+      "args": {
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.employee_weeks": 4,
+          "result.overtime_hours": 8,
+          "result.premium_cost": 72,
+          "result.split_shifts": 1,
+          "result.flag": 1,
+          "result.review": 3
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "grape_explain",
+      "args": {
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json",
+        "employee": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "grape_write_report",
+      "args": {
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "grape_draft_memo",
+      "args": {
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json",
+        "week": "Week of 2 Nov"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "grape_draft_memo",
+      "mode": "review",
+      "args": {
+        "timecards": "fixtures/timecards.csv",
+        "settings": "fixtures/settings.json",
+        "week": "Week of 2 Nov"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "grape_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "grape_draft_memo"
+      ],
+      "args": {
+        "draft": "fairtable-out/grape/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-payroll-submit",
+      "tool": "payroll_submit",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-schedule-publish",
+      "tool": "schedule_publish",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "grape_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-overtime-totals",
+      "tool": "grape_check",
+      "args": {
+        "timecards": "fixtures/intl/de/timecards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.employee_weeks": 4,
+          "result.overtime_hours": 8,
+          "result.premium_cost": 72,
+          "result.split_shifts": 1,
+          "result.flag": 1,
+          "result.review": 3
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"overtime-totals\"."
+    },
+    {
+      "id": "intl-ja-overtime-totals",
+      "tool": "grape_check",
+      "args": {
+        "timecards": "fixtures/intl/ja/timecards.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.employee_weeks": 4,
+          "result.overtime_hours": 8,
+          "result.premium_cost": 72,
+          "result.split_shifts": 1,
+          "result.flag": 1,
+          "result.review": 3
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"overtime-totals\"."
+    }
+  ]
+}

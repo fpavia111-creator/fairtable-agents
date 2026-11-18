@@ -1,0 +1,17 @@
+Mitarbeiter;Rolle;Lagerort;Kommen;Gehen;Pause (Min.);Stundenlohn
+Jordan Lee;Line Cook;Main Street;02.11.2026 10:00;02.11.2026 18:30;30;18,00
+Jordan Lee;Line Cook;Main Street;03.11.2026 10:00;03.11.2026 18:30;30;18,00
+Jordan Lee;Line Cook;Main Street;04.11.2026 10:00;04.11.2026 18:30;30;18,00
+Jordan Lee;Line Cook;Main Street;05.11.2026 10:00;05.11.2026 18:30;30;18,00
+Jordan Lee;Line Cook;Main Street;06.11.2026 10:00;06.11.2026 18:30;30;18,00
+Jordan Lee;Line Cook;Main Street;07.11.2026 10:00;07.11.2026 18:30;30;18,00
+Casey Morgan;Prep Cook;Main Street;03.11.2026 07:00;03.11.2026 11:00;0;17,00
+Casey Morgan;Prep Cook;Main Street;03.11.2026 16:00;03.11.2026 21:00;0;17,00
+Casey Morgan;Prep Cook;Main Street;04.11.2026 07:00;04.11.2026 13:00;0;17,00
+Riley Chen;Dishwasher;Main Street;04.11.2026 16:00;05.11.2026 01:00;30;16,00
+Riley Chen;Dishwasher;Main Street;05.11.2026 07:00;05.11.2026 13:00;0;16,00
+Riley Chen;Dishwasher;Main Street;06.11.2026 16:00;;0;16,00
+Sam Patel;Sous Chef;Main Street;02.11.2026 08:00;02.11.2026 18:30;30;24,00
+Sam Patel;Sous Chef;Main Street;03.11.2026 08:00;03.11.2026 18:30;30;24,00
+Sam Patel;Sous Chef;Main Street;04.11.2026 08:00;04.11.2026 18:30;30;24,00
+Sam Patel;Sous Chef;Main Street;05.11.2026 08:00;05.11.2026 18:30;30;24,00

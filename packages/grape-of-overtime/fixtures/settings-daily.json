@@ -1,0 +1,6 @@
+{
+  "rules": "Example rules with daily overtime after 8 and double time after 12 (fictional settings; check your own state)",
+  "daily_ot_after": 8,
+  "daily_dt_after": 12,
+  "spread_hours": null
+}

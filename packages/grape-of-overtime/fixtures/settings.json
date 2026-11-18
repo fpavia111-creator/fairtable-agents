@@ -1,0 +1,11 @@
+{
+  "rules": "Example rules: weekly overtime after 40, split shift and spread of hours premiums (fictional settings; check your own state)",
+  "weekly_ot_after": 40,
+  "daily_ot_after": null,
+  "daily_dt_after": null,
+  "ot_multiplier": 1.5,
+  "split_gap_hours": 1,
+  "spread_hours": 10,
+  "premium_hourly": 15.5,
+  "clopen_rest_hours": 10
+}
