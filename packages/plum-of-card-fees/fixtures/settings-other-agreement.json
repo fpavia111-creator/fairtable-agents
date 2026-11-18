@@ -1,0 +1,1 @@
+{ "markup_bps": 60, "per_transaction_fee": 0.1, "allowed_fees": { "Monthly service fee": 40, "PCI non-compliance fee": 50 }, "rate_up_bps": 60 }

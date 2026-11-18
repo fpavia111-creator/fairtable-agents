@@ -1,0 +1,342 @@
+{
+  "suite": "plum-of-card-fees",
+  "root": "..",
+  "data_note": "Fictional card statements for two fictional locations; the agreed rates are example settings. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "card-fee-totals",
+      "tool": "plum_check",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.statements": 3,
+          "result.card_volume": 343000,
+          "result.total_fees": 9022.95,
+          "result.effective_rate_pct": 2.6306,
+          "result.to_recover": 414.95,
+          "result.flag": 1,
+          "result.ok": 2
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "plum_check",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "contains": [
+          "markup_over_contract",
+          "effective_rate_up",
+          "fee_over_cap",
+          "unexpected_fee",
+          "downgrade_surcharge"
+        ]
+      }
+    },
+    {
+      "id": "october-explained",
+      "tool": "plum_explain",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "settings": "fixtures/settings.json",
+        "line": "main street 2026-10"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "processor markup 1136 against 781",
+          "+49 basis points"
+        ],
+        "equals": {
+          "result.item.effective_rate_pct": 2.906
+        }
+      }
+    },
+    {
+      "id": "different-agreement",
+      "tool": "plum_check",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "settings": "fixtures/settings-other-agreement.json"
+      },
+      "expect": {
+        "status": "executed",
+        "not_contains": [
+          "markup_over_contract",
+          "fee_over_cap",
+          "unexpected_fee"
+        ],
+        "equals": {
+          "result.to_recover": 0
+        }
+      }
+    },
+    {
+      "id": "processor-letter-after-approval",
+      "tool": "plum_draft_letter",
+      "approve": "Pat Example",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "letter processor drafted for 414.95"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "plum_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "statements"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "plum_check",
+      "args": {
+        "statements": "../../../outside.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "plum_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "plum_check",
+      "mode": "review",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.statements": 3,
+          "result.card_volume": 343000,
+          "result.total_fees": 9022.95,
+          "result.effective_rate_pct": 2.6306,
+          "result.to_recover": 414.95,
+          "result.flag": 1,
+          "result.ok": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "plum_check",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.statements": 3,
+          "result.card_volume": 343000,
+          "result.total_fees": 9022.95,
+          "result.effective_rate_pct": 2.6306,
+          "result.to_recover": 414.95,
+          "result.flag": 1,
+          "result.ok": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "plum_explain",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "settings": "fixtures/settings.json",
+        "line": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "plum_write_report",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "plum_draft_letter",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "plum_draft_letter",
+      "mode": "review",
+      "args": {
+        "statements": "fixtures/statements.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "plum_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "plum_draft_letter"
+      ],
+      "args": {
+        "draft": "fairtable-out/plum/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-payment-send",
+      "tool": "payment_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-merchant-account-change",
+      "tool": "merchant_account_change",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "plum_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-card-fee-totals",
+      "tool": "plum_check",
+      "args": {
+        "statements": "fixtures/intl/de/statements.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.statements": 3,
+          "result.card_volume": 343000,
+          "result.total_fees": 9022.95,
+          "result.effective_rate_pct": 2.6306,
+          "result.to_recover": 414.95,
+          "result.flag": 1,
+          "result.ok": 2
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"card-fee-totals\"."
+    },
+    {
+      "id": "intl-ja-card-fee-totals",
+      "tool": "plum_check",
+      "args": {
+        "statements": "fixtures/intl/ja/statements.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.statements": 3,
+          "result.card_volume": 343000,
+          "result.total_fees": 9022.95,
+          "result.effective_rate_pct": 2.6306,
+          "result.to_recover": 414.95,
+          "result.flag": 1,
+          "result.ok": 2
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"card-fee-totals\"."
+    }
+  ]
+}

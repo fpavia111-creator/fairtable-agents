@@ -1,0 +1,17 @@
+month,ï€ä«èÍèä,card_brand,volume,transactions,fee_name,fee_type,ã‡äz
+2026-09,Main Street,Visa,"92,000.00","2,300",Interchange,interchange,"1,610.00"
+2026-09,Main Street,Mastercard,"48,000.00","1,200",Interchange,interchange,864.00
+2026-09,Main Street,All,,,Assessments,assessment,182.00
+2026-09,Main Street,All,,,Processor markup,markup,700.00
+2026-09,Main Street,All,,,Monthly service fee,monthly,25.00
+2026-10,Main Street,Visa,"95,000.00","2,380",Interchange,interchange,"1,662.50"
+2026-10,Main Street,Mastercard,"47,000.00","1,170",Interchange,interchange,846.00
+2026-10,Main Street,All,,,Assessments,assessment,185.00
+2026-10,Main Street,All,,,Processor markup,markup,"1,136.00"
+2026-10,Main Street,All,,,Monthly service fee,monthly,35.00
+2026-10,Main Street,All,,,PCI non-compliance fee,other,49.95
+2026-10,Main Street,All,,,Non-qualified surcharge,other,212.00
+2026-10,Harbor Road,Visa,"61,000.00","1,600",Interchange,interchange,"1,067.50"
+2026-10,Harbor Road,All,,,Assessments,assessment,80.00
+2026-10,Harbor Road,All,,,Processor markup,markup,343.00
+2026-10,Harbor Road,All,,,Monthly service fee,monthly,25.00
