@@ -1,4 +1,4 @@
-recipe;ingredient;Menge;unit;yield_pct;menu_price
+Rezept;Zutat;Menge;Einheit;Ausbeute %;Verkaufspreis
 Classic Burger;Ground Beef 80/20;6;oz;;14,00
 Classic Burger;Brioche Bun;1;ea;;14,00
 Classic Burger;Cheddar Cheese;1;oz;;14,00

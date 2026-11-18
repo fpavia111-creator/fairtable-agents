@@ -1,4 +1,4 @@
-Lieferant;Rechnungsnummer;Rechnungsdatum;item_code;Artikel;pack;unit;Menge;Einzelpreis;extended
+Lieferant;Rechnungsnummer;Rechnungsdatum;Artikelnummer;Artikel;Gebinde;Einheit;Menge;Einzelpreis;Gesamtpreis
 Example Foodservice;EF-50311;03.11.2026;100231;Ground Beef 80/20;1/10 LB;CS;8;48,00;384,00
 Example Foodservice;EF-50311;03.11.2026;200455;Brioche Bun;8/12 CT;CS;4;43,20;172,80
 Example Foodservice;EF-50311;03.11.2026;300712;Cheddar Cheese;4/5 LB;CS;1;104,00;104,00

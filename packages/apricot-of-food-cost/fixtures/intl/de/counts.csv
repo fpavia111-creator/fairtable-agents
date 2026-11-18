@@ -1,4 +1,4 @@
-count_date;Artikel;Gezählt;unit;Stückkosten;area
+Inventurdatum;Artikel;Gezählt;Einheit;Stückkosten;Lagerbereich
 01.11.2026;Ground Beef 80/20;40;lb;4,80;Walk-in
 08.11.2026;Ground Beef 80/20;30;lb;4,80;Walk-in
 01.11.2026;Brioche Bun;120;ea;0,45;Dry storage

@@ -1,4 +1,4 @@
-仕入先,請求書番号,請求日,item_code,品目,pack,unit,数量,単価,extended
+仕入先,請求書番号,請求日,品番,品目,入数,単位,数量,単価,明細金額
 Example Foodservice,EF-50311,2026/11/03,100231,Ground Beef 80/20,1/10 LB,CS,8,48.00,384.00
 Example Foodservice,EF-50311,2026/11/03,200455,Brioche Bun,8/12 CT,CS,4,43.20,172.80
 Example Foodservice,EF-50311,2026/11/03,300712,Cheddar Cheese,4/5 LB,CS,1,104.00,104.00

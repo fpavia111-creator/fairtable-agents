@@ -1,4 +1,4 @@
-count_date,品目,実棚数,unit,単価,area
+棚卸日,品目,実棚数,単位,単価,保管場所
 2026/11/01,Ground Beef 80/20,40,lb,4.80,Walk-in
 2026/11/08,Ground Beef 80/20,30,lb,4.80,Walk-in
 2026/11/01,Brioche Bun,120,ea,0.45,Dry storage
