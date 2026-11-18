@@ -1,0 +1,6 @@
+{
+  "target_food_cost_pct": 30,
+  "category_targets": { "Entrees": 32 },
+  "flag_points": 3,
+  "rise_pct": 8
+}

@@ -1,0 +1,17 @@
+Lieferant;Rechnungsnummer;Rechnungsdatum;Artikelnummer;Artikel;Gebinde;Menge;Einzelpreis;Gesamtpreis
+Example Foodservice;EF-49010;06.10.2026;100231;Ground Beef 80/20;1/10 LB;6;46,00;276,00
+Example Foodservice;EF-49010;06.10.2026;100990;Ribeye;1/12 LB;2;156,00;312,00
+Example Foodservice;EF-50311;03.11.2026;100231;Ground Beef 80/20;1/10 LB;8;48,00;384,00
+Example Foodservice;EF-50311;03.11.2026;200455;Brioche Bun;8/12 CT;4;43,20;172,80
+Example Foodservice;EF-50311;03.11.2026;300712;Cheddar Cheese;4/5 LB;1;104,00;104,00
+Example Foodservice;EF-50311;03.11.2026;100990;Ribeye;1/12 LB;2;186,00;372,00
+Example Foodservice;EF-50311;03.11.2026;400120;Frozen Fries;6/5 LB;2;33,00;66,00
+Example Foodservice;EF-50311;03.11.2026;500777;Caesar Dressing;4/1 GAL;1;64,00;64,00
+Example Foodservice;EF-50311;03.11.2026;300801;Parmesan;2/5 LB;1;120,00;120,00
+Example Foodservice;EF-50311;03.11.2026;500901;Truffle Oil;6/1 LB;1;90,00;90,00
+Sample Produce Co;SP-7712;04.11.2026;P-1001;Romaine;1/25 LB;1;52,50;52,50
+Sample Produce Co;SP-7712;04.11.2026;P-2090;Lemons;1/165 CT;1;38,00;38,00
+Sample Produce Co;SP-7712;04.11.2026;P-2101;Lime;1/200 CT;1;40,00;40,00
+Example Seafood;ES-1180;05.11.2026;F-410;Shrimp 21/25;5/2 LB;1;89,00;89,00
+Example Foodservice;EF-50388;06.11.2026;600110;Corn Tortilla;12/30 CT;1;21,60;21,60
+Example Foodservice;EF-50388;06.11.2026;600300;Cane Sugar;1/50 LB;1;45,00;45,00
