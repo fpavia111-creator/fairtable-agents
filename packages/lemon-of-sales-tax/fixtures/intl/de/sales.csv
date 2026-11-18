@@ -1,0 +1,10 @@
+Datum;Lagerort;channel;Kategorie;Artikel;Nettoumsatz;Steuer;tax_exempt
+02.11.2026;Main Street;Dine-in;Food;All food;12.400,00;1.023,00;no
+02.11.2026;Main Street;Dine-in;Alcohol;All alcohol;4.200,00;346,50;no
+02.11.2026;Main Street;Takeout;Grocery;Bottled sauces;300,00;24,75;no
+02.11.2026;Main Street;DoorDash;Food;Marketplace orders;2.100,00;0,00;no
+02.11.2026;Main Street;Uber Eats;Food;Marketplace orders;900,00;74,25;no
+02.11.2026;Harbor Road;Dine-in;Food;All food;8.000,00;600,00;no
+02.11.2026;Harbor Road;Dine-in;Alcohol;All alcohol;2.500,00;212,50;no
+02.11.2026;Harbor Road;Catering;Food;School order;1.200,00;0,00;yes
+02.11.2026;Airport Kiosk;Dine-in;Food;All food;900,00;72,00;no

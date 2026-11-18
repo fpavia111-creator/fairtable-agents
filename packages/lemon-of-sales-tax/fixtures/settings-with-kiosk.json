@@ -1,0 +1,7 @@
+{
+  "locations": {
+    "Main Street": { "jurisdiction": "Example City (fictional rates)", "rate_pct": 8.25, "category_rates": { "Alcohol": 10.25, "Grocery": 0 } },
+    "Harbor Road": { "jurisdiction": "Example County (fictional rates)", "rate_pct": 7.5, "category_rates": { "Alcohol": 8.5 } },
+    "Airport Kiosk": { "jurisdiction": "Example Airport District (fictional rates)", "rate_pct": 9 }
+  }
+}

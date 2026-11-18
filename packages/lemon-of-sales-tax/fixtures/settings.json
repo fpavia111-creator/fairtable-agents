@@ -1,0 +1,9 @@
+{
+  "locations": {
+    "Main Street": { "jurisdiction": "Example City (fictional rates)", "rate_pct": 8.25, "category_rates": { "Alcohol": 10.25, "Grocery": 0 } },
+    "Harbor Road": { "jurisdiction": "Example County (fictional rates)", "rate_pct": 7.5, "category_rates": { "Alcohol": 8.5 } }
+  },
+  "marketplace_channels": ["DoorDash", "Uber Eats", "Grubhub"],
+  "tolerance_pct": 0.5,
+  "tolerance_amount": 2
+}
