@@ -1,0 +1,428 @@
+{
+  "suite": "apricot-of-food-cost",
+  "root": "..",
+  "data_note": "Fictional restaurant, vendors and items in ../fixtures. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "food-cost-totals",
+      "tool": "apricot_check",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.net_sales": 8170,
+          "result.theoretical_cost": 1218.01,
+          "result.actual_cost": 1463.3,
+          "result.gap_cost": 245.29,
+          "result.flag": 2,
+          "result.review": 6,
+          "result.watch": 4,
+          "result.ok": 2
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "apricot_check",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv"
+      },
+      "expect": {
+        "contains": [
+          "over_usage",
+          "under_usage",
+          "item_sold_no_recipe",
+          "unit_mismatch",
+          "no_close_count",
+          "not_in_recipes",
+          "purchase_not_matched",
+          "small_over_usage"
+        ]
+      }
+    },
+    {
+      "id": "chicken-gap-explained",
+      "tool": "apricot_explain",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "item": "chicken breast"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "open 30 + bought 80 - close 20",
+          "recipes say 70.83"
+        ],
+        "equals": {
+          "result.item.variance_cost": 74.75,
+          "result.item.variance_pct": 27.1,
+          "result.item.status": "flag"
+        }
+      }
+    },
+    {
+      "id": "looser-threshold-flags-less",
+      "tool": "apricot_check",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "settings": "fixtures/settings-loose.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.flag": 0,
+          "result.settings_used.flag_amount": 100,
+          "result.target_food_cost_pct": 32
+        }
+      }
+    },
+    {
+      "id": "without-invoices-everything-looks-under-used",
+      "tool": "apricot_check",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.flag": 0
+        },
+        "min": {
+          "result.by_finding.under_usage.count": 5
+        }
+      }
+    },
+    {
+      "id": "memo-draft-after-approval",
+      "tool": "apricot_draft_memo",
+      "approve": "Pat Example",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "memo Main Street drafted for 245.29"
+        ],
+        "min": {
+          "result.open_markers": 2
+        }
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "apricot_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "sales"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "apricot_check",
+      "args": {
+        "sales": "../../../outside.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "apricot_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "apricot_check",
+      "mode": "review",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.net_sales": 8170,
+          "result.theoretical_cost": 1218.01,
+          "result.actual_cost": 1463.3,
+          "result.gap_cost": 245.29,
+          "result.flag": 2,
+          "result.review": 6,
+          "result.watch": 4,
+          "result.ok": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "apricot_check",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.net_sales": 8170,
+          "result.theoretical_cost": 1218.01,
+          "result.actual_cost": 1463.3,
+          "result.gap_cost": 245.29,
+          "result.flag": 2,
+          "result.review": 6,
+          "result.watch": 4,
+          "result.ok": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "apricot_explain",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "settings": "fixtures/settings.json",
+        "item": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "apricot_write_report",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "apricot_draft_memo",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "apricot_draft_memo",
+      "mode": "review",
+      "args": {
+        "sales": "fixtures/sales.csv",
+        "recipes": "fixtures/recipes.csv",
+        "counts": "fixtures/counts.csv",
+        "purchases": "fixtures/purchases.csv",
+        "location": "Main Street"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "apricot_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "apricot_draft_memo"
+      ],
+      "args": {
+        "draft": "fairtable-out/apricot/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-pos-change-menu",
+      "tool": "pos_change_menu",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-vendor-order-submit",
+      "tool": "vendor_order_submit",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "apricot_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "learn-waits-for-acceptance",
+      "tool": "apricot_learn",
+      "args": {
+        "kind": "item_alias",
+        "value": {
+          "name": "Fictional Name A",
+          "means": "Fictional Name B"
+        }
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "waiting"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-food-cost-totals",
+      "tool": "apricot_check",
+      "args": {
+        "sales": "fixtures/intl/de/sales.csv",
+        "recipes": "fixtures/intl/de/recipes.csv",
+        "counts": "fixtures/intl/de/counts.csv",
+        "purchases": "fixtures/intl/de/purchases.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.net_sales": 8170,
+          "result.theoretical_cost": 1218.01,
+          "result.actual_cost": 1463.3,
+          "result.gap_cost": 245.29,
+          "result.flag": 2,
+          "result.review": 6,
+          "result.watch": 4,
+          "result.ok": 2
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"food-cost-totals\"."
+    },
+    {
+      "id": "intl-ja-food-cost-totals",
+      "tool": "apricot_check",
+      "args": {
+        "sales": "fixtures/intl/ja/sales.csv",
+        "recipes": "fixtures/intl/ja/recipes.csv",
+        "counts": "fixtures/intl/ja/counts.csv",
+        "purchases": "fixtures/intl/ja/purchases.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.net_sales": 8170,
+          "result.theoretical_cost": 1218.01,
+          "result.actual_cost": 1463.3,
+          "result.gap_cost": 245.29,
+          "result.flag": 2,
+          "result.review": 6,
+          "result.watch": 4,
+          "result.ok": 2
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"food-cost-totals\"."
+    }
+  ]
+}

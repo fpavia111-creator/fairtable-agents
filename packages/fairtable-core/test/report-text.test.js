@@ -16,24 +16,24 @@ test('report text: every phrase has all eight translations and keeps its placeho
 
 test('report text: dates and numbers in a heading are carried into the translation', () => {
   const de = reportText('de'), ja = reportText('ja');
-  assert.equal(de.title('Freight claims as of 2026-11-16'), 'Frachtschäden, Stand 2026-11-16');
-  assert.equal(de.title('Open loads at 2026-11-16 10:00'), 'Offene Ladungen, Stand 2026-11-16 10:00');
+  assert.equal(de.section('Open on 2026-11-16'), 'Offen am 2026-11-16');
+  assert.equal(de.section('Open on 2026-11-16 10:00'), 'Offen am 2026-11-16 10:00');
   assert.equal(ja.page('All rows (12)'), '全行（12）');
-  assert.match(de.section('Fuel tables on a 1000 linehaul, 500-mile load'), /1000 .* 500 Meilen/);
+  assert.equal(de.section('Due in the next 45 days'), 'Fällig in den nächsten 45 Tagen');
 });
 
 test('report text: English is untouched, an unknown phrase or column stays English, a regional tag falls back to its language', () => {
   const en = reportText('en');
-  assert.equal(en.english, true); assert.equal(en.title('Freight bill audit'), 'Freight bill audit'); assert.equal(en.column('invoice_number'), 'invoice number');
+  assert.equal(en.english, true); assert.equal(en.title('Waste log'), 'Waste log'); assert.equal(en.column('invoice_number'), 'invoice number');
   const fr = reportText('fr-CA');
   assert.equal(fr.lang, 'fr'); assert.equal(fr.title('A report nobody translated'), 'A report nobody translated'); assert.equal(fr.column('some_new_column'), 'some new column');
-  assert.equal(fr.column('carrier'), 'Transporteur'); assert.equal(fr.column('otd_pct', 'On-time delivery %'), 'Livraisons à l’heure %');
+  assert.equal(fr.column('vendor'), 'Fournisseur'); assert.equal(fr.column('food_pct', 'Food cost %'), 'Coût matière %');
   assert.equal(reportText('xx').english, true);
   assert.equal(reportText('constructor').title('toString'), 'toString');
 });
 
 test('worklist: the page follows the language, the CSV does not, and a translated page says what is still English', () => {
-  const real = (lang) => { const dir = mkdtempSync(join(tmpdir(), 'wl-')); const ctx = { lang, root: dir, outDir: () => dir, writeFile: (d, name, text) => { const f = join(d, name); writeFileSync(f, text); return f; } }; const w = writeWorklist(ctx, 'out', 'x', { title: 'Freight bill audit', rows: [{ carrier: 'Ridgeline <b>', amount: 5 }], columns: ['carrier', 'amount'], sections: [{ title: 'By carrier', rows: [], columns: ['carrier'] }], limits: ['A limit.'] }); return { html: readFileSync(join(dir, 'x.html'), 'utf8'), csv: readFileSync(join(dir, 'x.csv'), 'utf8'), sha: w.output_sha256 }; };
+  const real = (lang) => { const dir = mkdtempSync(join(tmpdir(), 'wl-')); const ctx = { lang, root: dir, outDir: () => dir, writeFile: (d, name, text) => { const f = join(d, name); writeFileSync(f, text); return f; } }; const w = writeWorklist(ctx, 'out', 'x', { title: 'Waste log', rows: [{ vendor: 'Ridgeline <b>', amount: 5 }], columns: ['vendor', 'amount'], sections: [{ title: 'By vendor', rows: [], columns: ['vendor'] }], limits: ['A limit.'] }); return { html: readFileSync(join(dir, 'x.html'), 'utf8'), csv: readFileSync(join(dir, 'x.csv'), 'utf8'), sha: w.output_sha256 }; };
   const en = real('en'), ko = real('ko');
   assert.equal(ko.csv, en.csv);
   assert.match(en.html, /<html lang="en"/); assert.match(en.html, /<h1>Freight bill audit<\/h1>/); assert.match(en.html, /<th[^>]*>carrier<\/th>/); assert.doesNotMatch(en.html, /translated by Claude/);

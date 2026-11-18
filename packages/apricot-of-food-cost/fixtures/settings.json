@@ -1,0 +1,7 @@
+{
+  "flag_amount": 50,
+  "flag_pct": 10,
+  "watch_amount": 25,
+  "watch_pct": 5,
+  "target_food_cost_pct": 30
+}
