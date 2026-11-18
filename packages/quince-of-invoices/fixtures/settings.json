@@ -1,0 +1,9 @@
+{
+  "gl_rules": [
+    { "match": "vodka|whiskey|bourbon|tequila|gin|rum|wine|beer|liqueur|vermouth", "gl": "5100 Beverage COGS" },
+    { "match": "to-go|container|napkin|cup|lid|foil|straw", "gl": "5300 Paper and Supplies" },
+    { "match": "sanitizer|detergent|degreaser|chemical", "gl": "6200 Cleaning" }
+  ],
+  "duplicate_window_days": 5,
+  "tolerance": 0.02
+}

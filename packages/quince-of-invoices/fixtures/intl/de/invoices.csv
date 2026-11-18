@@ -1,0 +1,13 @@
+Lieferant;Rechnungsnummer;Rechnungsdatum;Artikel;Menge;Einzelpreis;Gesamtpreis;Konto;Lagerort
+Example Foodservice;EF-50311;03.11.2026;Ground Beef 80/20;8;48,00;384,00;5000 Food COGS;Main Street
+Example Foodservice;EF-50311;03.11.2026;To-go Containers 9in;2;38,50;77,00;5000 Food COGS;Main Street
+Example Foodservice;EF-50311;03.11.2026;Brioche Bun;4;43,20;172,80;5000 Food COGS;Main Street
+Example Foodservice;EF-50388;06.11.2026;Frozen Fries;4;33,00;132,00;5000 Food COGS;Main Street
+Example Foodservice;EF-50388;06.11.2026;Sanitizer Quat;1;62,00;62,00;6200 Cleaning;Main Street
+Example Foodservice;EF-50311;10.11.2026;Ground Beef 80/20;8;48,00;384,00;5000 Food COGS;Main Street
+Sample Beverage Co;SB-3001;03.11.2026;Tequila Blanco 12/750ML;1;264,00;264,00;5000 Food COGS;Main Street
+Sample Beverage Co;SB-3001;03.11.2026;House Red Wine 12/750ML;2;96,00;192,00;5100 Beverage COGS;Main Street
+Sample Produce Co;SP-7712;04.11.2026;Romaine;2;52,50;105,00;5000 Food COGS;Main Street
+Sample Produce Co;SP-7790;06.11.2026;Romaine;2;52,50;105,00;5000 Food COGS;Main Street
+Example Seafood;ES-1180;05.11.2026;Salmon Fillet;2;132,00;246,00;5000 Food COGS;Main Street
+Example Linen Co;;07.11.2026;Linen service;1;140,00;140,00;6300 Linen;Main Street

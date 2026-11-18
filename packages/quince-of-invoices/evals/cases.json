@@ -1,0 +1,369 @@
+{
+  "suite": "quince-of-invoices",
+  "root": "..",
+  "data_note": "Fictional vendor invoices; the GL accounts and rules are examples. Deterministic checks; no model is called.",
+  "cases": [
+    {
+      "id": "invoice-totals",
+      "tool": "quince_check",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.invoices": 8,
+          "result.invoiced": 2263.8,
+          "result.duplicate_amount": 384,
+          "result.miscoded_lines": 2,
+          "result.flag": 2,
+          "result.review": 4,
+          "result.ok": 2
+        }
+      }
+    },
+    {
+      "id": "every-planted-issue-found",
+      "tool": "quince_check",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "contains": [
+          "duplicate_number",
+          "possible_duplicate",
+          "gl_miscoded",
+          "line_math",
+          "missing_number"
+        ]
+      }
+    },
+    {
+      "id": "duplicate-explained",
+      "tool": "quince_explain",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "settings": "fixtures/settings.json",
+        "invoice": "example foodservice ef-50311 2026-11-10"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "already entered dated 2026-11-03 for 633.8"
+        ]
+      }
+    },
+    {
+      "id": "tequila-coding-explained",
+      "tool": "quince_explain",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "settings": "fixtures/settings.json",
+        "invoice": "Sample Beverage Co SB-3001 2026-11-03"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "is coded to 5000 Food COGS; your rules put it in 5100 Beverage COGS"
+        ]
+      }
+    },
+    {
+      "id": "without-rules",
+      "tool": "quince_check",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "settings": "fixtures/settings-no-rules.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.miscoded_lines": 0
+        },
+        "not_contains": [
+          "possible_duplicate"
+        ]
+      }
+    },
+    {
+      "id": "hold-memo-after-approval",
+      "tool": "quince_draft_hold_memo",
+      "approve": "Pat Example",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "hold memo ap drafted for 384"
+        ]
+      }
+    },
+    {
+      "id": "missing-argument-named",
+      "tool": "quince_check",
+      "args": {},
+      "expect": {
+        "status": "error",
+        "contains": [
+          "invoices"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "file-outside-root-refused",
+      "tool": "quince_check",
+      "args": {
+        "invoices": "../../../outside.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "outside"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "invented-tool-name-refused",
+      "tool": "quince_pay_everything_now",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-still-reads",
+      "tool": "quince_check",
+      "mode": "review",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.invoices": 8,
+          "result.invoiced": 2263.8,
+          "result.duplicate_amount": 384,
+          "result.miscoded_lines": 2,
+          "result.flag": 2,
+          "result.review": 4,
+          "result.ok": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "status-filter-keeps-totals",
+      "tool": "quince_check",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "settings": "fixtures/settings.json",
+        "status": "ok",
+        "limit": 1
+      },
+      "expect": {
+        "status": "executed",
+        "max": {
+          "result.items_shown": 1
+        },
+        "equals": {
+          "result.invoices": 8,
+          "result.invoiced": 2263.8,
+          "result.duplicate_amount": 384,
+          "result.miscoded_lines": 2,
+          "result.flag": 2,
+          "result.review": 4,
+          "result.ok": 2
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "explain-unknown-item-is-a-readable-error",
+      "tool": "quince_explain",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "settings": "fixtures/settings.json",
+        "invoice": "No Such Thing Zz"
+      },
+      "expect": {
+        "status": "error",
+        "contains": [
+          "not found"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "report-writes-two-files",
+      "tool": "quince_write_report",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "length": {
+          "result.files": 2
+        },
+        "matches": [
+          "[0-9a-f]{64}"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "draft-waits-for-a-person",
+      "tool": "quince_draft_hold_memo",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "review-mode-drafts-nothing",
+      "tool": "quince_draft_hold_memo",
+      "mode": "review",
+      "args": {
+        "invoices": "fixtures/invoices.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "request-stays-one-click-in-auto",
+      "tool": "quince_request_send",
+      "mode": "auto",
+      "auto_actions": [
+        "quince_draft_hold_memo"
+      ],
+      "args": {
+        "draft": "fairtable-out/quince/drafts/none.md",
+        "draft_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expect": {
+        "status": "needs_approval",
+        "decision": "ask"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-payment-send",
+      "tool": "payment_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-ledger-post",
+      "tool": "ledger_post",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "refuses-email-send",
+      "tool": "email_send",
+      "mode": "auto",
+      "args": {},
+      "expect": {
+        "status": "blocked"
+      },
+      "generated": true
+    },
+    {
+      "id": "recall-empty-memory",
+      "tool": "quince_recall",
+      "args": {},
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.total": 0
+        }
+      },
+      "generated": true
+    },
+    {
+      "id": "learn-waits-for-acceptance",
+      "tool": "quince_learn",
+      "args": {
+        "kind": "item_alias",
+        "value": {
+          "name": "Fictional Name A",
+          "means": "Fictional Name B"
+        }
+      },
+      "expect": {
+        "status": "executed",
+        "contains": [
+          "waiting"
+        ]
+      },
+      "generated": true
+    },
+    {
+      "id": "intl-de-invoice-totals",
+      "tool": "quince_check",
+      "args": {
+        "invoices": "fixtures/intl/de/invoices.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.invoices": 8,
+          "result.invoiced": 2263.8,
+          "result.duplicate_amount": 384,
+          "result.miscoded_lines": 2,
+          "result.flag": 2,
+          "result.review": 4,
+          "result.ok": 2
+        }
+      },
+      "note": "German export of the same data (fixtures/intl/de); must match the English case \"invoice-totals\"."
+    },
+    {
+      "id": "intl-ja-invoice-totals",
+      "tool": "quince_check",
+      "args": {
+        "invoices": "fixtures/intl/ja/invoices.csv",
+        "settings": "fixtures/settings.json"
+      },
+      "expect": {
+        "status": "executed",
+        "equals": {
+          "result.invoices": 8,
+          "result.invoiced": 2263.8,
+          "result.duplicate_amount": 384,
+          "result.miscoded_lines": 2,
+          "result.flag": 2,
+          "result.review": 4,
+          "result.ok": 2
+        }
+      },
+      "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"invoice-totals\"."
+    }
+  ]
+}
