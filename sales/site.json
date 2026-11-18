@@ -1,0 +1,74 @@
+{
+  "product": "Fairtable",
+  "industry": "Restaurants, bars and cafés",
+  "kicker": "Restaurants, bars, cafés and multi-unit groups",
+  "lede": "Thirty-two small agents that check a restaurant's back office from the files it already exports, food cost, labor, tips, cash, delivery apps, fees, tax and compliance, and wait for a named person before anything is paid, sent or changed.",
+  "from": "$1,200",
+  "packages": [
+    ["$1,800 · One location", "Food cost pack", "Actual against theoretical food cost, recipe costs, vendor price creep, deliveries and credits, counts, waste and 86s (7 agents)"],
+    ["$1,500 · One location", "Bar and menu pack", "Pour cost and liquor variance, menu engineering, discounts and promotions (3 agents)"],
+    ["$1,500 · One location", "Front of house and cash pack", "Voids and comps, discounts, cash drawers, gift cards, no-shows, catering deposits (6 agents)"],
+    ["$2,000 · One location", "Labor pack", "Tip pool and tip credit, overtime and split shifts, schedule against actual, labor by daypart, breaks and minors, set to your state (5 agents)"],
+    ["$1,500 · One location", "Delivery apps and fees pack", "DoorDash, Uber Eats and Grubhub payouts against orders, marketing fees, card processing fees (3 agents)"],
+    ["$1,500 · One location", "Back office pack", "Sales tax by jurisdiction, duplicate invoices and GL coding, utility bills, weekly prime cost (4 agents)"],
+    ["$1,200 · One location", "Compliance calendar pack", "Equipment maintenance, health inspections and permits, food handler cards, allergen matrix (4 agents)"],
+    ["$5,500 · One location", "Whole restaurant", "All 31 single-location agents, mapped to your exports and set to your rules, one training session"],
+    ["$9,500 · 2 to 5 locations", "Small group", "Everything in Whole restaurant for each location, plus the location comparison against the group"],
+    ["$15,000 · Up to 15 locations", "Partner rollout", "For multi-unit groups, franchise operators and accounting firms serving many restaurants: all 32 agents, one shared setup, every location mapped"]
+  ],
+  "support": "Support after setup: $150 a month for one pack, $300 a month for the whole restaurant, $200 a month per location for groups. Includes export changes, rule and rate updates, and a monthly check-in.",
+  "notes": [
+    "Reads the files you export; it does not log in to your POS, scheduling, payroll, delivery-app, reservation, distributor or bank account.",
+    "Wage, tip, overtime, break, tax, inspection and allergen rules are settings you confirm with your accountant, payroll provider or health department; the defaults are examples.",
+    "Column layouts for Toast, Square, 7shifts, Sysco, DoorDash and the other named exports were written from knowledge of those systems; the first setup confirms them on your files.",
+    "Lost-sales and premium figures are estimates from your own numbers, not forecasts.",
+    "Not legal, tax, payroll, health-code or food-safety advice.",
+    "Report pages come in nine languages, translated by Claude and not yet reviewed by native speakers."
+  ],
+  "warn": "Your files and reports stay on your computer. Staff and guest names are masked in anything sent to the AI model. No agent pays, refunds, charges a card, changes the POS, publishes a schedule, runs payroll, files taxes or messages anyone: drafts wait for one named person.",
+  "groups": [
+    ["Food, purchasing and the bar", [
+      ["Actual against theoretical food cost", "What the recipes and sales say you used against what the counts and invoices say you did, per ingredient."],
+      ["Recipe costs at latest invoice prices", "Every plate costed at today's prices, with the menu price that would meet your target."],
+      ["Vendor price creep", "Price per pound or each across invoices, prices over your bid, packs that quietly got smaller."],
+      ["Invoices against deliveries and credit memos", "Shorts and cases refused at the door that were never credited."],
+      ["Inventory count variance", "Counts against expected, priced, and counts that look like the wrong unit."],
+      ["Waste log", "What was thrown out and why, and the days nobody logged anything."],
+      ["Bar pour cost and liquor variance", "Bottles used against drinks sold, per spirit, and pour cost against target."],
+      ["Menu engineering", "Stars, plowhorses, puzzles and dogs from your sales and plate costs."],
+      ["Items 86ed and stockouts", "Items that keep running out, for how long, and what that likely cost."]
+    ]],
+    ["Front of house and cash", [
+      ["Voids and comps by employee", "Self-approved voids, voids after payment, missing reasons, rates against sales."],
+      ["Discounts and promotions", "Promos used after they ended, outside their hours, over their cap, or not on your list."],
+      ["Cash over and short by drawer", "Expected cash against the count and the deposit, and shorts that repeat."],
+      ["Gift card liability", "What you still owe on cards, by location, and cards whose numbers do not add up."],
+      ["Reservation no-shows", "No-show rate, repeat no-shows, large parties with no deposit, fees your policy sets."],
+      ["Catering deposits and balances", "Deposits missing before the event, balances overdue after it, refunds owed."]
+    ]],
+    ["Labor", [
+      ["Tip pool and tip credit", "Pool shares by hours and role, and cash wage plus tips against the minimum for your state."],
+      ["Overtime and split shifts", "Weekly and daily overtime, double time, split shifts, spread of hours and clopens, priced."],
+      ["Scheduled against actual labor", "Early clock-ins, late clock-outs, no-shows and shifts nobody scheduled."],
+      ["Labor percentage by daypart", "Labor against sales for breakfast, lunch, dinner and late night."],
+      ["Meal and rest breaks", "Missed, short and late meals, and minors working too long or too late."]
+    ]],
+    ["Delivery apps, fees, tax and bills", [
+      ["Delivery app payouts against orders", "Commissions over your rate, short payouts, error charges and orders never paid."],
+      ["Delivery app marketing fees", "Ad and promo charges outside the campaigns you opted into, and what each campaign returned."],
+      ["Card processing fees", "Effective rate, markup over your agreement, and fees you never agreed to."],
+      ["Sales tax by jurisdiction", "Tax collected against your rates per location and category, marketplace orders kept apart."],
+      ["Duplicate invoices and GL coding", "Invoices entered twice, line math, and liquor or paper goods coded to food."],
+      ["Utility bills", "Usage spikes, rate jumps, estimated reads, duplicate bills and late fees."]
+    ]],
+    ["Compliance and multi-unit", [
+      ["Equipment maintenance schedule", "Hoods, grease traps, fire suppression and refrigeration overdue or coming up."],
+      ["Health inspection calendar", "Re-inspections due, critical violations not followed up, permits about to expire."],
+      ["Food handler cards", "Missing, expired and expiring cards, and locations without a certified manager."],
+      ["Allergen matrix against recipes", "Allergens in a dish that the matrix does not declare, and free-from claims a recipe breaks."],
+      ["Prime cost", "Weekly food, beverage and labor against sales for each location."],
+      ["Location comparison", "Every location against the group median, on the same measures."]
+    ]]
+  ],
+  "closing": "Each one does one job, on your computer, from a file you export. Nothing is paid, refunded, sent or changed in your POS until a named person on your team says so. Pairs with G6daddy's restaurant-and-bar AI agent: that one talks with your guests, these check the back office."
+}
