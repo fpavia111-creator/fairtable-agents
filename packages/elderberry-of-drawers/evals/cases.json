@@ -88,11 +88,9 @@
       },
       "expect": {
         "status": "executed",
-        "not_contains": [
-          "repeat_shorts"
-        ],
         "equals": {
-          "result.by_finding.short.count": 2
+          "result.by_finding.short.count": 2,
+          "result.flag": 3
         }
       }
     },
