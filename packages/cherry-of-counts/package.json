@@ -1,0 +1,56 @@
+{
+  "name": "cherry-of-counts",
+  "version": "0.1.0",
+  "description": "Cherry of Counts: compares each item's inventory count with what the system expected, prices the difference, and points to counts that look like a unit mistake (cases written as each, pounds as ounces), missing lines and wild swings, with a recount list. Never changes the inventory system.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kurt Francisco",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "cherry-of-counts": "bin/cherry-of-counts.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "evals",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "demo": "node bin/cherry-of-counts.js demo",
+    "eval": "node bin/cherry-of-counts.js eval"
+  },
+  "dependencies": {
+    "fairtable-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
+    "directory": "packages/cherry-of-counts"
+  },
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/cherry-of-counts#readme",
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "inventory-count",
+    "variance",
+    "shrink"
+  ]
+}

@@ -1,0 +1,13 @@
+count_date,location,area,item,counted_qty,expected_qty,unit,unit_cost
+2026-11-08,Main Street,Walk-in,Ground Beef 80/20,30,31,lb,4.80
+2026-11-08,Main Street,Walk-in,Chicken Breast,20,36,lb,3.90
+2026-11-08,Main Street,Walk-in,Cheddar Cheese,4,4.5,lb,5.20
+2026-11-08,Main Street,Walk-in,Heavy Cream,72,6,qt,3.10
+2026-11-08,Main Street,Walk-in,Salmon Fillet,6,10,lb,13.20
+2026-11-08,Main Street,Dry storage,Brioche Bun,134,130,ea,0.45
+2026-11-08,Main Street,Dry storage,Corn Tortilla,200,210,ea,0.06
+2026-11-08,Main Street,Dry storage,Olive Oil,,3,gal,32.00
+2026-11-08,Main Street,Freezer,Frozen Fries,40,41,lb,1.10
+2026-11-08,Main Street,Freezer,Shrimp 21/25,12,12,lb,
+2026-11-08,Main Street,Bar,House Vodka,9,14,bottle,14.00
+2026-11-08,Main Street,Bar,Tequila Blanco,-2,3,bottle,22.00
