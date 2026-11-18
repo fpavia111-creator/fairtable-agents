@@ -37,7 +37,7 @@ npx -y fairtable-delivery-payouts demo   # 배달 앱 정산 대 주문
 
 ## 테스트
 
-Windows와 Node 24에서 테스트 807개와 평가 케이스 703개(에이전트당 21개 이상)가 모두 통과했으며, 악의적 입력 테스트에서도 문제가 발견되지 않았습니다. 자세한 내용은 [REVIEW-ver1.md](REVIEW-ver1.md)를 참고하세요.
+Windows와 Node 24에서 테스트 808개와 평가 케이스 703개(에이전트당 21개 이상)가 모두 통과했으며, 악의적 입력 테스트에서도 문제가 발견되지 않았습니다. 자세한 내용은 [REVIEW-ver1.md](REVIEW-ver1.md)를 참고하세요.
 
 ## 한계
 
