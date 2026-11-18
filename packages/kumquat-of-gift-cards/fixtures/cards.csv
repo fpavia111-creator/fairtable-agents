@@ -1,0 +1,9 @@
+card,holder,issued_date,issued_location,issued_amount,redeemed,balance,last_activity,last_location
+GC-1001,Dana Rivers,2026-02-14,Main Street,100.00,100.00,0.00,2026-03-02,Main Street
+GC-1002,Lee Morgan,2026-05-10,Main Street,50.00,20.00,30.00,2026-06-01,Main Street
+GC-1003,Kim Alvarez,2024-06-20,Main Street,75.00,0.00,75.00,2024-06-20,Main Street
+GC-1004,Pat Quinn,2025-12-20,Harbor Road,200.00,80.00,120.00,2026-01-15,Main Street
+GC-1005,Chris Dale,2026-09-01,Main Street,40.00,55.00,-15.00,2026-10-11,Main Street
+GC-1006,Robin Hale,2026-03-03,Harbor Road,150.00,30.00,100.00,2026-04-05,Harbor Road
+GC-1007,Corporate order,2026-10-01,Main Street,500.00,0.00,500.00,2026-10-01,Main Street
+GC-1008,Alex Nguyen,2023-11-25,Harbor Road,60.00,10.00,50.00,2024-01-05,Harbor Road

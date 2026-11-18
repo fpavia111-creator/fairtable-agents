@@ -1,0 +1,9 @@
+card;Inhaber;issued_date;issued_location;issued_amount;redeemed;Saldo;Letzte Aktivität;last_location
+GC-1001;Dana Rivers;14.02.2026;Main Street;100,00;100,00;0,00;02.03.2026;Main Street
+GC-1002;Lee Morgan;10.05.2026;Main Street;50,00;20,00;30,00;01.06.2026;Main Street
+GC-1003;Kim Alvarez;20.06.2024;Main Street;75,00;0,00;75,00;20.06.2024;Main Street
+GC-1004;Pat Quinn;20.12.2025;Harbor Road;200,00;80,00;120,00;15.01.2026;Main Street
+GC-1005;Chris Dale;01.09.2026;Main Street;40,00;55,00;-15,00;11.10.2026;Main Street
+GC-1006;Robin Hale;03.03.2026;Harbor Road;150,00;30,00;100,00;05.04.2026;Harbor Road
+GC-1007;Corporate order;01.10.2026;Main Street;500,00;0,00;500,00;01.10.2026;Main Street
+GC-1008;Alex Nguyen;25.11.2023;Harbor Road;60,00;10,00;50,00;05.01.2024;Harbor Road
