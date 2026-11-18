@@ -1,0 +1,9 @@
+equipment,type,location,last_service,interval_days,vendor
+Kitchen hood,Hood cleaning,Main Street,2026-07-20,,Example Hood Services
+Grease trap,Grease trap,Main Street,2026-09-10,,Sample Pumping Co
+Ansul system,Fire suppression,Main Street,2026-05-02,,Example Fire Protection
+Ice machine,Ice machine,Main Street,2026-06-01,180,Example Refrigeration
+Walk-in cooler,Refrigeration,Main Street,2026-10-01,,Example Refrigeration
+Reach-in freezer,Refrigeration,Main Street,,,Example Refrigeration
+Fire extinguishers,Fire extinguisher,Main Street,2025-11-20,,Example Fire Protection
+Dish machine,Dish machine,Main Street,2026-10-15,,
