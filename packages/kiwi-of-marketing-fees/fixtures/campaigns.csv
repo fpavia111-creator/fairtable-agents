@@ -1,0 +1,5 @@
+platform,campaign,type,start,end,budget,opted_in
+DoorDash,Sponsored listing Nov wk1,ads,2026-11-01,2026-11-07,12.00,yes
+DoorDash,Spend 30 save 5,promo,2026-11-04,2026-11-30,40.00,yes
+Uber Eats,Buy one get one wings,promo,2026-11-01,2026-11-30,30.00,no
+Uber Eats,Sponsored search,ads,2026-11-01,2026-11-30,20.00,yes
