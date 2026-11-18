@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "mulberry-of-prime-cost": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mulberry-of-prime-cost@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

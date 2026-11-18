@@ -1,0 +1,21 @@
+{
+  "name": "nectarine-of-utilities",
+  "version": "0.1.0",
+  "description": "Electric, gas and water bills per account and location: usage spikes per day against the account's own history, rate jumps, estimated meter reads, bills charged twice, overlapping periods and late fees. Never pays a bill or contacts the utility.",
+  "author": {
+    "name": "Kurt Francisco"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/nectarine-of-utilities#readme",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "utilities",
+    "energy",
+    "bill-audit"
+  ]
+}

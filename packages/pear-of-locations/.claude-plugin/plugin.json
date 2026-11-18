@@ -1,0 +1,21 @@
+{
+  "name": "pear-of-locations",
+  "version": "0.1.0",
+  "description": "Compares every location of a multi-unit group on the same measures (food cost, labor, prime cost, voids, comps, discounts, average check) against the group median, and shows which location is out of line on what. Never changes anything at a location.",
+  "author": {
+    "name": "Kurt Francisco"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/pear-of-locations#readme",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "multi-unit",
+    "benchmarking",
+    "restaurant-group"
+  ]
+}

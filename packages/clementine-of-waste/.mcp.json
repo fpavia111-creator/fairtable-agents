@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "clementine-of-waste": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "clementine-of-waste@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

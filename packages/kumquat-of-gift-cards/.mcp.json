@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "kumquat-of-gift-cards": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "kumquat-of-gift-cards@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

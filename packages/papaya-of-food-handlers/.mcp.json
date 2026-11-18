@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "papaya-of-food-handlers": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "papaya-of-food-handlers@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

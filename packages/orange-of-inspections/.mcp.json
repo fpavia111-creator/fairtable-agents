@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "orange-of-inspections": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "orange-of-inspections@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

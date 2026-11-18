@@ -1,7 +1,7 @@
 # MCP quality checklist for Fairtable agents
 
 The rules below were first written for the Mythos family and are applied here to the
-30 Fairtable freight agents built on `fairtable-core`.
+32 Fairtable restaurant agents built on `fairtable-core`.
 
 ## What the check found on the 30 Fairtable agents (2026-11-16, ver 2)
 

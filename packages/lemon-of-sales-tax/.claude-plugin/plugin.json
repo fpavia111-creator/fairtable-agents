@@ -1,0 +1,21 @@
+{
+  "name": "lemon-of-sales-tax",
+  "version": "0.1.0",
+  "description": "Lemon of Sales Tax: tax collected in the POS against the rates you set for each location and menu category (food, alcohol, grocery, delivery-app orders), with under- and over-collection by jurisdiction and tax-exempt sales to document. Never files a return or pays tax.",
+  "author": {
+    "name": "Kurt Francisco"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/lemon-of-sales-tax#readme",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "sales-tax",
+    "tax-rates",
+    "jurisdiction"
+  ]
+}

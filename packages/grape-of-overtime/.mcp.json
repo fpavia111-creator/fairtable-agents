@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "grape-of-overtime": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "grape-of-overtime@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "coconut-of-pours": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "coconut-of-pours@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

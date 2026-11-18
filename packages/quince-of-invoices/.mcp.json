@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "quince-of-invoices": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "quince-of-invoices@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

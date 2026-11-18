@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0 (unreleased, Fairtable ver 1, 18 Nov 2026)
+
+- Started from lodestar-core (with the 18 Nov Windows fixes). Freight, parcel and X12 code removed.
+- Added restaurant.js (units, pack sizes, shifts, dayparts, name keys), restaurant-sources.js (POS, invoice, recipe, count, timecard, schedule, check-line, delivery-app and reservation vocabularies with named export profiles), table-kit.js (tableAgent, masking of personal fields) and tableDemo.
+- Export catalog, column dictionary (eight languages) and report text (nine languages) rewritten for restaurants.
+
+The entries below are lodestar-core history, kept because the code they describe is shared.
+
 ## Unreleased (MCP quality pass, 2026-11-16)
 
 Added

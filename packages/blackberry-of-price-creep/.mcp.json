@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "blackberry-of-price-creep": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "blackberry-of-price-creep@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

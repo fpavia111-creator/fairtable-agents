@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "peach-of-allergens": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "peach-of-allergens@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

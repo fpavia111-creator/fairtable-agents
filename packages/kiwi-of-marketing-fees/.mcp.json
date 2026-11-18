@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "kiwi-of-marketing-fees": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "kiwi-of-marketing-fees@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "lychee-of-stockouts",
+  "version": "0.1.0",
+  "description": "Reads the 86 log against item sales: items that run out again and again, how long they stay off, what that likely cost in sales, items 86ed before the dinner rush and items never brought back. Never changes 86 status or orders.",
+  "author": {
+    "name": "Kurt Francisco"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/lychee-of-stockouts#readme",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "stockouts",
+    "86",
+    "par-levels"
+  ]
+}

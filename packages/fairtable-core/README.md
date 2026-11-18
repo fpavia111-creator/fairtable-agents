@@ -1,6 +1,6 @@
 # fairtable-core
 
-The shared core for **Fairtable Machine domain agents**: small MCP agents that each own one business process and cannot act outside it.
+The shared core for **Fairtable**, the restaurant, bar and cafe back-office agents by Mythos Machines: small MCP agents that each own one job and cannot act outside it. It started as a copy of lodestar-core (the freight family) with the Windows fixes of 18 November 2026; the freight code was replaced by restaurant helpers.
 
 - **Pack manifest** — name, version, a declared model pin, the tool allowlist and the policy. `defineManifest()` fails closed: an unpinned model (`latest`), a tool without a rule, a write marked `allow`, or a one-click action marked `allow` are rejected at load time.
 - **Talos-style policy** — every tool call gets `allow`, `ask` or `block`. Unknown tools are blocked. The default is block.
@@ -20,6 +20,14 @@ The shared core for **Fairtable Machine domain agents**: small MCP agents that e
 - **Shared helpers** — JSON Schema validation, iCalendar, SARIF 2.1.0, unified diff/patch, Jaro-Winkler and name/address normalisation, entropy, a small ZIP/DOCX reader, and a self-contained HTML page template.
 
 MIT, Node ≥ 20, no runtime dependencies.
+
+## Restaurant helpers and the table-agent kit
+
+Fairtable adds three modules to the shared core:
+
+- `restaurant.js`: kitchen units (oz, lb, g, kg, fl oz, ml, cl, l, cup, tbsp, tsp, pt, qt, gal, each, dozen) and conversions, distributor pack sizes ("6/5 LB", "12/750ML", "8/12 CT") and the price per unit they give, overnight shifts, dayparts, week starts, name keys that match "Rivera, Ana" with "Ana Rivera", median and percentages.
+- `restaurant-sources.js`: shared column vocabularies for POS item sales, invoice lines, recipes, inventory counts, timecards, schedules, voids and comps, delivery-app statements and reservations, with profiles for named exports (Toast, Square, Clover, Lightspeed, Revel, 7shifts, Homebase, MarginEdge, Restaurant365, xtraCHEF, Sysco, US Foods, DoorDash, Uber Eats, Grubhub, OpenTable, Resy). Every layout is marked "recalled": written from knowledge of the export, not checked against a live account.
+- `table-kit.js`: `tableAgent()` builds a whole agent from a short description: a check tool, an explain tool, a report tool (CSV worklist with blank owner and decision columns, HTML page in nine languages), an optional draft and one-click request pair, memory tools with a name-alias kind, and refused tools. It reads every source through the core, keeps only the declared columns, trims values and sorts rows, so a result never depends on row order, column order or stray columns. Fields marked `personal` (staff, guest and client names, phones, emails) are masked in everything returned to the AI model; files written on the customer's machine keep the real values.
 
 ## Install
 
@@ -271,7 +279,7 @@ The manifest declares which host model a pack's prompts and evals target. An MCP
 
 ## Packs built on this core
 
-All 30 Fairtable domain agents in the monorepo, from `achernar-of-returns` to `vega-of-detention`. Source: <https://github.com/fpavia111-creator/fairtable-agents>.
+All 32 Fairtable agents in the monorepo, from `apricot-of-food-cost` to `raspberry-of-breaks`. Source: <https://github.com/fpavia111-creator/fairtable-agents>.
 
 ## License
 

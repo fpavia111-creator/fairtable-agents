@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "nectarine-of-utilities": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "nectarine-of-utilities@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

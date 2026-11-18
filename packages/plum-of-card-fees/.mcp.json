@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "plum-of-card-fees": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "plum-of-card-fees@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

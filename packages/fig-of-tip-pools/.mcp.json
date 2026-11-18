@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fig-of-tip-pools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fig-of-tip-pools@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

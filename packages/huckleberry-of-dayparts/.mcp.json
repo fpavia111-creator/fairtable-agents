@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "huckleberry-of-dayparts": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "huckleberry-of-dayparts@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

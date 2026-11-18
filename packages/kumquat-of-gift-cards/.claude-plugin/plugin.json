@@ -1,0 +1,21 @@
+{
+  "name": "kumquat-of-gift-cards",
+  "version": "0.1.0",
+  "description": "Kumquat of Gift Cards: the outstanding gift card liability from your POS gift card export, by location, with balances that do not add up, negative balances, dormant cards and cards bought at one location and spent at another. Never changes a card or recognises breakage.",
+  "author": {
+    "name": "Kurt Francisco"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/kumquat-of-gift-cards#readme",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "restaurant",
+    "restaurants",
+    "food-service",
+    "fairtable",
+    "gift-cards",
+    "liability",
+    "breakage"
+  ]
+}

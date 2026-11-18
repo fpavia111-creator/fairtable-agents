@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "date-of-discounts": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "date-of-discounts@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

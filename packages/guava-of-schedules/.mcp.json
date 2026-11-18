@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "guava-of-schedules": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "guava-of-schedules@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

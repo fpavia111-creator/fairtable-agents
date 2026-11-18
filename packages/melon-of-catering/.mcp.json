@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "melon-of-catering": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "melon-of-catering@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}

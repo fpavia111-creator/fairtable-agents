@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "jackfruit-of-delivery-payouts": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "jackfruit-of-delivery-payouts@0.1.0",
+        "mcp"
+      ]
+    }
+  }
+}
