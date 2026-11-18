@@ -36,8 +36,8 @@ test('worklist: the page follows the language, the CSV does not, and a translate
   const real = (lang) => { const dir = mkdtempSync(join(tmpdir(), 'wl-')); const ctx = { lang, root: dir, outDir: () => dir, writeFile: (d, name, text) => { const f = join(d, name); writeFileSync(f, text); return f; } }; const w = writeWorklist(ctx, 'out', 'x', { title: 'Waste log', rows: [{ vendor: 'Ridgeline <b>', amount: 5 }], columns: ['vendor', 'amount'], sections: [{ title: 'By vendor', rows: [], columns: ['vendor'] }], limits: ['A limit.'] }); return { html: readFileSync(join(dir, 'x.html'), 'utf8'), csv: readFileSync(join(dir, 'x.csv'), 'utf8'), sha: w.output_sha256 }; };
   const en = real('en'), ko = real('ko');
   assert.equal(ko.csv, en.csv);
-  assert.match(en.html, /<html lang="en"/); assert.match(en.html, /<h1>Freight bill audit<\/h1>/); assert.match(en.html, /<th[^>]*>carrier<\/th>/); assert.doesNotMatch(en.html, /translated by Claude/);
-  assert.match(ko.html, /<html lang="ko"/); assert.match(ko.html, /<h1>운임 청구서 감사<\/h1>/); assert.match(ko.html, /<h2>운송사별<\/h2>/); assert.match(ko.html, /<th[^>]*>운송사<\/th><th[^>]*>금액<\/th>/); assert.match(ko.html, /<h2>한계<\/h2>/);
+  assert.match(en.html, /<html lang="en"/); assert.match(en.html, /<h1>Waste log<\/h1>/); assert.match(en.html, /<th[^>]*>vendor<\/th>/); assert.doesNotMatch(en.html, /translated by Claude/);
+  assert.match(ko.html, /<html lang="ko"/); assert.match(ko.html, /<h1>폐기 기록<\/h1>/); assert.match(ko.html, /<h2>공급업체별<\/h2>/); assert.match(ko.html, /<th[^>]*>공급업체<\/th><th[^>]*>금액<\/th>/); assert.match(ko.html, /<h2>한계<\/h2>/);
   assert.match(ko.html, /Claude가 번역/); assert.match(ko.html, /Ridgeline &lt;b&gt;/); assert.match(ko.html, /A limit\./);
   for (const l of LANGS) assert.match(real(l).html, /<h1>/);
 });
