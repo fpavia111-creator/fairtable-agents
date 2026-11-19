@@ -5,7 +5,8 @@
 // and reservation exports; none was checked against a live account. A restaurant can
 // name columns by hand in fairtable-sources.json.
 //
-// personal: true marks a field that holds a person's name or contact details. The
+// personal: true marks a field that holds a person's name or contact details; a label
+// (personal: 'id' for an employee number) masks an identifier as id#.... The
 // agents mask those values in every result returned to the AI model; the report and
 // draft files written on your machine keep the real values.
 import { exportProfile, fullName } from './exports.js';
@@ -97,7 +98,7 @@ export const COUNT_PROFILES = Object.freeze([
 
 export const PUNCH_FIELDS = Object.freeze({
   employee: t(['Employee', 'Employee Name', 'Team Member', 'Name', 'Staff', 'Staff Name'], { required: true, personal: true }),
-  employee_id: t(['Employee Id', 'Employee ID', 'Employee Number', 'Emp #', 'Payroll ID', 'Staff ID']),
+  employee_id: t(['Employee Id', 'Employee ID', 'Employee Number', 'Emp #', 'Payroll ID', 'Staff ID'], { personal: 'id' }),
   role: t(['Job Title', 'Role', 'Job', 'Position', 'Department', 'Job Code']),
   location: t(['Location', 'Store', 'Restaurant', 'Unit']),
   clock_in: t(['In Date', 'Clock In', 'Clock in', 'Clock-in', 'Start', 'Time In', 'Punch In'], { type: 'datetime' }),

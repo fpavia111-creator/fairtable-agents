@@ -61,8 +61,8 @@
       "expect": {
         "status": "executed",
         "contains": [
-          "food handler card FH-1002 expired on 2026-06-20",
-          "FPM-201 expires 2026-12-01, in 16 days"
+          "food handler card cert#cbd6fc expired on 2026-06-20",
+          "cert#795db8 expires 2026-12-01, in 16 days"
         ]
       }
     },

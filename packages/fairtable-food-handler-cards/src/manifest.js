@@ -14,7 +14,7 @@ const ROSTER_FIELDS = {
 const CERT_FIELDS = {
   employee: t(['Employee', 'Name', 'Holder', 'Team Member'], { required: true, personal: true }),
   cert_type: t(['Cert Type', 'Certificate', 'Type', 'Course', 'Card Type']),
-  number: t(['Number', 'Certificate Number', 'Card Number', 'ID']),
+  number: t(['Number', 'Certificate Number', 'Card Number', 'ID'], { personal: 'cert' }),
   issued: t(['Issued', 'Issue Date', 'Completed'], { type: 'date' }),
   expires: t(['Expires', 'Expiry', 'Expiration Date', 'Valid Until'], { type: 'date' }),
 };

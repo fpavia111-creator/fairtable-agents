@@ -51,10 +51,12 @@ const SETTINGS_ARG = { type: 'string', description: 'Optional settings JSON unde
 const initials = (v) => { const s = displayName(v); const w = s.split(/\s+/).filter(Boolean); return w.length ? w.map((x) => x[0].toUpperCase()).join('.') + '.' : '?'; };
 const escRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-/** A stable masked token for a personal value: "A.R.#3f9a2c" for a name, "email#..." or "phone#..." for contact details. */
-export function maskToken(v) {
+/** A stable masked token for a personal value: "A.R.#3f9a2c" for a name, "email#..." or "phone#..." for contact details,
+ *  "<label>#..." for a field marked with a label (personal: 'card' gives "card#..." for a gift card number). */
+export function maskToken(v, label) {
   const s = str(v);
   if (!s) return s;
+  if (typeof label === 'string' && /^[a-z]{2,12}$/.test(label)) return `${label}#${sha256(s).slice(0, 6)}`;
   if (/@/.test(s)) return `email#${sha256(s.toLowerCase()).slice(0, 6)}`;
   if ((s.match(/\d/g) || []).length >= 6) return `phone#${sha256(s.replace(/\D/g, '')).slice(0, 6)}`;
   return `${initials(s)}#${sha256(personKey(s)).slice(0, 6)}`;
@@ -63,9 +65,9 @@ export function maskToken(v) {
 /** Collects personal values while files are read, then masks them in any result. */
 class Masker {
   constructor() { this.values = new Map(); this.re = null; }
-  add(v) {
+  add(v, label) {
     const s = str(v); if (s.length < 2) return;
-    const tok = maskToken(s);
+    const tok = maskToken(s, label);
     for (const form of new Set([s, displayName(s)])) if (form.length >= 2 && !this.values.has(form)) { this.values.set(form, tok); this.re = null; }
   }
   /** The real values behind a token or a name, for lookups. */
@@ -135,7 +137,7 @@ export function tableAgent(cfg) {
   const { pkg, prefix } = cfg;
   const OUT = `fairtable-out/${prefix}`;
   const sources = cfg.sources || {};
-  const personalFields = Object.entries(sources).flatMap(([kind, s]) => Object.entries(s.fields).filter(([, fd]) => fd && fd.personal).map(([f]) => [kind, f]));
+  const personalFields = Object.entries(sources).flatMap(([kind, s]) => Object.entries(s.fields).filter(([, fd]) => fd && fd.personal).map(([f, fd]) => [kind, f, fd.personal]));
   const hasPersonal = personalFields.length > 0;
   const memKinds = cfg.memory ? { [cfg.memory.kind]: {
     description: cfg.memory.description,
@@ -154,7 +156,7 @@ export function tableAgent(cfg) {
       if (!arg) { rows[kind] = []; continue; }
       const names = Object.keys(s.fields);
       let list = ctx.records(a[arg], kind).map((r) => project(r, s.fields)).filter((r) => names.some((f) => r[f] !== null));
-      for (const [k, f] of personalFields) if (k === kind) for (const r of list) if (r[f]) masker.add(r[f]);
+      for (const [k, f, label] of personalFields) if (k === kind) for (const r of list) if (r[f]) masker.add(r[f], label);
       if (cfg.memory && cfg.memory.fields && cfg.memory.fields[kind]) {
         for (const fact of facts) {
           const want = nameKey(fact.value.name); let hit = 0;

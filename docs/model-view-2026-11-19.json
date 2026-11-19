@@ -1,0 +1,480 @@
+[
+  {
+    "agent": "fairtable-allergen-matrix",
+    "masked": [],
+    "text_in_clear": [
+      "allergens",
+      "free_from",
+      "ingredient",
+      "item",
+      "recipe"
+    ],
+    "free_text_in_clear": [
+      "allergens",
+      "free_from",
+      "ingredient",
+      "item",
+      "recipe"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-card-fees",
+    "masked": [],
+    "text_in_clear": [
+      "fee_name",
+      "fee_type",
+      "location",
+      "month"
+    ],
+    "free_text_in_clear": [
+      "fee_name"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-cash-drawers",
+    "masked": [
+      "employee"
+    ],
+    "text_in_clear": [
+      "drawer"
+    ],
+    "free_text_in_clear": [
+      "drawer"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-catering-deposits",
+    "masked": [
+      "client"
+    ],
+    "text_in_clear": [
+      "event_id",
+      "location",
+      "method",
+      "status",
+      "type"
+    ],
+    "free_text_in_clear": [
+      "method",
+      "status",
+      "type"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-delivery-marketing",
+    "masked": [],
+    "text_in_clear": [
+      "campaign",
+      "order_id",
+      "platform",
+      "type"
+    ],
+    "free_text_in_clear": [
+      "campaign",
+      "type"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-delivery-payouts",
+    "masked": [],
+    "text_in_clear": [
+      "order_id",
+      "platform",
+      "type"
+    ],
+    "free_text_in_clear": [
+      "type"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-discounts-promos",
+    "masked": [
+      "approver",
+      "employee"
+    ],
+    "text_in_clear": [
+      "days",
+      "hours",
+      "item",
+      "name",
+      "time",
+      "type"
+    ],
+    "free_text_in_clear": [
+      "item",
+      "name",
+      "type"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-duplicate-invoices",
+    "masked": [],
+    "text_in_clear": [
+      "gl_account",
+      "invoice_number",
+      "item",
+      "vendor"
+    ],
+    "free_text_in_clear": [
+      "gl_account",
+      "item",
+      "vendor"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-equipment-maintenance",
+    "masked": [],
+    "text_in_clear": [
+      "equipment",
+      "kind",
+      "location",
+      "type",
+      "vendor"
+    ],
+    "free_text_in_clear": [
+      "equipment",
+      "kind",
+      "type",
+      "vendor"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-food-cost",
+    "masked": [],
+    "text_in_clear": [
+      "ingredient",
+      "invoice_number",
+      "item",
+      "recipe",
+      "unit"
+    ],
+    "free_text_in_clear": [
+      "ingredient",
+      "item",
+      "recipe"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-food-handler-cards",
+    "masked": [
+      "employee",
+      "number (cert#…)"
+    ],
+    "text_in_clear": [
+      "cert_type",
+      "location",
+      "role",
+      "status"
+    ],
+    "free_text_in_clear": [
+      "cert_type",
+      "role",
+      "status"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-gift-cards",
+    "masked": [
+      "card (card#…)",
+      "holder"
+    ],
+    "text_in_clear": [
+      "issued_location",
+      "last_location"
+    ],
+    "free_text_in_clear": [],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-health-inspections",
+    "masked": [],
+    "text_in_clear": [
+      "location",
+      "number",
+      "permit"
+    ],
+    "free_text_in_clear": [
+      "permit"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-inventory-counts",
+    "masked": [],
+    "text_in_clear": [
+      "area",
+      "item",
+      "location",
+      "unit"
+    ],
+    "free_text_in_clear": [
+      "area",
+      "item"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-labor-dayparts",
+    "masked": [
+      "employee",
+      "employee_id (id#…)"
+    ],
+    "text_in_clear": [],
+    "free_text_in_clear": [],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-location-comparison",
+    "masked": [],
+    "text_in_clear": [
+      "location"
+    ],
+    "free_text_in_clear": [],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-meal-breaks",
+    "masked": [
+      "employee",
+      "employee_id (id#…)"
+    ],
+    "text_in_clear": [],
+    "free_text_in_clear": [],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-menu-engineering",
+    "masked": [],
+    "text_in_clear": [
+      "category",
+      "item"
+    ],
+    "free_text_in_clear": [
+      "category",
+      "item"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-no-shows",
+    "masked": [
+      "email",
+      "guest",
+      "phone"
+    ],
+    "text_in_clear": [
+      "source"
+    ],
+    "free_text_in_clear": [
+      "source"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-overtime",
+    "masked": [
+      "employee",
+      "employee_id (id#…)"
+    ],
+    "text_in_clear": [
+      "role"
+    ],
+    "free_text_in_clear": [
+      "role"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-pour-cost",
+    "masked": [],
+    "text_in_clear": [
+      "ingredient",
+      "item",
+      "recipe",
+      "unit"
+    ],
+    "free_text_in_clear": [
+      "ingredient",
+      "item",
+      "recipe"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-price-creep",
+    "masked": [],
+    "text_in_clear": [
+      "item",
+      "pack",
+      "vendor"
+    ],
+    "free_text_in_clear": [
+      "item",
+      "vendor"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-prime-cost",
+    "masked": [],
+    "text_in_clear": [
+      "location"
+    ],
+    "free_text_in_clear": [],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-receiving-credits",
+    "masked": [
+      "received_by"
+    ],
+    "text_in_clear": [
+      "credit_number",
+      "invoice_number",
+      "item",
+      "note",
+      "vendor"
+    ],
+    "free_text_in_clear": [
+      "item",
+      "note",
+      "vendor"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-recipe-costs",
+    "masked": [],
+    "text_in_clear": [
+      "category",
+      "ingredient",
+      "item",
+      "pack",
+      "recipe",
+      "unit"
+    ],
+    "free_text_in_clear": [
+      "category",
+      "ingredient",
+      "item",
+      "recipe"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-sales-tax",
+    "masked": [],
+    "text_in_clear": [
+      "category",
+      "channel",
+      "location"
+    ],
+    "free_text_in_clear": [
+      "category",
+      "channel"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-schedule-vs-actual",
+    "masked": [
+      "employee",
+      "employee_id (id#…)"
+    ],
+    "text_in_clear": [
+      "role"
+    ],
+    "free_text_in_clear": [
+      "role"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-stockouts",
+    "masked": [],
+    "text_in_clear": [
+      "back_at",
+      "item",
+      "out_at",
+      "reason"
+    ],
+    "free_text_in_clear": [
+      "item",
+      "reason"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-tip-pooling",
+    "masked": [
+      "employee",
+      "employee_id (id#…)"
+    ],
+    "text_in_clear": [
+      "role"
+    ],
+    "free_text_in_clear": [
+      "role"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-utility-bills",
+    "masked": [],
+    "text_in_clear": [
+      "account",
+      "location",
+      "read_type",
+      "unit",
+      "utility"
+    ],
+    "free_text_in_clear": [
+      "account"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-voids-comps",
+    "masked": [
+      "approver",
+      "employee"
+    ],
+    "text_in_clear": [
+      "reason",
+      "time",
+      "type"
+    ],
+    "free_text_in_clear": [
+      "reason",
+      "type"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  },
+  {
+    "agent": "fairtable-waste-log",
+    "masked": [
+      "employee"
+    ],
+    "text_in_clear": [
+      "item",
+      "reason",
+      "unit"
+    ],
+    "free_text_in_clear": [
+      "item",
+      "reason"
+    ],
+    "plus": "amounts, quantities, dates, rates and finding codes in clear"
+  }
+]

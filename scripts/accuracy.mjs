@@ -58,7 +58,8 @@ async function runCheck(manifest, prefix, files, dir, tables) {
 const keyOf = (i) => String(Object.values(i)[0] ?? '');
 function matcher(spec) {
   const [name, sub] = spec.split(' @ ');
-  return (i) => (keyOf(i) === name || keyOf(i) === maskToken(name)) && (sub === undefined || String(i.sub ?? '') === sub);
+  const labelled = (k) => { const m = /^([a-z]{2,12})#[0-9a-f]{6}$/.exec(k); return m ? k === maskToken(name, m[1]) : false; };
+  return (i) => (keyOf(i) === name || keyOf(i) === maskToken(name) || labelled(keyOf(i))) && (sub === undefined || String(i.sub ?? '') === sub);
 }
 const pairs = (items) => items.flatMap((i) => i.findings.map((f) => ({ item: keyOf(i), sub: i.sub, code: f.code })));
 

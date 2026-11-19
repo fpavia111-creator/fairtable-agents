@@ -5,7 +5,7 @@ import { giftCards, DEFAULTS } from './logic.js';
 const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 const t = (aliases, extra = {}) => ({ aliases, ...extra });
 const CARD_FIELDS = {
-  card: t(['Card', 'Card Number', 'Gift Card', 'Card ID', 'GAN'], { required: true }),
+  card: t(['Card', 'Card Number', 'Gift Card', 'Card ID', 'GAN'], { required: true, personal: 'card' }),
   holder: t(['Holder', 'Customer', 'Purchaser', 'Name', 'Recipient'], { personal: true }),
   issued_date: t(['Issued Date', 'Activation Date', 'Sold Date', 'Purchase Date', 'Issued'], { type: 'date' }),
   issued_location: t(['Issued Location', 'Sold At', 'Activation Location', 'Location']),
