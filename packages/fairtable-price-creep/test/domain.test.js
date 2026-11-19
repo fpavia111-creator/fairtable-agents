@@ -34,9 +34,19 @@ test('a price over the bid inside its dates is flagged; an expired bid is ignore
   assert.equal(one(old).status, 'ok');
 });
 
-test('three rises in a row are steady creep', () => {
-  const r = priceCreep({ invoices: [l('2026-10-01', 50), l('2026-10-08', 50.5), l('2026-10-15', 51), l('2026-10-22', 51.5)] }, DEFAULTS);
+test('three rises in a row up to the latest, adding up to 5% or more, are steady creep', () => {
+  const r = priceCreep({ invoices: [l('2026-10-01', 50), l('2026-10-08', 51), l('2026-10-15', 52), l('2026-10-22', 53)] }, DEFAULTS);
   assert.ok(one(r).findings.some((f) => f.code === 'steady_creep'));
+});
+
+test('three small rises that add up to 3% are not creep', () => {
+  const r = priceCreep({ invoices: [l('2026-10-01', 50), l('2026-10-08', 50.5), l('2026-10-15', 51), l('2026-10-22', 51.5)] }, DEFAULTS);
+  assert.ok(!one(r).findings.some((f) => f.code === 'steady_creep'));
+});
+
+test('rises that a later drop undid are not creep', () => {
+  const r = priceCreep({ invoices: [l('2026-10-01', 50), l('2026-10-08', 52), l('2026-10-15', 54), l('2026-10-22', 56), l('2026-10-29', 49)] }, DEFAULTS);
+  assert.ok(!one(r).findings.some((f) => f.code === 'steady_creep'));
 });
 
 test('the same item from two vendors is followed separately', () => {

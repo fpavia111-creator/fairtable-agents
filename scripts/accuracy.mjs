@@ -96,7 +96,7 @@ for (const n of agents) {
     for (const [f, t] of Object.entries(clean)) {
       const want = tableText(t); const p = join(cdir, f);
       if (write) { mkdirSync(cdir, { recursive: true }); writeFileSync(p, want); }
-      else if (!existsSync(p) || readFileSync(p, 'utf8') !== want) { console.log(`${n}: fixtures/clean/${f} is out of date (run with --write)`); problems++; }
+      else if (!existsSync(p) || readFileSync(p, 'utf8').replace(/\r\n/g, '\n') !== want) { console.log(`${n}: fixtures/clean/${f} is out of date (run with --write)`); problems++; }
     }
     if (write) writeFileSync(join(cdir, 'README.md'), `# Clean set\n\nThe demo files with every planted problem in [../README.md](../README.md) removed and nothing else changed, made by \`scripts/accuracy.mjs\` from \`scripts/accuracy-specs.mjs\` in the repository. The check must report no findings on these files (settings: \`../settings.json\`). Fictional data.\n`);
     r.clean_rows = Object.values(clean).reduce((t, x) => t + x.rows.length, 0);

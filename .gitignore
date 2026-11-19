@@ -5,3 +5,4 @@ fairtable-out/
 .npmrc
 mcp-conformance.json
 scratch/
+_realdata/
