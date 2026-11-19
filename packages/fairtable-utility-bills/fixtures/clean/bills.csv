@@ -1,0 +1,13 @@
+account,utility,location,period_start,period_end,usage,unit,amount,read_type,late_fee
+EL-4410,Electric,Main Street,2026-06-01,2026-06-30,9000,kWh,1530.00,actual,0
+EL-4410,Electric,Main Street,2026-07-01,2026-07-31,9300,kWh,1581.00,actual,0
+EL-4410,Electric,Main Street,2026-08-01,2026-08-31,9200,kWh,1564.00,actual,0
+EL-4410,Electric,Main Street,2026-09-01,2026-09-30,8900,kWh,1513.00,actual,0
+EL-4410,Electric,Main Street,2026-10-01,2026-10-31,9100,kWh,1547.00,actual,0
+GS-2020,Gas,Main Street,2026-07-01,2026-07-31,610,therm,640.50,actual,0
+GS-2020,Gas,Main Street,2026-08-01,2026-08-31,600,therm,630.00,actual,0
+GS-2020,Gas,Main Street,2026-09-01,2026-09-30,590,therm,619.50,actual,0
+GS-2020,Gas,Main Street,2026-10-01,2026-10-31,620,therm,651.00,actual,0
+WT-7781,Water,Harbor Road,2026-08-01,2026-08-31,41000,gal,410.00,actual,0
+WT-7781,Water,Harbor Road,2026-09-01,2026-09-30,40500,gal,405.00,actual,0
+WT-7781,Water,Harbor Road,2026-10-01,2026-10-31,42000,gal,420.00,actual,0

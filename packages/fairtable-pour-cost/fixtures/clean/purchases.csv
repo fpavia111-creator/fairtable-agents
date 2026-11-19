@@ -1,0 +1,5 @@
+vendor,invoice_number,invoice_date,item,pack,qty,unit_price,extended
+Sample Beverage Co,SB-3001,2026-11-03,Tequila Blanco,12/750ML,1,264.00,264.00
+Sample Beverage Co,SB-3001,2026-11-03,Triple Sec,6/750ML,1,54.00,54.00
+Sample Beverage Co,SB-3001,2026-11-03,Bourbon,6/750ML,1,168.00,168.00
+Sample Beverage Co,SB-3001,2026-11-03,House Vodka,6/1 L,1,84.00,84.00

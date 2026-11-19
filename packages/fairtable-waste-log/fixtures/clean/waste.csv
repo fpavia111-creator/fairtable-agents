@@ -1,0 +1,9 @@
+date,location,item,qty,unit,unit_cost,value,reason,employee,shift
+2026-11-02,Main Street,Fries,4,lb,1.10,,overproduction,Jordan Lee,PM
+2026-11-03,Main Street,Salmon Fillet,1,lb,13.20,,dropped,Casey Morgan,PM
+2026-11-04,Main Street,Romaine,3,lb,2.10,,spoiled,Jordan Lee,AM
+2026-11-06,Main Street,Brioche Bun,24,ea,0.45,,stale,Riley Chen,AM
+2026-11-07,Main Street,House Soup,1,batch,12.00,,overproduction,Casey Morgan,PM
+2026-11-08,Main Street,Fries,4,lb,1.10,,overproduction,Jordan Lee,PM
+2026-11-08,Main Street,Chicken Breast,3,lb,3.90,,expired,Riley Chen,AM
+2026-11-05,Main Street,Romaine,1,lb,2.10,,spoiled,Jordan Lee,AM

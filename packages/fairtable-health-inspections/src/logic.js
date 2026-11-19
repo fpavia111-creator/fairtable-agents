@@ -21,7 +21,7 @@ export function inspections({ inspections: rows = [], permits = [] }, s = DEFAUL
     if (scored.length >= 2) { const a = num(scored.at(-2).score), b = num(scored.at(-1).score); if (a - b >= s.score_drop_points) f.push(finding('score_drop', `${loc}: score fell from ${a} to ${b}.`)); }
     const routine = list.filter((r) => /routine/i.test(str(r.type))).at(-1);
     const nextRoutine = routine ? addDays(routine.date, s.routine_interval_days) : null; const toNext = nextRoutine ? daysBetween(asOf, nextRoutine) : null;
-    if (toNext !== null && toNext <= s.routine_warn_days) f.push(finding('routine_due', `${loc}: last routine inspection ${isoDate(routine.date)}; at about every ${s.routine_interval_days} days the next could come around ${nextRoutine}. Walk the kitchen with the inspection form before then.`));
+    if (toNext !== null && toNext <= s.routine_warn_days) f.push(finding('routine_due', `${loc}: last routine inspection ${isoDate(routine.date)}; at about every ${s.routine_interval_days} days ${toNext < 0 ? `the next was expected around ${nextRoutine}, ${-toNext} days ago, and could come any day` : `the next could come around ${nextRoutine}`}. Walk the kitchen with the inspection form before then.`));
     items.push({ item: `${loc} | inspections`, location: loc, kind: 'inspections', last_inspection: lastDate, last_score: num(last.score), next_date: nextRoutine, days_left: toNext, status: statusOf(f, LEVELS), findings: f });
   }
   for (const p of [...permits].sort((a, b) => cmp(`${nameKey(a.location)}|${nameKey(a.permit)}`, `${nameKey(b.location)}|${nameKey(b.permit)}`))) {

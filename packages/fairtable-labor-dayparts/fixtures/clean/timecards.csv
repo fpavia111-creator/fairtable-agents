@@ -1,0 +1,9 @@
+employee,role,location,clock_in,clock_out,break_minutes,rate
+Jordan Lee,Line Cook,Main Street,2026-11-03T10:00,2026-11-03T18:00,0,18.00
+Casey Morgan,Prep Cook,Main Street,2026-11-03T07:00,2026-11-03T11:00,0,17.00
+Avery Stone,Server,Main Street,2026-11-03T11:00,2026-11-03T15:00,0,2.13
+Jamie Ortiz,Server,Main Street,2026-11-03T11:00,2026-11-03T17:00,0,2.13
+Taylor Brooks,Host,Main Street,2026-11-03T11:00,2026-11-03T17:00,0,12.00
+Sam Patel,Sous Chef,Main Street,2026-11-03T14:00,2026-11-03T22:00,0,24.00
+Riley Chen,Dishwasher,Main Street,2026-11-03T16:00,2026-11-03T22:00,0,16.00
+Morgan Blake,Bartender,Main Street,2026-11-03T16:00,2026-11-03T22:00,0,5.00

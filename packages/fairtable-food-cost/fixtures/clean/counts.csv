@@ -1,0 +1,23 @@
+count_date,item,counted_qty,unit,unit_cost,area
+2026-11-01,Ground Beef 80/20,40,lb,4.80,Walk-in
+2026-11-08,Ground Beef 80/20,37.5,lb,4.80,Walk-in
+2026-11-01,Brioche Bun,120,ea,0.45,Dry storage
+2026-11-08,Brioche Bun,134,ea,0.45,Dry storage
+2026-11-01,Cheddar Cheese,10,lb,5.20,Walk-in
+2026-11-08,Cheddar Cheese,16.25,lb,5.20,Walk-in
+2026-11-01,Chicken Breast,30,lb,3.90,Walk-in
+2026-11-08,Chicken Breast,39.17,lb,3.90,Walk-in
+2026-11-01,Romaine,15,lb,2.10,Walk-in
+2026-11-08,Romaine,11.88,lb,2.10,Walk-in
+2026-11-01,Parmesan,5,lb,12.00,Walk-in
+2026-11-08,Parmesan,2.2,lb,12.00,Walk-in
+2026-11-01,Anchovy Paste,40,oz,1.75,Dry storage
+2026-11-08,Anchovy Paste,17.5,oz,1.75,Dry storage
+2026-11-01,Cod Fillet,12,lb,9.50,Freezer
+2026-11-08,Cod Fillet,7,lb,9.50,Freezer
+2026-11-01,Corn Tortilla,300,ea,0.06,Dry storage
+2026-11-08,Corn Tortilla,180,ea,0.06,Dry storage
+2026-11-01,Lemons,40,ea,0.25,Walk-in
+2026-11-01,Frozen Fries,60,lb,1.10,Freezer
+2026-11-08,Frozen Fries,67.5,lb,1.10,Freezer
+2026-11-08,Lemons,175,ea,0.25,Walk-in

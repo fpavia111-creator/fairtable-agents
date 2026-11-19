@@ -1,0 +1,15 @@
+month,location,card_brand,volume,transactions,fee_name,fee_type,amount
+2026-09,Main Street,Visa,92000.00,2300,Interchange,interchange,1610.00
+2026-09,Main Street,Mastercard,48000.00,1200,Interchange,interchange,864.00
+2026-09,Main Street,All,,,Assessments,assessment,182.00
+2026-09,Main Street,All,,,Processor markup,markup,700.00
+2026-09,Main Street,All,,,Monthly service fee,monthly,25.00
+2026-10,Main Street,Visa,95000.00,2380,Interchange,interchange,1662.50
+2026-10,Main Street,Mastercard,47000.00,1170,Interchange,interchange,846.00
+2026-10,Main Street,All,,,Assessments,assessment,185.00
+2026-10,Main Street,All,,,Processor markup,markup,775.00
+2026-10,Main Street,All,,,Monthly service fee,monthly,25.00
+2026-10,Harbor Road,Visa,61000.00,1600,Interchange,interchange,1067.50
+2026-10,Harbor Road,All,,,Assessments,assessment,80.00
+2026-10,Harbor Road,All,,,Processor markup,markup,343.00
+2026-10,Harbor Road,All,,,Monthly service fee,monthly,25.00

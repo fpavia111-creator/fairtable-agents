@@ -22,6 +22,11 @@ test('an item out before the rush is watched', () => {
   assert.equal(one(r).findings[0].code, 'early_86');
 });
 
+test('an item back before the rush is not watched', () => {
+  const r = stockouts({ eighty_six: [e('2026-11-03', '14:00', '15:00')], sales }, DEFAULTS);
+  assert.equal(one(r).findings.length, 0); assert.equal(one(r).status, 'ok');
+});
+
 test('no time back counts until closing and is reviewed', () => {
   const r = stockouts({ eighty_six: [e('2026-11-03', '21:00', '')], sales }, DEFAULTS);
   assert.equal(one(r).hours_out, 1); assert.ok(one(r).findings.some((f) => f.code === 'never_returned'));

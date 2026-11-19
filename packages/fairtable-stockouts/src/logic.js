@@ -22,12 +22,12 @@ export function stockouts({ eighty_six = [], sales = [] }, s = DEFAULTS) {
       if (back === null) { open.push(isoDate(r.date)); back = close; }
       const hrs = Math.max(0, (back - out) / 60); hours += hrs;
       if (hrs >= s.long_hours) longOnes.push(`${isoDate(r.date)} from ${str(r.out_at)} (${round2(hrs)} h)`);
-      if (peak !== null && out < peak) early.push(`${isoDate(r.date)} at ${str(r.out_at)}`);
+      if (peak !== null && out < peak && back > peak) early.push(`${isoDate(r.date)} at ${str(r.out_at)}`);
     }
     const lost = perHour === null ? null : round2(perHour * hours);
     if (e.list.length >= s.repeat_count) f.push(finding('repeated_86', `${e.item} was 86ed ${e.list.length} times in this period: the par or the prep for it is too low.`, lost));
     if (longOnes.length) f.push(finding('long_86', `${e.item} was off for ${s.long_hours} hours or more: ${longOnes.join('; ')}.${perHour !== null ? ` At about ${round2(perHour)} an hour in sales, roughly ${lost} in lost sales over all its outages (an estimate).` : ''}`, lost));
-    if (early.length) f.push(finding('early_86', `${e.item} ran out before the ${s.peak_start} rush: ${early.join('; ')}.`));
+    if (early.length) f.push(finding('early_86', `${e.item} ran out before the ${s.peak_start} rush and was still off when it started: ${early.join('; ')}.`));
     if (open.length) f.push(finding('never_returned', `${e.item} has no time back on ${open.join(', ')}; it is counted as off until ${s.close_time}. Check the item came back the next day.`));
     if (!h) f.push(finding('no_sales_history', `${e.item} is not in the sales file, so lost sales cannot be estimated.`));
     hoursAll += hours; if (lost) lostAll += lost;

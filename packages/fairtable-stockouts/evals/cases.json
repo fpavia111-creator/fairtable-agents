@@ -19,8 +19,8 @@
           "result.hours_out": 13.92,
           "result.lost_sales_estimate": 700.55,
           "result.flag": 2,
-          "result.watch": 1,
-          "result.ok": 1
+          "result.watch": 0,
+          "result.ok": 2
         }
       }
     },
@@ -160,8 +160,8 @@
           "result.hours_out": 13.92,
           "result.lost_sales_estimate": 700.55,
           "result.flag": 2,
-          "result.watch": 1,
-          "result.ok": 1
+          "result.watch": 0,
+          "result.ok": 2
         }
       },
       "generated": true
@@ -186,8 +186,8 @@
           "result.hours_out": 13.92,
           "result.lost_sales_estimate": 700.55,
           "result.flag": 2,
-          "result.watch": 1,
-          "result.ok": 1
+          "result.watch": 0,
+          "result.ok": 2
         }
       },
       "generated": true
@@ -349,8 +349,8 @@
           "result.hours_out": 13.92,
           "result.lost_sales_estimate": 700.55,
           "result.flag": 2,
-          "result.watch": 1,
-          "result.ok": 1
+          "result.watch": 0,
+          "result.ok": 2
         }
       },
       "note": "German export of the same data (fixtures/intl/de); must match the English case \"stockout-totals\"."
@@ -371,8 +371,8 @@
           "result.hours_out": 13.92,
           "result.lost_sales_estimate": 700.55,
           "result.flag": 2,
-          "result.watch": 1,
-          "result.ok": 1
+          "result.watch": 0,
+          "result.ok": 2
         }
       },
       "note": "Japanese export of the same data (fixtures/intl/ja); must match the English case \"stockout-totals\"."

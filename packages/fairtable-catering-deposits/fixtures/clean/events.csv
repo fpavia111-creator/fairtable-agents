@@ -1,0 +1,6 @@
+event_id,client,location,booked_date,event_date,guests,total,deposit_pct,status,cancelled_date
+EV-301,Harbor Book Club,Main Street,2026-09-15,2026-10-20,30,2400.00,25,completed,
+EV-302,Quinn Wedding Party,Main Street,2026-08-01,2026-11-28,80,9600.00,30,booked,
+EV-303,Example Tech Offsite,Harbor Road,2026-10-01,2026-11-10,45,3150.00,25,completed,
+EV-304,Ridge School PTA,Main Street,2026-10-05,2026-12-12,60,3000.00,25,booked,
+EV-306,North Rotary Lunch,Main Street,2026-10-10,2026-11-05,25,1250.00,25,completed,

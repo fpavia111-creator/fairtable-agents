@@ -1,0 +1,11 @@
+platform,order_id,date,location,subtotal,commission,marketing_fee,promo_funded,payout
+DoorDash,DD-2001,2026-11-02,Main Street,42.00,6.30,3.00,0.00,32.70
+DoorDash,DD-2002,2026-11-03,Main Street,55.00,8.25,3.00,0.00,43.75
+DoorDash,DD-2003,2026-11-04,Main Street,38.00,5.70,3.00,5.00,24.30
+DoorDash,DD-2004,2026-11-05,Main Street,61.00,9.15,3.00,5.00,43.85
+DoorDash,DD-2005,2026-11-06,Main Street,47.00,7.05,0.00,5.00,34.95
+DoorDash,DD-2006,2026-11-09,Main Street,52.00,7.80,0.00,0.00,44.20
+Uber Eats,UE-6001,2026-11-03,Main Street,36.00,5.40,0.00,4.00,26.60
+Uber Eats,UE-6002,2026-11-04,Main Street,44.00,6.60,0.00,4.00,33.40
+Uber Eats,UE-6003,2026-11-05,Main Street,40.00,6.00,2.50,0.00,31.50
+Grubhub,GH-9101,2026-11-04,Main Street,33.00,6.60,0.00,0.00,26.40

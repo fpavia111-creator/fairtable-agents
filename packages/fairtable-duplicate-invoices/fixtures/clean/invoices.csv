@@ -1,0 +1,11 @@
+vendor,invoice_number,invoice_date,item,qty,unit_price,extended,gl_account,location
+Example Foodservice,EF-50311,2026-11-03,Ground Beef 80/20,8,48.00,384.00,5000 Food COGS,Main Street
+Example Foodservice,EF-50311,2026-11-03,To-go Containers 9in,2,38.50,77.00,5300 Paper and Supplies,Main Street
+Example Foodservice,EF-50311,2026-11-03,Brioche Bun,4,43.20,172.80,5000 Food COGS,Main Street
+Example Foodservice,EF-50388,2026-11-06,Frozen Fries,4,33.00,132.00,5000 Food COGS,Main Street
+Example Foodservice,EF-50388,2026-11-06,Sanitizer Quat,1,62.00,62.00,6200 Cleaning,Main Street
+Sample Beverage Co,SB-3001,2026-11-03,Tequila Blanco 12/750ML,1,264.00,264.00,5100 Beverage COGS,Main Street
+Sample Beverage Co,SB-3001,2026-11-03,House Red Wine 12/750ML,2,96.00,192.00,5100 Beverage COGS,Main Street
+Sample Produce Co,SP-7712,2026-11-04,Romaine,2,52.50,105.00,5000 Food COGS,Main Street
+Example Seafood,ES-1180,2026-11-05,Salmon Fillet,2,132.00,264.00,5000 Food COGS,Main Street
+Example Linen Co,EL-0451,2026-11-07,Linen service,1,140.00,140.00,6300 Linen,Main Street

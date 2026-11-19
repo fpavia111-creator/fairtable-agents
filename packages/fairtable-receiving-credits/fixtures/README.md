@@ -5,3 +5,7 @@ warm with no credit (rejected_not_credited), fries short one case and credited o
 part (short_not_credited), cheddar short and credited in full (clean), a substitute
 case received that is not on the invoice (received_not_invoiced), and the avocado
 invoice with no receiving record at all (no_receiving_record).
+
+[`clean/`](clean) holds the same files with every planted problem removed and nothing
+else changed; the check reports no findings on them. `node scripts/accuracy.mjs` in the
+repository measures both sets and the one-field mutation cases.

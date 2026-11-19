@@ -1,0 +1,13 @@
+date,time,location,item,qty,net_sales
+2026-11-03,11:30,Main Street,Lunch checks,1,420.00
+2026-11-03,12:30,Main Street,Lunch checks,1,610.00
+2026-11-03,13:30,Main Street,Lunch checks,1,380.00
+2026-11-03,14:30,Main Street,Lunch checks,1,90.00
+2026-11-03,15:30,Main Street,Afternoon checks,1,700.00
+2026-11-03,17:30,Main Street,Dinner checks,1,520.00
+2026-11-03,18:30,Main Street,Dinner checks,1,980.00
+2026-11-03,19:30,Main Street,Dinner checks,1,1150.00
+2026-11-03,20:30,Main Street,Dinner checks,1,760.00
+2026-11-03,21:30,Main Street,Dinner checks,1,240.00
+2026-11-03,12:00,Main Street,Catering pickup,1,300.00
+2026-11-03,08:30,Main Street,Breakfast checks,1,800.00

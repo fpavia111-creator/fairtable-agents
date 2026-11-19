@@ -5,3 +5,7 @@ Fictional gift cards; holder names are made up. Planted: a card redeemed past it
 (balance_math), two cards with no activity for over two years (dormant), a 500 corporate
 card (large_balance), and a card bought at Harbor Road and spent at Main Street
 (cross_location).
+
+[`clean/`](clean) holds the same files with every planted problem removed and nothing
+else changed; the check reports no findings on them. `node scripts/accuracy.mjs` in the
+repository measures both sets and the one-field mutation cases.

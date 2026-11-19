@@ -1,0 +1,8 @@
+date,location,channel,category,item,net_sales,tax,tax_exempt
+2026-11-02,Main Street,Dine-in,Food,All food,12400.00,1023.00,no
+2026-11-02,Main Street,Dine-in,Alcohol,All alcohol,4200.00,430.50,no
+2026-11-02,Main Street,Takeout,Grocery,Bottled sauces,300.00,0.00,no
+2026-11-02,Main Street,DoorDash,Food,Marketplace orders,2100.00,0.00,no
+2026-11-02,Main Street,Uber Eats,Food,Marketplace orders,900.00,0.00,no
+2026-11-02,Harbor Road,Dine-in,Food,All food,8000.00,600.00,no
+2026-11-02,Harbor Road,Dine-in,Alcohol,All alcohol,2500.00,212.50,no

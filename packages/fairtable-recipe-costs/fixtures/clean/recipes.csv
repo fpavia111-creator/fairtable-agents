@@ -1,0 +1,18 @@
+recipe,ingredient,qty,unit,yield_pct,menu_price,category
+Classic Burger,Ground Beef 80/20,6,oz,,14.00,Entrees
+Classic Burger,Brioche Bun,1,ea,,14.00,Entrees
+Classic Burger,Cheddar Cheese,1,oz,,14.00,Entrees
+Classic Burger,Frozen Fries,5,oz,,14.00,Entrees
+Steak Frites,Ribeye,12,oz,85,48.00,Entrees
+Steak Frites,Frozen Fries,6,oz,,48.00,Entrees
+Steak Frites,Herb Butter,1,oz,,48.00,Entrees
+Caesar Salad,Romaine,4,oz,80,12.00,Salads
+Caesar Salad,Parmesan,0.5,oz,,12.00,Salads
+Caesar Salad,Caesar Dressing,2,floz,,12.00,Salads
+Shrimp Tacos,Shrimp 21/25,4,oz,,16.00,Entrees
+Shrimp Tacos,Corn Tortilla,3,ea,,16.00,Entrees
+Shrimp Tacos,Lime,0.5,ea,,16.00,Entrees
+House Lemonade,Lemons,2,ea,,2.25,Drinks
+House Lemonade,Cane Sugar,1.5,oz,,2.25,Drinks
+Truffle Fries,Frozen Fries,6,oz,,9.00,Sides
+Truffle Fries,Truffle Oil,0.25,oz,,9.00,Sides

@@ -5,3 +5,7 @@ Fictional delivery-app statement lines and POS orders. Planted: a DoorDash order
 (error_charge), the same order paid twice (duplicate_order), an order in the POS that no
 statement paid (missing_from_statement), and an Uber Eats payout 3.00 short of its own
 lines (payout_math).
+
+[`clean/`](clean) holds the same files with every planted problem removed and nothing
+else changed; the check reports no findings on them. `node scripts/accuracy.mjs` in the
+repository measures both sets and the one-field mutation cases.

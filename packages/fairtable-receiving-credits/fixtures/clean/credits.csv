@@ -1,0 +1,4 @@
+credit_number,vendor,invoice_number,item,amount,credit_date
+CM-2201,Example Foodservice,EF-50311,Cheddar Cheese,104.00,2026-11-05
+CM-2240,Example Foodservice,EF-50388,Frozen Fries,33.00,2026-11-08
+CM-2250,Example Foodservice,EF-50311,Chicken Breast,156.00,2026-11-05

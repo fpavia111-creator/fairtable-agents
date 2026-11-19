@@ -6,3 +6,7 @@ sauces taxed though grocery is 0% in the settings (over_collected), Uber Eats or
 tax in the POS although the marketplace collects it (marketplace_tax_in_pos), a tax-exempt
 school order to document (exempt_sales) and a kiosk with no rate in the settings
 (unknown_location).
+
+[`clean/`](clean) holds the same files with every planted problem removed and nothing
+else changed; the check reports no findings on them. `node scripts/accuracy.mjs` in the
+repository measures both sets and the one-field mutation cases.

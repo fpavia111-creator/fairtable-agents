@@ -22,7 +22,8 @@
     "evals": "node scripts/run-all-evals.mjs",
     "samples": "node scripts/sample-reports.mjs",
     "evals:make": "node scripts/make-evals.mjs",
-    "masking": "node scripts/masking-check.mjs"
+    "masking": "node scripts/masking-check.mjs",
+    "accuracy": "node scripts/accuracy.mjs"
   },
   "engines": {
     "node": ">=20"

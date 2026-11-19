@@ -6,3 +6,7 @@ fixe discount over its 15 cap (over_cap), an open dollar discount over its limit
 approver (over_cap, no_approver), two employee meals over the daily allowance
 (employee_meal_over), and an "Industry Night" discount that is not on the promo list
 (unknown_discount).
+
+[`clean/`](clean) holds the same files with every planted problem removed and nothing
+else changed; the check reports no findings on them. `node scripts/accuracy.mjs` in the
+repository measures both sets and the one-field mutation cases.

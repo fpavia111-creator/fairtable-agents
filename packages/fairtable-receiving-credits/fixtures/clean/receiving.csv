@@ -1,0 +1,11 @@
+vendor,invoice_number,received_date,item,qty_received,qty_rejected,note,received_by
+Example Foodservice,EF-50311,2026-11-03,Ground Beef 80/20,8,0,,Jordan Lee
+Example Foodservice,EF-50311,2026-11-03,Brioche Bun,4,0,,Jordan Lee
+Example Foodservice,EF-50311,2026-11-03,Cheddar Cheese,1,0,short one case,Jordan Lee
+Example Foodservice,EF-50311,2026-11-03,Chicken Breast,2,1,one case received warm (48F) - rejected,Jordan Lee
+Example Foodservice,EF-50388,2026-11-06,Frozen Fries,3,0,short one case,Casey Morgan
+Example Foodservice,EF-50388,2026-11-06,Fryer Oil,2,0,,Casey Morgan
+Sample Produce Co,SP-7712,2026-11-04,Romaine,2,0,,Jordan Lee
+Sample Produce Co,SP-7712,2026-11-04,Lemons,1,0,,Jordan Lee
+Example Seafood,ES-1180,2026-11-05,Salmon Fillet,2,0,,Casey Morgan
+Sample Produce Co,SP-7790,2026-11-07,Avocados,2,0,,Jordan Lee
