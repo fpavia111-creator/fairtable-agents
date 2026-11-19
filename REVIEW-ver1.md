@@ -44,7 +44,7 @@ Every agent is read and report only. Nothing pays, refunds, charges a card, chan
 | `npm run intl` (8 languages) | 403 cases with spreadsheet inputs per language, all pass; 320 of 412 column names translated (German count; the rest keep their English names and still match) |
 | `npm run masking` | 14 agents, 101 canaries, 306 calls, 0 leaks |
 | `npm run bench` (1,000 and 10,000 rows per input file) | 96 tools across 32 agents, all executed at 10,000 rows per file, 0 need attention; mean 374 ms, slowest 1.3 s, peak memory 253 MB. The first run flagged 16 tools growing faster than their input; fixed (see below). Report: `docs/bench-2026-11-18.md` |
-| `npm run release:check:offline` | Passes, full run: workspaces, metadata, clean git tree, secret scan (1,025 files), honest copy, one-click categories and policy, 817 tests, 703/703 evals, hostile data and export passes 0 findings, `npm pack` of all 33 packages (597 KB). npm names skipped offline; checked separately (all 33 free). |
+| `npm run release:check:offline` | Passes, full run: workspaces, metadata, clean git tree, secret scan (1,122 files), honest copy, one-click categories and policy, 817 tests, 703/703 evals, hostile data and export passes 0 findings, `npm pack` of all 33 packages (619 KB). npm names skipped offline; checked separately (all 33 free). |
 | `npm run readme:check`, `npm run plugin:check` | both pass |
 | `npm view <name>` for all 33 names (read-only) | all 33 free on npm (E404); see `docs/npm-names-2026-11-18.md` |
 | Demos | every `demo` run on its fictional files; output captured in each README |
@@ -115,7 +115,7 @@ Run on the request in `FINAL-PASS-REQUEST.md`: the eight-point "Final pass" list
 | `npm run masking` | 14 agents, 118 fictional personal values as canaries (101 before this pass), 306 calls, 0 leaks |
 | `npm run bench` (1,000 and 10,000 rows) | 96 tools. The full run from the fresh clone flagged the 3 health-inspections tools at 116 to 119 s, a slowdown this pass had added; after the fix they take 0.4 to 0.6 s, and a re-run of the 5 changed agents (15 tools) shows 0 needing attention |
 | `npm run readme:check`, `plugin:check`, `evals:make --check` | pass, also on the fresh clone (they failed there before this pass, see below) |
-| `npm run release:check:offline` | FINAL_RELEASE |
+| `npm run release:check:offline` | Passes (exit 0) on the final commit: workspaces, metadata, clean tree, secret scan 1,122 files, honest copy, one-click categories and policy, 817 tests, 703/703 evals, hostile 0 findings, `npm pack` of 33 packages (619 KB). npm names skipped offline; all 33 were free by `npm view` on 18 Nov and none changed in this pass |
 | Real public data | 2 sources, 2 agents (below) |
 
 ### The eight points

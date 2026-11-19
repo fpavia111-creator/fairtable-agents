@@ -15,7 +15,7 @@
     "clean_false_positives": 0,
     "mutation_cases": 64,
     "mutation_caught": 64,
-    "note": "On fictional test data, 19 Nov 2026. The clean set covers 31 of the 32 agents: menu engineering sorts every dish into a group, so a menu with no labels does not exist. This pass also found and fixed one wrong finding on the demo data and three wrong or noisy results on public data."
+    "note": "On fictional test data, 19 Nov 2026. The clean set covers 31 of the 32 agents: menu engineering sorts every dish into a group, so a menu with no labels does not exist. This pass also found and fixed one wrong finding on the demo data and five wrong or noisy results on public data."
   },
   "real_data": [
     [
@@ -23,7 +23,7 @@
       "https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j",
       "2026-11-19",
       "NYC Open Data, public; NYC Open Data terms of use",
-      "fairtable-health-inspections on 1,758 inspections at 648 restaurants (5,479 published rows, one per violation, grouped into one row per inspection). It showed three problems, now fixed: NYC scores count violation points (lower is better), NYC names routine visits Cycle Inspection, and same-day records changed the result. After the fixes, 0 disagreements in 499 checks against an independent re-count from the same rows. Tested from one year earlier, routine-due had flagged 36 of the 48 restaurants inspected in the next 45 days, and 57 of its 199 flags were inspected within 90 days."
+      "fairtable-health-inspections on 1,758 inspections at 648 restaurants (5,479 published rows, one per violation, grouped into one row per inspection). It showed four problems, now fixed: NYC scores count violation points (lower is better), NYC names routine visits Cycle Inspection, same-day records changed the result, and critical violations after a passing visit were reported as open (now a follow-up score setting). After the fixes, 0 disagreements in 499 checks against an independent re-count from the same rows. Tested from one year earlier, routine-due had flagged 36 of the 48 restaurants inspected in the next 45 days, and 57 of its 199 flags were inspected within 90 days."
     ],
     [
       "U.S. Bureau of Labor Statistics average retail prices, 8 food items, via FRED",
