@@ -1,0 +1,87 @@
+{
+  "product": "Fairtable",
+  "repo": "https://github.com/fpavia111-creator/fairtable-agents",
+  "try_it": [
+    "git clone https://github.com/fpavia111-creator/fairtable-agents",
+    "cd fairtable-agents",
+    "npm install",
+    "node packages/fairtable-food-cost/bin/fairtable-food-cost.js demo"
+  ],
+  "accuracy": {
+    "agents": 32,
+    "planted_found": 217,
+    "planted_total": 217,
+    "clean_rows": 490,
+    "clean_false_positives": 0,
+    "mutation_cases": 64,
+    "mutation_caught": 64,
+    "note": "On fictional test data, 19 Nov 2026. The clean set covers 31 of the 32 agents: menu engineering sorts every dish into a group, so a menu with no labels does not exist. This pass also found and fixed one wrong finding on the demo data and three wrong or noisy results on public data."
+  },
+  "real_data": [
+    [
+      "NYC Department of Health, Restaurant Inspection Results (one ZIP code, 2024 to Nov 2026)",
+      "https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j",
+      "2026-11-19",
+      "NYC Open Data, public; NYC Open Data terms of use",
+      "fairtable-health-inspections on 1,758 inspections at 648 restaurants (5,479 published rows, one per violation, grouped into one row per inspection). It showed three problems, now fixed: NYC scores count violation points (lower is better), NYC names routine visits Cycle Inspection, and same-day records changed the result. After the fixes, 0 disagreements in 499 checks against an independent re-count from the same rows. Tested from one year earlier, routine-due had flagged 36 of the 48 restaurants inspected in the next 45 days, and 57 of its 199 flags were inspected within 90 days."
+    ],
+    [
+      "U.S. Bureau of Labor Statistics average retail prices, 8 food items, via FRED",
+      "https://fred.stlouisfed.org/",
+      "2026-11-19",
+      "BLS data, public domain; served by FRED, Federal Reserve Bank of St. Louis",
+      "fairtable-price-creep on the last 13 monthly prices of each item, written as invoice lines. Price rises over 5% were reported for ground beef (+6.8%) and tomatoes (+9.1%), as the series show. The steady-creep rule was too noisy: it fired for 7 of 8 items, including items that ended cheaper. It now needs a current run of rises that adds up to 5%, and fires once (eggs, up three months running). 0 disagreements with an independent re-check."
+    ]
+  ],
+  "formats": [
+    ["Toast", "ItemSelectionDetails export", "written from documentation"],
+    ["Toast", "TimeEntries export", "written from documentation"],
+    ["Toast", "PaymentDetails export", "written from documentation"],
+    ["Toast", "Void and discount details export", "written from documentation"],
+    ["Square", "Item Sales export (CSV)", "written from documentation"],
+    ["Square", "Timecards export (CSV)", "written from documentation"],
+    ["Clover", "Item sales export", "written from documentation"],
+    ["Lightspeed Restaurant", "Product sales report export", "written from documentation"],
+    ["Revel Systems", "Product Mix report export", "written from documentation"],
+    ["7shifts", "Worked hours and wages export", "written from documentation"],
+    ["7shifts", "Schedule export", "written from documentation"],
+    ["Homebase", "Timesheets export", "written from documentation"],
+    ["MarginEdge", "Invoice line items export", "written from documentation"],
+    ["Restaurant365", "AP invoice detail export", "written from documentation"],
+    ["Restaurant365", "Inventory count export", "written from documentation"],
+    ["xtraCHEF by Toast", "Invoice details export", "written from documentation"],
+    ["Sysco", "Invoice download (CSV)", "written from documentation"],
+    ["US Foods", "Invoice download (CSV)", "written from documentation"],
+    ["DoorDash Merchant Portal", "Financials, Transactions export", "written from documentation"],
+    ["Uber Eats Manager", "Payment details report", "written from documentation"],
+    ["Grubhub for Restaurants", "Transactions export", "written from documentation"],
+    ["OpenTable", "Reservations export", "written from documentation"],
+    ["Resy", "Reservations export", "written from documentation"],
+    ["NYC Department of Health", "Restaurant Inspection Results (open data CSV)", "tested on a public sample"],
+    ["U.S. Bureau of Labor Statistics via FRED", "Average price series (CSV)", "tested on a public sample"]
+  ],
+  "human_review": [
+    ["Food cost pack", "A manager checks each flagged ingredient against the count sheet, recipe and invoices, then decides whether to recount, retrain, or change a recipe or vendor."],
+    ["Bar and menu pack", "The bar manager decides whether a pour gap is over-pouring, unrung drinks or a count error; menu and price changes are the owner's call."],
+    ["Front of house and cash pack", "A manager talks through each void, comp and drawer short with the staff member, and a person decides on any no-show fee, refund or gift card correction."],
+    ["Labor pack", "The owner or payroll provider checks wage, tip, overtime and break findings against your state's current rules and payroll records; the agents never run payroll."],
+    ["Delivery apps and fees pack", "Someone disputes commissions, error charges and card fees in each platform's portal or with the processor; a draft letter is sent only by a person."],
+    ["Back office pack", "The bookkeeper confirms tax rates and returns and decides which possible duplicate invoices to hold; nothing is paid or filed by the agents."],
+    ["Compliance calendar pack", "A manager books service visits, renews permits and certificates and confirms allergen labels with the kitchen; intervals and rules come from your own jurisdiction."],
+    ["Whole restaurant", "Every finding in every pack goes to a named person, who looks and acts; the agents only read files and write reports and drafts."],
+    ["Small group", "Each location manager reviews their own findings; the owner or operations lead reviews how each location compares with the group median."],
+    ["Partner rollout", "Each location's manager acts on its findings, and the firm or head office confirms each location's settings (wage, tax and inspection rules) with the client."]
+  ],
+  "common_problems": [
+    "Ingredients used well beyond what the recipes and sales say (chicken breast 27% over in the demo week).",
+    "Vendor prices above the bid sheet, and cases that got smaller at the same case price.",
+    "Short or refused deliveries with no credit memo.",
+    "A bartender's drawer short four nights running, and a deposit that does not match the count.",
+    "Voids approved by the server who rang them, and comps over the limit with no approver.",
+    "Delivery orders charged more commission than the contract, error charges, and orders never paid.",
+    "Tip credit shortfalls, where cash wage plus tips fell under the minimum set for your state.",
+    "Expired or expiring permits and certificates, and hood or fire suppression service past due."
+  ],
+  "reaches_the_model": "When an assistant calls a tool, its model sees the result: totals, findings, amounts, quantities, dates, rates and finding codes in clear. It also sees text such as item, recipe and vendor names, locations, and free-text reasons and notes exactly as they were typed. Staff, guest and client names, phone numbers, emails, employee IDs, gift card numbers and certificate numbers are replaced by tokens such as A.R.#3f9a2c or card#7ecbb1 (checked with 118 fictional values in 14 agents, 0 leaks). The report and draft files written on your computer keep the real values. Results go to whatever model your assistant uses; for staff pay and schedule data, use a model covered by your own agreements or a local model.",
+  "rules_maintained": "Every rule that changes with the law or a contract is a setting, not code: the minimum and tipped cash wage, overtime and break rules, minors' hours, sales tax rates, marketplace channels, the allergen list, food handler grace periods, inspection and equipment intervals, card fee caps and delivery commission rates. Defaults live in each agent's src/logic.js, with the source named in the review. Your own values go in a settings JSON file that is merged over the defaults, and every result lists the settings it used. You change the file yourself, or support updates it when a rate or rule changes."
+}

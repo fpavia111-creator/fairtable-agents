@@ -37,7 +37,7 @@ npx -y fairtable-delivery-payouts demo   # 外卖平台结算与订单核对
 
 ## 测试
 
-在 Windows 和 Node 24 上，808 项测试和 703 个评估用例全部通过（每个智能体至少 21 个）；恶意输入测试未发现问题。详见 [REVIEW-ver1.md](REVIEW-ver1.md)。
+在 Windows 和 Node 24 上，817 项测试和 703 个评估用例全部通过（每个智能体至少 21 个）；恶意输入测试未发现问题。详见 [REVIEW-ver1.md](REVIEW-ver1.md)。
 
 ## 限制
 
