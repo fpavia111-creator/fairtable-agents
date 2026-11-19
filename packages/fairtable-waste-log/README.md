@@ -2,7 +2,15 @@
 
 Reads your waste log against your daily sales, prices what was thrown out, and shows the items, reasons and days behind it, including days with sales and no waste logged at all. Never changes the POS or the prep list.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `waste` (required): Waste log: date, item, quantity, unit, unit cost or value, reason, who logged it
+- `sales`: Optional POS sales with a date and net sales (item sales or a daily summary) to put waste against sales and find days with no log
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

@@ -148,10 +148,10 @@ export const SPECS = {
   },
 
   'fairtable-equipment-maintenance': {
-    planted: { 'Ansul system': ['overdue'], 'Kitchen hood': ['overdue'], 'Dish machine': ['no_interval'], 'Reach-in freezer': ['no_last_service'], 'Fire extinguishers': ['due_soon'], 'Grease trap': ['due_soon'], 'Ice machine': ['due_soon'], 'Walk-in cooler': ['repeat_repairs'] },
+    planted: { 'Hood fire suppression': ['overdue'], 'Kitchen hood': ['overdue'], 'Dish machine': ['no_interval'], 'Reach-in freezer': ['no_last_service'], 'Fire extinguishers': ['due_soon'], 'Grease trap': ['due_soon'], 'Ice machine': ['due_soon'], 'Walk-in cooler': ['repeat_repairs'] },
     clean: [
       ['set', 'equipment.csv', { equipment: 'Kitchen hood' }, { last_service: '2026-10-20' }],
-      ['set', 'equipment.csv', { equipment: 'Ansul system' }, { last_service: '2026-10-02' }],
+      ['set', 'equipment.csv', { equipment: 'Hood fire suppression' }, { last_service: '2026-10-02' }],
       ['set', 'equipment.csv', { equipment: 'Grease trap' }, { last_service: '2026-11-01' }],
       ['set', 'service_log.csv', { equipment: 'Grease trap' }, { date: '2026-11-01' }],
       ['set', 'equipment.csv', { equipment: 'Fire extinguishers' }, { last_service: '2026-11-10' }],

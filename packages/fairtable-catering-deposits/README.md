@@ -2,7 +2,15 @@
 
 Catering and private-event deposits and balances against your bookings: deposits missing as the event gets close, balances overdue after the event, overpayments, refunds owed on cancellations and payments with no booking. Client names are masked for the AI model. Never charges or refunds anyone.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `events` (required): Catering or private-event bookings: event id, client, event date, total, deposit %, status, cancelled date
+- `payments` (required): Payments received: event id, date, amount, type (deposit, balance, refund), method
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

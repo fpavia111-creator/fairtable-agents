@@ -2,7 +2,14 @@
 
 Cash over and short for every drawer and shift from your POS cash-out export: expected cash from starting bank, cash sales, paid-outs and tips paid out, against the count and the deposit, with repeated shorts per person. Never moves cash or changes the POS.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `drawers` (required): POS cash-out or drawer report: date, drawer, employee, starting bank, cash sales, paid-outs, receipts, cash tips paid out, counted cash, deposit, bank left
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

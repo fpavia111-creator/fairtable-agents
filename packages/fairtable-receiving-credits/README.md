@@ -2,7 +2,16 @@
 
 Matches every invoice line with what the receiving log says arrived and with the credit memos, and lists shorts, rejected cases and substitutions still waiting for a credit. Writes a credit request draft. Never pays and never contacts the vendor.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `invoices` (required): Invoice lines (MarginEdge, R365, xtraCHEF, Sysco or US Foods export)
+- `receiving` (required): Receiving log: invoice number, item, quantity received, quantity rejected, note, received by
+- `credits`: Optional credit memos: credit number, invoice number, item, amount
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

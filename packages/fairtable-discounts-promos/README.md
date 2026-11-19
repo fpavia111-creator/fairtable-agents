@@ -2,7 +2,15 @@
 
 Checks every discount and promotion rung in the POS against your promotion list: promos used after they ended, unknown or open discounts, discounts over their cap, employee meals over the allowance and missing approvals. Never changes the POS.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `discounts` (required): POS discount export: check, date, time, employee, approver, discount name, amount, check total
+- `promos` (required): Your promotion list: name, start, end, max %, max amount, needs approval, employee only, daily allowance, days, hours
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

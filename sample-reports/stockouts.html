@@ -22,11 +22,11 @@ th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-n
 <h2>By item</h2><div class="wrap"><table><thead><tr><th scope="col">item</th><th scope="col">count</th><th scope="col">hours</th></tr></thead><tbody>
 <tr><td>Oysters</td><td>1</td><td>3.5</td></tr>
 <tr><td>Short Rib</td><td>3</td><td>8.92</td></tr>
-<tr><td>Key Lime Pie</td><td>1</td><td>1</td></tr>
 <tr><td>Fish Tacos</td><td>1</td><td>0.5</td></tr>
+<tr><td>Key Lime Pie</td><td>1</td><td>1</td></tr>
 </tbody></table></div>
 <h2>By finding</h2><div class="wrap"><table><thead><tr><th scope="col">code</th><th scope="col">count</th><th scope="col">amount</th></tr></thead><tbody>
-<tr><td>early_86</td><td>2</td><td>0</td></tr>
+<tr><td>early_86</td><td>1</td><td>0</td></tr>
 <tr><td>long_86</td><td>2</td><td>669.05</td></tr>
 <tr><td>never_returned</td><td>1</td><td>0</td></tr>
 <tr><td>repeated_86</td><td>1</td><td>520.14</td></tr>
@@ -34,9 +34,9 @@ th{font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-n
 <h2>All rows (4)</h2>
 <div class="wrap"><table><thead><tr><th scope="col">item</th><th scope="col">times 86</th><th scope="col">hours out</th><th scope="col">lost sales estimate</th><th scope="col">status</th><th scope="col">reasons</th></tr></thead><tbody>
 <tr><td>Oysters</td><td>1</td><td>3.5</td><td>148.91</td><td>flag</td><td>Oysters was off for 3 hours or more: 2026-11-07 from 18:30 (3.5 h). At about 42.55 an hour in sales, roughly 148.91 in lost sales over all its outages (an estimate). Oysters has no time back on 2026-11-07; it is counted as off until 22:00. Check the item came back the next day.</td></tr>
-<tr><td>Short Rib</td><td>3</td><td>8.92</td><td>520.14</td><td>flag</td><td>Short Rib was 86ed 3 times in this period: the par or the prep for it is too low. Short Rib was off for 3 hours or more: 2026-11-06 from 17:15 (4.75 h). At about 58.33 an hour in sales, roughly 520.14 in lost sales over all its outages (an estimate). Short Rib ran out before the 18:00 rush: 2026-11-06 at 17:15.</td></tr>
-<tr><td>Key Lime Pie</td><td>1</td><td>1</td><td>11.05</td><td>watch</td><td>Key Lime Pie ran out before the 18:00 rush: 2026-11-05 at 14:00.</td></tr>
+<tr><td>Short Rib</td><td>3</td><td>8.92</td><td>520.14</td><td>flag</td><td>Short Rib was 86ed 3 times in this period: the par or the prep for it is too low. Short Rib was off for 3 hours or more: 2026-11-06 from 17:15 (4.75 h). At about 58.33 an hour in sales, roughly 520.14 in lost sales over all its outages (an estimate). Short Rib ran out before the 18:00 rush and was still off when it started: 2026-11-06 at 17:15.</td></tr>
 <tr><td>Fish Tacos</td><td>1</td><td>0.5</td><td>20.45</td><td>ok</td><td></td></tr>
+<tr><td>Key Lime Pie</td><td>1</td><td>1</td><td>11.05</td><td>ok</td><td></td></tr>
 </tbody></table></div>
 <h2>Limits</h2><ul><li>Reads only the files you give it; it does not log in to the POS or change 86 status.</li><li>Lost sales are an estimate (average sales per open hour x hours off); demand is not even through the day.</li><li>Not advice. The chef decides pars and prep.</li></ul>
 <p class="mut" style="margin-top:32px">Written by a Fairtable agent from your files. Nothing was sent or paid.</p>

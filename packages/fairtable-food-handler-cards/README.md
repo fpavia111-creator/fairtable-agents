@@ -2,7 +2,15 @@
 
 Food handler cards, certified food protection managers and alcohol server certificates against your staff roster: missing after the grace period, expired, expiring soon, and locations without a certified manager. Staff names are masked for the AI model. Never contacts staff or a training provider.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `roster` (required): Staff roster (from your POS, scheduling or payroll export): employee, role, location, hire date, status
+- `certificates` (required): Certificates on file: employee, type (food handler, food protection manager, alcohol server), number, issued, expires
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 
@@ -11,8 +19,8 @@ Match every active employee with their certificates; flag missing cards after th
 | Finding | Example from the fictional demo data |
 |---|---|
 | `alcohol_cert_missing` | J.O.#49bc44 works as Server with no alcohol server certificate on file. |
-| `expired` | M.B.#0f7e61: food protection manager certificate FPM-202 expired on 2026-05-01. |
-| `expiring_soon` | S.P.#fa5954: food protection manager certificate FPM-201 expires 2026-12-01, in 16 days. |
+| `expired` | M.B.#0f7e61: food protection manager certificate cert#03e6fb expired on 2026-05-01. |
+| `expiring_soon` | S.P.#fa5954: food protection manager certificate cert#795db8 expires 2026-12-01, in 16 days. |
 | `in_grace_period` | R.C.#dab90c started 2026-11-05; a food handler card is due within 30 days (by 2026-12-05). |
 | `missing_card` | C.M.#efdf8a (Prep Cook, Main Street) has no food handler card on file after 45 days. |
 | `no_certified_manager` | Harbor Road has no one on the active roster with a current food protection manager certificate. |
@@ -56,7 +64,7 @@ Fairtable Food Handler Cards demo (fictional restaurant data), Auto mode on
 
 ▶ Explain Sam Patel
   status: executed  decision: allow
-  S.P.#fa5954: flag. S.P.#fa5954: food handler card FH-1002 expired on 2026-06-20. S.P.#fa5954: food protection manager certificate FPM-201 expires 2026-12-01, in 16 days.
+  S.P.#fa5954: flag. S.P.#fa5954: food handler card cert#cbd6fc expired on 2026-06-20. S.P.#fa5954: food protection manager certificate cert#795db8 expires 2026-12-01, in 16 days.
 
 ▶ Write the report (CSV worklist and HTML page)
   status: executed  decision: allow

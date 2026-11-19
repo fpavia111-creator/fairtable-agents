@@ -2,7 +2,15 @@
 
 Reads the 86 log against item sales: items that run out again and again, how long they stay off, what that likely cost in sales, items 86ed before the dinner rush and items never brought back. Never changes 86 status or orders.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `eighty_six` (required): 86 log or out-of-stock export: date, item, time it went out, time it came back, reason
+- `sales`: POS item sales for the same period (date, item, quantity, net sales) for the lost-sales estimate
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 
@@ -10,7 +18,7 @@ Count each item's 86 events and hours off, estimate lost sales from its average 
 
 | Finding | Example from the fictional demo data |
 |---|---|
-| `early_86` | Short Rib ran out before the 18:00 rush: 2026-11-06 at 17:15. |
+| `early_86` | Short Rib ran out before the 18:00 rush and was still off when it started: 2026-11-06 at 17:15. |
 | `long_86` | Oysters was off for 3 hours or more: 2026-11-07 from 18:30 (3.5 h). At about 42.55 an hour in sales, roughly 148.91 in lost sales over all its outages (an estimate). |
 | `never_returned` | Oysters has no time back on 2026-11-07; it is counted as off until 22:00. Check the item came back the next day. |
 | `repeated_86` | Short Rib was 86ed 3 times in this period: the par or the prep for it is too low. |
@@ -43,11 +51,10 @@ Fairtable Stockouts demo (fictional restaurant data), Auto mode on
   6 86 event(s) on 4 item(s), 13.92 hours off; lost sales estimate 700.55. 2 flagged, 0 need review.
     flag    Oysters                             long_86, never_returned
     flag    Short Rib                           repeated_86, long_86, early_86
-    watch   Key Lime Pie                        early_86
 
 ▶ Explain Short Rib
   status: executed  decision: allow
-  Short Rib: flag. Short Rib was 86ed 3 times in this period: the par or the prep for it is too low. Short Rib was off for 3 hours or more: 2026-11-06 from 17:15 (4.75 h). At about 58.33 an hour in sales, roughly 520.14 in lost sales over all its outages (an estimate). Short Rib ran out before the 18:00 rush: 2026-11-06 at 17:15.
+  Short Rib: flag. Short Rib was 86ed 3 times in this period: the par or the prep for it is too low. Short Rib was off for 3 hours or more: 2026-11-06 from 17:15 (4.75 h). At about 58.33 an hour in sales, roughly 520.14 in lost sales over all its outages (an estimate). Short Rib ran out before the 18:00 rush and was still off when it started: 2026-11-06 at 17:15.
 
 ▶ Write the report (CSV worklist and HTML page)
   status: executed  decision: allow

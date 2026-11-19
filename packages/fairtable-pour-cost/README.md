@@ -2,7 +2,17 @@
 
 Bar pour cost and liquor variance. Drinks sold times their recipe pours against bottles used (opening count + bottles bought - closing count), per spirit, priced per bottle, with pour cost against your target. Never changes the POS.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `sales` (required): POS item sales for the bar (drinks sold and net sales)
+- `recipes` (required): Drink recipes: drink, spirit, pour quantity and unit (oz, ml, cl)
+- `counts` (required): Liquor counts: opening and closing count per bottle in tenths, bottle size in ml, cost per bottle
+- `purchases`: Optional liquor invoice lines with pack (e.g. 12/750ML) and case price
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

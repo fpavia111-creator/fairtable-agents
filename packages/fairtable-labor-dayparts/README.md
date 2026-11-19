@@ -2,7 +2,15 @@
 
 Labor percentage and sales per labor hour for each daypart (breakfast, lunch, dinner, late night) from your POS sales and timecards, against the targets you set for each one. Never edits the schedule.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `sales` (required): POS sales with a date and a time (item sales or checks)
+- `timecards` (required): Timecards for the same days: employee, clock in, clock out, unpaid break minutes, hourly rate
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

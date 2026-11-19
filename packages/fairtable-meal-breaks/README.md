@@ -2,7 +2,14 @@
 
 Meal breaks from your timecards under the break rules in your settings: shifts over the limit with no or a short meal break, meals taken late, second meals on long days, the premium pay that may be owed, and minors working too long or too late. Never edits timecards or runs payroll.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `timecards` (required): Timecards (Toast, Square, 7shifts or Homebase export): employee, clock in, clock out, break start, unpaid break minutes, hourly rate, age (for minors)
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

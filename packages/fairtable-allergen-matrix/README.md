@@ -2,7 +2,16 @@
 
 Checks your menu's allergen matrix against the recipes and each ingredient's allergens: allergens in a dish that the matrix does not declare, free-from claims a recipe breaks, declarations no ingredient explains, and ingredients with no allergen data. Never changes the menu.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `recipes` (required): Recipes: menu item and ingredient (quantities are not needed here)
+- `ingredients` (required): Ingredient allergen data from supplier specification sheets: ingredient, allergens separated by ; or ,
+- `matrix` (required): Your menu allergen matrix: menu item, declared allergens, free-from claims (gluten-free, dairy-free, nut-free, vegan)
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

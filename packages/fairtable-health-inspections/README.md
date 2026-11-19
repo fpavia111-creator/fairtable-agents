@@ -2,7 +2,15 @@
 
 The health inspection and permit calendar for each location: re-inspections overdue, critical violations with no re-inspection on file, scores dropping, the next routine visit to prepare for, and permits and licences expired or expiring. Never contacts the health department.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `inspections` (required): Inspection history (typed from the reports): location, date, type, score, critical and total violations, re-inspection due date
+- `permits`: Optional permits and licences: location, permit, number, expiry date
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 
@@ -31,6 +39,9 @@ Put the ones you want to change in a JSON file and pass it as `settings`; anythi
 | `routine_warn_days` | `45` | Watch when the estimated next routine visit is this close (default 45) |
 | `permit_warn_days` | `60` | Watch permits expiring within this many days (default 60) |
 | `score_drop_points` | `5` | A drop of this many points between inspections is reviewed (default 5) |
+| `followup_score` | `null` | Report critical violations as still open only when that inspection scored this or worse, the score that brings a re-inspection where you are (New York City re-inspects from 14 points); empty reports every critical violation with no later inspection (default empty) |
+| `lower_score_is_better` | `false` | True where the score counts violation points, so a lower score is better (New York City, for example); then a rise of score_drop_points is reviewed (default false) |
+| `routine_words` | `["routine","initial inspection"]` | An inspection whose type contains one of these words is a routine one, unless it is a re-inspection (default routine, initial inspection; New York City writes Cycle Inspection / Initial Inspection, Chicago Canvass) |
 
 <!-- generated:start -->
 

@@ -2,7 +2,15 @@
 
 Menu engineering from your POS item sales and plate costs: each item's popularity and contribution margin within its category, sorted into stars, plowhorses, puzzles and dogs, with a menu proposal draft. Never changes the menu or prices in the POS.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `sales` (required): POS item sales (product mix) for the period: item, category, quantity, net sales
+- `costs` (required): Plate cost per menu item (from your recipe costing, e.g. the fairtable-recipe-costs report)
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

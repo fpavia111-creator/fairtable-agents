@@ -2,7 +2,14 @@
 
 Compares each item's inventory count with what the system expected, prices the difference, and points to counts that look like a unit mistake (cases written as each, pounds as ounces), missing lines and wild swings, with a recount list. Never changes the inventory system.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `counts` (required): Inventory count (R365, MarginEdge or a count sheet): item, area, counted quantity, expected (system or theoretical) quantity, unit, unit cost
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

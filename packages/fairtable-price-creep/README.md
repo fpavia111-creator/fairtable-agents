@@ -2,7 +2,15 @@
 
 Follows every item's price per pound, each or litre across your distributor invoices, flags creeping increases, prices over your bid or contract and packs that quietly got smaller, with what the increases cost you. Never contacts a vendor.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `invoices` (required): Invoice lines over several weeks (MarginEdge, R365, xtraCHEF, Sysco or US Foods export) with pack size and case price
+- `contracts`: Optional bid sheet or contract prices: vendor, item, pack, price, valid from, valid to
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 
@@ -14,7 +22,7 @@ Read each vendor item's price per base unit through its pack size, compare the l
 | `pack_changed` | Chicken Breast from Example Foodservice came as 4/10 LB then 4/9 LB; compare the price per lb, not per case. |
 | `price_up` | Chicken Breast from Example Foodservice: 3.9 per lb on 2026-10-06, 4.3333 on 2026-11-03 (+11.1%). Paid 31.2 more than at the first price. |
 | `small_price_up` | Fryer Oil from Example Foodservice: 1.0857 per lb on 2026-10-06, 1.2571 on 2026-11-03 (+15.8%). Paid 18 more than at the first price. |
-| `steady_creep` | Ground Beef 80/20 from Example Foodservice went up 3 invoices in a row. |
+| `steady_creep` | Ground Beef 80/20 from Example Foodservice went up 3 invoices in a row up to the latest, 7.6% in all since 2026-10-13. |
 
 Each item gets the most serious level of its findings: **flag** (act on it), **review** (data is missing or unclear; a person looks), **watch** (worth knowing) or **ok**. Every finding names the numbers it was worked out from.
 
@@ -27,7 +35,8 @@ Put the ones you want to change in a JSON file and pass it as `settings`; anythi
 | `flag_pct` | `5` | Price rise % that counts (default 5) |
 | `flag_amount` | `25` | Flag when the rise cost at least this much over the period (default 25) |
 | `contract_tolerance_pct` | `1` | Allowed % over the bid price (default 1) |
-| `creep_steps` | `3` | Increases in a row that count as creep (default 3) |
+| `creep_steps` | `3` | Increases in a row, up to the latest invoice, that count as creep (default 3) |
+| `creep_min_pct` | `5` | The increases in that run must add up to at least this percentage (default 5); small rises that a later drop undid are not creep |
 
 <!-- generated:start -->
 

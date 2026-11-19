@@ -2,7 +2,14 @@
 
 Reads monthly card processing statements: the effective rate per location and month, processor markup over your agreed rate, fees you never agreed to, monthly fees over their cap and downgrade surcharges. Never contacts the processor or changes the account.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `statements` (required): Card processing statement lines (typed from the statement or exported from the processor portal): month, location, card brand, volume, transactions, fee name, fee type, amount
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

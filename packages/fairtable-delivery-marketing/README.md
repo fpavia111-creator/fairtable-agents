@@ -2,7 +2,15 @@
 
 Delivery-app marketing and promotion charges against the campaigns you opted into: charges with no campaign behind them, campaigns over budget, and what each campaign brought in for what it cost. Never logs in to a platform.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `statements` (required): Delivery-app statement lines with marketing fees and restaurant-funded promotions (DoorDash, Uber Eats or Grubhub export)
+- `campaigns` (required): Your campaign list: platform, campaign, type (ads or promo), start, end, budget, opted in
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

@@ -2,7 +2,15 @@
 
 Voids and comps by employee from your POS export, against each server's sales: self-approved voids, voids after the check was paid, missing reasons and comps over the approval limit. Names are masked for the AI model. Never changes the POS.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `checks` (required): POS void and comp export: check, date, time, employee, approver, type (void or comp), item, amount, reason, check total, time the check was closed
+- `server_sales`: Optional sales by employee (server sales report) to put voids and comps against sales
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

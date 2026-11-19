@@ -2,7 +2,15 @@
 
 The maintenance schedule for hoods, grease traps, fire suppression, ice machines, refrigeration and the rest: what is overdue, what is due in the next weeks, what has no service date, and equipment repaired again and again. Never books a vendor.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `equipment` (required): Equipment list: equipment, type, location, last service date, interval in days, vendor
+- `service_log`: Optional service and repair log: equipment, date, vendor, kind (service or repair), cost
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 
@@ -13,7 +21,7 @@ Work out each piece of equipment's next due date from its last service (on the l
 | `due_soon` | Fire extinguishers: due 2026-11-20, in 5 days. |
 | `no_interval` | Dish machine: no service interval on the list and no default for "Dish machine" in the settings. |
 | `no_last_service` | Reach-in freezer (Refrigeration) has no service date on record. |
-| `overdue` | Ansul system: last serviced 2026-05-02, every 180 days, due 2026-10-29: 17 days overdue. |
+| `overdue` | Hood fire suppression: last serviced 2026-05-02, every 180 days, due 2026-10-29: 17 days overdue. |
 | `repeat_repairs` | Walk-in cooler was repaired 3 times in 120 days for 1315; compare with the cost of replacing it. |
 
 Each item gets the most serious level of its findings: **flag** (act on it), **review** (data is missing or unclear; a person looks), **watch** (worth knowing) or **ok**. Every finding names the numbers it was worked out from.
@@ -42,7 +50,7 @@ Fairtable Equipment Maintenance demo (fictional restaurant data), Auto mode on
 ▶ Run the check on the exported files
   status: executed  decision: allow
   8 item(s) at 2026-11-15: 2 overdue, 3 due soon. 2 need a date or an interval.
-    flag    Ansul system                        overdue
+    flag    Hood fire suppression               overdue
     flag    Kitchen hood                        overdue
     review  Dish machine                        no_interval
     review  Reach-in freezer                    no_last_service

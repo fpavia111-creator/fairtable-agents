@@ -2,7 +2,15 @@
 
 Matches DoorDash, Uber Eats and Grubhub statements with your POS orders: commissions over your contract rate, payout math that does not add up, error charges to dispute, orders paid twice and orders never paid. Never logs in to a platform and never sends.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `statements` (required): Delivery-app statement lines (DoorDash transactions, Uber Eats payment details or Grubhub transactions export)
+- `pos_orders`: Optional POS orders from the delivery apps (order id, platform, date, subtotal) to find orders never paid
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

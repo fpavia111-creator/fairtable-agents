@@ -2,7 +2,17 @@
 
 Actual against theoretical food cost from your POS item sales, recipes, inventory counts and invoices. Shows which ingredients were used more than the recipes say, with the cost of the gap. Never changes the POS and never sends.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `sales` (required): POS item sales (product mix) for the period: Toast, Square, Clover, Lightspeed or Revel export, CSV or Excel
+- `recipes` (required): Recipes: one row per menu item and ingredient with the portion quantity, unit and optional yield %
+- `counts` (required): Inventory counts: the opening and the closing count of the period (count date, item, quantity, unit, unit cost)
+- `purchases`: Optional invoice lines received in the period (MarginEdge, R365, xtraCHEF, Sysco or US Foods export)
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

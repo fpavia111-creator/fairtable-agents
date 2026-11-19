@@ -2,7 +2,14 @@
 
 The outstanding gift card liability from your POS gift card export, by location, with balances that do not add up, negative balances, dormant cards and cards bought at one location and spent at another. Never changes a card or recognises breakage.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `cards` (required): Gift card export (Toast, Square or your gift card provider): card, issued date and location, amount loaded, amount redeemed, balance, last activity and where
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 
@@ -10,11 +17,11 @@ Add up the balance still owed on every card, by the location that sold it; check
 
 | Finding | Example from the fictional demo data |
 |---|---|
-| `balance_math` | GC-1006: issued 150 - redeemed 30 = 120, but the balance shows 100. |
-| `cross_location` | GC-1004 was sold at Harbor Road and used at Main Street; the two locations settle 80 between them if they keep separate books. |
-| `dormant` | GC-1003: 75 with no activity since 2024-06-20 (28 months). Unclaimed-property and breakage rules differ by state; ask your accountant before treating it as income. |
-| `large_balance` | GC-1007 holds 500; check a large card was paid for before it is honoured. |
-| `negative_balance` | GC-1005 has a negative balance of -15: it was redeemed for more than it held. |
+| `balance_math` | card#d6eaf6: issued 150 - redeemed 30 = 120, but the balance shows 100. |
+| `cross_location` | card#1129fc was sold at Harbor Road and used at Main Street; the two locations settle 80 between them if they keep separate books. |
+| `dormant` | card#ebff81: 75 with no activity since 2024-06-20 (28 months). Unclaimed-property and breakage rules differ by state; ask your accountant before treating it as income. |
+| `large_balance` | card#46851a holds 500; check a large card was paid for before it is honoured. |
+| `negative_balance` | card#7ecbb1 has a negative balance of -15: it was redeemed for more than it held. |
 
 Each item gets the most serious level of its findings: **flag** (act on it), **review** (data is missing or unclear; a person looks), **watch** (worth knowing) or **ok**. Every finding names the numbers it was worked out from.
 
@@ -41,16 +48,16 @@ Fairtable Gift Cards demo (fictional restaurant data), Auto mode on
 ▶ Run the check on the exported files
   status: executed  decision: allow
   8 card(s) at 2026-11-15: liability 875.00 on 6 open card(s), of which 125.00 is dormant. 2 flagged, 1 need review.
-    flag    GC-1005                             negative_balance
-    flag    GC-1006                             balance_math
-    review  GC-1007                             large_balance
-    watch   GC-1003                             dormant
-    watch   GC-1004                             cross_location
-    watch   GC-1008                             dormant
+    flag    card#7ecbb1                         negative_balance
+    flag    card#d6eaf6                         balance_math
+    review  card#46851a                         large_balance
+    watch   card#ebff81                         dormant
+    watch   card#1129fc                         cross_location
+    watch   card#9bb9c4                         dormant
 
 ▶ Explain GC-1005
   status: executed  decision: allow
-  GC-1005: flag. GC-1005 has a negative balance of -15: it was redeemed for more than it held.
+  card#7ecbb1: flag. card#7ecbb1 has a negative balance of -15: it was redeemed for more than it held.
 
 ▶ Write the report (CSV worklist and HTML page)
   status: executed  decision: allow

@@ -2,7 +2,15 @@
 
 Scheduled against actual labor from your schedule and timecard exports: early clock-ins, late clock-outs, late arrivals, no-shows and shifts nobody scheduled, with the extra hours priced at each person's rate. Never edits the schedule or timecards.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `schedule` (required): Published schedule (7shifts, Homebase or POS export): employee, role, shift start, shift end
+- `timecards` (required): Timecards for the same weeks: employee, clock in, clock out, unpaid break minutes, hourly rate
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

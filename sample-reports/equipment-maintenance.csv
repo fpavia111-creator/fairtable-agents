@@ -1,5 +1,5 @@
 equipment,type,location,vendor,last_service,interval_days,due_date,days_left,status,findings,reasons,owner,decision
-Ansul system,Fire suppression,Main Street,Example Fire Protection,2026-05-02,180,2026-10-29,-17,flag,overdue,"Ansul system: last serviced 2026-05-02, every 180 days, due 2026-10-29: 17 days overdue.",,
+Hood fire suppression,Fire suppression,Main Street,Example Fire Protection,2026-05-02,180,2026-10-29,-17,flag,overdue,"Hood fire suppression: last serviced 2026-05-02, every 180 days, due 2026-10-29: 17 days overdue.",,
 Kitchen hood,Hood cleaning,Main Street,Example Hood Services,2026-07-20,90,2026-10-18,-28,flag,overdue,"Kitchen hood: last serviced 2026-07-20, every 90 days, due 2026-10-18: 28 days overdue.",,
 Dish machine,Dish machine,Main Street,,2026-10-15,,,,review,no_interval,"Dish machine: no service interval on the list and no default for ""Dish machine"" in the settings.",,
 Reach-in freezer,Refrigeration,Main Street,Example Refrigeration,,90,,,review,no_last_service,Reach-in freezer (Refrigeration) has no service date on record.,,

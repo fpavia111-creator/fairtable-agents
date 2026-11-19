@@ -2,7 +2,14 @@
 
 Vendor invoices before they are paid: the same invoice entered twice, likely duplicates under a new number, line math that does not add up, missing invoice numbers, and lines coded to the wrong GL account (liquor in food cost, paper goods in food). Never pays and never posts to the books.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `invoices` (required): Vendor invoice lines waiting for payment (R365, MarginEdge, xtraCHEF or your AP export): vendor, invoice number, date, item, quantity, unit price, extended, GL account
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

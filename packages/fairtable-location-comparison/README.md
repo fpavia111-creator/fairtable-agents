@@ -2,7 +2,14 @@
 
 Compares every location of a multi-unit group on the same measures (food cost, labor, prime cost, voids, comps, discounts, average check) against the group median, and shows which location is out of line on what. Never changes anything at a location.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `locations` (required): One row per location (and period), from your POS and back-office reports: net sales, food cost, beverage cost, labor, voids, comps, discounts, check count
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

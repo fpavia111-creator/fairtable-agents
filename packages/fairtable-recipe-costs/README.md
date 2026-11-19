@@ -2,7 +2,15 @@
 
 Costs every recipe at your latest invoice prices (pack sizes, units and yields), shows each plate's food cost percent against your target and the price that would meet it, and which plates got dearer. Never changes menu prices in the POS.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `recipes` (required): Recipes: one row per menu item and ingredient with quantity, unit, optional yield %, menu price and category
+- `invoices` (required): Invoice lines (MarginEdge, R365, xtraCHEF, Sysco or US Foods export) with pack size and case price; the latest price per item is used
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

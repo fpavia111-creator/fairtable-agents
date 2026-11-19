@@ -2,7 +2,14 @@
 
 Electric, gas and water bills per account and location: usage spikes per day against the account's own history, rate jumps, estimated meter reads, bills charged twice, overlapping periods and late fees. Never pays a bill or contacts the utility.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `bills` (required): Utility bills (typed from the bills or exported from a bill-pay service): account, utility, location, service period, usage, unit, amount, read type, late fee
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

@@ -4,7 +4,7 @@ Main Street,Main Street | inspections,inspections,2026-08-18,86,2027-02-14,91,fl
 Airport Kiosk,Airport Kiosk | Fire inspection certificate,permit,,,,,review,no_expiry,Airport Kiosk: Fire inspection certificate has no expiry date on file.,,
 Airport Kiosk,Airport Kiosk | inspections,inspections,2026-06-05,92,2026-12-02,17,watch,routine_due,Airport Kiosk: last routine inspection 2026-06-05; at about every 180 days the next could come around 2026-12-02. Walk the kitchen with the inspection form before then.,,
 Harbor Road,Harbor Road | Liquor licence,permit,,,2026-12-20,35,watch,permit_expiring,"Harbor Road: Liquor licence LL-2002 expires 2026-12-20, in 35 days.",,
-Harbor Road,Harbor Road | inspections,inspections,2026-10-15,95,2026-10-19,-27,watch,routine_due,Harbor Road: last routine inspection 2026-04-22; at about every 180 days the next could come around 2026-10-19. Walk the kitchen with the inspection form before then.,,
+Harbor Road,Harbor Road | inspections,inspections,2026-10-15,95,2026-10-19,-27,watch,routine_due,"Harbor Road: last routine inspection 2026-04-22; at about every 180 days the next was expected around 2026-10-19, 27 days ago, and could come any day. Walk the kitchen with the inspection form before then.",,
 Main Street,Main Street | Food service permit,permit,,,2026-12-31,46,watch,permit_expiring,"Main Street: Food service permit FSP-1001 expires 2026-12-31, in 46 days.",,
 Airport Kiosk,Airport Kiosk | Food service permit,permit,,,2027-06-30,227,ok,,,,
 Harbor Road,Harbor Road | Food service permit,permit,,,2027-03-31,136,ok,,,,

@@ -2,7 +2,14 @@
 
 Reservation no-shows from your OpenTable or Resy export: the no-show rate by day, guests who no-show again and again, large parties booked with no deposit and no-show fees your policy says to charge, with covers and sales lost. Guest details are masked for the AI model. Never charges a card or messages a guest.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `reservations` (required): Reservation export (OpenTable or Resy): reservation id, guest, phone, email, date, time, party size, status, deposit, fee charged, source
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

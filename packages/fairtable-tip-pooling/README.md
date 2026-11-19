@@ -2,7 +2,14 @@
 
 Splits the week's tip pool by hours and role points, checks the tip credit (cash wage plus tips against the minimum wage in your state settings), managers who kept tips, cash wages under the tipped minimum and missing cash tip declarations. Never runs payroll or pays tips.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `timecards` (required): Timecards or time entries (Toast, Square, 7shifts or Homebase export): employee, role, clock in, hours, hourly rate, declared cash tips, card tips
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 

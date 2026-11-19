@@ -2,7 +2,14 @@
 
 Weekly and daily overtime, double time, split shifts, spread of hours and short turnarounds (clopens) from your timecards, priced at each person's rate, under the overtime rules in your settings. Never edits timecards or runs payroll.
 
-Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools.
+Part of **Fairtable**, the restaurant, bar and cafe agents by Mythos Machines. The software is free (MIT); the paid part is a fixed-price setup on your own files. Every result is computed from your files with plain arithmetic, on your computer; no AI model is called by the tools. It reads files and writes reports; a person on your team decides and acts on every finding.
+
+## What it needs
+
+Exports you already have, as files on your computer (CSV, Excel, JSON; see "Columns it reads" below):
+
+- `timecards` (required): Timecards (Toast, Square, 7shifts or Homebase export): employee, role, clock in, clock out, unpaid break minutes, hourly rate; one row per shift
+- `settings` (optional): a JSON file with your own targets and rules; see "Settings" below.
 
 ## What it checks
 
