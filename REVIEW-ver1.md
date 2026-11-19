@@ -28,7 +28,7 @@ Every agent is read and report only. Nothing pays, refunds, charges a card, chan
 | 4 | Binding actions refused or one named click; release check's one-click policy check passes | Every request tool is in a one-click category (`binding_send`, `go_live`, `move_money`, `accept_learning`) and set to `ask`; release check: "no one-click tool is set to allow". 3 refused tools per agent (96 in all), each an eval case. |
 | 5 | Reads exports in the 9 languages; `--lang` for pages | `npm run intl`: every spreadsheet eval case (403) rerun as a German, French, Spanish, Brazilian, Italian, Japanese, Chinese and Korean export (legacy encodings, `1.234,56`, local dates, local column names): all pass. Report pages in nine languages (contract test per agent). |
 | 6 | Root README in 9 languages; every agent has README, CHANGELOG, LICENSE (MIT) | Done. Agent READMEs are generated from the agent (`scripts/readme-head.mjs`, `scripts/readme-sections.mjs`); `npm run readme:check` passes on Windows. |
-| 7 | `npm run bench` (10,000 rows) and `release:check:offline` pass | Bench: 96 tools, 0 need attention. Release check: RELEASE_LINE |
+| 7 | `npm run bench` (10,000 rows) and `release:check:offline` pass | Bench: 96 tools, 0 need attention. Release check (offline, full) passes. |
 | 8 | `npm test` passes on Windows with Node 24 | Node v24.20.0, Windows 10: 808/808. |
 | 9 | MCP Registry ready | `node ..\add-mcp-registry.cjs fairtable-agents fairtable.html`: `mcpName` and `server.json` for all 32 agents. |
 | 10 | Masking on for personal data; fictional data only | 14 agents have personal fields (staff, guest, client and card holder names, phones, emails). `npm run masking`: 101 fictional personal values planted as canaries, 306 calls, 0 leaks. Every fixture is fictional (Example/Sample company names, made-up people). |
@@ -44,7 +44,7 @@ Every agent is read and report only. Nothing pays, refunds, charges a card, chan
 | `npm run intl` (8 languages) | 403 cases with spreadsheet inputs per language, all pass; 320 of 412 column names translated (German count; the rest keep their English names and still match) |
 | `npm run masking` | 14 agents, 101 canaries, 306 calls, 0 leaks |
 | `npm run bench` (1,000 and 10,000 rows per input file) | 96 tools across 32 agents, all executed at 10,000 rows per file, 0 need attention; mean 374 ms, slowest 1.3 s, peak memory 253 MB. The first run flagged 16 tools growing faster than their input; fixed (see below). Report: `docs/bench-2026-11-18.md` |
-| `npm run release:check:offline` | RELEASE_ROW |
+| `npm run release:check:offline` | Passes, full run: workspaces, metadata, clean git tree, secret scan (1,025 files), honest copy, one-click categories and policy, 808 tests, 703/703 evals, hostile data and export passes 0 findings, `npm pack` of all 33 packages (597 KB). npm names skipped offline; checked separately (all 33 free). |
 | `npm run readme:check`, `npm run plugin:check` | both pass |
 | `npm view <name>` for all 33 names (read-only) | all 33 free on npm (E404); see `docs/npm-names-2026-11-18.md` |
 | Demos | every `demo` run on its fictional files; output captured in each README |
