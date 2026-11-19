@@ -22,7 +22,7 @@ want.set(join('.claude-plugin', 'marketplace.json'), { name: 'fairtable-restaura
 let stale = 0;
 for (const [rel, obj] of want) {
   const f = join(root, rel); const text = JSON.stringify(obj, null, 2) + '\n';
-  if (check) { if (!existsSync(f) || readFileSync(f, 'utf8') !== text) { console.error(`stale: ${rel}`); stale++; } continue; }
+  if (check) { if (!existsSync(f) || readFileSync(f, 'utf8').replace(/\r\n/g, '\n') !== text) { console.error(`stale: ${rel}`); stale++; } continue; }
   mkdirSync(join(f, '..'), { recursive: true }); writeFileSync(f, text);
 }
 if (check && stale) { console.error(`${stale} plugin file(s) out of date; run node scripts/plugin-files.mjs`); process.exit(1); }

@@ -12,7 +12,7 @@ export function inspections({ inspections: rows = [], permits = [] }, s = DEFAUL
     list.sort((a, b) => cmp(isoDate(a.date), isoDate(b.date)));
     const loc = str(list[0].location); const f = []; const last = list.at(-1); const lastDate = isoDate(last.date);
     for (const [i, r] of list.entries()) {
-      const later = list.filter((x) => isoDate(x.date) > isoDate(r.date));
+      const later = isoDate(r.date) < lastDate ? [true] : []; // a later-dated inspection exists (the list is sorted by date)
       const due = isoDate(r.reinspection_due);
       if (due && !later.length && due < asOf) f.push(finding('reinspection_overdue', `${loc}: a re-inspection was due ${due} after the ${isoDate(r.date)} inspection and none is on file.`));
       const needsFollowup = s.followup_score === null || s.followup_score === undefined || (num(r.score) !== null && (s.lower_score_is_better ? num(r.score) >= s.followup_score : num(r.score) <= s.followup_score));

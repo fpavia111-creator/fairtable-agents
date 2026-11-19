@@ -54,7 +54,7 @@ for (const n of readdirSync(PK).filter((x) => /^fairtable-(?!core$)/.test(x) && 
   const kept = cases.filter((c) => !c.id.startsWith('intl-'));
   const next = [...kept, ...added];
   const txt = JSON.stringify({ ...(Array.isArray(data) ? {} : data), cases: next }, null, 2) + '\n';
-  if (readFileSync(casesFile, 'utf8') !== txt) { if (check) { console.log(`${n}: evals/cases.json lacks the intl cases`); stale++; } else writeFileSync(casesFile, txt); }
+  if (readFileSync(casesFile, 'utf8').replace(/\r\n/g, '\n') !== txt) { if (check) { console.log(`${n}: evals/cases.json lacks the intl cases`); stale++; } else writeFileSync(casesFile, txt); }
 }
 if (check && stale) process.exit(1);
 console.log(check ? 'intl fixtures up to date' : 'intl fixtures written');

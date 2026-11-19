@@ -58,6 +58,6 @@ for (const n of readdirSync(PK).filter((x) => /^fairtable-(?!core$)/.test(x) && 
   }
   const next = { ...data, cases: [...own, ...g, ...intl] };
   const txt = JSON.stringify(next, null, 2) + '\n';
-  if (readFileSync(file, 'utf8') !== txt) { if (check) { console.log(`${n}: evals/cases.json is stale`); stale++; } else { writeFileSync(file, txt); console.log(`${n}: ${own.length} own + ${g.length} generated + ${intl.length} intl case(s)`); } }
+  if (readFileSync(file, 'utf8').replace(/\r\n/g, '\n') !== txt) { if (check) { console.log(`${n}: evals/cases.json is stale`); stale++; } else { writeFileSync(file, txt); console.log(`${n}: ${own.length} own + ${g.length} generated + ${intl.length} intl case(s)`); } }
 }
 if (check && stale) process.exit(1);
