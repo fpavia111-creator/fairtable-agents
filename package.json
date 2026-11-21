@@ -4,6 +4,7 @@
   "description": "Fairtable: restaurant, bar and cafe back-office agents monorepo, built on fairtable-core.",
   "license": "MIT",
   "workspaces": [
+    "vendor/fair-agent-core",
     "packages/fairtable-core",
     "packages/*"
   ],

@@ -1,0 +1,4 @@
+# Keep every file byte-for-byte as committed on every OS. Fixtures are checked by hash
+# and the --check scripts compare generated files exactly, so a Windows clone must not
+# turn LF into CRLF.
+* -text
