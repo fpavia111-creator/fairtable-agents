@@ -40,7 +40,7 @@
     "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
     "directory": "packages/fairtable-meal-breaks"
   },
-  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-meal-breaks#readme",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/master/packages/fairtable-meal-breaks#readme",
   "bugs": {
     "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
   },

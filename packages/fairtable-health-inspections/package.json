@@ -40,7 +40,7 @@
     "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
     "directory": "packages/fairtable-health-inspections"
   },
-  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-health-inspections#readme",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/master/packages/fairtable-health-inspections#readme",
   "bugs": {
     "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
   },

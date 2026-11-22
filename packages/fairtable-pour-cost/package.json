@@ -40,7 +40,7 @@
     "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
     "directory": "packages/fairtable-pour-cost"
   },
-  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-pour-cost#readme",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/master/packages/fairtable-pour-cost#readme",
   "bugs": {
     "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
   },

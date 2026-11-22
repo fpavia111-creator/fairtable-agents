@@ -40,7 +40,7 @@
     "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
     "directory": "packages/fairtable-delivery-payouts"
   },
-  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-delivery-payouts#readme",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/master/packages/fairtable-delivery-payouts#readme",
   "bugs": {
     "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
   },

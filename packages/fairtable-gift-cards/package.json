@@ -40,7 +40,7 @@
     "url": "git+https://github.com/fpavia111-creator/fairtable-agents.git",
     "directory": "packages/fairtable-gift-cards"
   },
-  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/main/packages/fairtable-gift-cards#readme",
+  "homepage": "https://github.com/fpavia111-creator/fairtable-agents/tree/master/packages/fairtable-gift-cards#readme",
   "bugs": {
     "url": "https://github.com/fpavia111-creator/fairtable-agents/issues"
   },
