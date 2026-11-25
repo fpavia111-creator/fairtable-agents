@@ -17,7 +17,7 @@ The result goes to whatever model the user's assistant uses. For staff wage and 
 | fairtable-equipment-maintenance | - | equipment, kind, location, type, vendor | vendor |
 | fairtable-food-cost | - | ingredient, invoice_number, item, recipe, unit | ingredient, item, recipe |
 | fairtable-food-handler-cards | employee, number (cert#…) | cert_type, location, role, status | - |
-| fairtable-gift-cards | card (card#…), holder | issued_location, last_location | - |
+| fairtable-stored-value | card (card#…), holder | issued_location, last_location | - |
 | fairtable-health-inspections | - | location, number, permit | - |
 | fairtable-inventory-counts | - | area, item, location, unit | item |
 | fairtable-labor-dayparts | employee, employee_id (id#…) | - | - |

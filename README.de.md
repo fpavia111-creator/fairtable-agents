@@ -19,7 +19,7 @@ Jeder Agent hat eine `demo` mit fiktiven Dateien, ein `eval` mit eigenen Testfä
 
 **Waren, Einkauf und Bar (9):** `fairtable-food-cost` (Ist- gegenüber Soll-Wareneinsatz), `fairtable-recipe-costs` (Rezeptkosten zu aktuellen Preisen), `fairtable-price-creep` (schleichende Preiserhöhungen), `fairtable-receiving-credits` (Rechnungen gegen Wareneingang und Gutschriften), `fairtable-inventory-counts` (Inventurabweichungen), `fairtable-waste-log` (Abfallprotokoll), `fairtable-pour-cost` (Ausschankkosten), `fairtable-menu-engineering` (Menü-Engineering), `fairtable-stockouts` (ausverkaufte Artikel).
 
-**Service und Kasse (6):** `fairtable-voids-comps` (Stornos und Einladungen), `fairtable-discounts-promos` (Rabatte und Aktionen), `fairtable-cash-drawers` (Kassendifferenzen), `fairtable-gift-cards` (Geschenkkarten), `fairtable-no-shows` (nicht erschienene Reservierungen), `fairtable-catering-deposits` (Catering-Anzahlungen).
+**Service und Kasse (6):** `fairtable-voids-comps` (Stornos und Einladungen), `fairtable-discounts-promos` (Rabatte und Aktionen), `fairtable-cash-drawers` (Kassendifferenzen), `fairtable-stored-value` (Geschenkkarten), `fairtable-no-shows` (nicht erschienene Reservierungen), `fairtable-catering-deposits` (Catering-Anzahlungen).
 
 **Personal (5):** `fairtable-tip-pooling` (Trinkgeldpool und Anrechnung), `fairtable-overtime` (Überstunden, geteilte Schichten), `fairtable-schedule-vs-actual` (Plan gegenüber Ist), `fairtable-labor-dayparts` (Personalkosten nach Tageszeit), `fairtable-meal-breaks` (Pausen und Jugendliche).
 

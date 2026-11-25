@@ -19,7 +19,7 @@ npx -y fairtable-delivery-payouts demo   # デリバリーアプリの入金と�
 
 **食材・仕入・バー（9）:** `fairtable-food-cost`（実際原価と理論原価）、`fairtable-recipe-costs`（最新単価でのレシピ原価）、`fairtable-price-creep`（仕入先の値上げ）、`fairtable-receiving-credits`（請求書と納品・返品の照合）、`fairtable-inventory-counts`（棚卸差異）、`fairtable-waste-log`（廃棄記録）、`fairtable-pour-cost`（バーの原価）、`fairtable-menu-engineering`（メニュー分析）、`fairtable-stockouts`（品切れ）。
 
-**ホールと現金（6）:** `fairtable-voids-comps`（取消と無料提供）、`fairtable-discounts-promos`（値引きとプロモーション）、`fairtable-cash-drawers`（現金過不足）、`fairtable-gift-cards`（ギフトカード）、`fairtable-no-shows`（予約の無断キャンセル）、`fairtable-catering-deposits`（ケータリングの前受金）。
+**ホールと現金（6）:** `fairtable-voids-comps`（取消と無料提供）、`fairtable-discounts-promos`（値引きとプロモーション）、`fairtable-cash-drawers`（現金過不足）、`fairtable-stored-value`（ギフトカード）、`fairtable-no-shows`（予約の無断キャンセル）、`fairtable-catering-deposits`（ケータリングの前受金）。
 
 **人件費（5）:** `fairtable-tip-pooling`（チッププール）、`fairtable-overtime`（残業・分割シフト）、`fairtable-schedule-vs-actual`（予定と実績）、`fairtable-labor-dayparts`（時間帯別人件費率）、`fairtable-meal-breaks`（休憩と未成年）。
 

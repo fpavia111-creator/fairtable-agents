@@ -211,7 +211,7 @@ export const SPECS = {
     ],
   },
 
-  'fairtable-gift-cards': {
+  'fairtable-stored-value': {
     planted: { 'GC-1005': ['negative_balance'], 'GC-1006': ['balance_math'], 'GC-1007': ['large_balance'], 'GC-1003': ['dormant'], 'GC-1004': ['cross_location'], 'GC-1008': ['dormant'] },
     clean: [
       ['set', 'cards.csv', { card: 'GC-1005' }, { redeemed: '40.00', balance: '0.00' }],

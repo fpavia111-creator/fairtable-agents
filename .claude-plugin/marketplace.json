@@ -176,21 +176,6 @@
       ]
     },
     {
-      "name": "fairtable-gift-cards",
-      "source": "./packages/fairtable-gift-cards",
-      "description": "Fairtable Gift Cards: the outstanding gift card liability from your POS gift card export, by location, with balances that do not add up, negative balances, dormant cards and cards bought at one location and spent at another. Never changes a card or recognises breakage.",
-      "version": "0.1.0",
-      "category": "restaurants",
-      "keywords": [
-        "restaurant",
-        "restaurants",
-        "food-service",
-        "gift-cards",
-        "liability",
-        "breakage"
-      ]
-    },
-    {
       "name": "fairtable-health-inspections",
       "source": "./packages/fairtable-health-inspections",
       "description": "Fairtable Health Inspections: the health inspection and permit calendar for each location: re-inspections overdue, critical violations with no re-inspection on file, scores dropping, the next routine visit to prepare for, and permits and licences expired or expiring. Never contacts the health department.",
@@ -429,6 +414,21 @@
         "stockouts",
         "86",
         "par-levels"
+      ]
+    },
+    {
+      "name": "fairtable-stored-value",
+      "source": "./packages/fairtable-stored-value",
+      "description": "Fairtable Gift Cards: the outstanding gift card liability from your POS gift card export, by location, with balances that do not add up, negative balances, dormant cards and cards bought at one location and spent at another. Never changes a card or recognises breakage.",
+      "version": "0.1.0",
+      "category": "restaurants",
+      "keywords": [
+        "restaurant",
+        "restaurants",
+        "food-service",
+        "gift-cards",
+        "liability",
+        "breakage"
       ]
     },
     {

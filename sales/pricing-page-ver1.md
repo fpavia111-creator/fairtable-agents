@@ -10,7 +10,7 @@ Prices are set below the medical families (Fairclaim, Fairpractice) because inde
 |---|---|---|
 | Food cost pack | fairtable-food-cost, fairtable-recipe-costs, fairtable-price-creep, fairtable-receiving-credits, fairtable-inventory-counts, fairtable-waste-log, fairtable-stockouts | $1,800 |
 | Bar and menu pack | fairtable-pour-cost, fairtable-menu-engineering, fairtable-discounts-promos | $1,500 |
-| Front of house and cash pack | fairtable-voids-comps, fairtable-discounts-promos, fairtable-cash-drawers, fairtable-gift-cards, fairtable-no-shows, fairtable-catering-deposits | $1,500 |
+| Front of house and cash pack | fairtable-voids-comps, fairtable-discounts-promos, fairtable-cash-drawers, fairtable-stored-value, fairtable-no-shows, fairtable-catering-deposits | $1,500 |
 | Labor pack | fairtable-tip-pooling, fairtable-overtime, fairtable-schedule-vs-actual, fairtable-labor-dayparts, fairtable-meal-breaks (set to your state's wage, tip, overtime and break rules) | $2,000 |
 | Delivery apps and fees pack | fairtable-delivery-payouts, fairtable-delivery-marketing, fairtable-card-fees | $1,500 |
 | Back office pack | fairtable-sales-tax, fairtable-duplicate-invoices, fairtable-utility-bills, fairtable-prime-cost | $1,500 |

@@ -1,5 +1,5 @@
 {
-  "suite": "fairtable-gift-cards",
+  "suite": "fairtable-stored-value",
   "root": "..",
   "data_note": "Fictional gift cards with made-up holder names in ../fixtures. Deterministic checks; no model is called.",
   "cases": [

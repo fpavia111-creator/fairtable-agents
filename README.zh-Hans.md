@@ -19,7 +19,7 @@ npx -y fairtable-delivery-payouts demo   # 外卖平台结算与订单核对
 
 **食材、采购与酒吧（9）：** `fairtable-food-cost`（实际与理论食材成本）、`fairtable-recipe-costs`（按最新价格计算配方成本）、`fairtable-price-creep`（供应商逐步涨价）、`fairtable-receiving-credits`（发票与收货、贷项核对）、`fairtable-inventory-counts`（盘点差异）、`fairtable-waste-log`（损耗记录）、`fairtable-pour-cost`（酒吧倒酒成本）、`fairtable-menu-engineering`（菜单工程）、`fairtable-stockouts`（售罄菜品）。
 
-**前厅与现金（6）：** `fairtable-voids-comps`（作废与招待）、`fairtable-discounts-promos`（折扣与促销）、`fairtable-cash-drawers`（现金长短款）、`fairtable-gift-cards`（礼品卡）、`fairtable-no-shows`（预订未到店）、`fairtable-catering-deposits`（宴会订金）。
+**前厅与现金（6）：** `fairtable-voids-comps`（作废与招待）、`fairtable-discounts-promos`（折扣与促销）、`fairtable-cash-drawers`（现金长短款）、`fairtable-stored-value`（礼品卡）、`fairtable-no-shows`（预订未到店）、`fairtable-catering-deposits`（宴会订金）。
 
 **人工（5）：** `fairtable-tip-pooling`（小费池）、`fairtable-overtime`（加班、分段班次）、`fairtable-schedule-vs-actual`（排班与实际）、`fairtable-labor-dayparts`（按时段人工成本率）、`fairtable-meal-breaks`（休息与未成年人）。
 

@@ -167,7 +167,7 @@
       "mutation_side_findings": 0
     },
     {
-      "agent": "fairtable-gift-cards",
+      "agent": "fairtable-stored-value",
       "planted_total": 6,
       "planted_found": 6,
       "missed": [],
