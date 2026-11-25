@@ -1,4 +1,4 @@
-# fairtable-gift-cards
+# fairtable-stored-value
 
 The outstanding gift card liability from your POS gift card export, by location, with balances that do not add up, negative balances, dormant cards and cards bought at one location and spent at another. Never changes a card or recognises breakage.
 
@@ -40,7 +40,7 @@ Put the ones you want to change in a JSON file and pass it as `settings`; anythi
 
 ## A demo run
 
-`npx -y fairtable-gift-cards demo` runs the agent on the fictional files in [`fixtures/`](fixtures) in a temporary folder. Captured output:
+`npx -y fairtable-stored-value demo` runs the agent on the fictional files in [`fixtures/`](fixtures) in a temporary folder. Captured output:
 
 ```text
 Fairtable Gift Cards demo (fictional restaurant data), Auto mode on
@@ -121,7 +121,7 @@ Table inputs can be CSV, TSV, semicolon- or pipe-separated text, Excel `.xlsx`, 
 
 ### Files from other countries
 
-A German export in Windows-1252 with semicolons, `1.234,56` and `03.11.2026`, or a Japanese one in Shift_JIS with `2026/11/03`, is read the same way as the English file. [`fixtures/intl/`](fixtures/intl) has both versions of the demo data, and the eval cases `intl-de-*` and `intl-ja-*` require the same results as the English case. A weight, distance or dimension column found by its translated name with no unit in it is read as metric and converted, and the result says so. Columns named differently? Run `npx fairtable-gift-cards inspect <file>` (names and shapes only, never values) and name them in `fairtable-sources.json`:
+A German export in Windows-1252 with semicolons, `1.234,56` and `03.11.2026`, or a Japanese one in Shift_JIS with `2026/11/03`, is read the same way as the English file. [`fixtures/intl/`](fixtures/intl) has both versions of the demo data, and the eval cases `intl-de-*` and `intl-ja-*` require the same results as the English case. A weight, distance or dimension column found by its translated name with no unit in it is read as metric and converted, and the result says so. Columns named differently? Run `npx fairtable-stored-value inspect <file>` (names and shapes only, never values) and name them in `fairtable-sources.json`:
 
 ```json
 { "files": { "exports/bills.csv": { "columns": { "invoice_number": "Beleg" }, "date_order": "dmy", "units": { "weight": "kg" } } } }
@@ -129,16 +129,16 @@ A German export in Windows-1252 with semicolons, `1.234,56` and `03.11.2026`, or
 
 ## Memory
 
-fairtable-gift-cards can remember facts about your setup so the next run does not have to be told again. `gift_cards_learn` only proposes a fact; it changes nothing until a named person accepts it with `gift_cards_accept_learning`, which is one click even in Auto. Facts live in one hash-chained file per agent under `.fairtable/memory/`; if the chain does not verify, no fact is used. Credentials, personal identifiers and text that reads like instructions to an AI are refused. Run without memory with `--no-memory`.
+fairtable-stored-value can remember facts about your setup so the next run does not have to be told again. `gift_cards_learn` only proposes a fact; it changes nothing until a named person accepts it with `gift_cards_accept_learning`, which is one click even in Auto. Facts live in one hash-chained file per agent under `.fairtable/memory/`; if the chain does not verify, no fact is used. Credentials, personal identifiers and text that reads like instructions to an AI are refused. Run without memory with `--no-memory`.
 
 | Kind | What an accepted fact changes |
 |---|---|
 | `note` | nothing (shown by recall only) |
 
 ```bash
-fairtable-gift-cards memory list
-fairtable-gift-cards memory accept MEM-1a2b3c4d5e6f --as "Your Name"
-fairtable-gift-cards memory retire MEM-1a2b3c4d5e6f --as "Your Name" --reason "carrier renamed"
+fairtable-stored-value memory list
+fairtable-stored-value memory accept MEM-1a2b3c4d5e6f --as "Your Name"
+fairtable-stored-value memory retire MEM-1a2b3c4d5e6f --as "Your Name" --reason "carrier renamed"
 ```
 
 ## Install
@@ -146,8 +146,8 @@ fairtable-gift-cards memory retire MEM-1a2b3c4d5e6f --as "Your Name" --reason "c
 Node 20 or newer. No other dependencies.
 
 ```bash
-npx -y fairtable-gift-cards demo
-npx -y fairtable-gift-cards mcp --root /path/to/your/files
+npx -y fairtable-stored-value demo
+npx -y fairtable-stored-value mcp --root /path/to/your/files
 ```
 
 Claude Desktop, Cursor and other MCP hosts:
@@ -155,11 +155,11 @@ Claude Desktop, Cursor and other MCP hosts:
 ```json
 {
   "mcpServers": {
-    "fairtable-gift-cards": {
+    "fairtable-stored-value": {
       "command": "npx",
       "args": [
         "-y",
-        "fairtable-gift-cards",
+        "fairtable-stored-value",
         "mcp",
         "--root",
         "/path/to/your/files"
@@ -169,23 +169,23 @@ Claude Desktop, Cursor and other MCP hosts:
 }
 ```
 
-Claude Code: `claude mcp add fairtable-gift-cards -- npx -y fairtable-gift-cards mcp --root .`, or install the `fairtable-gift-cards` plugin from this repository's marketplace.
+Claude Code: `claude mcp add fairtable-stored-value -- npx -y fairtable-stored-value mcp --root .`, or install the `fairtable-stored-value` plugin from this repository's marketplace.
 
 ## Modes and approvals
 
 - **Review** (`--mode review`): reads and reports only.
-- **Assist** (default): the policy above. A tool that asks returns an `approval_id`; a person approves it once with `fairtable-gift-cards approve <id> --as "Your Name"` (or on the local approvals page, `fairtable-gift-cards approvals`), and the same call is repeated.
-- **Auto** (`--mode auto --auto <tool,...>`): opt-in per tool, with step caps and a kill switch (`fairtable-gift-cards kill`). Paying, sending, posting to a ledger or a live system and accepting a learned fact stay **one named click even in Auto**; an approval is tied to the sha256 of the reviewed draft, so a changed draft needs a new click.
+- **Assist** (default): the policy above. A tool that asks returns an `approval_id`; a person approves it once with `fairtable-stored-value approve <id> --as "Your Name"` (or on the local approvals page, `fairtable-stored-value approvals`), and the same call is repeated.
+- **Auto** (`--mode auto --auto <tool,...>`): opt-in per tool, with step caps and a kill switch (`fairtable-stored-value kill`). Paying, sending, posting to a ledger or a live system and accepting a learned fact stay **one named click even in Auto**; an approval is tied to the sha256 of the reviewed draft, so a changed draft needs a new click.
 
 ## CLI
 
 ```bash
-fairtable-gift-cards tools                 # every tool, its policy and arguments
-fairtable-gift-cards sources               # the columns each input is read from
-fairtable-gift-cards inspect <file>        # how a file would be read (names and shapes, never values)
-fairtable-gift-cards call gift_cards_check '{"cards":"<cards>"}'
-fairtable-gift-cards eval                  # the private eval cases on the fictional fixtures
-fairtable-gift-cards demo
+fairtable-stored-value tools                 # every tool, its policy and arguments
+fairtable-stored-value sources               # the columns each input is read from
+fairtable-stored-value inspect <file>        # how a file would be read (names and shapes, never values)
+fairtable-stored-value call gift_cards_check '{"cards":"<cards>"}'
+fairtable-stored-value eval                  # the private eval cases on the fictional fixtures
+fairtable-stored-value demo
 ```
 
 ## Audit log and data

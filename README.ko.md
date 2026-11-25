@@ -19,7 +19,7 @@ npx -y fairtable-delivery-payouts demo   # 배달 앱 정산 대 주문
 
 **식재료·구매·바 (9):** `fairtable-food-cost`(실제 대 이론 원가), `fairtable-recipe-costs`(최신 단가 기준 레시피 원가), `fairtable-price-creep`(공급업체 단가 인상), `fairtable-receiving-credits`(송장 대 입고·반품), `fairtable-inventory-counts`(재고 실사 차이), `fairtable-waste-log`(폐기 기록), `fairtable-pour-cost`(바 원가), `fairtable-menu-engineering`(메뉴 엔지니어링), `fairtable-stockouts`(품절).
 
-**홀과 현금 (6):** `fairtable-voids-comps`(취소와 서비스 제공), `fairtable-discounts-promos`(할인과 프로모션), `fairtable-cash-drawers`(현금 과부족), `fairtable-gift-cards`(기프트카드), `fairtable-no-shows`(예약 노쇼), `fairtable-catering-deposits`(케이터링 예약금).
+**홀과 현금 (6):** `fairtable-voids-comps`(취소와 서비스 제공), `fairtable-discounts-promos`(할인과 프로모션), `fairtable-cash-drawers`(현금 과부족), `fairtable-stored-value`(기프트카드), `fairtable-no-shows`(예약 노쇼), `fairtable-catering-deposits`(케이터링 예약금).
 
 **인력 (5):** `fairtable-tip-pooling`(팁 풀), `fairtable-overtime`(초과근무, 분할 근무), `fairtable-schedule-vs-actual`(계획 대 실제), `fairtable-labor-dayparts`(시간대별 인건비율), `fairtable-meal-breaks`(휴게와 미성년자).
 

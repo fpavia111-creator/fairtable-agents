@@ -184,7 +184,7 @@
     "plus": "amounts, quantities, dates, rates and finding codes in clear"
   },
   {
-    "agent": "fairtable-gift-cards",
+    "agent": "fairtable-stored-value",
     "masked": [
       "card (card#…)",
       "holder"

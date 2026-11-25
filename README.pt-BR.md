@@ -19,7 +19,7 @@ Cada agente tem uma `demo` com arquivos fictícios, um `eval` com casos de teste
 
 **Alimentos, compras e bar (9):** `fairtable-food-cost` (custo real frente ao teórico), `fairtable-recipe-costs` (custo das receitas aos últimos preços), `fairtable-price-creep` (aumentos graduais de preço), `fairtable-receiving-credits` (notas frente ao recebimento e créditos), `fairtable-inventory-counts` (variação de estoque), `fairtable-waste-log` (registro de desperdício), `fairtable-pour-cost` (custo de dose no bar), `fairtable-menu-engineering` (engenharia de cardápio), `fairtable-stockouts` (itens esgotados).
 
-**Salão e caixa (6):** `fairtable-voids-comps` (cancelamentos e cortesias), `fairtable-discounts-promos` (descontos e promoções), `fairtable-cash-drawers` (sobras e faltas de caixa), `fairtable-gift-cards` (cartões-presente), `fairtable-no-shows` (reservas não comparecidas), `fairtable-catering-deposits` (sinais de catering).
+**Salão e caixa (6):** `fairtable-voids-comps` (cancelamentos e cortesias), `fairtable-discounts-promos` (descontos e promoções), `fairtable-cash-drawers` (sobras e faltas de caixa), `fairtable-stored-value` (cartões-presente), `fairtable-no-shows` (reservas não comparecidas), `fairtable-catering-deposits` (sinais de catering).
 
 **Equipe (5):** `fairtable-tip-pooling` (rateio de gorjetas), `fairtable-overtime` (horas extras, turnos divididos), `fairtable-schedule-vs-actual` (escala frente ao real), `fairtable-labor-dayparts` (mão de obra por período), `fairtable-meal-breaks` (intervalos e menores).
 

@@ -1,19 +1,19 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.fpavia111-creator/fairtable-gift-cards",
+  "name": "io.github.fpavia111-creator/fairtable-stored-value",
   "title": "Fairtable Gift Cards",
   "description": "Fairtable Gift Cards: the outstanding gift card liability from your POS gift card export, by…",
   "version": "0.1.0",
   "repository": {
     "url": "https://github.com/fpavia111-creator/fairtable-agents",
     "source": "github",
-    "subfolder": "packages/fairtable-gift-cards"
+    "subfolder": "packages/fairtable-stored-value"
   },
   "websiteUrl": "https://fair-agents.com/fairtable.html",
   "packages": [
     {
       "registryType": "npm",
-      "identifier": "fairtable-gift-cards",
+      "identifier": "fairtable-stored-value",
       "version": "0.1.0",
       "transport": {
         "type": "stdio"

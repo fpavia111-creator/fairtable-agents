@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { runEvalFile, undocumentedArgs, ONE_CLICK_CATEGORIES } from 'fairtable-core';
 import { manifest } from '../src/index.js';
 
-const bin = fileURLToPath(new URL('../bin/fairtable-gift-cards.js', import.meta.url));
+const bin = fileURLToPath(new URL('../bin/fairtable-stored-value.js', import.meta.url));
 const fixtures = fileURLToPath(new URL('../fixtures', import.meta.url));
 
 test('every tool argument is described and every enum has a type', () => {
@@ -30,14 +30,14 @@ test('private evals all pass', async () => {
 });
 
 test('stdio MCP: initialize, list, refuse an unknown tool, write the audit log', async () => {
-  const state = mkdtempSync(join(tmpdir(), 'fairtable-gift-cards-mcp-'));
+  const state = mkdtempSync(join(tmpdir(), 'fairtable-stored-value-mcp-'));
   const child = spawn(process.execPath, [bin, 'mcp', '--root', fixtures, '--state-dir', state], { stdio: ['pipe', 'pipe', 'pipe'] });
   let buf = ''; const waiting = new Map(); let id = 0;
   child.stdout.on('data', (d) => { buf += d; let i; while ((i = buf.indexOf('\n')) >= 0) { const line = buf.slice(0, i); buf = buf.slice(i + 1); if (!line.trim()) continue; const m = JSON.parse(line); const w = waiting.get(m.id); if (w) { waiting.delete(m.id); w(m); } } });
   const request = (method, params) => new Promise((resolve, reject) => { const my = ++id; const t = setTimeout(() => reject(new Error('timeout ' + method)), 10000); waiting.set(my, (m) => { clearTimeout(t); resolve(m); }); child.stdin.write(JSON.stringify({ jsonrpc: '2.0', id: my, method, params }) + '\n'); });
   try {
     const init = await request('initialize', { protocolVersion: '2025-06-18', capabilities: {}, clientInfo: { name: 'smoke', version: '0' } });
-    assert.equal(init.result.serverInfo.name, 'fairtable-gift-cards');
+    assert.equal(init.result.serverInfo.name, 'fairtable-stored-value');
     child.stdin.write(JSON.stringify({ jsonrpc: '2.0', method: 'notifications/initialized' }) + '\n');
     const list = await request('tools/list', {});
     const names = list.result.tools.map((t) => t.name);

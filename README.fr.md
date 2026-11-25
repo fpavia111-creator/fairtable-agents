@@ -19,7 +19,7 @@ Chaque agent a une `demo` sur des fichiers fictifs, un `eval` avec ses propres c
 
 **Matières, achats et bar (9) :** `fairtable-food-cost` (coût matière réel et théorique), `fairtable-recipe-costs` (coût des recettes aux derniers prix), `fairtable-price-creep` (hausses de prix rampantes), `fairtable-receiving-credits` (factures face aux réceptions et aux avoirs), `fairtable-inventory-counts` (écarts d’inventaire), `fairtable-waste-log` (registre des pertes), `fairtable-pour-cost` (coût de service au bar), `fairtable-menu-engineering` (ingénierie de menu), `fairtable-stockouts` (articles épuisés).
 
-**Salle et caisse (6) :** `fairtable-voids-comps` (annulations et offerts), `fairtable-discounts-promos` (remises et promotions), `fairtable-cash-drawers` (écarts de caisse), `fairtable-gift-cards` (cartes-cadeaux), `fairtable-no-shows` (réservations non honorées), `fairtable-catering-deposits` (acomptes traiteur).
+**Salle et caisse (6) :** `fairtable-voids-comps` (annulations et offerts), `fairtable-discounts-promos` (remises et promotions), `fairtable-cash-drawers` (écarts de caisse), `fairtable-stored-value` (cartes-cadeaux), `fairtable-no-shows` (réservations non honorées), `fairtable-catering-deposits` (acomptes traiteur).
 
 **Personnel (5) :** `fairtable-tip-pooling` (pool de pourboires), `fairtable-overtime` (heures supplémentaires, services coupés), `fairtable-schedule-vs-actual` (planifié face au réel), `fairtable-labor-dayparts` (main-d’œuvre par service), `fairtable-meal-breaks` (pauses et mineurs).
 
